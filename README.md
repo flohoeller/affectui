@@ -1,0 +1,75 @@
+<div align="center">
+
+# affectUI
+
+**Handcrafted React components, ready to drop into your project.**
+
+Calm motion, careful spacing, one file per component.
+Install with the shadcn CLI or copy and paste – no extra dependencies.
+
+[Website](https://www.affectui.com) · [Browse components](https://www.affectui.com) · [Docs](https://www.affectui.com/docs) · [Pro](https://www.affectui.com/pricing)
+
+</div>
+
+---
+
+## Why affectUI
+
+- **One file each.** Every component is a single `.tsx` file with its styles inside. Nothing to configure, no CSS framework required.
+- **Motion that feels finished.** Morphs, staggered reveals and smooth state changes – and all of it respects `prefers-reduced-motion`.
+- **Accessible by default.** Real buttons, labels, keyboard support and live regions where they matter.
+- **Works with shadcn.** Add any item with one command, it lands in your project as source you own.
+
+## Install
+
+Pick an item on [affectui.com](https://www.affectui.com) and run its command, for example:
+
+```bash
+npx shadcn@latest add https://www.affectui.com/r/data-table.json
+```
+
+Or copy the file from this repository into your project – that's all it takes.
+
+Requirements: React 19. TypeScript is optional.
+
+## Components
+
+| Name | What it is | Category |
+| --- | --- | --- |
+| [Button](https://www.affectui.com/components/button) | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state | Buttons |
+| [Change Summary](https://www.affectui.com/components/change-summary) | What moved since last time – one metric per row with a colored trend | Data display |
+| [Data Table](https://www.affectui.com/components/data-table) | Database-style table with row selection, logos, colored tags and links | Data display |
+| [Decision Inbox](https://www.affectui.com/components/decision-inbox) | Open decisions with two quick answers each – answered ones confirm and fold away | Feedback |
+| [Profile Menu](https://www.affectui.com/components/profile-menu) | Account card with the signed-in user, menu actions and profile setup progress | Navigation |
+| [Progress Tracker](https://www.affectui.com/components/progress-tracker) | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play | Feedback |
+| [Setup Guide](https://www.affectui.com/components/setup-guide) | Onboarding panel with a progress bar and collapsible task groups that strike through when done | Feedback |
+
+## Illustrations
+
+| Name | What it is | Category |
+| --- | --- | --- |
+| [DACH Region](https://www.affectui.com/illustrations/region-dach) | DACH map with fading neighbours and a pastel band along the border, switchable to the US, China, India, Brazil or Japan | Maps |
+| [Empty Calendar](https://www.affectui.com/illustrations/empty-calendar) | Stack of calendar cards marked empty, fanning out on hover | Card illustrations |
+| [Enrichment Orbit](https://www.affectui.com/illustrations/enrichment-orbit) | Grok tile inside two rings with comets and data nodes orbiting around it | Card illustrations |
+| [Ghosted Chat](https://www.affectui.com/illustrations/ghosted-chat) | Unanswered chat messages marked as read, with a thumbs-down reply on hover | Card illustrations |
+| [Lead Sourcing](https://www.affectui.com/illustrations/lead-sourcing) | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection | Card illustrations |
+| [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
+
+## affectUI Pro
+
+7 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+
+## License
+
+Everything in this repository is released under the [MIT license](./LICENSE). Use it in personal and commercial projects.
+Logos shown in previews belong to their owners and are only sample content.
+
+---
+
+<div align="center">
+
+If affectUI saves you time, a ⭐ helps others find it.
+
+Made by [Flo](https://x.com/flohoeller)
+
+</div>
