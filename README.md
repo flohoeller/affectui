@@ -25,7 +25,7 @@ Install with the shadcn CLI or copy and paste – no extra dependencies.
 Pick an item on [affectui.com](https://www.affectui.com) and run its command, for example:
 
 ```bash
-npx shadcn@latest add https://www.affectui.com/r/data-table.json
+npx shadcn@latest add https://www.affectui.com/r/button.json
 ```
 
 Or copy the file from this repository into your project – that's all it takes.
@@ -38,11 +38,16 @@ Requirements: React 19. TypeScript is optional.
 | --- | --- | --- |
 | [Button](https://www.affectui.com/components/button) | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state | Buttons |
 | [Change Summary](https://www.affectui.com/components/change-summary) | What moved since last time – one metric per row with a colored trend | Data display |
-| [Data Table](https://www.affectui.com/components/data-table) | Database-style table with row selection, logos, colored tags and links | Data display |
+| [Comment Thread](https://www.affectui.com/components/comment-thread) | One comment with replies – an assistant reports what it did, folds open details and answers @mentions | Chat |
+| [Comments Panel](https://www.affectui.com/components/comments-panel) | Comment feed with filters, runnable /edit commands, resolve and a composer | Chat |
 | [Decision Inbox](https://www.affectui.com/components/decision-inbox) | Open decisions with two quick answers each – answered ones confirm and fold away | Feedback |
+| [Integration Settings](https://www.affectui.com/components/integration-settings) | Settings card for a connected service – on/off switch, API key, validated site address, time zone and a save bar | Inputs |
+| [Notification Stack](https://www.affectui.com/components/notification-stack) | Notice cards stacked behind each other – dismiss the front one to reveal the next | Feedback |
 | [Profile Menu](https://www.affectui.com/components/profile-menu) | Account card with the signed-in user, menu actions and profile setup progress | Navigation |
 | [Progress Tracker](https://www.affectui.com/components/progress-tracker) | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play | Feedback |
 | [Setup Guide](https://www.affectui.com/components/setup-guide) | Onboarding panel with a progress bar and collapsible task groups that strike through when done | Feedback |
+| [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | Cards |
+| [Tips Panel](https://www.affectui.com/components/tips-panel) | Grid of short tips with one action each – taken tips turn into a done state | Cards |
 
 ## Illustrations
 
@@ -57,7 +62,7 @@ Requirements: React 19. TypeScript is optional.
 
 ## affectUI Pro
 
-7 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+11 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 
