@@ -39,14 +39,11 @@ Requirements: React 19. TypeScript is optional.
 | [Button](https://www.affectui.com/components/button) | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state | Buttons |
 | [Change Summary](https://www.affectui.com/components/change-summary) | What moved since last time – one metric per row with a colored trend | Data display |
 | [Comment Thread](https://www.affectui.com/components/comment-thread) | One comment with replies – an assistant reports what it did, folds open details and answers @mentions | Chat |
-| [Comments Panel](https://www.affectui.com/components/comments-panel) | Comment feed with filters, runnable /edit commands, resolve and a composer | Chat |
 | [Decision Inbox](https://www.affectui.com/components/decision-inbox) | Open decisions with two quick answers each – answered ones confirm and fold away | Feedback |
-| [Integration Settings](https://www.affectui.com/components/integration-settings) | Settings card for a connected service – on/off switch, API key, validated site address, time zone and a save bar | Inputs |
 | [Notification Stack](https://www.affectui.com/components/notification-stack) | Notice cards stacked behind each other – dismiss the front one to reveal the next | Feedback |
 | [Profile Menu](https://www.affectui.com/components/profile-menu) | Account card with the signed-in user, menu actions and profile setup progress | Navigation |
 | [Progress Tracker](https://www.affectui.com/components/progress-tracker) | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play | Feedback |
 | [Reaction Bar](https://www.affectui.com/components/reaction-bar) | Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit | Buttons |
-| [Setup Guide](https://www.affectui.com/components/setup-guide) | Onboarding panel with a progress bar and collapsible task groups that strike through when done | Feedback |
 | [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | Cards |
 | [Tips Panel](https://www.affectui.com/components/tips-panel) | Grid of short tips with one action each – taken tips turn into a done state | Cards |
 
@@ -58,15 +55,13 @@ Requirements: React 19. TypeScript is optional.
 | [Empty Calendar](https://www.affectui.com/illustrations/empty-calendar) | Stack of calendar cards marked empty, fanning out on hover | Card illustrations |
 | [Enrichment Orbit](https://www.affectui.com/illustrations/enrichment-orbit) | Grok tile inside two rings with comets and data nodes orbiting around it | Card illustrations |
 | [Ghosted Chat](https://www.affectui.com/illustrations/ghosted-chat) | Unanswered chat messages marked as read, with a thumbs-down reply on hover | Card illustrations |
-| [Glass Folder](https://www.affectui.com/illustrations/glass-folder) | Glassy blue folder with documents behind a frosted pocket that tips open on hover | Card illustrations |
-| [Integration Flow](https://www.affectui.com/illustrations/integration-flow) | Integration pills rotating along a dashed arc, each beaming its data into a central analysis hub | Product scenes |
 | [Lead Sourcing](https://www.affectui.com/illustrations/lead-sourcing) | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection | Card illustrations |
 | [Side Folder](https://www.affectui.com/illustrations/side-folder) | Glassy blue folder on its side, documents sliding out to the right as the pocket swings open on hover | Card illustrations |
 | [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
 
 ## affectUI Pro
 
-12 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+17 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 
