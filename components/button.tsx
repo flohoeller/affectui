@@ -161,7 +161,16 @@ const css = /* css */ `
   --ui-btn-on-ink: #fafafa;
   --ui-btn-dark-top: #323137;
   --ui-btn-dark-bottom: #201e25;
+  --ui-btn-dark-hover-top: #3c3b42;
+  --ui-btn-dark-hover-bottom: #29272f;
+  --ui-btn-edge-top: #4b4951;
+  --ui-btn-edge-mid: #31303a;
+  --ui-btn-edge-bottom: #18171b;
+  --ui-btn-ring: #0d0d0d;
+  --ui-btn-dark-shadow: rgba(0, 0, 0, 0.1);
   --ui-btn-surface: #ffffff;
+  --ui-btn-surface-hover: #fafafa;
+  --ui-btn-surface-shadow: rgba(0, 0, 0, 0.06);
   --ui-btn-line: #e5e5e5;
   --ui-btn-muted: #737373;
   --ui-btn-hover: #404040;
@@ -170,6 +179,7 @@ const css = /* css */ `
   --ui-btn-shine-on-ink: rgba(255, 255, 255, 0.95);
   --ui-btn-danger: #ff0000;
   --ui-btn-danger-bg: #ffe6e9;
+  --ui-btn-focus: rgba(23, 23, 23, 0.22);
   --ui-btn-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-btn-load: 650ms;
 
@@ -236,16 +246,16 @@ const css = /* css */ `
 .ui-button[data-variant="primary"] {
   background:
     linear-gradient(var(--ui-btn-dark-top), var(--ui-btn-dark-bottom)) padding-box,
-    linear-gradient(#4b4951, #31303a, #18171b) border-box;
+    linear-gradient(var(--ui-btn-edge-top), var(--ui-btn-edge-mid), var(--ui-btn-edge-bottom)) border-box;
   color: var(--ui-btn-on-ink);
   box-shadow:
-    0 0 0 1px #0d0d0d,
-    0 2px 4px rgba(0, 0, 0, 0.1);
+    0 0 0 1px var(--ui-btn-ring),
+    0 2px 4px var(--ui-btn-dark-shadow);
 }
 .ui-button[data-variant="primary"]:hover:not(:disabled) {
   background:
-    linear-gradient(#3c3b42, #29272f) padding-box,
-    linear-gradient(#4b4951, #31303a, #18171b) border-box;
+    linear-gradient(var(--ui-btn-dark-hover-top), var(--ui-btn-dark-hover-bottom)) padding-box,
+    linear-gradient(var(--ui-btn-edge-top), var(--ui-btn-edge-mid), var(--ui-btn-edge-bottom)) border-box;
 }
 
 /* secondary: white with the card outline */
@@ -253,10 +263,10 @@ const css = /* css */ `
   background: var(--ui-btn-surface);
   border-color: var(--ui-btn-line);
   color: var(--ui-btn-ink);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 1px 2px var(--ui-btn-surface-shadow);
 }
 .ui-button[data-variant="secondary"]:hover:not(:disabled) {
-  background: #fafafa;
+  background: var(--ui-btn-surface-hover);
 }
 
 /* ghost: a muted label, the gray layer appears on hover */
@@ -285,7 +295,7 @@ const css = /* css */ `
   transform: scale(0.97);
 }
 .ui-button:focus-visible {
-  outline: 2px solid rgba(23, 23, 23, 0.22);
+  outline: 2px solid var(--ui-btn-focus);
   outline-offset: 2px;
 }
 .ui-button:disabled {
@@ -393,5 +403,34 @@ const css = /* css */ `
     animation: none;
     opacity: 0;
   }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-button {
+  /* primary inverts: a light gradient with dark text */
+  --ui-btn-on-ink: #121213;
+  --ui-btn-dark-top: #f4f4f5;
+  --ui-btn-dark-bottom: #e4e4e7;
+  --ui-btn-dark-hover-top: #ffffff;
+  --ui-btn-dark-hover-bottom: #ececef;
+  --ui-btn-edge-top: #ffffff;
+  --ui-btn-edge-mid: #ececef;
+  --ui-btn-edge-bottom: #d4d4d8;
+  --ui-btn-ring: rgba(0, 0, 0, 0.6);
+  --ui-btn-dark-shadow: rgba(0, 0, 0, 0.4);
+  --ui-btn-shine-on-ink: rgba(18, 18, 19, 0.9);
+
+  --ui-btn-ink: #ededed;
+  --ui-btn-surface: #232326;
+  --ui-btn-surface-hover: #2a2a2d;
+  --ui-btn-surface-shadow: rgba(0, 0, 0, 0.4);
+  --ui-btn-line: rgba(255, 255, 255, 0.1);
+  --ui-btn-muted: #8f8f8f;
+  --ui-btn-hover: #ededed;
+  --ui-btn-fill: rgba(255, 255, 255, 0.06);
+  --ui-btn-shine: rgba(237, 237, 237, 0.95);
+  --ui-btn-danger: #ff6b6b;
+  --ui-btn-danger-bg: rgba(255, 64, 64, 0.16);
+  --ui-btn-focus: rgba(237, 237, 237, 0.3);
 }
 `;

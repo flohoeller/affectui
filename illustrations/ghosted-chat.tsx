@@ -93,6 +93,14 @@ export function GhostedChat({
 
 const css = /* css */ `
 .ui-gc {
+  --ui-gc-grid: rgba(28, 29, 31, 0.035);
+  --ui-gc-bubble: #FFFFFF;
+  --ui-gc-bubble-border: #EDEDED;
+  --ui-gc-bubble-shadow: 0 2px 6px rgba(28, 29, 31, 0.08), 0 1px 2px rgba(28, 29, 31, 0.05);
+  --ui-gc-text: #4A4C52;
+  --ui-gc-ink: #202020;
+  --ui-gc-status: #9A9DA3;
+  --ui-gc-read: #A8ABB1;
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -104,8 +112,8 @@ const css = /* css */ `
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, var(--ui-gc-grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--ui-gc-grid) 1px, transparent 1px);
   background-size: 4.4444% 6.6667%;
   -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
   mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
@@ -170,7 +178,7 @@ const css = /* css */ `
 .ui-gc-status {
   font-size: 11px;
   line-height: 1.4;
-  color: #9A9DA3;
+  color: var(--ui-gc-status);
   letter-spacing: 0.01em;
   transition: color 0.3s ease;
 }
@@ -187,21 +195,21 @@ const css = /* css */ `
   max-width: min(68%, 26ch);
   width: fit-content;
   padding: 7px 12px;
-  background: #FFFFFF;
-  border: 1px solid #EDEDED;
+  background: var(--ui-gc-bubble);
+  border: 1px solid var(--ui-gc-bubble-border);
   border-radius: 14px 14px 4px 14px;
-  box-shadow: 0 2px 6px rgba(28, 29, 31, 0.08), 0 1px 2px rgba(28, 29, 31, 0.05);
+  box-shadow: var(--ui-gc-bubble-shadow);
   font-size: 12.5px;
   line-height: 1.3;
   font-weight: 500;
-  color: #4A4C52;
+  color: var(--ui-gc-text);
 }
 
 /* "Hello?" – a red shine sweeps through the text */
 .ui-gc-alert {
   display: inline-block;
   font-weight: 500;
-  background-image: linear-gradient(90deg, #202020 0%, #202020 38%, #FF4D47 50%, #202020 62%, #202020 100%);
+  background-image: linear-gradient(90deg, var(--ui-gc-ink) 0%, var(--ui-gc-ink) 38%, #FF4D47 50%, var(--ui-gc-ink) 62%, var(--ui-gc-ink) 100%);
   background-size: 300% 100%;
   background-position: 100% 0;
   background-repeat: no-repeat;
@@ -232,10 +240,10 @@ const css = /* css */ `
   position: absolute;
   inset: -1px;
   z-index: -1;
-  background: #FFFFFF;
-  border: 1px solid #EDEDED;
+  background: var(--ui-gc-bubble);
+  border: 1px solid var(--ui-gc-bubble-border);
   border-radius: inherit;
-  box-shadow: 0 2px 6px rgba(28, 29, 31, 0.08), 0 1px 2px rgba(28, 29, 31, 0.05);
+  box-shadow: var(--ui-gc-bubble-shadow);
 }
 .ui-gc-bubble-last::after {
   content: "";
@@ -255,7 +263,7 @@ const css = /* css */ `
 .ui-gc-read {
   font-size: 10.5px;
   line-height: 1.4;
-  color: #A8ABB1;
+  color: var(--ui-gc-read);
   margin-top: 2px;
   transition: color 0.3s ease;
 }
@@ -291,5 +299,21 @@ const css = /* css */ `
   .ui-gc-alert { animation: none; background-position: 0% 0; }
   .ui-gc-status, .ui-gc-bubbles, .ui-gc-read, .ui-gc-reply { transition: none; }
   .ui-gc-status, .ui-gc-bubbles > * { opacity: 1; animation: none !important; }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-gc {
+  --ui-gc-grid: rgba(255, 255, 255, 0.045);
+  --ui-gc-bubble: #232326;
+  --ui-gc-bubble-border: rgba(255, 255, 255, 0.08);
+  --ui-gc-bubble-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ui-gc-text: #c4c4c4;
+  --ui-gc-ink: #ededed;
+  --ui-gc-status: #8f8f8f;
+  --ui-gc-read: #8f8f8f;
+}
+:where(.dark, [data-theme="dark"]) .ui-gc-bubble-last::after { opacity: 0.45; }
+:where(.dark, [data-theme="dark"]) .ui-gc-reply {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 `;

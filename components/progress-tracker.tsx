@@ -373,4 +373,24 @@ const css = /* css */ `
     transition-delay: 0ms !important;
   }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-progress {
+  --ui-pg-card: #232326;
+  --ui-pg-line: rgba(255, 255, 255, 0.08);
+  --ui-pg-ink: #ededed;
+  --ui-pg-muted: #8f8f8f;
+  --ui-pg-ring: #6b6b70;
+  --ui-pg-track: rgba(255, 255, 255, 0.1);
+  --ui-pg-hover: #2a2a2d;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+/* The filled check is light in dark mode, so the tick turns dark */
+:where(.dark, [data-theme="dark"]) .ui-progress__check svg { stroke: #121213; }
+:where(.dark, [data-theme="dark"]) .ui-progress__shine {
+  background-image: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
+}
+:where(.dark, [data-theme="dark"]) .ui-progress__step:focus-visible { outline-color: rgba(237, 237, 237, 0.3); }
 `;

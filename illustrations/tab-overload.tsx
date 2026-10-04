@@ -80,11 +80,11 @@ export function TabOverload({
             </g>
             <g className={`ui-to-tab ui-to-tab-${n}`} transform={`translate(${x} ${y})`}>
               {/* Outer gray frame, reaching well past the edges */}
-              <rect width="380" height="300" rx="6" fill="#F4F5F7" stroke="#E4E7EC" strokeWidth="0.7" />
-              <circle cx="14" cy="14" r="3" fill="#CCCCCC" />
-              <circle cx="24" cy="14" r="3" fill="#CCCCCC" />
-              <circle cx="34" cy="14" r="3" fill="#CCCCCC" />
-              <rect x="4" y="24" width="372" height="272" rx="5" fill="#FFFFFF" stroke="#E4E7EC" strokeWidth="0.7" />
+              <rect className="ui-to-frame" width="380" height="300" rx="6" fill="#F4F5F7" stroke="#E4E7EC" strokeWidth="0.7" />
+              <circle className="ui-to-dot" cx="14" cy="14" r="3" fill="#CCCCCC" />
+              <circle className="ui-to-dot" cx="24" cy="14" r="3" fill="#CCCCCC" />
+              <circle className="ui-to-dot" cx="34" cy="14" r="3" fill="#CCCCCC" />
+              <rect className="ui-to-page" x="4" y="24" width="372" height="272" rx="5" fill="#FFFFFF" stroke="#E4E7EC" strokeWidth="0.7" />
             </g>
             <g className={`ui-to-content ui-to-content-${n}`} transform={`translate(${x} ${y})`}>
               <rect className="ui-to-bar" x="12" y="36" width="30" height="30" rx="4" fill="#EFF1F4" />
@@ -191,5 +191,23 @@ const css = /* css */ `
 @media (prefers-reduced-motion: reduce) {
   .ui-to-bar { animation: none; }
   .ui-to-blobs, .ui-to-front, .ui-to-content { transition: none; }
+}
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-to-grid {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+}
+:where(.dark, [data-theme="dark"]) .ui-to-frame { fill: #1b1b1d; stroke: rgba(255, 255, 255, 0.1); }
+:where(.dark, [data-theme="dark"]) .ui-to-dot { fill: #3a3a3f; }
+:where(.dark, [data-theme="dark"]) .ui-to-page { fill: #232326; stroke: rgba(255, 255, 255, 0.08); }
+:where(.dark, [data-theme="dark"]) .ui-to-bar { fill: #2e2e32; }
+@media (prefers-reduced-motion: no-preference) {
+  :where(.dark, [data-theme="dark"]) .ui-to-bar { animation-name: ui-to-shimmer-dark; }
+}
+@keyframes ui-to-shimmer-dark {
+  0%, 100% { fill: #2e2e32; }
+  50% { fill: #3a3a3f; }
 }
 `;

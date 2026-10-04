@@ -413,4 +413,28 @@ const css = /* css */ `
 @media (prefers-reduced-motion: reduce) {
   .ui-pm__item, .ui-pm__icon, .ui-pm__fill, .ui-pm__next, .ui-pm__next svg { transition: none; }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-pm {
+  --ui-pm-card: #232326;
+  --ui-pm-line: rgba(255, 255, 255, 0.08);
+  --ui-pm-ink: #ededed;
+  --ui-pm-text: #c4c4c4;
+  --ui-pm-muted: #8f8f8f;
+  --ui-pm-icon: #8f8f8f;
+  --ui-pm-hover: #2a2a2d;
+  --ui-pm-off: #161618;
+  --ui-pm-badge: #fb7185;
+  --ui-pm-badge-wash: rgba(225, 29, 72, 0.16);
+  --ui-pm-tray: #161618;
+}
+:where(.dark, [data-theme="dark"]) .ui-pm__card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+:where(.dark, [data-theme="dark"]) .ui-pm__avatar { color: #6b95ff; }
+:where(.dark, [data-theme="dark"]) .ui-pm__item:active { background: #313135; }
+:where(.dark, [data-theme="dark"]) .ui-pm__track { background: rgba(255, 255, 255, 0.1); }
+:where(.dark, [data-theme="dark"]) .ui-pm__next:hover,
+:where(.dark, [data-theme="dark"]) .ui-pm__next:focus-visible { background: rgba(255, 255, 255, 0.06); }
 `;

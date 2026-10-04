@@ -345,4 +345,27 @@ const css = /* css */ `
 @media (prefers-reduced-motion: reduce) {
   .ui-ns, .ui-ns__card, .ui-ns__card > * { transition: none; }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-ns {
+  --ui-ns-card: #232326;
+  --ui-ns-line: rgba(255, 255, 255, 0.1);
+  --ui-ns-ink: #ededed;
+  --ui-ns-muted: #8f8f8f;
+  --ui-ns-art: rgba(255, 255, 255, 0.08);
+}
+:where(.dark, [data-theme="dark"]) .ui-ns__card {
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+:where(.dark, [data-theme="dark"]) .ui-ns__dot { fill: rgba(255, 255, 255, 0.22); }
+:where(.dark, [data-theme="dark"]) .ui-ns__fill { fill: rgba(255, 255, 255, 0.04); }
+:where(.dark, [data-theme="dark"]) .ui-ns__badge { background: #2a2a2d; color: #c4c4c4; }
+:where(.dark, [data-theme="dark"]) .ui-ns__close:hover { background: rgba(255, 255, 255, 0.06); }
+:where(.dark, [data-theme="dark"]) .ui-ns__btn {
+  background: #2a2a2d;
+  box-shadow: 0 0 0 1px var(--ui-ns-line), 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+:where(.dark, [data-theme="dark"]) .ui-ns__btn:hover { background: #313135; }
 `;

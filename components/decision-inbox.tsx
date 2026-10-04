@@ -298,4 +298,33 @@ const css = /* css */ `
   .ui-di__row, .ui-di__body { transition: none; }
   .ui-di__done, .ui-di__empty { animation: none !important; }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-di {
+  --ui-di-tray: #161618;
+  --ui-di-card: #232326;
+  --ui-di-line: rgba(255, 255, 255, 0.08);
+  --ui-di-ink: #ededed;
+  --ui-di-text: #c4c4c4;
+  --ui-di-muted: #8f8f8f;
+  --ui-di-faint: #6b6b70;
+  --ui-di-alert: #fb8a3c;
+  --ui-di-ok: #3fbf74;
+}
+:where(.dark, [data-theme="dark"]) .ui-di__card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+:where(.dark, [data-theme="dark"]) .ui-di__btn {
+  background: #2a2a2d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+:where(.dark, [data-theme="dark"]) .ui-di__btn:hover { background: #313135; }
+/* The dark primary button inverts, like on the site */
+:where(.dark, [data-theme="dark"]) .ui-di__btn--primary {
+  background: linear-gradient(#f4f4f5, #e4e4e7);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 #ffffff;
+  color: #121213;
+}
+:where(.dark, [data-theme="dark"]) .ui-di__btn--primary:hover { background: linear-gradient(#ffffff, #ececef); }
 `;

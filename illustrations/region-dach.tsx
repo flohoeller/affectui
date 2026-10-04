@@ -107,7 +107,7 @@ export function RegionDach({
         <svg className="ui-rd-art" viewBox="0 0 540 440" aria-hidden="true">
           <defs>
             <filter id={`${id}-shadow`} x="-15%" y="-15%" width="130%" height="130%">
-              <feDropShadow dx="0" dy="3" stdDeviation="3.5" floodColor="#1F2128" floodOpacity="0.07" />
+              <feDropShadow className="ui-rd-drop" dx="0" dy="3" stdDeviation="3.5" floodColor="#1F2128" floodOpacity="0.07" />
             </filter>
             {/* Colors of the band that travels along the outer border */}
             <linearGradient id={`${id}-shine`} gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="540" y2="220">
@@ -160,6 +160,7 @@ function MapLayer({ id, shared, region, phase }: { id: string; shared: string; r
       {/* Neighbouring countries: outlines only */}
       <g
         mask={`url(#${id}-neighbors)`}
+        className="ui-rd-neighbors"
         fill="none"
         stroke="#A6ABB3"
         strokeWidth="0.7"
@@ -172,7 +173,7 @@ function MapLayer({ id, shared, region, phase }: { id: string; shared: string; r
       </g>
 
       {/* The region's countries */}
-      <g filter={`url(#${shared}-shadow)`} fill="#F8F8F8" stroke="#D6D9DE" strokeWidth="0.9" strokeLinejoin="round">
+      <g className="ui-rd-land" filter={`url(#${shared}-shadow)`} fill="#F8F8F8" stroke="#D6D9DE" strokeWidth="0.9" strokeLinejoin="round">
         {map.land.map((d, i) => (
           <path key={i} d={d} />
         ))}
@@ -375,6 +376,7 @@ const ChevronIcon = () => (
   <svg className="ui-rd-chevron" viewBox="0 0 24 24" fill="none" aria-hidden="true">
     <path
       d="M18 9.00005C18 9.00005 13.5811 15 12 15C10.4188 15 6 9 6 9"
+      className="ui-rd-chevron-ink"
       stroke="#737373"
       strokeWidth="1.5"
       strokeLinecap="round"
@@ -710,4 +712,22 @@ const css = /* css */ `
     transition: none !important;
   }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-rd-neighbors { stroke: #5c5c63; }
+:where(.dark, [data-theme="dark"]) .ui-rd-land { fill: #2c2c30; stroke: #4a4a50; }
+:where(.dark, [data-theme="dark"]) .ui-rd-drop { flood-color: #000000; flood-opacity: 0.45; }
+:where(.dark, [data-theme="dark"]) .ui-rd-trigger {
+  border-color: rgba(255, 255, 255, 0.08);
+  background: #232326;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  color: #ededed;
+}
+:where(.dark, [data-theme="dark"]) .ui-rd-chevron-ink { stroke: #8f8f8f; }
+:where(.dark, [data-theme="dark"]) .ui-rd-menu {
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4)) drop-shadow(0 1px 2.5px rgba(0, 0, 0, 0.35));
+}
+:where(.dark, [data-theme="dark"]) .ui-rd-panel { background: #232326; border-color: rgba(255, 255, 255, 0.08); }
+:where(.dark, [data-theme="dark"]) .ui-rd-fill { background: #2a2a2d; }
+:where(.dark, [data-theme="dark"]) .ui-rd-option { color: #ededed; }
 `;

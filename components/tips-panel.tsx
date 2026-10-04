@@ -254,4 +254,36 @@ const css = /* css */ `
 @media (prefers-reduced-motion: reduce) {
   .ui-tp__tip, .ui-tp__done { animation: none; }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-tp {
+  --ui-tp-tray: #161618;
+  --ui-tp-card: #232326;
+  --ui-tp-line: rgba(255, 255, 255, 0.08);
+  --ui-tp-ink: #ededed;
+  --ui-tp-muted: #8f8f8f;
+  --ui-tp-ok: #6b95ff;
+}
+:where(.dark, [data-theme="dark"]) .ui-tp__card {
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+:where(.dark, [data-theme="dark"]) .ui-tp__tip[data-done] { background: #2a2a2d; }
+:where(.dark, [data-theme="dark"]) .ui-tp__kbd {
+  background: #2a2a2d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+:where(.dark, [data-theme="dark"]) .ui-tp__btn {
+  background: #2a2a2d;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+}
+:where(.dark, [data-theme="dark"]) .ui-tp__btn:hover { background: #313135; }
+/* The dark primary button inverts, like on the site */
+:where(.dark, [data-theme="dark"]) .ui-tp__btn--primary {
+  background: linear-gradient(#f4f4f5, #e4e4e7);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.6), 0 2px 4px rgba(0, 0, 0, 0.3), inset 0 1px 0 #ffffff;
+  color: #121213;
+}
+:where(.dark, [data-theme="dark"]) .ui-tp__btn--primary:hover { background: linear-gradient(#ffffff, #ececef); }
 `;

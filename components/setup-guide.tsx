@@ -418,4 +418,24 @@ const css = /* css */ `
   .ui-sg__fill, .ui-sg__body, .ui-sg__panel, .ui-sg__task, .ui-sg__chevron, .ui-sg__group-title::after { transition: none; }
   .ui-sg__mark svg { animation: none !important; }
 }
+
+/* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
+:where(.dark, [data-theme="dark"]) .ui-sg {
+  --ui-sg-card: #232326;
+  --ui-sg-line: rgba(255, 255, 255, 0.08);
+  --ui-sg-ink: #ededed;
+  --ui-sg-text: #dcdcdc;
+  --ui-sg-muted: #8f8f8f;
+  --ui-sg-icon: #8f8f8f;
+  --ui-sg-track: rgba(255, 255, 255, 0.1);
+  --ui-sg-open: #2a2a2d;
+  --ui-sg-dot: #3a3a3f;
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35);
+}
+:where(.dark, [data-theme="dark"]) .ui-sg__edit { color: #6b95ff !important; }
+:where(.dark, [data-theme="dark"]) .ui-sg__icon-btn:hover { background: rgba(255, 255, 255, 0.06) !important; }
+:where(.dark, [data-theme="dark"]) .ui-sg__task[data-state="current"]:hover .ui-sg__mark { background: #4a4a50; }
+:where(.dark, [data-theme="dark"]) .ui-sg__task[data-state="locked"] .ui-sg__mark { color: #4a4a50; }
 `;
