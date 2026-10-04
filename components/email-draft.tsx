@@ -453,6 +453,7 @@ const css = /* css */ `
 
 .ui-ed__meta {
   display: flex;
+  min-width: 0;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -535,6 +536,8 @@ const css = /* css */ `
   align-items: center;
   gap: 5px;
   min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 13px;
   color: var(--ui-ed-muted);
   white-space: nowrap;
