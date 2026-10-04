@@ -6,7 +6,7 @@ import { useId, useSyncExternalStore } from "react";
  * Lead Sourcing – a small card illustration, in a single self-contained file.
  * A ChatGPT tile in the middle, connected to Gmail on the left and Grok on the right,
  * with four empty tiles fading out around it. A colored shine runs along the connecting line.
- * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame with a soft grid behind it.
+ * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame.
  */
 
 export type LeadSourcingProps = {
@@ -36,7 +36,6 @@ export function LeadSourcing({
       <style href="ui-lead-sourcing" precedence="default">
         {css}
       </style>
-      <div className="ui-ls-grid" aria-hidden="true" />
       <svg className="ui-ls-art" viewBox="0 0 320 240" aria-hidden="true">
         <defs>
           {/* Drop shadow plus a thin light-gray inner edge at the bottom of each tile */}
@@ -55,7 +54,7 @@ export function LeadSourcing({
               <feMergeNode in="innerShadow" />
             </feMerge>
           </filter>
-          <filter id={`${id}-blur`} x="-50%" y="-50%" width="200%" height="200%">
+          <filter id={`${id}-blur`} x="-100%" y="-300%" width="300%" height="700%">
             <feGaussianBlur stdDeviation="10" />
           </filter>
           <linearGradient id={`${id}-blob`} x1="0%" y1="0%" x2="100%" y2="0%">
@@ -295,17 +294,6 @@ const css = /* css */ `
   aspect-ratio: 3 / 2;
   overflow: hidden;
 }
-.ui-ls-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
-}
 .ui-ls-art {
   position: absolute;
   inset: 0;
@@ -315,11 +303,6 @@ const css = /* css */ `
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-ls-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-}
 :where(.dark, [data-theme="dark"]) .ui-ls-tile { fill: #232326; stroke: rgba(255, 255, 255, 0.08); }
 :where(.dark, [data-theme="dark"]) .ui-ls-drop { flood-opacity: 0.4; }
 :where(.dark, [data-theme="dark"]) .ui-ls-sliver { flood-color: #1a1a1c; }

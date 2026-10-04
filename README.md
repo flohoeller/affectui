@@ -51,17 +51,20 @@ Requirements: React 19. TypeScript is optional.
 
 | Name | What it is | Category |
 | --- | --- | --- |
+| [Agent Team](https://www.affectui.com/illustrations/agent-team) | A prompt types itself and branches out into three agents, each with a role and overlapping tool logos | Card illustrations |
 | [DACH Region](https://www.affectui.com/illustrations/region-dach) | DACH map with fading neighbours and a pastel band along the border, switchable to the US, China, India, Brazil or Japan | Maps |
 | [Empty Calendar](https://www.affectui.com/illustrations/empty-calendar) | Stack of calendar cards marked empty, fanning out on hover | Card illustrations |
 | [Enrichment Orbit](https://www.affectui.com/illustrations/enrichment-orbit) | Grok tile inside two rings with comets and data nodes orbiting around it | Card illustrations |
 | [Ghosted Chat](https://www.affectui.com/illustrations/ghosted-chat) | Unanswered chat messages marked as read, with a thumbs-down reply on hover | Card illustrations |
+| [Layer Stack](https://www.affectui.com/illustrations/layer-stack) | Isometric stack of five layers with a list beside it – the chosen entry lifts its layer out in color | Card illustrations |
 | [Lead Sourcing](https://www.affectui.com/illustrations/lead-sourcing) | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection | Card illustrations |
 | [Side Folder](https://www.affectui.com/illustrations/side-folder) | Glassy blue folder on its side, documents sliding out to the right as the pocket swings open on hover | Card illustrations |
 | [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
+| [Team Invite](https://www.affectui.com/illustrations/team-invite) | Connected teammates – a cursor drags a new one into the empty slot, the line turns solid and they go online | Card illustrations |
 
 ## affectUI Pro
 
-17 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+18 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 

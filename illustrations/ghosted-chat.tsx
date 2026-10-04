@@ -59,7 +59,6 @@ export function GhostedChat({
       <style href="ui-ghosted-chat" precedence="default">
         {css}
       </style>
-      <div className="ui-gc-grid" aria-hidden="true" />
       <div
         className="ui-gc-stage"
         aria-hidden="true"
@@ -93,7 +92,6 @@ export function GhostedChat({
 
 const css = /* css */ `
 .ui-gc {
-  --ui-gc-grid: rgba(28, 29, 31, 0.035);
   --ui-gc-bubble: #FFFFFF;
   --ui-gc-bubble-border: #EDEDED;
   --ui-gc-bubble-shadow: 0 2px 6px rgba(28, 29, 31, 0.08), 0 1px 2px rgba(28, 29, 31, 0.05);
@@ -108,17 +106,6 @@ const css = /* css */ `
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
 .ui-gc *, .ui-gc *::before, .ui-gc *::after { box-sizing: border-box; margin: 0; }
-.ui-gc-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, var(--ui-gc-grid) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--ui-gc-grid) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
-}
 
 /* Fixed 360 × 240 artboard, scaled from the top-left corner */
 .ui-gc-stage {
@@ -303,7 +290,6 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-gc {
-  --ui-gc-grid: rgba(255, 255, 255, 0.045);
   --ui-gc-bubble: #232326;
   --ui-gc-bubble-border: rgba(255, 255, 255, 0.08);
   --ui-gc-bubble-shadow: 0 2px 6px rgba(0, 0, 0, 0.35), 0 1px 2px rgba(0, 0, 0, 0.4);

@@ -34,7 +34,6 @@ export function TabOverload({
       <style href="ui-tab-overload" precedence="default">
         {css}
       </style>
-      <div className="ui-to-grid" aria-hidden="true" />
       <svg className="ui-to-art" viewBox="0 0 360 240" aria-hidden="true">
         <defs>
           <linearGradient id={`${id}-blob-h`} x1="0%" y1="0%" x2="100%" y2="0%">
@@ -135,17 +134,6 @@ const css = /* css */ `
     linear-gradient(to bottom, #000 70%, transparent 100%);
   mask-composite: intersect;
 }
-.ui-to-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
-}
 .ui-to-art {
   position: absolute;
   inset: 0;
@@ -194,11 +182,6 @@ const css = /* css */ `
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-to-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-}
 :where(.dark, [data-theme="dark"]) .ui-to-frame { fill: #1b1b1d; stroke: rgba(255, 255, 255, 0.1); }
 :where(.dark, [data-theme="dark"]) .ui-to-dot { fill: #3a3a3f; }
 :where(.dark, [data-theme="dark"]) .ui-to-page { fill: #232326; stroke: rgba(255, 255, 255, 0.08); }

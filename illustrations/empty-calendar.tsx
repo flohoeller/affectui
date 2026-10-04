@@ -6,7 +6,7 @@ import { useId } from "react";
  * Empty Calendar – a small card illustration, in a single self-contained file.
  * Three stacked calendar cards with an "Empty" badge and a disabled "Join meeting" button.
  * Hover the front card to lift it, hover a back card to slide it further out.
- * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame with a soft grid behind it.
+ * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame.
  */
 
 export type EmptyCalendarProps = {
@@ -27,10 +27,9 @@ export function EmptyCalendar({
       <style href="ui-empty-calendar" precedence="default">
         {css}
       </style>
-      <div className="ui-ec-grid" aria-hidden="true" />
       <svg className="ui-ec-art" viewBox="0 0 320 240" aria-hidden="true">
         <defs>
-          <filter id={`${id}-blur`} x="-30%" y="-30%" width="160%" height="160%">
+          <filter id={`${id}-blur`} x="-30%" y="-100%" width="160%" height="300%">
             <feGaussianBlur stdDeviation="14" />
           </filter>
           <filter id={`${id}-shadow`} x="-20%" y="-20%" width="140%" height="140%">
@@ -137,17 +136,6 @@ const css = /* css */ `
   overflow: hidden;
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
 }
-.ui-ec-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
-}
 .ui-ec-art {
   position: absolute;
   inset: 0;
@@ -197,11 +185,6 @@ const css = /* css */ `
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-ec-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-}
 :where(.dark, [data-theme="dark"]) .ui-ec-card { fill: #232326; stroke: rgba(255, 255, 255, 0.08); }
 :where(.dark, [data-theme="dark"]) .ui-ec-drop { flood-opacity: 0.4; }
 :where(.dark, [data-theme="dark"]) .ui-ec-edge { stop-color: #3a3a3f; }

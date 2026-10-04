@@ -6,7 +6,7 @@ import { useId } from "react";
  * Enrichment Orbit – a small card illustration, in a single self-contained file.
  * A Grok tile inside two rings; colored comets run around the rings in opposite directions
  * and three small data nodes orbit the outer ring, staying upright as they travel.
- * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame with a soft grid behind it.
+ * The artwork is drawn on a 320 × 240 viewBox inside a 3 : 2 frame.
  */
 
 export type EnrichmentOrbitProps = {
@@ -30,7 +30,6 @@ export function EnrichmentOrbit({
       <style href="ui-enrichment-orbit" precedence="default">
         {css}
       </style>
-      <div className="ui-eo-grid" aria-hidden="true" />
       <svg className="ui-eo-art" viewBox="0 0 320 240" aria-hidden="true">
         <defs>
           {/* Drop shadow plus a thin light-gray inner edge at the bottom */}
@@ -131,17 +130,6 @@ const css = /* css */ `
   aspect-ratio: 3 / 2;
   overflow: hidden;
 }
-.ui-eo-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
-}
 .ui-eo-art {
   position: absolute;
   inset: 0;
@@ -178,11 +166,6 @@ const css = /* css */ `
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-eo-grid {
-  background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-}
 :where(.dark, [data-theme="dark"]) .ui-eo-rings { stroke: rgba(255, 255, 255, 0.14); }
 :where(.dark, [data-theme="dark"]) .ui-eo-tile { fill: #232326; stroke: rgba(255, 255, 255, 0.08); }
 :where(.dark, [data-theme="dark"]) .ui-eo-drop { flood-opacity: 0.4; }

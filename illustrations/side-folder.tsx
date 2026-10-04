@@ -6,7 +6,7 @@ import { useId } from "react";
  * Side Folder – a glassy folder turned on its side, in a single self-contained file.
  * Three documents peek out to the right from behind a frosted front pocket with a tab on its edge.
  * Hover the folder: the pocket swings forward and every document slides out on its own.
- * The artwork scales with its container and keeps a 3 : 2 frame with a soft grid behind it.
+ * The artwork scales with its container and keeps a 3 : 2 frame.
  */
 
 export type SideFolderProps = {
@@ -36,7 +36,6 @@ export function SideFolder({
       <style href="ui-side-folder" precedence="default">
         {css}
       </style>
-      <div className="ui-sf-grid" aria-hidden="true" />
       <div className="ui-sf-icon" aria-hidden="true">
         {/* Back of the folder */}
         <svg className="ui-sf-layer ui-sf-back" viewBox="0 0 440 520">
@@ -96,17 +95,6 @@ const css = /* css */ `
   aspect-ratio: 3 / 2;
   overflow: hidden;
   container-type: inline-size;
-}
-.ui-sf-grid {
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(28, 29, 31, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(28, 29, 31, 0.035) 1px, transparent 1px);
-  background-size: 4.4444% 6.6667%;
-  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 75%);
-  pointer-events: none;
 }
 
 /* The folder is drawn on a 440 × 520 grid; cqw keeps every detail in proportion */
