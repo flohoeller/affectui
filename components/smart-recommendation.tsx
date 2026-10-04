@@ -214,7 +214,9 @@ const css = /* css */ `
   max-width: 440px;
   /* Like the Chat Composer: the white card on a gray tray, the actions live in the tray below */
   background: var(--ui-sr-tray);
-  border-radius: 20px;
+  /* The gray tray frames the white card on every side */
+  padding: 6px;
+  border-radius: 22px;
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--ui-sr-ink);
   -webkit-font-smoothing: antialiased;
@@ -227,7 +229,7 @@ const css = /* css */ `
   padding: 6px 8px 8px;
   background: var(--ui-sr-card);
   border: 1px solid var(--ui-sr-border);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: var(--ui-sr-shadow);
 }
 .ui-sr__head {

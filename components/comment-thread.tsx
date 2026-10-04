@@ -290,7 +290,9 @@ const css = /* css */ `
   max-width: 420px;
   /* Like the Chat Composer: a gray tray with heading and reply field, the white card sits on top of it */
   background: var(--ui-ct-tray);
-  border-radius: 20px;
+  /* The gray tray frames the white card on every side */
+  padding: 6px;
+  border-radius: 22px;
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   color: var(--ui-ct-ink);
   -webkit-font-smoothing: antialiased;
@@ -325,7 +327,7 @@ const css = /* css */ `
 .ui-ct__card {
   background: var(--ui-ct-card);
   border: 1px solid var(--ui-ct-border);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: var(--ui-ct-shadow);
 }
 .ui-ct__scroll {
