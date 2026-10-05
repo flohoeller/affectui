@@ -7,7 +7,7 @@ import type { CSSProperties, ReactNode } from "react";
  * A honeycomb-like wall of rounded logo tiles in three rows (7 · 9 · 7). The middle row reaches one
  * tile further on each side; its centre tile is larger, pure white and holds your product mark.
  * The other tiles are frosted and fade out toward the edges, while the logos stay at full color.
- * The artwork is laid out on a 1520 × 560 grid and scales with its container.
+ * The artwork is laid out on a 1520 × 560 grid (with 9 columns) and scales with its container.
  */
 
 export type IntegrationGridLogo = {
@@ -26,30 +26,37 @@ export type IntegrationGridProps = {
   logos?: IntegrationGridLogo[];
   /** Content of the centre tile – defaults to a neutral product mark */
   mark?: ReactNode;
+  /** Tiles in the middle row – 9 by default; the rows above and below get two fewer. Use 7 or 5 for a tighter grid */
+  columns?: 5 | 7 | 9;
   className?: string;
   /** Accessible description of the scene */
   label?: string;
 };
 
-/* Layout (in grid units): tile 140, gap 20, centre tile 168 */
+/* Layout (in grid units): tile 140, gap 20, centre tile 168 – 80 units of air around the outer tiles */
 const STEP = 160;
-const MID_X = 760;
 const MID_Y = 280;
-const ROWS = [7, 9, 7];
 
 type Slot = { x: number; y: number; center: boolean; d: number };
 
-const SLOTS: Slot[] = ROWS.flatMap((count, row) =>
-  Array.from({ length: count }, (_, i) => {
-    const x = MID_X + (i - (count - 1) / 2) * STEP;
-    const y = MID_Y + (row - 1) * STEP;
-    const d = Math.hypot((x - MID_X) / STEP, (y - MID_Y) / STEP);
-    return { x, y, center: row === 1 && i === (count - 1) / 2, d };
-  }),
-);
+/** Width of the layout for a number of columns: 9 columns → 1520 units */
+const widthFor = (columns: number) => columns * STEP + 80;
 
-export function IntegrationGrid({ logos = DEFAULT_LOGOS, mark, className, label }: IntegrationGridProps) {
+function slotsFor(columns: number): Slot[] {
+  const midX = widthFor(columns) / 2;
+  return [columns - 2, columns, columns - 2].flatMap((count, row) =>
+    Array.from({ length: count }, (_, i) => {
+      const x = midX + (i - (count - 1) / 2) * STEP;
+      const y = MID_Y + (row - 1) * STEP;
+      const d = Math.hypot((x - midX) / STEP, (y - MID_Y) / STEP);
+      return { x, y, center: row === 1 && i === (count - 1) / 2, d };
+    }),
+  );
+}
+
+export function IntegrationGrid({ logos = DEFAULT_LOGOS, mark, columns = 9, className, label }: IntegrationGridProps) {
   const list = logos.length ? logos : DEFAULT_LOGOS;
+  const SLOTS = slotsFor(columns);
   const outer = SLOTS.filter((s) => !s.center).length;
   const shown = list.slice(0, outer);
   let n = 0;
@@ -57,6 +64,7 @@ export function IntegrationGrid({ logos = DEFAULT_LOGOS, mark, className, label 
   return (
     <div
       className={["ui-ig", className].filter(Boolean).join(" ")}
+      style={columns === 9 ? undefined : ({ "--ui-ig-w": widthFor(columns) } as CSSProperties)}
       role="img"
       aria-label={label ?? `Integrates with ${shown.map((l) => l.name).join(", ")}`}
     >
@@ -243,8 +251,8 @@ const DEFAULT_LOGOS: IntegrationGridLogo[] = [
 
 const css = /* css */ `
 .ui-ig {
-  /* 1 unit of the 1520 × 560 layout grid */
-  --u: calc(100cqw / 1520);
+  /* 1 unit of the layout grid – 1520 × 560 with 9 columns, narrower with fewer */
+  --u: calc(100cqw / var(--ui-ig-w, 1520));
   --ui-ig-ink: #0a0a0a;
   /* Tile fill as RGB channels, so each tile can set its own opacity */
   --ui-ig-tile: 255 255 255;
@@ -257,7 +265,7 @@ const css = /* css */ `
   --ui-ig-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   width: 100%;
-  aspect-ratio: 1520 / 560;
+  aspect-ratio: var(--ui-ig-w, 1520) / 560;
   container-type: inline-size;
 }
 .ui-ig *, .ui-ig *::before, .ui-ig *::after { box-sizing: border-box; }

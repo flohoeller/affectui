@@ -65,9 +65,18 @@ Requirements: React 19. TypeScript is optional.
 | [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
 | [Team Invite](https://www.affectui.com/illustrations/team-invite) | Connected teammates – a cursor drags a new one into the empty slot, the line turns solid and they go online | Card illustrations |
 
+## Motion
+
+| Name | What it is | Category |
+| --- | --- | --- |
+| [Grid Background](https://www.affectui.com/motion/grid-background) | A fine line grid that drifts slowly behind your content and fades out towards the edges | Backgrounds |
+| [Number Ticker](https://www.affectui.com/motion/number-ticker) | Odometer-style numbers – every digit rolls to its new value and counts in from zero when it scrolls into view | Numbers |
+| [Shimmer Loader](https://www.affectui.com/motion/shimmer-loader) | Skeleton blocks that share one soft light sweep, plus shimmering text for “Thinking…” states | Loaders |
+| [Text Reveal](https://www.affectui.com/motion/text-reveal) | Text that arrives word by word or letter by letter – each piece rises out of a soft blur as it scrolls into view | Text |
+
 ## affectUI Pro
 
-22 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+27 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 
