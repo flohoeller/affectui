@@ -75,7 +75,7 @@ Requirements: React 19. TypeScript is optional.
 
 ## affectUI Pro
 
-27 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+29 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 
