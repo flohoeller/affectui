@@ -54,6 +54,8 @@ export function CommentThread({
   className,
 }: CommentThreadProps) {
   const [messages, setMessages] = useState(initial);
+  // Assistant replies that are there from the start come in a beat after the comment above them
+  const [firstIds] = useState(() => new Set(initial.filter((m) => m.author.assistant).map((m) => m.id)));
   const [open, setOpen] = useState<Set<string>>(new Set());
   const [draft, setDraft] = useState("");
   const [thinking, setThinking] = useState(false);
@@ -121,7 +123,7 @@ export function CommentThread({
             const isOpen = open.has(m.id);
             const command = /^\/edit\b/i.test(m.text.trim());
             return (
-              <article key={m.id} className="ui-ct__msg">
+              <article key={m.id} className="ui-ct__msg" data-delayed={firstIds.has(m.id) || undefined}>
                 <div className="ui-ct__meta">
                   <Avatar author={m.author} />
                   <span className="ui-ct__name">{m.author.name}</span>
@@ -339,6 +341,7 @@ const css = /* css */ `
   scrollbar-width: thin;
 }
 .ui-ct__msg { animation: ui-ct-in 360ms var(--ui-ct-ease) both; }
+.ui-ct__msg[data-delayed] { animation-duration: 480ms; animation-delay: 700ms; }
 .ui-ct__meta { display: flex; align-items: center; gap: 9px; }
 .ui-ct__avatar {
   display: grid;
@@ -398,6 +401,11 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   padding: 0 0 0 23px;
   list-style: none;
 }
+/* Open: 4px of room above, so the first tree line can reach up to the check icon */
+.ui-ct__details[data-open] ul {
+  margin-top: -4px;
+  padding-top: 4px;
+}
 .ui-ct__details li {
   position: relative;
   margin-top: 6px;
@@ -405,15 +413,31 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   line-height: 19px;
   color: var(--ui-ct-muted);
 }
+/* Tree lines instead of dots: from the check icon down, then a rounded turn right into each line */
 .ui-ct__details li::before {
   content: "";
   position: absolute;
-  left: -14px;
-  top: 8px;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--ui-ct-dot);
+  left: -10px;
+  top: -6px;
+  width: 6px;
+  height: 15.5px;
+  border-left: 1.25px solid var(--ui-ct-dot);
+  border-bottom: 1.25px solid var(--ui-ct-dot);
+  border-bottom-left-radius: 5px;
+}
+/* The first branch starts right under the check icon */
+.ui-ct__details li:first-child::before {
+  top: -10px;
+  height: 19.5px;
+}
+/* The trunk keeps running past every line except the last */
+.ui-ct__details li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 9px;
+  bottom: -6px;
+  border-left: 1.25px solid var(--ui-ct-dot);
 }
 
 .ui-ct__thinking {
@@ -475,6 +499,11 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
 .ui-ct__morph[data-smooth] { transition: height 380ms cubic-bezier(0.22, 1, 0.36, 1); }
 @media (prefers-reduced-motion: reduce) { .ui-ct__morph[data-smooth] { transition: none; } }
 
+
+/* Text fields: no focus box while typing – also against global :focus-visible rules of the host page */
+.ui-ct input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+.ui-ct textarea:focus-visible,
+.ui-ct [contenteditable]:focus-visible { outline: none; }
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ct {
   --ui-ct-tray: #161618;

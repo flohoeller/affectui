@@ -723,6 +723,11 @@ const css = /* css */ `
   .ui-ed__card, .ui-ed__receipt, .ui-ed__text, .ui-ed__badge, .ui-ed__menu { animation: none; }
 }
 
+
+/* Text fields: no focus box while typing – also against global :focus-visible rules of the host page */
+.ui-ed input:not([type="checkbox"]):not([type="radio"]):focus-visible,
+.ui-ed textarea:focus-visible,
+.ui-ed [contenteditable]:focus-visible { outline: none; }
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ed {
   --ui-ed-tray: #161618;
