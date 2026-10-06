@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useLayoutEffect, useRef, useState, type ReactNode, type RefObject } from "react";
+import { useEffect, useId, useLayoutEffect, useRef, useState, type CSSProperties, type ReactNode, type RefObject } from "react";
 
 /*
  * Comment Thread – one comment with its replies, including an assistant that reports what it did, in a single
@@ -78,6 +78,7 @@ export function CommentThread({
     if (!text || thinking) return;
     setDraft("");
     setNow(Date.now());
+    lockHeight(true);
     setMessages((m) => [...m, { id: `m-${Date.now()}`, author: currentUser, createdAt: Date.now(), text }]);
     const answer = onReply?.(text);
     if (!answer) return;
@@ -91,13 +92,21 @@ export function CommentThread({
     }
   };
 
-  const toggle = (id: string) =>
+  // New messages keep the card at its height and the conversation scrolls up; folding details lets it grow again
+  const lockHeight = (on: boolean) => {
+    const list = listRef.current;
+    if (list) list.style.maxHeight = on ? `${list.offsetHeight}px` : "";
+  };
+
+  const toggle = (id: string) => {
+    lockHeight(false);
     setOpen((o) => {
       const next = new Set(o);
       if (next.has(id)) next.delete(id);
       else next.add(id);
       return next;
     });
+  };
 
   return (
     <>
@@ -164,8 +173,10 @@ export function CommentThread({
                     {!!m.details?.length && (
                       <div className="ui-ct__details" data-open={isOpen || undefined} inert={!isOpen}>
                         <ul>
-                          {m.details.map((d) => (
-                            <li key={d}>{d}</li>
+                          {m.details.map((d, i) => (
+                            <li key={d} style={{ "--i": i } as CSSProperties}>
+                              {d}
+                            </li>
                           ))}
                         </ul>
                       </div>
@@ -226,13 +237,22 @@ function Avatar({ author }: { author: ThreadAuthor }) {
   );
 }
 
-/** A simple assistant mark: a ring in two tones – pass your own logo as `avatar` instead */
-export const AssistantMark = () => (
-  <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
-    <circle cx="12" cy="12" r="8.5" fill="none" stroke="#2f6bff" strokeWidth="4" />
-    <path d="M12 3.5a8.5 8.5 0 0 1 8.5 8.5" fill="none" stroke="#8b5cf6" strokeWidth="4" strokeLinecap="round" />
-  </svg>
-);
+/** A simple assistant mark: a full circle with a blue-to-violet gradient – pass your own logo as `avatar` instead */
+export function AssistantMark() {
+  const id = useId();
+  return (
+    <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+      <defs>
+        <linearGradient id={`${id}-fill`} x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stopColor="#5b9dff" />
+          <stop offset="0.5" stopColor="#2f6bff" />
+          <stop offset="1" stopColor="#8b5cf6" />
+        </linearGradient>
+      </defs>
+      <circle cx="12" cy="12" r="12" fill={`url(#${id}-fill)`} />
+    </svg>
+  );
+}
 
 const Icon = ({ d, size = 16 }: { d: string; size?: number }) => (
   <svg viewBox="0 0 16 16" width={size} height={size} fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -335,13 +355,19 @@ const css = /* css */ `
 .ui-ct__scroll {
   display: grid;
   gap: 18px;
+  align-content: start;
+  min-height: var(--ui-ct-min-height, 0px);
   max-height: var(--ui-ct-max-height, 340px);
   padding: 16px 18px 18px;
   overflow-y: auto;
   scrollbar-width: thin;
 }
-.ui-ct__msg { animation: ui-ct-in 360ms var(--ui-ct-ease) both; }
-.ui-ct__msg[data-delayed] { animation-duration: 480ms; animation-delay: 700ms; }
+/* Each message builds up piece by piece: name row, text, status – the assistant's first reply a beat later */
+.ui-ct__msg { --ui-ct-d: 0ms; }
+.ui-ct__msg[data-delayed] { --ui-ct-d: 700ms; }
+.ui-ct__msg > * { animation: ui-ct-in 420ms var(--ui-ct-ease) both; animation-delay: var(--ui-ct-d); }
+.ui-ct__msg > :nth-child(2) { animation-delay: calc(var(--ui-ct-d) + 80ms); }
+.ui-ct__msg > :nth-child(3) { animation-delay: calc(var(--ui-ct-d) + 160ms); }
 .ui-ct__meta { display: flex; align-items: center; gap: 9px; }
 .ui-ct__avatar {
   display: grid;
@@ -367,14 +393,15 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   align-items: center;
   gap: 7px;
   height: 26px;
-  margin-left: -6px;
-  padding: 0 6px;
+  padding: 0 6px 0 8px;
   border: 0;
   border-radius: 8px;
   background: transparent;
   font-size: 14px !important;
   transition: background-color 140ms ease;
 }
+/* The global button reset sets margin: 0 – shift the row so the check icon sits centered under the avatars */
+.ui-ct .ui-ct__status-btn { margin-left: -4px; }
 .ui-ct__status-btn:hover:not(:disabled) { background: var(--ui-ct-row-hover); }
 .ui-ct__status-btn:disabled { cursor: default; }
 .ui-ct__check {
@@ -398,13 +425,8 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   min-height: 0;
   overflow: hidden;
   margin: 0;
-  padding: 0 0 0 23px;
+  padding: 0 0 0 28px;
   list-style: none;
-}
-/* Open: 4px of room above, so the first tree line can reach up to the check icon */
-.ui-ct__details[data-open] ul {
-  margin-top: -4px;
-  padding-top: 4px;
 }
 .ui-ct__details li {
   position: relative;
@@ -412,32 +434,35 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   font-size: 13px;
   line-height: 19px;
   color: var(--ui-ct-muted);
+  /* Closing: lines fade out quickly while the box folds */
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 160ms ease, transform 220ms var(--ui-ct-ease);
 }
-/* Tree lines instead of dots: from the check icon down, then a rounded turn right into each line */
+/* Opening: lines come in one after another */
+.ui-ct__details[data-open] li {
+  opacity: 1;
+  transform: none;
+  transition-duration: 320ms, 420ms;
+  transition-delay: calc(60ms + var(--i, 0) * 60ms);
+}
+/* Tree lines instead of dots: each line gets its own corner – down on the axis of the check icon, then a rounded turn right */
+.ui-ct__details li:first-child { margin-top: 5px; }
 .ui-ct__details li::before {
   content: "";
   position: absolute;
-  left: -10px;
-  top: -6px;
-  width: 6px;
-  height: 15.5px;
+  left: -16.625px;
+  top: -3px;
+  width: 10.5px;
+  height: 13px;
   border-left: 1.25px solid var(--ui-ct-dot);
   border-bottom: 1.25px solid var(--ui-ct-dot);
   border-bottom-left-radius: 5px;
 }
-/* The first branch starts right under the check icon */
+/* The first branch starts with a small gap under the check icon */
 .ui-ct__details li:first-child::before {
-  top: -10px;
-  height: 19.5px;
-}
-/* The trunk keeps running past every line except the last */
-.ui-ct__details li:not(:last-child)::after {
-  content: "";
-  position: absolute;
-  left: -10px;
-  top: 9px;
-  bottom: -6px;
-  border-left: 1.25px solid var(--ui-ct-dot);
+  top: -5px;
+  height: 15px;
 }
 
 .ui-ct__thinking {
@@ -487,11 +512,11 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
 .ui-ct__send:disabled { opacity: 0.3; cursor: default; }
 .ui-ct__send:not(:disabled):active { transform: scale(0.94); }
 
-@keyframes ui-ct-in { from { opacity: 0; transform: translateY(3px); } }
+@keyframes ui-ct-in { from { opacity: 0; transform: translateY(4px); } }
 @keyframes ui-ct-shine { from { background-position: 100% 0; } to { background-position: 0% 0; } }
 @media (prefers-reduced-motion: reduce) {
-  .ui-ct__msg, .ui-ct__thinking { animation: none; }
-  .ui-ct__details, .ui-ct__chevron { transition: none; }
+  .ui-ct__msg > *, .ui-ct__thinking { animation: none; }
+  .ui-ct__details, .ui-ct__details li, .ui-ct__chevron { transition: none; }
 }
 
 /* Height changes glide instead of jumping */
