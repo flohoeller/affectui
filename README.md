@@ -60,6 +60,7 @@ Requirements: React 19. TypeScript is optional.
 | [Integration Grid](https://www.affectui.com/illustrations/integration-grid) | Honeycomb-like wall of integration logos around a bright centre tile with your product mark, fading out toward the edges | Card illustrations |
 | [Layer Stack](https://www.affectui.com/illustrations/layer-stack) | Isometric stack of five layers with a list beside it – the chosen entry lifts its layer out in color | Card illustrations |
 | [Lead Sourcing](https://www.affectui.com/illustrations/lead-sourcing) | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection | Card illustrations |
+| [Model Wheel](https://www.affectui.com/illustrations/model-wheel) | AI model names on a turning drum – the rows bend away at the edges and each model lands on a soft gray fill | Card illustrations |
 | [Side Folder](https://www.affectui.com/illustrations/side-folder) | Glassy blue folder on its side, documents sliding out to the right as the pocket swings open on hover | Card illustrations |
 | [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
 | [Team Invite](https://www.affectui.com/illustrations/team-invite) | Connected teammates – a cursor drags a new one into the empty slot, the line turns solid and they go online | Card illustrations |
