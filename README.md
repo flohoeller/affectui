@@ -60,6 +60,7 @@ Requirements: React 19. TypeScript is optional.
 | [Integration Grid](https://www.affectui.com/illustrations/integration-grid) | Honeycomb-like wall of integration logos around a bright centre tile with your product mark, fading out toward the edges | Card illustrations |
 | [Layer Stack](https://www.affectui.com/illustrations/layer-stack) | Isometric stack of five layers with a list beside it – the chosen entry lifts its layer out in color | Card illustrations |
 | [Lead Sourcing](https://www.affectui.com/illustrations/lead-sourcing) | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection | Card illustrations |
+| [Logo Cluster](https://www.affectui.com/illustrations/logo-cluster) | Your mark on a white disc in the middle – company logos bounce out of it and settle around it | Card illustrations |
 | [Model Wheel](https://www.affectui.com/illustrations/model-wheel) | AI model names on a turning drum – the rows bend away at the edges and each model lands on a soft gray fill | Card illustrations |
 | [Side Folder](https://www.affectui.com/illustrations/side-folder) | Glassy blue folder on its side, documents sliding out to the right as the pocket swings open on hover | Card illustrations |
 | [Tab Overload](https://www.affectui.com/illustrations/tab-overload) | Overlapping browser windows where the highlight follows the hovered tab | Card illustrations |
@@ -76,7 +77,7 @@ Requirements: React 19. TypeScript is optional.
 
 ## affectUI Pro
 
-29 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+37 more components, blocks and illustrations – including the Chat Composer, the KPI Chart, the Pricing Plans block and the World Map – are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## License
 

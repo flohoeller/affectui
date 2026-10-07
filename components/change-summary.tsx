@@ -96,6 +96,7 @@ const css = /* css */ `
   box-sizing: border-box;
   width: 100%;
   max-width: 480px;
+  container-type: inline-size;
   /* Like the Chat Composer: a gray tray with the heading, the white card sits on top of it */
   background: var(--ui-cs-tray);
   /* The gray tray frames the white card on every side */
@@ -164,6 +165,12 @@ const css = /* css */ `
   color: var(--ui-cs-muted);
 }
 .ui-cs__text { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+/* Narrow: each metric stacks above its change, so the text wraps instead of being cut off */
+@container (max-width: 400px) {
+  .ui-cs__row { grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 11px 16px; }
+  .ui-cs__label, .ui-cs__text { white-space: normal; }
+  .ui-cs__change { align-items: flex-start; }
+}
 .ui-cs__trend {
   display: grid;
   place-items: center;

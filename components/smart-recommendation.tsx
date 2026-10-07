@@ -212,6 +212,7 @@ const css = /* css */ `
   box-sizing: border-box;
   width: 100%;
   max-width: 440px;
+  container-type: inline-size;
   /* Like the Chat Composer: the white card on a gray tray, the actions live in the tray below */
   background: var(--ui-sr-tray);
   /* The gray tray frames the white card on every side */
@@ -280,8 +281,10 @@ const css = /* css */ `
 .ui-sr__foot {
   display: flex;
   align-items: center;
+  /* Narrow containers: the actions move below the signal instead of running out of the tray */
+  flex-wrap: wrap;
   justify-content: space-between;
-  gap: 10px;
+  gap: 8px 10px;
   min-height: 50px;
   padding: 8px 8px 8px 16px;
 }
@@ -308,7 +311,7 @@ const css = /* css */ `
 [data-level="3"] > span[data-on] { background: var(--ui-sr-ok); }
 .ui-sr__signal[data-level="0"] .ui-sr__bars span:first-child { background: #8f8f8f; }
 
-.ui-sr__actions { display: flex; align-items: center; gap: 6px; }
+.ui-sr__actions { display: flex; align-items: center; gap: 6px; margin-left: auto; }
 .ui-sr__btn {
   height: 32px;
   padding: 0 12px;
@@ -354,6 +357,12 @@ const css = /* css */ `
   background: var(--ui-sr-menu);
   box-shadow: 0 0 0 1px var(--ui-sr-border), 0 12px 30px -8px rgba(0, 0, 0, 0.2);
   animation: ui-sr-drop 180ms var(--ui-sr-ease);
+}
+/* Narrow: the actions sit on their own row – the menu lines up with its right edge so it stays inside */
+@container (max-width: 420px) {
+  .ui-sr__actions { position: relative; }
+  .ui-sr__alt { position: static; }
+  .ui-sr__menu { width: min(260px, 100cqw - 24px); }
 }
 .ui-sr__option {
   display: flex;
