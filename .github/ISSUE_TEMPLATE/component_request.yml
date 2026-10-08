@@ -1,0 +1,16 @@
+name: Component request
+description: Suggest a component, illustration or motion effect
+labels: [request]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What should it do?
+      description: Describe the item and where you'd use it.
+    validations:
+      required: true
+  - type: input
+    id: reference
+    attributes:
+      label: Reference
+      description: A link to an app, shot or video that shows the idea.

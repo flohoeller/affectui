@@ -1,0 +1,29 @@
+name: Bug report
+description: Something in an affectUI item doesn't work or look right
+labels: [bug]
+body:
+  - type: input
+    id: item
+    attributes:
+      label: Item
+      description: Which component, illustration or motion effect?
+      placeholder: Reaction Bar
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you expect, and what happened instead?
+    validations:
+      required: true
+  - type: input
+    id: setup
+    attributes:
+      label: Setup
+      placeholder: React 19.2, Next.js 16, Chrome 141
+  - type: textarea
+    id: snippet
+    attributes:
+      label: Code or screenshot
+      description: A minimal snippet or a screenshot, if you can.
