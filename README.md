@@ -35,7 +35,78 @@ affectUI is a library of handcrafted React components, illustrations and motion 
 A few favorites, recorded live from [affectui.com](https://www.affectui.com). Items marked <sup>Pro</sup> are part of [affectUI Pro](https://www.affectui.com/pricing) and are not in this repository; everything else installs from here for free.
 
 <table>
-
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/illustrations/agent-team"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/agent-team-dark.webp">
+<img alt="Agent Team: A prompt types itself and branches out into three agents, each with a role and overlapping tool logos" src="./.github/assets/showcase/agent-team-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/illustrations/agent-team"><b>Agent Team</b></a><br>
+<sub>A prompt types itself and branches out into three agents, each with a role and overlapping tool logos</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/components/reaction-bar"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/reaction-bar-dark.webp">
+<img alt="Reaction Bar: Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit" src="./.github/assets/showcase/reaction-bar-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/components/reaction-bar"><b>Reaction Bar</b></a><br>
+<sub>Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/illustrations/team-invite"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/team-invite-dark.webp">
+<img alt="Team Invite: Connected teammates – a cursor drags a new one into the empty slot, the line turns solid and they go online" src="./.github/assets/showcase/team-invite-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/illustrations/team-invite"><b>Team Invite</b></a><br>
+<sub>Connected teammates – a cursor drags a new one into the empty slot, the line turns solid and they go online</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/components/command-menu"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/command-menu-dark.webp">
+<img alt="Command Menu: Search and run anything from one field – tool actions with logos and ⌘1–⌘5, everyday commands with icons" src="./.github/assets/showcase/command-menu-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/components/command-menu"><b>Command Menu</b></a> <sup><a href="https://www.affectui.com/pricing">Pro</a></sup><br>
+<sub>Search and run anything from one field – tool actions with logos and ⌘1–⌘5, everyday commands with icons</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/components/progress-tracker"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/progress-tracker-dark.webp">
+<img alt="Progress Tracker: Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play" src="./.github/assets/showcase/progress-tracker-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/components/progress-tracker"><b>Progress Tracker</b></a><br>
+<sub>Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/components/kpi-chart"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/kpi-chart-dark.webp">
+<img alt="KPI Chart: Metric card with a multi-line chart and a tooltip that follows the pointer" src="./.github/assets/showcase/kpi-chart-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/components/kpi-chart"><b>KPI Chart</b></a> <sup><a href="https://www.affectui.com/pricing">Pro</a></sup><br>
+<sub>Metric card with a multi-line chart and a tooltip that follows the pointer</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/illustrations/model-wheel"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/model-wheel-dark.webp">
+<img alt="Model Wheel: AI model names on a turning drum – the rows bend away at the edges and each model lands on a soft gray fill" src="./.github/assets/showcase/model-wheel-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/illustrations/model-wheel"><b>Model Wheel</b></a><br>
+<sub>AI model names on a turning drum – the rows bend away at the edges and each model lands on a soft gray fill</sub>
+</td>
+<td width="50%" valign="top">
+<a href="https://www.affectui.com/illustrations/logo-cluster"><picture>
+<source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/logo-cluster-dark.webp">
+<img alt="Logo Cluster: Your mark on a white disc in the middle – company logos bounce out of it and settle around it" src="./.github/assets/showcase/logo-cluster-light.webp" width="100%">
+</picture></a>
+<br><a href="https://www.affectui.com/illustrations/logo-cluster"><b>Logo Cluster</b></a><br>
+<sub>Your mark on a white disc in the middle – company logos bounce out of it and settle around it</sub>
+</td>
+</tr>
 </table>
 
 ## Contents
