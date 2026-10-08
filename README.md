@@ -12,7 +12,7 @@
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
-  <img alt="34 free items" src="https://img.shields.io/badge/free%20items-34-2f6bff?style=flat-square">
+  <img alt="36 free items" src="https://img.shields.io/badge/free%20items-36-2f6bff?style=flat-square">
   <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
@@ -116,6 +116,7 @@ A few favorites, recorded live from [affectui.com](https://www.affectui.com). It
 - [Usage](#usage)
 - [Use it with AI tools](#use-it-with-ai-tools)
 - [Components](#components)
+- [Blocks](#blocks)
 - [Illustrations](#illustrations)
 - [Motion](#motion)
 - [affectUI Pro](#affectui-pro)
@@ -198,12 +199,20 @@ Every page on affectui.com has a **Copy prompt** bar: one click copies a ready-m
 | [Email Draft](https://www.affectui.com/components/email-draft) | Agent-written email for review – switch recipient and tone, edit inline, remove the attachment, send or discard with undo | `npx shadcn@latest add https://www.affectui.com/r/email-draft.json` |
 | [Filter Menu](https://www.affectui.com/components/filter-menu) | Grouped filters with removable chips, collapsible checkbox groups, Clear all and full keyboard control | `npx shadcn@latest add https://www.affectui.com/r/filter-menu.json` |
 | [Notification Stack](https://www.affectui.com/components/notification-stack) | Notice cards stacked behind each other – dismiss the front one to reveal the next | `npx shadcn@latest add https://www.affectui.com/r/notification-stack.json` |
+| [OTP Input](https://www.affectui.com/components/otp-input) | The verification code field done right – a gliding focus ring, paste and SMS autofill, a calm shake on errors and a morph into Verified | `npx shadcn@latest add https://www.affectui.com/r/otp-input.json` |
 | [Profile Menu](https://www.affectui.com/components/profile-menu) | Account card with the signed-in user, menu actions and profile setup progress | `npx shadcn@latest add https://www.affectui.com/r/profile-menu.json` |
 | [Progress Tracker](https://www.affectui.com/components/progress-tracker) | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play | `npx shadcn@latest add https://www.affectui.com/r/progress-tracker.json` |
 | [Reaction Bar](https://www.affectui.com/components/reaction-bar) | Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit | `npx shadcn@latest add https://www.affectui.com/r/reaction-bar.json` |
 | [Segmented Control](https://www.affectui.com/components/segmented-control) | Switch between two to six options – a raised pill or underline that glides, stretches a little and can be dragged across, with icons, counts and badges | `npx shadcn@latest add https://www.affectui.com/r/segmented-control.json` |
 | [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation.json` |
 | [Tips Panel](https://www.affectui.com/components/tips-panel) | Grid of short tips with one action each – taken tips turn into a done state | `npx shadcn@latest add https://www.affectui.com/r/tips-panel.json` |
+
+## Blocks
+
+| Name | What it is | Install |
+| --- | --- | --- |
+| [Logo Marquee](https://www.affectui.com/blocks/logo-marquee) | The endless “Trusted by” strip – a seamless loop that eases to a stop on hover, scrubs with inertia and lifts the hovered logo to colour | `npx shadcn@latest add https://www.affectui.com/r/logo-marquee.json` |
+| [Testimonial Wall](https://www.affectui.com/blocks/testimonial-wall) | The landing-page wall of quotes – columns that scroll endlessly in opposite directions, ease to a stop on hover and scrub with inertia | `npx shadcn@latest add https://www.affectui.com/r/testimonial-wall.json` |
 
 ## Illustrations
 
@@ -231,14 +240,13 @@ Every page on affectui.com has a **Copy prompt** bar: one click copies a ready-m
 | Name | What it is | Install |
 | --- | --- | --- |
 | [Grid Background](https://www.affectui.com/motion/grid-background) | A fine line grid that drifts slowly behind your content and fades out towards the edges | `npx shadcn@latest add https://www.affectui.com/r/grid-background.json` |
-| [Logo Marquee](https://www.affectui.com/motion/logo-marquee) | The endless “Trusted by” strip – a seamless loop that eases to a stop on hover, scrubs with inertia and lifts the hovered logo to colour | `npx shadcn@latest add https://www.affectui.com/r/logo-marquee.json` |
 | [Number Ticker](https://www.affectui.com/motion/number-ticker) | Odometer-style numbers – every digit rolls to its new value and counts in from zero when it scrolls into view | `npx shadcn@latest add https://www.affectui.com/r/number-ticker.json` |
 | [Shimmer Loader](https://www.affectui.com/motion/shimmer-loader) | Skeleton blocks that share one soft light sweep, plus shimmering text for “Thinking…” states | `npx shadcn@latest add https://www.affectui.com/r/shimmer-loader.json` |
 | [Text Reveal](https://www.affectui.com/motion/text-reveal) | Text that arrives word by word or letter by letter – each piece rises out of a soft blur as it scrolls into view | `npx shadcn@latest add https://www.affectui.com/r/text-reveal.json` |
 
 ## affectUI Pro
 
-44 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+45 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 
