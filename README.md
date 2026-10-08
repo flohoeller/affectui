@@ -13,7 +13,7 @@
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
   <img alt="29 free items" src="https://img.shields.io/badge/free%20items-29-2f6bff?style=flat-square">
-  <a href="https://github.com/flohoeller/affectui-components/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui-components?style=flat-square&color=111111"></a>
+  <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
 <p align="center">
@@ -237,7 +237,7 @@ Every page on affectui.com has a **Copy prompt** bar: one click copies a ready-m
 
 ## Contributing
 
-Found a bug or missing a component? [Open an issue](https://github.com/flohoeller/affectui-components/issues/new/choose). The files here are synced from the affectUI source on every release, so fixes land through issues rather than pull requests. See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Found a bug or missing a component? [Open an issue](https://github.com/flohoeller/affectui/issues/new/choose). The files here are synced from the affectUI source on every release, so fixes land through issues rather than pull requests. See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ## License
 
