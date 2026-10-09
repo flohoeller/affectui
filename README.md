@@ -12,7 +12,7 @@
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
-  <img alt="36 free items" src="https://img.shields.io/badge/free%20items-36-2f6bff?style=flat-square">
+  <img alt="39 free items" src="https://img.shields.io/badge/free%20items-39-2f6bff?style=flat-square">
   <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
@@ -201,6 +201,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 | [Button](https://www.affectui.com/components/button) | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state | `npx shadcn@latest add https://www.affectui.com/r/button.json` |
 | [Change Summary](https://www.affectui.com/components/change-summary) | What moved since last time – one metric per row with a colored trend | `npx shadcn@latest add https://www.affectui.com/r/change-summary.json` |
 | [Comment Thread](https://www.affectui.com/components/comment-thread) | One comment with replies – an assistant reports what it did, folds open details and answers @mentions | `npx shadcn@latest add https://www.affectui.com/r/comment-thread.json` |
+| [Cover Flow](https://www.affectui.com/components/cover-flow) | Browse covers in 3D – drag, flick or scrub the row, it springs to the nearest cover; images drift in their frames over a soft reflection | `npx shadcn@latest add https://www.affectui.com/r/cover-flow.json` |
 | [Decision Inbox](https://www.affectui.com/components/decision-inbox) | Open decisions with two quick answers each – answered ones confirm and fold away | `npx shadcn@latest add https://www.affectui.com/r/decision-inbox.json` |
 | [Email Draft](https://www.affectui.com/components/email-draft) | Agent-written email for review – switch recipient and tone, edit inline, remove the attachment, send or discard with undo | `npx shadcn@latest add https://www.affectui.com/r/email-draft.json` |
 | [Filter Menu](https://www.affectui.com/components/filter-menu) | Grouped filters with removable chips, collapsible checkbox groups, Clear all and full keyboard control | `npx shadcn@latest add https://www.affectui.com/r/filter-menu.json` |
@@ -211,7 +212,9 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 | [Reaction Bar](https://www.affectui.com/components/reaction-bar) | Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit | `npx shadcn@latest add https://www.affectui.com/r/reaction-bar.json` |
 | [Segmented Control](https://www.affectui.com/components/segmented-control) | Switch between two to six options – a raised pill or underline that glides, stretches a little and can be dragged across, with icons, counts and badges | `npx shadcn@latest add https://www.affectui.com/r/segmented-control.json` |
 | [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation.json` |
+| [Thinking Loader](https://www.affectui.com/components/thinking-loader) | A small working pill for AI replies – an eight-ray spinner and a shimmering label that rolls through phases and settles on a check | `npx shadcn@latest add https://www.affectui.com/r/thinking-loader.json` |
 | [Tips Panel](https://www.affectui.com/components/tips-panel) | Grid of short tips with one action each – taken tips turn into a done state | `npx shadcn@latest add https://www.affectui.com/r/tips-panel.json` |
+| [Tool Call Card](https://www.affectui.com/components/tool-call-card) | An agent's tool call in one line – live timer, status and summary, folds open to highlighted arguments and result with copy, retry on errors and a group that sums them up | `npx shadcn@latest add https://www.affectui.com/r/tool-call-card.json` |
 
 ## Blocks
 
@@ -252,7 +255,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 ## affectUI Pro
 
-45 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+48 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 
