@@ -186,7 +186,13 @@ Props, keyboard support and accessibility notes for every item are on its page, 
 
 ## Use it with AI tools
 
-Every page on affectui.com has a **Copy prompt** bar: one click copies a ready-made prompt (what the item is, the install command, usage and docs link) and opens it in **Claude, ChatGPT / Codex, Cursor or v0**. The AI adds the component to your project and adapts the content to your app.
+affectUI is agent-ready. Connect the **MCP server** once and Claude Code, Cursor, VS Code or Codex can search every item, read its docs and add it for you:
+
+```bash
+claude mcp add --transport http affectui https://www.affectui.com/api/mcp
+```
+
+Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui.com/api/mcp" } } }` to their MCP config. Without any setup, point your assistant at [`llms.txt`](https://www.affectui.com/llms.txt) or [`llms-full.txt`](https://www.affectui.com/llms-full.txt). Every page on affectui.com also has a **Copy prompt** bar for Claude, ChatGPT / Codex, Cursor and v0. Setup details: [Using with AI](https://www.affectui.com/docs/ai).
 
 ## Components
 
