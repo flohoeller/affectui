@@ -255,7 +255,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 ## affectUI Pro
 
-52 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+53 more components, screens, blocks and illustrations, including the Command Menu, the Chat Composer, the KPI Chart, the Pricing Plans block and full app screens, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 
