@@ -51,7 +51,8 @@ type Roll = { pos: number; from: number; to: number };
 export function NumberTicker({ value, format, locale, duration = 900, delay = 0, className }: NumberTickerProps) {
   const fmtKey = JSON.stringify(format ?? {});
   const text = useMemo(
-    () => new Intl.NumberFormat(locale, format).format(value),
+    // NaN or ∞ (no data yet, a division by zero) shows a dash instead of the raw word
+    () => (Number.isFinite(value) ? new Intl.NumberFormat(locale, format).format(value) : "–"),
     // eslint-disable-next-line react-hooks/exhaustive-deps
     [value, locale, fmtKey],
   );

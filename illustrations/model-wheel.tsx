@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
 
 /*
  * Model Wheel – AI model names on a turning drum, in a single self-contained file.
@@ -42,11 +42,18 @@ const VISIBLE = 4; // rows above and below the middle that are drawn
 
 
 export function ModelWheel({
-  models = defaultModels,
+  models: given = defaultModels,
   hold = 1500,
   className,
   label = "AI models on a turning wheel, one after another lands in the middle",
 }: ModelWheelProps) {
+  // No models: the defaults. Fewer than 7: repeated until the drum is full, so it never turns half empty
+  const models = useMemo(() => {
+    const base = given.length ? given : defaultModels;
+    let out = base;
+    while (out.length < 7) out = [...out, ...base];
+    return out;
+  }, [given]);
   const root = useRef<HTMLDivElement>(null);
   const rows = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -220,7 +227,7 @@ export function ModelWheel({
       <div className="ui-mw-drum" aria-hidden="true">
         {models.map((m, i) => (
           <div
-            key={m.name}
+            key={`${m.name}:${i}`}
             ref={(node) => {
               rows.current[i] = node;
             }}

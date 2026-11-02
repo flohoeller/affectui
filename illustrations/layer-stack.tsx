@@ -52,7 +52,8 @@ const TOP = 109; // y of the top layer's back corner when nothing is lifted
 
 export function LayerStack({ items = defaultItems, defaultIndex = 0, interval = 2600, onChange, className }: LayerStackProps) {
   const id = "ui-lyr" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
-  const list = items.slice(0, 5);
+  // No items: the defaults rather than an empty highlighted row
+  const list = (items.length ? items : defaultItems).slice(0, 5);
   const [active, setActive] = useState(Math.min(defaultIndex, list.length - 1));
   const [paused, setPaused] = useState(false);
   const touched = useRef(false);
@@ -298,6 +299,7 @@ const css = /* css */ `
 }
 .ui-lyr-row:focus-visible { outline: 2px solid var(--ui-lyr-accent); outline-offset: -2px; }
 .ui-lyr-title {
+  flex: 0 1 auto;
   min-width: 0;
   overflow: hidden;
   font-size: calc(14 * var(--u));
@@ -310,7 +312,13 @@ const css = /* css */ `
   transition: color 300ms ease;
 }
 .ui-lyr-hint {
-  flex: none;
+  /* The title comes first – the hint gives way and ends in … */
+  flex: 0 10000 auto;
+  min-width: 0;
+  max-width: 45%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
   font-size: calc(12 * var(--u));
   line-height: 1.3;
   color: var(--ui-lyr-muted);

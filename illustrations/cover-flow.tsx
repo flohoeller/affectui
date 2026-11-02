@@ -341,7 +341,15 @@ export function CoverFlow({
     <div className="ui-cf__media">
       {item.cover ??
         (item.image ? (
-          <img src={item.image} alt={decorative ? "" : (item.alt ?? item.title ?? "")} draggable={false} loading="lazy" decoding="async" />
+          <img
+            src={item.image}
+            alt={decorative ? "" : (item.alt ?? item.title ?? "")}
+            draggable={false}
+            loading="lazy"
+            decoding="async"
+            // A picture that doesn't load leaves the plain cover instead of a broken image and its alt text
+            onError={(e) => (e.currentTarget.style.visibility = "hidden")}
+          />
         ) : null)}
     </div>
   );
@@ -431,7 +439,13 @@ export function CoverFlow({
             </button>
           )}
           </div>
-          {ticks && count > 1 && (
+          {/* Up to 15 covers a tick each – beyond that a quiet count, ticks would run past the edge */}
+          {ticks && count > 15 && (
+            <div className="ui-cf__counter" aria-hidden="true">
+              {active + 1} / {count}
+            </div>
+          )}
+          {ticks && count > 1 && count <= 15 && (
             <div className="ui-cf__ticks">
               {items.map((item, i) => (
                 <button
@@ -612,6 +626,7 @@ const css = /* css */ `
   gap: 20px;
   min-height: 44px;
 }
+.ui-cf__counter { color: var(--ui-cf-muted); font-size: 12px; line-height: 14px; font-variant-numeric: tabular-nums; }
 .ui-cf__ticks {
   display: flex;
   align-items: center;

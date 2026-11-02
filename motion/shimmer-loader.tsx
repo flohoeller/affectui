@@ -46,6 +46,7 @@ export function Skeleton({ width, height, radius, circle, className, style }: Sk
         className={["ui-shm", className].filter(Boolean).join(" ")}
         aria-hidden="true"
         style={{
+          flexShrink: circle || typeof width === "number" ? 0 : undefined,
           width: w,
           height: circle ? (w ?? len(height)) : len(height),
           borderRadius: circle ? "50%" : len(radius),
@@ -85,7 +86,9 @@ const css = /* css */ `
 /* Skeleton: one fixed gradient for the whole viewport, so all blocks sweep together */
 .ui-shm {
   display: block;
-  flex: none;
+  /* Fixed sizes keep their size in a row; a % width shrinks to the room that's left */
+  flex: 0 1 auto;
+  min-width: 0;
   width: 100%;
   height: 12px;
   max-width: 100%;

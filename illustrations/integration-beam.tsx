@@ -64,6 +64,11 @@ export function IntegrationBeam({
   className,
   label,
 }: IntegrationBeamProps) {
+  // No tools on either side: the defaults rather than a lone center tile
+  if (!left.length && !right.length) {
+    left = DEFAULT_LEFT;
+    right = DEFAULT_RIGHT;
+  }
   const uid = "ui-ib" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const tools = [...left, ...right];
   const n = tools.length;
@@ -780,8 +785,9 @@ const css = /* css */ `
     row-gap: 78px;
     padding: 0 0 4px;
   }
-  .ui-ib__group { flex-direction: row; gap: clamp(14px, 7cqw, 34px); }
-  .ui-ib__tool { width: 56px; height: 56px; border-radius: 17px; }
+  /* Many tools in a row: the tiles get smaller (down to 36px) instead of running past the edge */
+  .ui-ib__group { flex-direction: row; justify-content: center; width: 100%; gap: clamp(8px, 4cqw, 34px); }
+  .ui-ib__tool { flex: 0 1 56px; width: auto; min-width: 36px; height: auto; aspect-ratio: 1; border-radius: 17px; }
   .ui-ib__center { width: 76px; height: 76px; border-radius: 23px; }
   /* Tooltips sit between the rows; the outer tools align theirs to their edge */
   .ui-ib__tip,

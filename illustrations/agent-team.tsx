@@ -102,8 +102,10 @@ export function AgentTeam({ prompt = "Build a team to work my inbound pipeline",
       {/* Prompt */}
       <div className="ui-at-prompt" aria-hidden="true">
         <span className="ui-at-text">
-          {prompt.slice(0, typed)}
-          <span className="ui-at-caret" />
+          <bdi className="ui-at-typed">
+            {prompt.slice(0, typed)}
+            <span className="ui-at-caret" />
+          </bdi>
         </span>
         <span className="ui-at-send">
           <svg viewBox="0 0 24 24" aria-hidden="true">
@@ -267,12 +269,16 @@ const css = /* css */ `
   flex: 1;
   min-width: 0;
   overflow: hidden;
+  /* A long prompt keeps its newest letters in view as it types: right-to-left overflow, left-aligned while it fits */
+  direction: rtl;
+  text-align: left;
   font-size: calc(15 * var(--u));
   line-height: 1.3;
   letter-spacing: -0.01em;
   white-space: nowrap;
   color: var(--ui-at-text);
 }
+.ui-at-typed { direction: ltr; unicode-bidi: isolate; }
 .ui-at-caret {
   display: inline-block;
   width: calc(1.6 * var(--u));
@@ -385,6 +391,9 @@ const css = /* css */ `
   color: var(--ui-at-text);
 }
 .ui-at-role:not(:has(.ui-at-tools)) { padding-left: calc(15 * var(--u)); }
+/* A long role ends in … inside its pill – the pills never run into each other */
+.ui-at-role { max-width: calc(184 * var(--u)); }
+.ui-at-role > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .ui-at-tools { display: flex; }
 .ui-at-tool {
   display: grid;

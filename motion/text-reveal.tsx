@@ -28,6 +28,10 @@ export type TextRevealProps = {
   className?: string;
 };
 
+/** Letters as people see them – a family emoji or a Thai syllable with its marks stays one piece */
+const segmenter = typeof Intl !== "undefined" && "Segmenter" in Intl ? new Intl.Segmenter(undefined, { granularity: "grapheme" }) : null;
+const graphemes = (s: string) => (segmenter ? Array.from(segmenter.segment(s), (x) => x.segment) : Array.from(s));
+
 export function TextReveal({ text, by = "word", stagger = 40, delay = 0, duration = 700, as: Tag = "p", once = true, className }: TextRevealProps) {
   const ref = useRef<HTMLElement>(null);
   const [shown, setShown] = useState(false);
@@ -46,7 +50,8 @@ export function TextReveal({ text, by = "word", stagger = 40, delay = 0, duratio
           }
         }
       },
-      { threshold: 0.3 },
+      // From the first visible pixel – a long paragraph taller than the screen would never reach 30%
+      { threshold: 0 },
     );
     io.observe(el);
     return () => io.disconnect();
@@ -67,7 +72,7 @@ export function TextReveal({ text, by = "word", stagger = 40, delay = 0, duratio
     // Letter by letter: the letters of a word sit in one unbreakable group
     return (
       <span key={k} className="ui-trv__w">
-        {Array.from(part).map((ch, c) => (
+        {graphemes(part).map((ch, c) => (
           <span key={c} className="ui-trv__p" style={{ "--ui-trv-i": i++ } as CSSProperties}>
             {ch}
           </span>
@@ -118,8 +123,12 @@ const css = /* css */ `
 }
 .ui-trv__w {
   display: inline-block;
+  max-width: 100%;
   white-space: nowrap;
 }
+/* A word longer than the line breaks inside instead of running past it */
+.ui-trv__p, .ui-trv__w { overflow-wrap: anywhere; }
+.ui-trv__w:has(> .ui-trv__p) { white-space: normal; }
 .ui-trv__p {
   display: inline-block;
   opacity: 0;
