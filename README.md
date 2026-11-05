@@ -229,8 +229,8 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 | Name | What it is | Install |
 | --- | --- | --- |
-| [Logo Marquee](https://www.affectui.com/blocks/logo-marquee) | The endless “Trusted by” strip | `npx shadcn@latest add https://www.affectui.com/r/logo-marquee.json` |
-| [Testimonial Wall](https://www.affectui.com/blocks/testimonial-wall) | The landing-page wall of quotes | `npx shadcn@latest add https://www.affectui.com/r/testimonial-wall.json` |
+| [Logo Marquee](https://www.affectui.com/blocks/logo-marquee) | The endless “Trusted by” strip | `npx shadcn@latest add https://www.affectui.com/r/logo-marquee-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/logo-marquee.json`</sub> |
+| [Testimonial Wall](https://www.affectui.com/blocks/testimonial-wall) | The landing-page wall of quotes | `npx shadcn@latest add https://www.affectui.com/r/testimonial-wall-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/testimonial-wall.json`</sub> |
 
 ## Illustrations
 
@@ -265,7 +265,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 ## affectUI Pro
 
-102 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+101 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 

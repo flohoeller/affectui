@@ -312,6 +312,26 @@ export function LogoMarquee({
     );
   };
 
+  /* ---------- Keyboard: arrows step between linked logos, or scrub a strip without links ---------- */
+
+  const hasLinks = logos.some((l) => l.href);
+  const onKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+    const back = e.key === "ArrowLeft";
+    if (e.target instanceof HTMLAnchorElement) {
+      const list = Array.from(e.target.closest("ul")?.querySelectorAll<HTMLAnchorElement>("a[href]") ?? []);
+      const next = list[list.indexOf(e.target) + (back ? -1 : 1)];
+      if (next) {
+        e.preventDefault();
+        next.focus();
+      }
+      return;
+    }
+    if (reduced || e.target !== e.currentTarget) return;
+    e.preventDefault();
+    for (const s of state.current) if (s) s.seek += back ? -160 : 160;
+  };
+
   // Nothing to show – no empty, labelled region
   if (logos.length === 0) return null;
 
@@ -329,6 +349,9 @@ export function LogoMarquee({
         style={vars}
         role="region"
         aria-label={label}
+        // Without links the strip itself is one tab stop: focus pauses it and the arrows scrub it
+        tabIndex={!hasLinks && !reduced ? 0 : undefined}
+        onKeyDown={onKeyDown}
         data-labels={labels}
         data-grayscale={grayscale || undefined}
         data-static={reduced || undefined}
@@ -459,6 +482,7 @@ const css = /* css */ `
   -webkit-user-drag: none;
 }
 .ui-lm[data-labels="below"] .ui-lm__link { flex-direction: column; gap: 8px; }
+.ui-lm:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: -2px; border-radius: 8px; }
 .ui-lm__link:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: 4px; }
 
 /* Consistent optical height: every mark fills the same box, nudged by its own scale */

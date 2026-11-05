@@ -70,14 +70,18 @@ const firstChar = (word: string) =>
     ? new Intl.Segmenter().segment(word)[Symbol.iterator]().next().value?.segment
     : Array.from(word)[0]) ?? "";
 
+/** Suffixes that are not a family name – "Christopher Montgomery III" reads "CM", not "CI" */
+const SUFFIX = /^(jr|sr|i{1,3}|iv|v|vi|phd|md|esq)\.?,?$/i;
+
+/** First and last word, so "María José de la Cruz y Fernández" reads "MF" */
 const initials = (name: string) => {
   const words = name.split(/\s+/).filter(Boolean);
   // Words that start with a letter win, so "🦊 Fox" reads "F"
   const named = words.filter((w) => /^\p{L}/u.test(w));
-  return (named.length ? named : words)
-    .slice(0, 2)
-    .map((p) => firstChar(p).toUpperCase())
-    .join("") || "?";
+  const list = named.length ? named : words;
+  const core = list.length > 1 ? list.filter((w, i) => i === 0 || !SUFFIX.test(w)) : list;
+  const picked = core.length > 1 ? [core[0], core[core.length - 1]] : core;
+  return picked.map((p) => firstChar(p).toUpperCase()).join("") || "?";
 };
 
 /** Shows the full text as a tooltip, but only when it is cut off */
@@ -346,14 +350,14 @@ export function TestimonialWall({
           ) : null}
           {t.quote.trim() && (
             <blockquote className="ui-tw__quote">
-              <p onPointerEnter={showFull}>{t.quote.trim()}</p>
+              <p dir="auto" onPointerEnter={showFull}>{t.quote.trim()}</p>
             </blockquote>
           )}
           <figcaption className="ui-tw__who">
             <Avatar src={t.avatar} name={t.name} />
             <span className="ui-tw__id">
               <span className="ui-tw__name">
-                <span className="ui-tw__name-text" onPointerEnter={showFull}>{t.name.trim()}</span>
+                <span className="ui-tw__name-text" dir="auto" onPointerEnter={showFull}>{t.name.trim()}</span>
                 {t.verified ? (
                   <svg className="ui-tw__verified" viewBox="0 0 16 16" role="img" aria-label="Verified customer">
                     <circle cx="8" cy="8" r="7" />
@@ -361,7 +365,7 @@ export function TestimonialWall({
                   </svg>
                 ) : null}
               </span>
-              {meta ? <span className="ui-tw__meta" onPointerEnter={showFull}>{meta}</span> : null}
+              {meta ? <span className="ui-tw__meta" dir="auto" onPointerEnter={showFull}>{meta}</span> : null}
             </span>
           </figcaption>
         </figure>
@@ -576,7 +580,8 @@ const css = /* css */ `
 .ui-tw__id { display: grid; gap: 1px; min-width: 0; }
 .ui-tw__name {
   display: flex;
-  align-items: center;
+  /* Top-aligned, so the check stays on the first line when a long name wraps */
+  align-items: flex-start;
   gap: 5px;
   min-width: 0;
   font-size: 13.5px;
@@ -584,9 +589,17 @@ const css = /* css */ `
   line-height: 18px;
   color: var(--ui-tw-ink);
 }
-/* The name wins over the role: it shrinks last and only then truncates */
-.ui-tw__name-text { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.ui-tw__verified { flex: none; width: 14px; height: 14px; fill: var(--ui-tw-faint); }
+/* The name identifies the person: it wraps to a second line (an email-like name breaks anywhere) and only then is cut */
+.ui-tw__name-text {
+  display: -webkit-box;
+  min-width: 0;
+  overflow: hidden;
+  overflow-wrap: anywhere;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+.ui-tw__verified { flex: none; margin-top: 2px; width: 14px; height: 14px; fill: var(--ui-tw-faint); }
 /* Role and company wrap once at most, then end in an ellipsis */
 .ui-tw__meta {
   min-width: 0;
