@@ -265,7 +265,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 ## affectUI Pro
 
-103 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+102 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 
