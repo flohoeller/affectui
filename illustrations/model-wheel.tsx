@@ -8,7 +8,7 @@ import { useEffect, useMemo, useRef } from "react";
  * Every few seconds the drum rolls one model further and locks onto it like a magnet;
  * the model in the middle sits on a soft gray fill that follows the length of its name.
  * Grab it and spin it: a flick keeps it turning, then it snaps onto the closest model. Hover holds it.
- * Runs only while on screen; prefers-reduced-motion keeps it still.
+ * Runs only while on screen; prefers-reduced-motion keeps it still – no auto turn, and a drag lands without swinging.
  */
 
 export type WheelModel = { name: string; viewBox: string; color: string; d: string };
@@ -170,6 +170,15 @@ export function ModelWheel({
       if (!drag) return;
       drag = null;
       el.removeAttribute("data-dragging");
+      // Reduced motion: no swing and no overshoot – it lands on the closest row at once
+      if (still) {
+        offset = target = ((Math.round(offset) % n) + n) % n;
+        vel = 0;
+        cancelAnimationFrame(frame);
+        frame = 0;
+        place();
+        return;
+      }
       // Throw: the swing carries on a little, then the magnet locks the closest row
       target = Math.round(offset + vel * 0.22);
       spring(140, 0.68);
@@ -308,6 +317,11 @@ const css = /* css */ `
 .ui-mw-label { display: inline-flex; align-items: center; gap: 10px; }
 .ui-mw-row svg { flex: none; width: 18px; height: 18px; color: var(--ui-mw-mark); }
 .ui-mw-row[data-active] { font-weight: 500; color: var(--ui-mw-ink); }
+
+/* Reduced motion: the fill jumps to the new name instead of gliding */
+@media (prefers-reduced-motion: reduce) {
+  .ui-mw-fill { transition: none; }
+}
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor */
 :where(.dark, [data-theme="dark"]) .ui-mw {
