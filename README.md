@@ -119,6 +119,7 @@ Agent components, recorded live from [affectui.com](https://www.affectui.com). I
 ## Contents
 
 - [Why affectUI](#why-affectui)
+- [Choose the UI for your workflow](#choose-the-ui-for-your-workflow)
 - [Install](#install)
 - [Usage](#usage)
 - [Use it with AI tools](#use-it-with-ai-tools)
@@ -139,6 +140,19 @@ Agent components, recorded live from [affectui.com](https://www.affectui.com). I
 - **Dark mode built in.** Each item switches when an ancestor has the class `dark` or `data-theme="dark"`.
 - **Accessible by default.** Real buttons, labels, keyboard support and live regions where they matter.
 - **Responsive.** Container queries, so items adapt to the space they get, not just the window.
+
+## Choose the UI for your workflow
+
+affectUI is the presentation layer of an AI product. Your application supplies runtime data, connects tools and enforces permissions; the components render that state and expose callbacks for your actions.
+
+- **Agent UI:** task plans, run progress, decisions and outcomes for delegated work. Start with the [Agent UI guide](https://www.affectui.com/guides/agent-ui-react) or the [agent dashboard guide](https://www.affectui.com/guides/agent-dashboard-react).
+- **AI chat UI:** composers, streaming answers, citations and reply actions. Read [React components for AI chat](https://www.affectui.com/guides/ai-chat-ui-components-react).
+- **Human in the loop:** review a proposed action and its target before the backend executes it. Read [approvals and permissions](https://www.affectui.com/guides/human-in-the-loop-ui).
+- **Tool-call UI:** make tool activity, results and failures readable. Read [tool calls in an agent UI](https://www.affectui.com/guides/tool-calls-agent-ui).
+- **MCP UI:** present tools connected through MCP. The protocol connection and the finished interface are separate concerns; see the [MCP UI guide](https://www.affectui.com/guides/mcp-ui-react). The affectUI MCP server below helps coding assistants discover and install components.
+- **Generative UI:** map model-selected tools and validated data to known React views. Read [generative UI in React](https://www.affectui.com/guides/generative-ui-react), including fallback states and why this does not require executing arbitrary generated code.
+
+Browse all [guides](https://www.affectui.com/guides), follow the [AI setup docs](https://www.affectui.com/docs/ai), or [compare UI libraries](https://www.affectui.com/compare) to choose the pieces that fit your application.
 
 ## Install
 
