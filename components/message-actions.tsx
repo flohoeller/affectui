@@ -576,7 +576,9 @@ const css = /* css */ `
 }
 .ui-ma *, .ui-ma *::before, .ui-ma *::after { box-sizing: border-box; }
 :where(.ui-ma) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.ui-ma button:focus-visible, .ui-ma input:focus-visible { outline: 2px solid var(--ui-ma-focus); outline-offset: 2px; }
+.ui-ma button:focus-visible { outline: 2px solid var(--ui-ma-focus); outline-offset: 2px; }
+/* Typing in a field: no ring – the caret shows where you are, the edge only firms up a little */
+.ui-ma .ui-ma__input:is(:focus, :focus-visible) { outline: none; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--ui-ma-ink) 14%, transparent); }
 .ui-ma svg { display: block; flex: none; }
 .ui-ma__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 

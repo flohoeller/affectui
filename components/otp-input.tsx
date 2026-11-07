@@ -578,8 +578,6 @@ const css = /* css */ `
 .ui-otp__input::selection { background: transparent; }
 .ui-otp__input:-webkit-autofill { -webkit-box-shadow: 0 0 0 100px transparent inset; transition: background-color 9999s; }
 .ui-otp__input[readonly], .ui-otp__input:disabled { cursor: default; }
-/* Keyboard focus is shown by the ring – a thin outline joins it for keyboard users */
-.ui-otp__slots:has(.ui-otp__input:focus-visible) .ui-otp__ring { box-shadow: inset 0 0 0 1.5px var(--ui-otp-ink), 0 0 0 4px var(--ui-otp-halo), 0 0 0 6px var(--ui-otp-focus); }
 
 /* Verifying: a soft light passes over the boxes, one after another */
 .ui-otp__box::after {

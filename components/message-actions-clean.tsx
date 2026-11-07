@@ -592,7 +592,9 @@ const css = /* css */ `
 }
 .ui-mac *, .ui-mac *::before, .ui-mac *::after { box-sizing: border-box; }
 :where(.ui-mac) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.ui-mac button:focus-visible, .ui-mac input:focus-visible { outline: 2px solid var(--ui-mac-focus); outline-offset: 1px; }
+.ui-mac button:focus-visible { outline: 2px solid var(--ui-mac-focus); outline-offset: 1px; }
+/* Typing in a field: no ring – the caret shows where you are, the edge only firms up a little */
+.ui-mac .ui-mac__input:is(:focus, :focus-visible) { outline: none; box-shadow: var(--ui-mac-shadow), inset 0 0 0 0.5px var(--ui-mac-faint); }
 .ui-mac svg { display: block; flex: none; }
 .ui-mac__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
