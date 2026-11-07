@@ -56,7 +56,7 @@ const Stop = ({ offset, color, opacity }: { offset: number; color: string; opaci
 
 export function GlowCloud({
   background = true,
-  color = "blue",
+  color = "orange",
   followPointer = true,
   className,
   label = "A glowing cloud with eyes that floats, looks around and blinks",

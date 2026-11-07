@@ -56,7 +56,7 @@ const Stop = ({ offset, color, opacity }: { offset: number; color: string; opaci
 
 export function FrostCloud({
   background = true,
-  color = "orange",
+  color = "blue",
   followPointer = true,
   className,
   label = "A frosted white cloud with eyes that floats, looks around and blinks",
