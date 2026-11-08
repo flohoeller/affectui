@@ -304,7 +304,7 @@ const css = /* css */ `
   --ui-tf-surface: #ffffff;
   --ui-tf-line: #e6e6e8;
   --ui-tf-edge: #d4d4d8;
-  --ui-tf-edge-focus: #8e8e95;
+  --ui-tf-edge-focus: #b4b4bb;
   --ui-tf-wash: #f4f4f5;
   --ui-tf-readonly: #fafafa;
   --ui-tf-danger: #dc3c42;
@@ -505,7 +505,7 @@ const css = /* css */ `
   --ui-tf-surface: #19191b;
   --ui-tf-line: #2a2a2e;
   --ui-tf-edge: #3a3a40;
-  --ui-tf-edge-focus: #6e6e76;
+  --ui-tf-edge-focus: #4e4e55;
   --ui-tf-wash: #26262a;
   --ui-tf-readonly: #151517;
   --ui-tf-danger: #ff6369;

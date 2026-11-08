@@ -308,7 +308,7 @@ const css = /* css */ `
   --ui-tfc-readonly: rgba(0, 0, 0, 0.02);
   --ui-tfc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.45), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tfc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.28), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-tfc-danger: #d93d42;
   --ui-tfc-danger-edge: rgba(229, 72, 77, 0.55);
   --ui-tfc-danger-edge-focus: rgba(229, 72, 77, 0.8);
@@ -514,7 +514,7 @@ const css = /* css */ `
   --ui-tfc-readonly: rgba(255, 255, 255, 0.03);
   --ui-tfc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.42), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tfc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tfc-danger: #ff6369;
   --ui-tfc-danger-edge: rgba(255, 99, 105, 0.5);
   --ui-tfc-danger-edge-focus: rgba(255, 99, 105, 0.75);
