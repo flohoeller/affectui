@@ -289,7 +289,7 @@ function CopyIcon() {
 function CheckIcon() {
   return (
     <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path className="ui-tf__check" d="M5 14.5s1.5 0 3.5 3.5c0 0 5.559-9.167 10.5-11" pathLength={1} />
+      <path className="ui-tf__check" d="M5 12.5 9.5 17 19 7" pathLength={1} />
     </svg>
   );
 }
