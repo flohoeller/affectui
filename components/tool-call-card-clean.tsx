@@ -124,7 +124,7 @@ export function ToolCallCard({
 
   return (
     <div
-      className={["ui-tcc", className].filter(Boolean).join(" ")}
+      className={["ui-tclc", className].filter(Boolean).join(" ")}
       data-status={status}
       data-open={open || undefined}
     >
@@ -132,13 +132,13 @@ export function ToolCallCard({
       <style href="ui-tool-call-clean" precedence="default">
         {css}
       </style>
-      <span className="ui-tcc-sr" role="status" aria-live="polite">
+      <span className="ui-tclc-sr" role="status" aria-live="polite">
         {announce}
       </span>
 
       <button
         type="button"
-        className="ui-tcc__head"
+        className="ui-tclc__head"
         aria-expanded={open}
         aria-controls={`${id}-body`}
         onClick={() => {
@@ -146,44 +146,44 @@ export function ToolCallCard({
           setOpen(!open);
         }}
       >
-        <span className="ui-tcc__icon" aria-hidden="true">
+        <span className="ui-tclc__icon" aria-hidden="true">
           {icon ?? <WrenchIcon />}
         </span>
-        <span className="ui-tcc__main">
-          <code className="ui-tcc__name" title={name}>
+        <span className="ui-tclc__main">
+          <code className="ui-tclc__name" title={name}>
             {name}
           </code>
           {summary != null && (
-            <span className="ui-tcc__summary" dir="auto" title={typeof summary === "string" ? summary : undefined}>
+            <span className="ui-tclc__summary" dir="auto" title={typeof summary === "string" ? summary : undefined}>
               {summary}
             </span>
           )}
         </span>
-        <span className="ui-tcc__status" key={status}>
+        <span className="ui-tclc__status" key={status}>
           {status === "running" && <Spinner />}
           {status === "success" && (
-            <svg className="ui-tcc__ok" viewBox="0 0 16 16" aria-hidden="true">
+            <svg className="ui-tclc__ok" viewBox="0 0 16 16" aria-hidden="true">
               <circle cx="8" cy="8" r="7" />
               <path d="M5.1 8.2 7.1 10.1 10.9 6" pathLength={1} />
             </svg>
           )}
           {status === "error" && <ErrorIcon />}
-          <span className="ui-tcc__time">
+          <span className="ui-tclc__time">
             {status === "error" ? "Failed" : ms != null ? formatMs(ms, status === "running") : null}
           </span>
         </span>
         <Chevron />
       </button>
 
-      <div className="ui-tcc__body" id={`${id}-body`} inert={!open}>
-        <div className="ui-tcc__clip">
-          <div className="ui-tcc__sections">
+      <div className="ui-tclc__body" id={`${id}-body`} inert={!open}>
+        <div className="ui-tclc__clip">
+          <div className="ui-tclc__sections">
             {status === "error" && (
-              <div className="ui-tcc__error">
+              <div className="ui-tclc__error">
                 <ErrorIcon />
-                <p className="ui-tcc__error-text" dir="auto">{error ?? "The tool call failed."}</p>
+                <p className="ui-tclc__error-text" dir="auto">{error ?? "The tool call failed."}</p>
                 {onRetry && (
-                  <button type="button" className="ui-tcc__retry" onClick={onRetry}>
+                  <button type="button" className="ui-tclc__retry" onClick={onRetry}>
                     <svg viewBox="0 0 16 16" aria-hidden="true">
                       <path d="M2.75 8a5.25 5.25 0 1 0 1.6-3.77" />
                       <path d="M2.5 2.5v2.75h2.75" />
@@ -197,15 +197,15 @@ export function ToolCallCard({
             {result !== undefined ? (
               <CodeSection label="Result" value={result} cap={maxCodeHeight} />
             ) : status === "running" ? (
-              <div className="ui-tcc__section">
-                <div className="ui-tcc__section-head">
-                  <span className="ui-tcc__label">Result</span>
+              <div className="ui-tclc__section">
+                <div className="ui-tclc__section-head">
+                  <span className="ui-tclc__label">Result</span>
                 </div>
-                <p className="ui-tcc__pending">Waiting for result…</p>
+                <p className="ui-tclc__pending">Waiting for result…</p>
               </div>
             ) : null}
             {args === undefined && result === undefined && status === "success" && (
-              <p className="ui-tcc__pending">No arguments or result.</p>
+              <p className="ui-tclc__pending">No arguments or result.</p>
             )}
           </div>
         </div>
@@ -253,20 +253,20 @@ export function ToolCallGroup({
 
   return (
     <div
-      className={["ui-tcc-group", className].filter(Boolean).join(" ")}
+      className={["ui-tclc-group", className].filter(Boolean).join(" ")}
       data-running={running || undefined}
       data-open={open || undefined}
     >
       <style href="ui-tool-call-clean" precedence="default">
         {css}
       </style>
-      <span className="ui-tcc-sr" role="status" aria-live="polite">
+      <span className="ui-tclc-sr" role="status" aria-live="polite">
         {running ? runningLabel : `${count}${failed ? `, ${failed} failed` : ""}`}
       </span>
 
       <button
         type="button"
-        className="ui-tcc-group__head"
+        className="ui-tclc-group__head"
         aria-expanded={open}
         aria-controls={`${id}-list`}
         onClick={() => {
@@ -274,26 +274,26 @@ export function ToolCallGroup({
           onOpenChange?.(!open);
         }}
       >
-        <span className="ui-tcc-group__stack" aria-hidden="true">
+        <span className="ui-tclc-group__stack" aria-hidden="true">
           {icons.map((c, i) => (
-            <span className="ui-tcc__icon" key={calls.length - icons.length + i}>
+            <span className="ui-tclc__icon" key={calls.length - icons.length + i}>
               {c.icon ?? <WrenchIcon />}
             </span>
           ))}
         </span>
-        <span className="ui-tcc-group__title" key={running ? "busy" : "done"}>
-          <span className={running ? "ui-tcc-group__label ui-tcc__shine" : "ui-tcc-group__label"} data-text={title}>
+        <span className="ui-tclc-group__title" key={running ? "busy" : "done"}>
+          <span className={running ? "ui-tclc-group__label ui-tclc__shine" : "ui-tclc-group__label"} data-text={title}>
             {title}
           </span>
-          {!running && failed > 0 && <span className="ui-tcc-group__failed">· {failed} failed</span>}
-          {ms != null && <span className="ui-tcc-group__time">· {formatMs(ms, running)}</span>}
+          {!running && failed > 0 && <span className="ui-tclc-group__failed">· {failed} failed</span>}
+          {ms != null && <span className="ui-tclc-group__time">· {formatMs(ms, running)}</span>}
         </span>
         <Chevron />
       </button>
 
-      <div className="ui-tcc__body" id={`${id}-list`} inert={!open}>
-        <div className="ui-tcc__clip">
-          <div className="ui-tcc-group__list">{children}</div>
+      <div className="ui-tclc__body" id={`${id}-list`} inert={!open}>
+        <div className="ui-tclc__clip">
+          <div className="ui-tclc-group__list">{children}</div>
         </div>
       </div>
     </div>
@@ -325,14 +325,14 @@ function CodeSection({ label, value, cap }: { label: string; value: unknown; cap
   const capped = height > cap + 24;
 
   return (
-    <div className="ui-tcc__section">
-      <div className="ui-tcc__section-head">
-        <span className="ui-tcc__label">{label}</span>
+    <div className="ui-tclc__section">
+      <div className="ui-tclc__section-head">
+        <span className="ui-tclc__label">{label}</span>
         <CopyButton text={text} label={label.toLowerCase()} />
       </div>
       <pre
         ref={pre}
-        className="ui-tcc__code"
+        className="ui-tclc__code"
         data-capped={(capped && !full) || undefined}
         data-scroll={(capped && full && height > OPEN_MAX) || undefined}
         // Open, a very long block stops at a few screens and scrolls inside – no 200,000px card
@@ -341,7 +341,7 @@ function CodeSection({ label, value, cap }: { label: string; value: unknown; cap
         <code>{json ? highlight(text) : text}</code>
       </pre>
       {capped && (
-        <button type="button" className="ui-tcc__more" aria-expanded={full} onClick={() => setFull(!full)}>
+        <button type="button" className="ui-tclc__more" aria-expanded={full} onClick={() => setFull(!full)}>
           {full ? "Show less" : "Show all"}
         </button>
       )}
@@ -360,17 +360,17 @@ function CopyButton({ text, label }: { text: string; label: string }) {
   return (
     <button
       type="button"
-      className="ui-tcc__copy"
+      className="ui-tclc__copy"
       data-copied={copied || undefined}
       aria-label={copied ? "Copied" : `Copy ${label}`}
       title={copied ? "Copied" : `Copy ${label}`}
       onClick={() => copyText(text).then((ok) => ok && setCopied(true))}
     >
-      <svg className="ui-tcc__copy-icon" viewBox="0 0 16 16" aria-hidden="true">
+      <svg className="ui-tclc__copy-icon" viewBox="0 0 16 16" aria-hidden="true">
         <rect x="5.5" y="5.5" width="8.5" height="8.5" rx="2" />
         <path d="M10.5 3.75v-.25A1.5 1.5 0 0 0 9 2H3.5A1.5 1.5 0 0 0 2 3.5V9a1.5 1.5 0 0 0 1.5 1.5h.25" />
       </svg>
-      <svg className="ui-tcc__copy-done" viewBox="0 0 16 16" aria-hidden="true">
+      <svg className="ui-tclc__copy-done" viewBox="0 0 16 16" aria-hidden="true">
         <path d="M3.5 8.4 6.6 11.3 12.5 4.9" pathLength={1} />
       </svg>
     </button>
@@ -379,7 +379,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 
 function Spinner() {
   return (
-    <svg className="ui-tcc__spinner" viewBox="0 0 16 16" aria-hidden="true">
+    <svg className="ui-tclc__spinner" viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="8" cy="8" r="6" />
       <path d="M8 2a6 6 0 0 1 6 6" />
     </svg>
@@ -388,7 +388,7 @@ function Spinner() {
 
 function ErrorIcon() {
   return (
-    <svg className="ui-tcc__err" viewBox="0 0 16 16" aria-hidden="true">
+    <svg className="ui-tclc__err" viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="8" cy="8" r="7" />
       <path d="M8 4.9v3.5M8 10.9v.1" />
     </svg>
@@ -397,7 +397,7 @@ function ErrorIcon() {
 
 function Chevron() {
   return (
-    <svg className="ui-tcc__chevron" viewBox="0 0 12 12" aria-hidden="true">
+    <svg className="ui-tclc__chevron" viewBox="0 0 12 12" aria-hidden="true">
       <path d="M3.5 5.25 6 7.75l2.5-2.5" />
     </svg>
   );
@@ -480,7 +480,7 @@ function highlight(text: string): ReactNode[] {
     if (m.index > last) out.push(text.slice(last, m.index));
     if (m[1] && m[2]) {
       out.push(
-        <span key={m.index} className="ui-tcc__t-key">
+        <span key={m.index} className="ui-tclc__t-key">
           {m[1]}
         </span>,
         m[2],
@@ -488,7 +488,7 @@ function highlight(text: string): ReactNode[] {
     } else {
       const kind = m[1] ? "str" : /^[tfn]/.test(m[0]) ? "lit" : "num";
       out.push(
-        <span key={m.index} className={`ui-tcc__t-${kind}`}>
+        <span key={m.index} className={`ui-tclc__t-${kind}`}>
           {m[0]}
         </span>,
       );
@@ -517,55 +517,55 @@ async function copyText(text: string) {
 }
 
 const css = /* css */ `
-/* Colors and motion as variables – override them on .ui-tcc / .ui-tcc-group */
-.ui-tcc,
-.ui-tcc-group {
-  --ui-tcc-card: #ffffff;
-  --ui-tcc-strong: #000000;
-  --ui-tcc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tcc-text: rgba(0, 0, 0, 0.61);
-  --ui-tcc-muted: rgba(0, 0, 0, 0.45);
-  --ui-tcc-faint: rgba(0, 0, 0, 0.27);
-  --ui-tcc-icon: rgba(0, 0, 0, 0.447);
-  --ui-tcc-line: rgba(0, 0, 0, 0.06);
-  --ui-tcc-wash: rgba(0, 0, 0, 0.03);
-  --ui-tcc-wash-big: rgba(0, 0, 0, 0.015);
+/* Colors and motion as variables – override them on .ui-tclc / .ui-tclc-group */
+.ui-tclc,
+.ui-tclc-group {
+  --ui-tclc-card: #ffffff;
+  --ui-tclc-strong: #000000;
+  --ui-tclc-ink: rgba(0, 0, 0, 0.88);
+  --ui-tclc-text: rgba(0, 0, 0, 0.61);
+  --ui-tclc-muted: rgba(0, 0, 0, 0.45);
+  --ui-tclc-faint: rgba(0, 0, 0, 0.27);
+  --ui-tclc-icon: rgba(0, 0, 0, 0.447);
+  --ui-tclc-line: rgba(0, 0, 0, 0.06);
+  --ui-tclc-wash: rgba(0, 0, 0, 0.03);
+  --ui-tclc-wash-big: rgba(0, 0, 0, 0.015);
   /* The code panel: a 2% black frame, kept opaque so the fade of capped blocks can end on it */
-  --ui-tcc-code: #fafafa;
-  --ui-tcc-accent: rgba(0, 96, 226, 0.765);
-  --ui-tcc-red: #d93a2b;
-  --ui-tcc-red-bg: rgba(217, 58, 43, 0.04);
-  --ui-tcc-red-line: rgba(217, 58, 43, 0.14);
-  --ui-tcc-key: rgba(0, 0, 0, 0.88);
-  --ui-tcc-str: rgba(0, 123, 172, 0.9);
-  --ui-tcc-num: #b25b0c;
-  --ui-tcc-lit: #5b5bd6;
-  --ui-tcc-shine: rgba(255, 255, 255, 0.82);
+  --ui-tclc-code: #fafafa;
+  --ui-tclc-accent: rgba(0, 96, 226, 0.765);
+  --ui-tclc-red: #d93a2b;
+  --ui-tclc-red-bg: rgba(217, 58, 43, 0.04);
+  --ui-tclc-red-line: rgba(217, 58, 43, 0.14);
+  --ui-tclc-key: rgba(0, 0, 0, 0.88);
+  --ui-tclc-str: rgba(0, 123, 172, 0.9);
+  --ui-tclc-num: #b25b0c;
+  --ui-tclc-lit: #5b5bd6;
+  --ui-tclc-shine: rgba(255, 255, 255, 0.82);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-tcc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tcc-focus: rgba(0, 96, 226, 0.7);
-  --ui-tcc-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ui-tcc-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --ui-tclc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tclc-focus: rgba(0, 96, 226, 0.7);
+  --ui-tclc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tclc-mono: ui-monospace, "SF Mono", Menlo, monospace;
   box-sizing: border-box;
   container-type: inline-size;
   min-width: 0;
-  color: var(--ui-tcc-ink);
+  color: var(--ui-tclc-ink);
   font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
 }
-.ui-tcc *,
-.ui-tcc-group * { box-sizing: border-box; }
+.ui-tclc *,
+.ui-tclc-group * { box-sizing: border-box; }
 
-.ui-tcc {
+.ui-tclc {
   position: relative;
   border-radius: 10px;
-  background: var(--ui-tcc-card);
-  box-shadow: var(--ui-tcc-shadow);
+  background: var(--ui-tclc-card);
+  box-shadow: var(--ui-tclc-shadow);
 }
-.ui-tcc-sr {
+.ui-tclc-sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -575,7 +575,7 @@ const css = /* css */ `
 }
 
 /* Header row: icon, name + summary, status, chevron – everything truncates before it overflows */
-.ui-tcc__head {
+.ui-tclc__head {
   all: unset;
   box-sizing: border-box;
   display: flex;
@@ -588,126 +588,126 @@ const css = /* css */ `
   cursor: pointer;
   transition: background-color 160ms ease, border-radius 0ms linear 380ms;
 }
-.ui-tcc[data-open] .ui-tcc__head {
+.ui-tclc[data-open] .ui-tclc__head {
   border-radius: 10px 10px 0 0;
   transition: background-color 160ms ease;
 }
-.ui-tcc__head:focus-visible,
-.ui-tcc-group__head:focus-visible,
-.ui-tcc__copy:focus-visible,
-.ui-tcc__more:focus-visible,
-.ui-tcc__retry:focus-visible {
-  outline: 2px solid var(--ui-tcc-focus);
+.ui-tclc__head:focus-visible,
+.ui-tclc-group__head:focus-visible,
+.ui-tclc__copy:focus-visible,
+.ui-tclc__more:focus-visible,
+.ui-tclc__retry:focus-visible {
+  outline: 2px solid var(--ui-tclc-focus);
   outline-offset: 2px;
 }
 @media (hover: hover) {
-  .ui-tcc__head:hover { background: var(--ui-tcc-wash-big); }
-  .ui-tcc__head:hover .ui-tcc__chevron { stroke: var(--ui-tcc-ink); }
-  .ui-tcc-group__head:hover { background: var(--ui-tcc-wash); color: var(--ui-tcc-ink); }
-  .ui-tcc__copy:hover { background: var(--ui-tcc-wash-big); color: var(--ui-tcc-ink); }
-  .ui-tcc__more:hover { color: var(--ui-tcc-ink); }
-  .ui-tcc__retry:hover { background: var(--ui-tcc-wash-big); }
+  .ui-tclc__head:hover { background: var(--ui-tclc-wash-big); }
+  .ui-tclc__head:hover .ui-tclc__chevron { stroke: var(--ui-tclc-ink); }
+  .ui-tclc-group__head:hover { background: var(--ui-tclc-wash); color: var(--ui-tclc-ink); }
+  .ui-tclc__copy:hover { background: var(--ui-tclc-wash-big); color: var(--ui-tclc-ink); }
+  .ui-tclc__more:hover { color: var(--ui-tclc-ink); }
+  .ui-tclc__retry:hover { background: var(--ui-tclc-wash-big); }
 }
 
 /* The tool's icon: a plain 16px glyph, no tile */
-.ui-tcc__icon {
+.ui-tclc__icon {
   display: grid;
   place-items: center;
   flex: none;
   width: 16px;
   height: 16px;
-  color: var(--ui-tcc-icon);
+  color: var(--ui-tclc-icon);
 }
-.ui-tcc__icon > svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tclc__icon > svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 
-.ui-tcc__main {
+.ui-tclc__main {
   display: flex;
   align-items: baseline;
   gap: 8px;
   flex: 1;
   min-width: 0;
 }
-.ui-tcc__name {
+.ui-tclc__name {
   flex: 0 1 auto;
   max-width: 55%;
   overflow: hidden;
-  color: var(--ui-tcc-strong);
-  font-family: var(--ui-tcc-mono);
+  color: var(--ui-tclc-strong);
+  font-family: var(--ui-tclc-mono);
   font-size: 12px;
   font-weight: 500;
   letter-spacing: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.ui-tcc__summary {
+.ui-tclc__summary {
   flex: 1 1 0;
   min-width: 0;
   overflow: hidden;
-  color: var(--ui-tcc-text);
+  color: var(--ui-tclc-text);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.ui-tcc__status {
+.ui-tclc__status {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   flex: none;
-  color: var(--ui-tcc-muted);
+  color: var(--ui-tclc-muted);
   font-size: 12px;
   line-height: 16px;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  animation: ui-tcc-in 360ms var(--ui-tcc-ease) both;
+  animation: ui-tclc-in 360ms var(--ui-tclc-ease) both;
 }
-.ui-tcc[data-status="error"] .ui-tcc__status { color: var(--ui-tcc-red); font-weight: 500; }
-.ui-tcc__status > svg { width: 14px; height: 14px; flex: none; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.ui-tcc__spinner circle { stroke: var(--ui-tcc-line); stroke-width: 1.6; }
-.ui-tcc__spinner path { stroke: var(--ui-tcc-accent); stroke-width: 1.6; }
-.ui-tcc__spinner { animation: ui-tcc-spin 800ms linear infinite; }
+.ui-tclc[data-status="error"] .ui-tclc__status { color: var(--ui-tclc-red); font-weight: 500; }
+.ui-tclc__status > svg { width: 14px; height: 14px; flex: none; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tclc__spinner circle { stroke: var(--ui-tclc-line); stroke-width: 1.6; }
+.ui-tclc__spinner path { stroke: var(--ui-tclc-accent); stroke-width: 1.6; }
+.ui-tclc__spinner { animation: ui-tclc-spin 800ms linear infinite; }
 /* Done: a solid blue dot whose white check draws itself */
-.ui-tcc__ok { animation: ui-tcc-pop 460ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
-.ui-tcc__ok circle { fill: var(--ui-tcc-accent); }
-.ui-tcc__ok path { stroke: #fff; stroke-width: 1.5; stroke-dasharray: 1; stroke-dashoffset: 1; animation: ui-tcc-draw 360ms var(--ui-tcc-ease) 160ms forwards; }
-.ui-tcc__err circle { fill: var(--ui-tcc-red); }
-.ui-tcc__err path { stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
+.ui-tclc__ok { animation: ui-tclc-pop 460ms cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.ui-tclc__ok circle { fill: var(--ui-tclc-accent); }
+.ui-tclc__ok path { stroke: #fff; stroke-width: 1.5; stroke-dasharray: 1; stroke-dashoffset: 1; animation: ui-tclc-draw 360ms var(--ui-tclc-ease) 160ms forwards; }
+.ui-tclc__err circle { fill: var(--ui-tclc-red); }
+.ui-tclc__err path { stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
 
-.ui-tcc__chevron {
+.ui-tclc__chevron {
   flex: none;
   width: 12px;
   height: 12px;
   fill: none;
-  stroke: var(--ui-tcc-icon);
+  stroke: var(--ui-tclc-icon);
   stroke-width: 1.2;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: transform 360ms var(--ui-tcc-ease), stroke 160ms ease;
+  transition: transform 360ms var(--ui-tclc-ease), stroke 160ms ease;
 }
-.ui-tcc[data-open] > .ui-tcc__head .ui-tcc__chevron,
-.ui-tcc-group[data-open] > .ui-tcc-group__head .ui-tcc__chevron { transform: rotate(180deg); }
+.ui-tclc[data-open] > .ui-tclc__head .ui-tclc__chevron,
+.ui-tclc-group[data-open] > .ui-tclc-group__head .ui-tclc__chevron { transform: rotate(180deg); }
 
 /* Body: grows from 0fr to 1fr, so the height animates without measuring */
-.ui-tcc__body {
+.ui-tclc__body {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 380ms var(--ui-tcc-ease), opacity 240ms ease;
+  transition: grid-template-rows 380ms var(--ui-tclc-ease), opacity 240ms ease;
 }
-.ui-tcc[data-open] > .ui-tcc__body,
-.ui-tcc-group[data-open] > .ui-tcc__body {
+.ui-tclc[data-open] > .ui-tclc__body,
+.ui-tclc-group[data-open] > .ui-tclc__body {
   grid-template-rows: 1fr;
   opacity: 1;
 }
-.ui-tcc__clip { min-height: 0; overflow: hidden; }
-.ui-tcc__sections {
+.ui-tclc__clip { min-height: 0; overflow: hidden; }
+.ui-tclc__sections {
   display: grid;
   gap: 14px;
   padding: 12px 14px 14px;
-  border-top: 0.5px solid var(--ui-tcc-line);
+  border-top: 0.5px solid var(--ui-tclc-line);
 }
 
-.ui-tcc__section { display: grid; gap: 6px; min-width: 0; }
-.ui-tcc__section-head {
+.ui-tclc__section { display: grid; gap: 6px; min-width: 0; }
+.ui-tclc__section-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -715,18 +715,18 @@ const css = /* css */ `
   min-height: 28px;
 }
 /* Tiny uppercase labels: "ARGUMENTS", "RESULT" */
-.ui-tcc__label {
-  color: var(--ui-tcc-muted);
+.ui-tclc__label {
+  color: var(--ui-tclc-muted);
   font-size: 10px;
   line-height: 16px;
   font-weight: 500;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
-.ui-tcc__pending { margin: 0; color: var(--ui-tcc-muted); font-size: 12px; line-height: 16px; }
+.ui-tclc__pending { margin: 0; color: var(--ui-tclc-muted); font-size: 12px; line-height: 16px; }
 
 /* Copy: a small white icon button with the card's hairline */
-.ui-tcc__copy {
+.ui-tclc__copy {
   all: unset;
   position: relative;
   display: grid;
@@ -734,13 +734,13 @@ const css = /* css */ `
   width: 28px;
   height: 28px;
   border-radius: 6px;
-  background: var(--ui-tcc-card);
-  box-shadow: var(--ui-tcc-shadow);
-  color: var(--ui-tcc-icon);
+  background: var(--ui-tclc-card);
+  box-shadow: var(--ui-tclc-shadow);
+  color: var(--ui-tclc-icon);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
 }
-.ui-tcc__copy svg {
+.ui-tclc__copy svg {
   position: absolute;
   width: 16px;
   height: 16px;
@@ -749,34 +749,34 @@ const css = /* css */ `
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: opacity 200ms ease, transform 320ms var(--ui-tcc-ease), filter 200ms ease;
+  transition: opacity 200ms ease, transform 320ms var(--ui-tclc-ease), filter 200ms ease;
 }
-.ui-tcc__copy-icon rect { fill: currentColor; stroke: none; }
-.ui-tcc__copy-done { opacity: 0; transform: scale(0.6); filter: blur(2px); stroke-width: 1.7; }
-.ui-tcc__copy[data-copied] { color: var(--ui-tcc-accent); }
-.ui-tcc__copy[data-copied] .ui-tcc__copy-icon { opacity: 0; transform: scale(0.6); filter: blur(2px); }
-.ui-tcc__copy[data-copied] .ui-tcc__copy-done { opacity: 1; transform: none; filter: none; }
+.ui-tclc__copy-icon rect { fill: currentColor; stroke: none; }
+.ui-tclc__copy-done { opacity: 0; transform: scale(0.6); filter: blur(2px); stroke-width: 1.7; }
+.ui-tclc__copy[data-copied] { color: var(--ui-tclc-accent); }
+.ui-tclc__copy[data-copied] .ui-tclc__copy-icon { opacity: 0; transform: scale(0.6); filter: blur(2px); }
+.ui-tclc__copy[data-copied] .ui-tclc__copy-done { opacity: 1; transform: none; filter: none; }
 
 /* Code: a faint panel with a 0.5px frame; wraps instead of scrolling sideways, capped blocks fade out */
-.ui-tcc__code {
+.ui-tclc__code {
   position: relative;
   margin: 0;
   padding: 10px 12px;
   overflow: hidden;
   border-radius: 8px;
-  background: var(--ui-tcc-code);
-  box-shadow: inset 0 0 0 0.5px var(--ui-tcc-line);
-  color: var(--ui-tcc-muted);
-  font-family: var(--ui-tcc-mono);
+  background: var(--ui-tclc-code);
+  box-shadow: inset 0 0 0 0.5px var(--ui-tclc-line);
+  color: var(--ui-tclc-muted);
+  font-family: var(--ui-tclc-mono);
   font-size: 12px;
   line-height: 20px;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   tab-size: 2;
-  transition: max-height 420ms var(--ui-tcc-ease);
+  transition: max-height 420ms var(--ui-tclc-ease);
 }
-.ui-tcc__code code { display: block; font: inherit; }
-.ui-tcc__code::after {
+.ui-tclc__code code { display: block; font: inherit; }
+.ui-tclc__code::after {
   content: "";
   position: absolute;
   left: 0.5px;
@@ -784,25 +784,25 @@ const css = /* css */ `
   bottom: 0.5px;
   height: 56px;
   border-radius: 0 0 7.5px 7.5px;
-  background: linear-gradient(to bottom, transparent, var(--ui-tcc-code));
+  background: linear-gradient(to bottom, transparent, var(--ui-tclc-code));
   opacity: 0;
   transition: opacity 240ms ease;
   pointer-events: none;
 }
-.ui-tcc__code[data-capped]::after { opacity: 1; }
-.ui-tcc__code[data-scroll] { overflow-y: auto; overscroll-behavior: contain; }
-.ui-tcc__t-key { color: var(--ui-tcc-key); }
-.ui-tcc__t-str { color: var(--ui-tcc-str); }
-.ui-tcc__t-num { color: var(--ui-tcc-num); }
-.ui-tcc__t-lit { color: var(--ui-tcc-lit); }
+.ui-tclc__code[data-capped]::after { opacity: 1; }
+.ui-tclc__code[data-scroll] { overflow-y: auto; overscroll-behavior: contain; }
+.ui-tclc__t-key { color: var(--ui-tclc-key); }
+.ui-tclc__t-str { color: var(--ui-tclc-str); }
+.ui-tclc__t-num { color: var(--ui-tclc-num); }
+.ui-tclc__t-lit { color: var(--ui-tclc-lit); }
 
-.ui-tcc__more {
+.ui-tclc__more {
   all: unset;
   justify-self: start;
   padding: 2px 4px;
   margin-left: -4px;
   border-radius: 6px;
-  color: var(--ui-tcc-text);
+  color: var(--ui-tclc-text);
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
@@ -811,18 +811,18 @@ const css = /* css */ `
 }
 
 /* Error: the message on a faint red panel and an optional white Retry button */
-.ui-tcc__error {
+.ui-tclc__error {
   display: flex;
   align-items: center;
   gap: 8px;
   min-height: 44px;
   padding: 8px 8px 8px 12px;
   border-radius: 8px;
-  background: var(--ui-tcc-red-bg);
-  box-shadow: inset 0 0 0 0.5px var(--ui-tcc-red-line);
+  background: var(--ui-tclc-red-bg);
+  box-shadow: inset 0 0 0 0.5px var(--ui-tclc-red-line);
 }
-.ui-tcc__error > .ui-tcc__err { flex: none; align-self: flex-start; width: 16px; height: 16px; margin-top: 6px; }
-.ui-tcc__error-text {
+.ui-tclc__error > .ui-tclc__err { flex: none; align-self: flex-start; width: 16px; height: 16px; margin-top: 6px; }
+.ui-tclc__error-text {
   flex: 1;
   min-width: 0;
   /* A stack trace stops at 10 lines and scrolls, so Retry and the arguments stay close */
@@ -831,12 +831,12 @@ const css = /* css */ `
   overflow-y: auto;
   overscroll-behavior: contain;
   white-space: pre-line;
-  color: var(--ui-tcc-red);
+  color: var(--ui-tclc-red);
   font-size: 13px;
   line-height: 20px;
   overflow-wrap: anywhere;
 }
-.ui-tcc__retry {
+.ui-tclc__retry {
   all: unset;
   box-sizing: border-box;
   display: inline-flex;
@@ -846,21 +846,21 @@ const css = /* css */ `
   height: 28px;
   padding: 0 10px 0 6px;
   border-radius: 6px;
-  background: var(--ui-tcc-card);
-  box-shadow: var(--ui-tcc-shadow);
-  color: var(--ui-tcc-strong);
+  background: var(--ui-tclc-card);
+  box-shadow: var(--ui-tclc-shadow);
+  color: var(--ui-tclc-strong);
   font-size: 13px;
   line-height: 20px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 160ms ease;
 }
-.ui-tcc__retry svg { width: 16px; height: 16px; fill: none; stroke: var(--ui-tcc-icon); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.ui-tcc__retry:active svg { transform: rotate(-60deg); transition: transform 200ms var(--ui-tcc-ease); }
+.ui-tclc__retry svg { width: 16px; height: 16px; fill: none; stroke: var(--ui-tclc-icon); stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tclc__retry:active svg { transform: rotate(-60deg); transition: transform 200ms var(--ui-tclc-ease); }
 
 /* Group: one quiet line with the tool icons stacked on small white tiles, the cards below */
-.ui-tcc-group { display: grid; }
-.ui-tcc-group__head {
+.ui-tclc-group { display: grid; }
+.ui-tclc-group__head {
   all: unset;
   box-sizing: border-box;
   display: flex;
@@ -872,30 +872,30 @@ const css = /* css */ `
   margin-left: -6px;
   padding: 4px 10px 4px 6px;
   border-radius: 8px;
-  color: var(--ui-tcc-ink);
+  color: var(--ui-tclc-ink);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
 }
-.ui-tcc-group__stack { display: flex; flex: none; padding: 0.5px; }
-.ui-tcc-group__stack .ui-tcc__icon {
+.ui-tclc-group__stack { display: flex; flex: none; padding: 0.5px; }
+.ui-tclc-group__stack .ui-tclc__icon {
   width: 22px;
   height: 22px;
   border-radius: 6px;
-  background: var(--ui-tcc-card);
-  box-shadow: var(--ui-tcc-shadow);
-  animation: ui-tcc-pop 420ms var(--ui-tcc-ease) both;
+  background: var(--ui-tclc-card);
+  box-shadow: var(--ui-tclc-shadow);
+  animation: ui-tclc-pop 420ms var(--ui-tclc-ease) both;
 }
-.ui-tcc-group__stack .ui-tcc__icon + .ui-tcc__icon { margin-left: -4px; }
-.ui-tcc-group__stack .ui-tcc__icon > svg { width: 12px; height: 12px; stroke-width: 1.5; }
-.ui-tcc-group__title {
+.ui-tclc-group__stack .ui-tclc__icon + .ui-tclc__icon { margin-left: -4px; }
+.ui-tclc-group__stack .ui-tclc__icon > svg { width: 12px; height: 12px; stroke-width: 1.5; }
+.ui-tclc-group__title {
   display: flex;
   align-items: baseline;
   gap: 6px;
   min-width: 0;
   white-space: nowrap;
-  animation: ui-tcc-in 360ms var(--ui-tcc-ease) both;
+  animation: ui-tclc-in 360ms var(--ui-tclc-ease) both;
 }
-.ui-tcc-group__label {
+.ui-tclc-group__label {
   position: relative;
   min-width: 0;
   overflow: hidden;
@@ -903,88 +903,88 @@ const css = /* css */ `
   color: inherit;
   font-weight: 500;
 }
-.ui-tcc-group__label.ui-tcc__shine { color: var(--ui-tcc-muted); }
-.ui-tcc-group__failed { flex: none; color: var(--ui-tcc-red); }
-.ui-tcc-group__time { flex: none; color: var(--ui-tcc-faint); font-variant-numeric: tabular-nums; }
-.ui-tcc-group__list { display: grid; gap: 8px; padding: 6px 0 2px; }
+.ui-tclc-group__label.ui-tclc__shine { color: var(--ui-tclc-muted); }
+.ui-tclc-group__failed { flex: none; color: var(--ui-tclc-red); }
+.ui-tclc-group__time { flex: none; color: var(--ui-tclc-faint); font-variant-numeric: tabular-nums; }
+.ui-tclc-group__list { display: grid; gap: 8px; padding: 6px 0 2px; }
 
 /* A soft light sweeping over "Using tools…" */
-.ui-tcc__shine::after {
+.ui-tclc__shine::after {
   content: attr(data-text);
   content: attr(data-text) / "";
   position: absolute;
   inset: 0;
   white-space: nowrap;
   color: transparent;
-  background: linear-gradient(90deg, transparent 38%, var(--ui-tcc-shine) 50%, transparent 62%) 100% 0 / 300% 100% no-repeat;
+  background: linear-gradient(90deg, transparent 38%, var(--ui-tclc-shine) 50%, transparent 62%) 100% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: ui-tcc-sweep 1.8s linear infinite;
+  animation: ui-tclc-sweep 1.8s linear infinite;
   pointer-events: none;
 }
 
-@keyframes ui-tcc-in {
+@keyframes ui-tclc-in {
   from { opacity: 0; transform: translateY(3px); filter: blur(2px); }
   to { opacity: 1; transform: none; filter: none; }
 }
-@keyframes ui-tcc-pop {
+@keyframes ui-tclc-pop {
   from { opacity: 0; transform: scale(0.6); }
   to { opacity: 1; transform: none; }
 }
-@keyframes ui-tcc-spin { to { transform: rotate(360deg); } }
-@keyframes ui-tcc-draw { to { stroke-dashoffset: 0; } }
-@keyframes ui-tcc-sweep {
+@keyframes ui-tclc-spin { to { transform: rotate(360deg); } }
+@keyframes ui-tclc-draw { to { stroke-dashoffset: 0; } }
+@keyframes ui-tclc-sweep {
   from { background-position: 100% 0; }
   to { background-position: 0% 0; }
 }
 
 /* Narrow (phones): a little less padding, the summary gives way first */
 @container (max-width: 360px) {
-  .ui-tcc__head { gap: 8px; padding: 0 12px; }
-  .ui-tcc__sections { padding: 12px 12px 12px; }
+  .ui-tclc__head { gap: 8px; padding: 0 12px; }
+  .ui-tclc__sections { padding: 12px 12px 12px; }
 }
 /* Touch screens: bigger tap targets */
 @media (pointer: coarse) {
-  .ui-tcc__head { min-height: 52px; }
+  .ui-tclc__head { min-height: 52px; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .ui-tcc *,
-  .ui-tcc-group *,
-  .ui-tcc *::after,
-  .ui-tcc-group *::after {
+  .ui-tclc *,
+  .ui-tclc-group *,
+  .ui-tclc *::after,
+  .ui-tclc-group *::after {
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
-  .ui-tcc__shine::after { display: none; }
-  .ui-tcc__ok path { stroke-dashoffset: 0; }
+  .ui-tclc__shine::after { display: none; }
+  .ui-tclc__ok path { stroke-dashoffset: 0; }
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-tcc,
-:where(.dark, [data-theme="dark"]) .ui-tcc-group {
-  --ui-tcc-card: #1c1c1e;
-  --ui-tcc-strong: #ffffff;
-  --ui-tcc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tcc-text: rgba(255, 255, 255, 0.62);
-  --ui-tcc-muted: rgba(255, 255, 255, 0.46);
-  --ui-tcc-faint: rgba(255, 255, 255, 0.3);
-  --ui-tcc-icon: rgba(255, 255, 255, 0.5);
-  --ui-tcc-line: rgba(255, 255, 255, 0.08);
-  --ui-tcc-wash: rgba(255, 255, 255, 0.04);
-  --ui-tcc-wash-big: rgba(255, 255, 255, 0.025);
-  --ui-tcc-code: #212123;
-  --ui-tcc-accent: #4d8dff;
-  --ui-tcc-red: #ff7b72;
-  --ui-tcc-red-bg: rgba(255, 110, 100, 0.07);
-  --ui-tcc-red-line: rgba(255, 110, 100, 0.18);
-  --ui-tcc-key: rgba(255, 255, 255, 0.9);
-  --ui-tcc-str: #5fc8e8;
-  --ui-tcc-num: #f2a65a;
-  --ui-tcc-lit: #a5a5ff;
-  --ui-tcc-shine: #ffffff;
-  --ui-tcc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tcc-focus: rgba(77, 141, 255, 0.8);
+:where(.dark, [data-theme="dark"]) .ui-tclc,
+:where(.dark, [data-theme="dark"]) .ui-tclc-group {
+  --ui-tclc-card: #1c1c1e;
+  --ui-tclc-strong: #ffffff;
+  --ui-tclc-ink: rgba(255, 255, 255, 0.9);
+  --ui-tclc-text: rgba(255, 255, 255, 0.62);
+  --ui-tclc-muted: rgba(255, 255, 255, 0.46);
+  --ui-tclc-faint: rgba(255, 255, 255, 0.3);
+  --ui-tclc-icon: rgba(255, 255, 255, 0.5);
+  --ui-tclc-line: rgba(255, 255, 255, 0.08);
+  --ui-tclc-wash: rgba(255, 255, 255, 0.04);
+  --ui-tclc-wash-big: rgba(255, 255, 255, 0.025);
+  --ui-tclc-code: #212123;
+  --ui-tclc-accent: #4d8dff;
+  --ui-tclc-red: #ff7b72;
+  --ui-tclc-red-bg: rgba(255, 110, 100, 0.07);
+  --ui-tclc-red-line: rgba(255, 110, 100, 0.18);
+  --ui-tclc-key: rgba(255, 255, 255, 0.9);
+  --ui-tclc-str: #5fc8e8;
+  --ui-tclc-num: #f2a65a;
+  --ui-tclc-lit: #a5a5ff;
+  --ui-tclc-shine: #ffffff;
+  --ui-tclc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tclc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

@@ -123,7 +123,7 @@ export function ToolCallCard({
 
   return (
     <div
-      className={["ui-tc", className].filter(Boolean).join(" ")}
+      className={["ui-tcl", className].filter(Boolean).join(" ")}
       data-status={status}
       data-open={open || undefined}
     >
@@ -131,13 +131,13 @@ export function ToolCallCard({
       <style href="ui-tool-call" precedence="default">
         {css}
       </style>
-      <span className="ui-tc-sr" role="status" aria-live="polite">
+      <span className="ui-tcl-sr" role="status" aria-live="polite">
         {announce}
       </span>
 
       <button
         type="button"
-        className="ui-tc__head"
+        className="ui-tcl__head"
         aria-expanded={open}
         aria-controls={`${id}-body`}
         onClick={() => {
@@ -145,43 +145,43 @@ export function ToolCallCard({
           setOpen(!open);
         }}
       >
-        <span className="ui-tc__icon" aria-hidden="true">
+        <span className="ui-tcl__icon" aria-hidden="true">
           {icon ?? <WrenchIcon />}
         </span>
-        <span className="ui-tc__main">
-          <code className="ui-tc__name" title={name}>
+        <span className="ui-tcl__main">
+          <code className="ui-tcl__name" title={name}>
             {name}
           </code>
           {summary != null && (
-            <span className="ui-tc__summary" dir="auto" title={typeof summary === "string" ? summary : undefined}>
+            <span className="ui-tcl__summary" dir="auto" title={typeof summary === "string" ? summary : undefined}>
               {summary}
             </span>
           )}
         </span>
-        <span className="ui-tc__status" key={status}>
+        <span className="ui-tcl__status" key={status}>
           {status === "running" && <Spinner />}
           {status === "success" && (
-            <svg className="ui-tc__ok" viewBox="0 0 16 16" aria-hidden="true">
+            <svg className="ui-tcl__ok" viewBox="0 0 16 16" aria-hidden="true">
               <path d="M3.5 8.4 6.6 11.3 12.5 4.9" pathLength={1} />
             </svg>
           )}
           {status === "error" && <ErrorIcon />}
-          <span className="ui-tc__time">
+          <span className="ui-tcl__time">
             {status === "error" ? "Failed" : ms != null ? formatMs(ms, status === "running") : null}
           </span>
         </span>
         <Chevron />
       </button>
 
-      <div className="ui-tc__body" id={`${id}-body`} inert={!open}>
-        <div className="ui-tc__clip">
-          <div className="ui-tc__sections">
+      <div className="ui-tcl__body" id={`${id}-body`} inert={!open}>
+        <div className="ui-tcl__clip">
+          <div className="ui-tcl__sections">
             {status === "error" && (
-              <div className="ui-tc__error">
+              <div className="ui-tcl__error">
                 <ErrorIcon />
-                <p className="ui-tc__error-text" dir="auto">{error ?? "The tool call failed."}</p>
+                <p className="ui-tcl__error-text" dir="auto">{error ?? "The tool call failed."}</p>
                 {onRetry && (
-                  <button type="button" className="ui-tc__retry" onClick={onRetry}>
+                  <button type="button" className="ui-tcl__retry" onClick={onRetry}>
                     <svg viewBox="0 0 16 16" aria-hidden="true">
                       <path d="M2.75 8a5.25 5.25 0 1 0 1.6-3.77" />
                       <path d="M2.5 2.5v2.75h2.75" />
@@ -195,15 +195,15 @@ export function ToolCallCard({
             {result !== undefined ? (
               <CodeSection label="Result" value={result} cap={maxCodeHeight} />
             ) : status === "running" ? (
-              <div className="ui-tc__section">
-                <div className="ui-tc__section-head">
-                  <span className="ui-tc__label">Result</span>
+              <div className="ui-tcl__section">
+                <div className="ui-tcl__section-head">
+                  <span className="ui-tcl__label">Result</span>
                 </div>
-                <p className="ui-tc__pending">Waiting for result…</p>
+                <p className="ui-tcl__pending">Waiting for result…</p>
               </div>
             ) : null}
             {args === undefined && result === undefined && status === "success" && (
-              <p className="ui-tc__pending">No arguments or result.</p>
+              <p className="ui-tcl__pending">No arguments or result.</p>
             )}
           </div>
         </div>
@@ -251,20 +251,20 @@ export function ToolCallGroup({
 
   return (
     <div
-      className={["ui-tc-group", className].filter(Boolean).join(" ")}
+      className={["ui-tcl-group", className].filter(Boolean).join(" ")}
       data-running={running || undefined}
       data-open={open || undefined}
     >
       <style href="ui-tool-call" precedence="default">
         {css}
       </style>
-      <span className="ui-tc-sr" role="status" aria-live="polite">
+      <span className="ui-tcl-sr" role="status" aria-live="polite">
         {running ? runningLabel : `${count}${failed ? `, ${failed} failed` : ""}`}
       </span>
 
       <button
         type="button"
-        className="ui-tc-group__head"
+        className="ui-tcl-group__head"
         aria-expanded={open}
         aria-controls={`${id}-list`}
         onClick={() => {
@@ -272,26 +272,26 @@ export function ToolCallGroup({
           onOpenChange?.(!open);
         }}
       >
-        <span className="ui-tc-group__stack" aria-hidden="true">
+        <span className="ui-tcl-group__stack" aria-hidden="true">
           {icons.map((c, i) => (
-            <span className="ui-tc__icon" key={calls.length - icons.length + i}>
+            <span className="ui-tcl__icon" key={calls.length - icons.length + i}>
               {c.icon ?? <WrenchIcon />}
             </span>
           ))}
         </span>
-        <span className="ui-tc-group__title" key={running ? "busy" : "done"}>
-          <span className={running ? "ui-tc-group__label ui-tc__shine" : "ui-tc-group__label"} data-text={title}>
+        <span className="ui-tcl-group__title" key={running ? "busy" : "done"}>
+          <span className={running ? "ui-tcl-group__label ui-tcl__shine" : "ui-tcl-group__label"} data-text={title}>
             {title}
           </span>
-          {!running && failed > 0 && <span className="ui-tc-group__failed">· {failed} failed</span>}
-          {ms != null && <span className="ui-tc-group__time">· {formatMs(ms, running)}</span>}
+          {!running && failed > 0 && <span className="ui-tcl-group__failed">· {failed} failed</span>}
+          {ms != null && <span className="ui-tcl-group__time">· {formatMs(ms, running)}</span>}
         </span>
         <Chevron />
       </button>
 
-      <div className="ui-tc__body" id={`${id}-list`} inert={!open}>
-        <div className="ui-tc__clip">
-          <div className="ui-tc-group__list">{children}</div>
+      <div className="ui-tcl__body" id={`${id}-list`} inert={!open}>
+        <div className="ui-tcl__clip">
+          <div className="ui-tcl-group__list">{children}</div>
         </div>
       </div>
     </div>
@@ -323,14 +323,14 @@ function CodeSection({ label, value, cap }: { label: string; value: unknown; cap
   const capped = height > cap + 24;
 
   return (
-    <div className="ui-tc__section">
-      <div className="ui-tc__section-head">
-        <span className="ui-tc__label">{label}</span>
+    <div className="ui-tcl__section">
+      <div className="ui-tcl__section-head">
+        <span className="ui-tcl__label">{label}</span>
         <CopyButton text={text} label={label.toLowerCase()} />
       </div>
       <pre
         ref={pre}
-        className="ui-tc__code"
+        className="ui-tcl__code"
         data-capped={(capped && !full) || undefined}
         data-scroll={(capped && full && height > OPEN_MAX) || undefined}
         // Open, a very long block stops at a few screens and scrolls inside – no 200,000px card
@@ -339,7 +339,7 @@ function CodeSection({ label, value, cap }: { label: string; value: unknown; cap
         <code>{json ? highlight(text) : text}</code>
       </pre>
       {capped && (
-        <button type="button" className="ui-tc__more" aria-expanded={full} onClick={() => setFull(!full)}>
+        <button type="button" className="ui-tcl__more" aria-expanded={full} onClick={() => setFull(!full)}>
           {full ? "Show less" : "Show all"}
         </button>
       )}
@@ -358,17 +358,17 @@ function CopyButton({ text, label }: { text: string; label: string }) {
   return (
     <button
       type="button"
-      className="ui-tc__copy"
+      className="ui-tcl__copy"
       data-copied={copied || undefined}
       aria-label={copied ? "Copied" : `Copy ${label}`}
       title={copied ? "Copied" : `Copy ${label}`}
       onClick={() => copyText(text).then((ok) => ok && setCopied(true))}
     >
-      <svg className="ui-tc__copy-icon" viewBox="0 0 16 16" aria-hidden="true">
+      <svg className="ui-tcl__copy-icon" viewBox="0 0 16 16" aria-hidden="true">
         <rect x="5.25" y="5.25" width="8" height="8" rx="2" />
         <path d="M10.75 5.25v-1a1.5 1.5 0 0 0-1.5-1.5h-4.5a2 2 0 0 0-2 2v4.5a1.5 1.5 0 0 0 1.5 1.5h1" />
       </svg>
-      <svg className="ui-tc__copy-done" viewBox="0 0 16 16" aria-hidden="true">
+      <svg className="ui-tcl__copy-done" viewBox="0 0 16 16" aria-hidden="true">
         <path d="M3.5 8.4 6.6 11.3 12.5 4.9" pathLength={1} />
       </svg>
     </button>
@@ -377,7 +377,7 @@ function CopyButton({ text, label }: { text: string; label: string }) {
 
 function Spinner() {
   return (
-    <svg className="ui-tc__spinner" viewBox="0 0 16 16" aria-hidden="true">
+    <svg className="ui-tcl__spinner" viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="8" cy="8" r="5.75" />
       <path d="M8 2.25a5.75 5.75 0 0 1 5.75 5.75" />
     </svg>
@@ -386,7 +386,7 @@ function Spinner() {
 
 function ErrorIcon() {
   return (
-    <svg className="ui-tc__err" viewBox="0 0 16 16" aria-hidden="true">
+    <svg className="ui-tcl__err" viewBox="0 0 16 16" aria-hidden="true">
       <circle cx="8" cy="8" r="6" />
       <path d="M8 5v3.4M8 10.9v.1" />
     </svg>
@@ -395,7 +395,7 @@ function ErrorIcon() {
 
 function Chevron() {
   return (
-    <svg className="ui-tc__chevron" viewBox="0 0 16 16" aria-hidden="true">
+    <svg className="ui-tcl__chevron" viewBox="0 0 16 16" aria-hidden="true">
       <path d="M4.5 6.25 8 9.75l3.5-3.5" />
     </svg>
   );
@@ -478,7 +478,7 @@ function highlight(text: string): ReactNode[] {
     if (m.index > last) out.push(text.slice(last, m.index));
     if (m[1] && m[2]) {
       out.push(
-        <span key={m.index} className="ui-tc__t-key">
+        <span key={m.index} className="ui-tcl__t-key">
           {m[1]}
         </span>,
         m[2],
@@ -486,7 +486,7 @@ function highlight(text: string): ReactNode[] {
     } else {
       const kind = m[1] ? "str" : /^[tfn]/.test(m[0]) ? "lit" : "num";
       out.push(
-        <span key={m.index} className={`ui-tc__t-${kind}`}>
+        <span key={m.index} className={`ui-tcl__t-${kind}`}>
           {m[0]}
         </span>,
       );
@@ -515,47 +515,47 @@ async function copyText(text: string) {
 }
 
 const css = /* css */ `
-.ui-tc,
-.ui-tc-group {
-  --ui-tc-ink: #171717;
-  --ui-tc-text: #6b6b6b;
-  --ui-tc-muted: #8a8a8a;
-  --ui-tc-bg: #ffffff;
-  --ui-tc-line: #e7e7e7;
-  --ui-tc-hover: #fafafa;
-  --ui-tc-tile: #f5f5f5;
-  --ui-tc-code: #fafafa;
-  --ui-tc-ring: #ffffff;
-  --ui-tc-red: #c8372d;
-  --ui-tc-red-bg: rgba(200, 55, 45, 0.06);
-  --ui-tc-red-line: rgba(200, 55, 45, 0.16);
-  --ui-tc-key: #171717;
-  --ui-tc-str: #0f7b6c;
-  --ui-tc-num: #b25b0c;
-  --ui-tc-lit: #6e56cf;
-  --ui-tc-shine: rgba(255, 255, 255, 0.82);
-  --ui-tc-focus: rgba(0, 96, 226, 0.7);
-  --ui-tc-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ui-tc-mono: ui-monospace, "SF Mono", Menlo, monospace;
+.ui-tcl,
+.ui-tcl-group {
+  --ui-tcl-ink: #171717;
+  --ui-tcl-text: #6b6b6b;
+  --ui-tcl-muted: #8a8a8a;
+  --ui-tcl-bg: #ffffff;
+  --ui-tcl-line: #e7e7e7;
+  --ui-tcl-hover: #fafafa;
+  --ui-tcl-tile: #f5f5f5;
+  --ui-tcl-code: #fafafa;
+  --ui-tcl-ring: #ffffff;
+  --ui-tcl-red: #c8372d;
+  --ui-tcl-red-bg: rgba(200, 55, 45, 0.06);
+  --ui-tcl-red-line: rgba(200, 55, 45, 0.16);
+  --ui-tcl-key: #171717;
+  --ui-tcl-str: #0f7b6c;
+  --ui-tcl-num: #b25b0c;
+  --ui-tcl-lit: #6e56cf;
+  --ui-tcl-shine: rgba(255, 255, 255, 0.82);
+  --ui-tcl-focus: rgba(0, 96, 226, 0.7);
+  --ui-tcl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tcl-mono: ui-monospace, "SF Mono", Menlo, monospace;
   box-sizing: border-box;
   min-width: 0;
-  color: var(--ui-tc-text);
+  color: var(--ui-tcl-text);
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   font-size: 13.5px;
   line-height: 1.4;
   letter-spacing: -0.006em;
   -webkit-font-smoothing: antialiased;
 }
-.ui-tc *,
-.ui-tc-group * { box-sizing: border-box; }
+.ui-tcl *,
+.ui-tcl-group * { box-sizing: border-box; }
 
-.ui-tc {
+.ui-tcl {
   position: relative;
   border-radius: 12px;
-  background: var(--ui-tc-bg);
-  box-shadow: inset 0 0 0 1px var(--ui-tc-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  background: var(--ui-tcl-bg);
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-line), 0 1px 2px rgba(0, 0, 0, 0.04);
 }
-.ui-tc-sr {
+.ui-tcl-sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -565,7 +565,7 @@ const css = /* css */ `
 }
 
 /* Header: icon, name + summary, status, chevron – everything truncates before it overflows */
-.ui-tc__head {
+.ui-tcl__head {
   all: unset;
   box-sizing: border-box;
   display: flex;
@@ -578,130 +578,130 @@ const css = /* css */ `
   cursor: pointer;
   transition: background-color 160ms ease;
 }
-.ui-tc[data-open] .ui-tc__head { border-radius: 12px 12px 0 0; }
-.ui-tc__head:focus-visible,
-.ui-tc-group__head:focus-visible,
-.ui-tc__copy:focus-visible,
-.ui-tc__more:focus-visible,
-.ui-tc__retry:focus-visible {
-  outline: 2px solid var(--ui-tc-focus);
+.ui-tcl[data-open] .ui-tcl__head { border-radius: 12px 12px 0 0; }
+.ui-tcl__head:focus-visible,
+.ui-tcl-group__head:focus-visible,
+.ui-tcl__copy:focus-visible,
+.ui-tcl__more:focus-visible,
+.ui-tcl__retry:focus-visible {
+  outline: 2px solid var(--ui-tcl-focus);
   outline-offset: 2px;
 }
 @media (hover: hover) {
-  .ui-tc__head:hover { background: var(--ui-tc-hover); }
-  .ui-tc-group__head:hover { background: var(--ui-tc-hover); color: var(--ui-tc-ink); }
-  .ui-tc__copy:hover { background: var(--ui-tc-hover); color: var(--ui-tc-ink); }
-  .ui-tc__more:hover { color: var(--ui-tc-ink); }
-  .ui-tc__retry:hover { background: var(--ui-tc-hover); }
+  .ui-tcl__head:hover { background: var(--ui-tcl-hover); }
+  .ui-tcl-group__head:hover { background: var(--ui-tcl-hover); color: var(--ui-tcl-ink); }
+  .ui-tcl__copy:hover { background: var(--ui-tcl-hover); color: var(--ui-tcl-ink); }
+  .ui-tcl__more:hover { color: var(--ui-tcl-ink); }
+  .ui-tcl__retry:hover { background: var(--ui-tcl-hover); }
 }
 
-.ui-tc__icon {
+.ui-tcl__icon {
   display: grid;
   place-items: center;
   flex: none;
   width: 26px;
   height: 26px;
   border-radius: 7px;
-  background: var(--ui-tc-tile);
-  box-shadow: inset 0 0 0 1px var(--ui-tc-line);
-  color: var(--ui-tc-ink);
+  background: var(--ui-tcl-tile);
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-line);
+  color: var(--ui-tcl-ink);
 }
-.ui-tc__icon > svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tcl__icon > svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
 
-.ui-tc__main {
+.ui-tcl__main {
   display: flex;
   align-items: baseline;
   gap: 8px;
   flex: 1;
   min-width: 0;
 }
-.ui-tc__name {
+.ui-tcl__name {
   flex: 0 1 auto;
   max-width: 55%;
   overflow: hidden;
-  color: var(--ui-tc-ink);
-  font-family: var(--ui-tc-mono);
+  color: var(--ui-tcl-ink);
+  font-family: var(--ui-tcl-mono);
   font-size: 12.5px;
   font-weight: 500;
   letter-spacing: 0;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-.ui-tc__summary {
+.ui-tcl__summary {
   flex: 1 1 0;
   min-width: 0;
   overflow: hidden;
-  color: var(--ui-tc-text);
+  color: var(--ui-tcl-text);
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.ui-tc__status {
+.ui-tcl__status {
   display: inline-flex;
   align-items: center;
   gap: 6px;
   flex: none;
-  color: var(--ui-tc-muted);
+  color: var(--ui-tcl-muted);
   font-size: 12.5px;
   font-variant-numeric: tabular-nums;
   white-space: nowrap;
-  animation: ui-tc-in 360ms var(--ui-tc-ease) both;
+  animation: ui-tcl-in 360ms var(--ui-tcl-ease) both;
 }
-.ui-tc[data-status="error"] .ui-tc__status { color: var(--ui-tc-red); }
-.ui-tc__status > svg { width: 14px; height: 14px; flex: none; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.ui-tc__spinner circle { stroke: currentColor; stroke-width: 1.6; opacity: 0.22; }
-.ui-tc__spinner path { stroke: var(--ui-tc-ink); stroke-width: 1.6; }
-.ui-tc__spinner { animation: ui-tc-spin 800ms linear infinite; }
-.ui-tc__ok { stroke: var(--ui-tc-ink); stroke-width: 1.8; }
-.ui-tc__ok path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ui-tc-draw 360ms var(--ui-tc-ease) 80ms forwards; }
-.ui-tc__err { stroke: var(--ui-tc-red); stroke-width: 1.5; }
+.ui-tcl[data-status="error"] .ui-tcl__status { color: var(--ui-tcl-red); }
+.ui-tcl__status > svg { width: 14px; height: 14px; flex: none; fill: none; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tcl__spinner circle { stroke: currentColor; stroke-width: 1.6; opacity: 0.22; }
+.ui-tcl__spinner path { stroke: var(--ui-tcl-ink); stroke-width: 1.6; }
+.ui-tcl__spinner { animation: ui-tcl-spin 800ms linear infinite; }
+.ui-tcl__ok { stroke: var(--ui-tcl-ink); stroke-width: 1.8; }
+.ui-tcl__ok path { stroke-dasharray: 1; stroke-dashoffset: 1; animation: ui-tcl-draw 360ms var(--ui-tcl-ease) 80ms forwards; }
+.ui-tcl__err { stroke: var(--ui-tcl-red); stroke-width: 1.5; }
 
-.ui-tc__chevron {
+.ui-tcl__chevron {
   flex: none;
   width: 14px;
   height: 14px;
   fill: none;
-  stroke: var(--ui-tc-muted);
+  stroke: var(--ui-tcl-muted);
   stroke-width: 1.5;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: transform 360ms var(--ui-tc-ease);
+  transition: transform 360ms var(--ui-tcl-ease);
 }
-.ui-tc[data-open] > .ui-tc__head .ui-tc__chevron,
-.ui-tc-group[data-open] > .ui-tc-group__head .ui-tc__chevron { transform: rotate(180deg); }
+.ui-tcl[data-open] > .ui-tcl__head .ui-tcl__chevron,
+.ui-tcl-group[data-open] > .ui-tcl-group__head .ui-tcl__chevron { transform: rotate(180deg); }
 
 /* Body: grows from 0fr to 1fr, so the height animates without measuring */
-.ui-tc__body {
+.ui-tcl__body {
   display: grid;
   grid-template-rows: 0fr;
   opacity: 0;
-  transition: grid-template-rows 380ms var(--ui-tc-ease), opacity 240ms ease;
+  transition: grid-template-rows 380ms var(--ui-tcl-ease), opacity 240ms ease;
 }
-.ui-tc[data-open] > .ui-tc__body,
-.ui-tc-group[data-open] > .ui-tc__body {
+.ui-tcl[data-open] > .ui-tcl__body,
+.ui-tcl-group[data-open] > .ui-tcl__body {
   grid-template-rows: 1fr;
   opacity: 1;
 }
-.ui-tc__clip { min-height: 0; overflow: hidden; }
-.ui-tc__sections {
+.ui-tcl__clip { min-height: 0; overflow: hidden; }
+.ui-tcl__sections {
   display: grid;
   gap: 12px;
   padding: 12px;
-  border-top: 1px solid var(--ui-tc-line);
+  border-top: 1px solid var(--ui-tcl-line);
 }
 
-.ui-tc__section { display: grid; gap: 6px; min-width: 0; }
-.ui-tc__section-head {
+.ui-tcl__section { display: grid; gap: 6px; min-width: 0; }
+.ui-tcl__section-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   min-height: 24px;
 }
-.ui-tc__label { color: var(--ui-tc-muted); font-size: 12px; font-weight: 500; }
-.ui-tc__pending { margin: 0; color: var(--ui-tc-muted); font-size: 12.5px; }
+.ui-tcl__label { color: var(--ui-tcl-muted); font-size: 12px; font-weight: 500; }
+.ui-tcl__pending { margin: 0; color: var(--ui-tcl-muted); font-size: 12.5px; }
 
-.ui-tc__copy {
+.ui-tcl__copy {
   all: unset;
   position: relative;
   display: grid;
@@ -709,11 +709,11 @@ const css = /* css */ `
   width: 24px;
   height: 24px;
   border-radius: 6px;
-  color: var(--ui-tc-muted);
+  color: var(--ui-tcl-muted);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
 }
-.ui-tc__copy svg {
+.ui-tcl__copy svg {
   position: absolute;
   width: 14px;
   height: 14px;
@@ -722,33 +722,33 @@ const css = /* css */ `
   stroke-width: 1.4;
   stroke-linecap: round;
   stroke-linejoin: round;
-  transition: opacity 200ms ease, transform 320ms var(--ui-tc-ease), filter 200ms ease;
+  transition: opacity 200ms ease, transform 320ms var(--ui-tcl-ease), filter 200ms ease;
 }
-.ui-tc__copy-done { opacity: 0; transform: scale(0.6); filter: blur(2px); stroke-width: 1.7; }
-.ui-tc__copy[data-copied] { color: var(--ui-tc-ink); }
-.ui-tc__copy[data-copied] .ui-tc__copy-icon { opacity: 0; transform: scale(0.6); filter: blur(2px); }
-.ui-tc__copy[data-copied] .ui-tc__copy-done { opacity: 1; transform: none; filter: none; }
+.ui-tcl__copy-done { opacity: 0; transform: scale(0.6); filter: blur(2px); stroke-width: 1.7; }
+.ui-tcl__copy[data-copied] { color: var(--ui-tcl-ink); }
+.ui-tcl__copy[data-copied] .ui-tcl__copy-icon { opacity: 0; transform: scale(0.6); filter: blur(2px); }
+.ui-tcl__copy[data-copied] .ui-tcl__copy-done { opacity: 1; transform: none; filter: none; }
 
 /* Code: wraps instead of scrolling sideways; capped blocks fade out at the bottom */
-.ui-tc__code {
+.ui-tcl__code {
   position: relative;
   margin: 0;
   padding: 10px 12px;
   overflow: hidden;
   border-radius: 8px;
-  background: var(--ui-tc-code);
-  box-shadow: inset 0 0 0 1px var(--ui-tc-line);
-  color: var(--ui-tc-muted);
-  font-family: var(--ui-tc-mono);
+  background: var(--ui-tcl-code);
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-line);
+  color: var(--ui-tcl-muted);
+  font-family: var(--ui-tcl-mono);
   font-size: 12px;
   line-height: 1.6;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   tab-size: 2;
-  transition: max-height 420ms var(--ui-tc-ease);
+  transition: max-height 420ms var(--ui-tcl-ease);
 }
-.ui-tc__code code { display: block; font: inherit; }
-.ui-tc__code::after {
+.ui-tcl__code code { display: block; font: inherit; }
+.ui-tcl__code::after {
   content: "";
   position: absolute;
   left: 1px;
@@ -756,25 +756,25 @@ const css = /* css */ `
   bottom: 1px;
   height: 56px;
   border-radius: 0 0 7px 7px;
-  background: linear-gradient(to bottom, transparent, var(--ui-tc-code));
+  background: linear-gradient(to bottom, transparent, var(--ui-tcl-code));
   opacity: 0;
   transition: opacity 240ms ease;
   pointer-events: none;
 }
-.ui-tc__code[data-capped]::after { opacity: 1; }
-.ui-tc__code[data-scroll] { overflow-y: auto; overscroll-behavior: contain; }
-.ui-tc__t-key { color: var(--ui-tc-key); }
-.ui-tc__t-str { color: var(--ui-tc-str); }
-.ui-tc__t-num { color: var(--ui-tc-num); }
-.ui-tc__t-lit { color: var(--ui-tc-lit); }
+.ui-tcl__code[data-capped]::after { opacity: 1; }
+.ui-tcl__code[data-scroll] { overflow-y: auto; overscroll-behavior: contain; }
+.ui-tcl__t-key { color: var(--ui-tcl-key); }
+.ui-tcl__t-str { color: var(--ui-tcl-str); }
+.ui-tcl__t-num { color: var(--ui-tcl-num); }
+.ui-tcl__t-lit { color: var(--ui-tcl-lit); }
 
-.ui-tc__more {
+.ui-tcl__more {
   all: unset;
   justify-self: start;
   padding: 2px 4px;
   margin-left: -4px;
   border-radius: 5px;
-  color: var(--ui-tc-text);
+  color: var(--ui-tcl-text);
   font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
@@ -782,17 +782,17 @@ const css = /* css */ `
 }
 
 /* Error: the message and an optional retry */
-.ui-tc__error {
+.ui-tcl__error {
   display: flex;
   align-items: flex-start;
   gap: 8px;
   padding: 9px 10px 9px 11px;
   border-radius: 8px;
-  background: var(--ui-tc-red-bg);
-  box-shadow: inset 0 0 0 1px var(--ui-tc-red-line);
+  background: var(--ui-tcl-red-bg);
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-red-line);
 }
-.ui-tc__error > .ui-tc__err { flex: none; width: 14px; height: 14px; margin-top: 2px; fill: none; stroke-linecap: round; }
-.ui-tc__error-text {
+.ui-tcl__error > .ui-tcl__err { flex: none; width: 14px; height: 14px; margin-top: 2px; fill: none; stroke-linecap: round; }
+.ui-tcl__error-text {
   flex: 1;
   min-width: 0;
   max-height: 200px;
@@ -800,12 +800,12 @@ const css = /* css */ `
   overflow-y: auto;
   overscroll-behavior: contain;
   white-space: pre-line;
-  color: var(--ui-tc-red);
+  color: var(--ui-tcl-red);
   font-size: 13px;
   line-height: 1.45;
   overflow-wrap: anywhere;
 }
-.ui-tc__retry {
+.ui-tcl__retry {
   all: unset;
   display: inline-flex;
   align-items: center;
@@ -815,20 +815,20 @@ const css = /* css */ `
   margin: -3px 0;
   padding: 0 10px 0 8px;
   border-radius: 7px;
-  background: var(--ui-tc-bg);
-  box-shadow: inset 0 0 0 1px var(--ui-tc-line), 0 1px 2px rgba(0, 0, 0, 0.04);
-  color: var(--ui-tc-ink);
+  background: var(--ui-tcl-bg);
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  color: var(--ui-tcl-ink);
   font-size: 12.5px;
   font-weight: 500;
   cursor: pointer;
   transition: background-color 160ms ease;
 }
-.ui-tc__retry svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
-.ui-tc__retry:active svg { transform: rotate(-60deg); transition: transform 200ms var(--ui-tc-ease); }
+.ui-tcl__retry svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.ui-tcl__retry:active svg { transform: rotate(-60deg); transition: transform 200ms var(--ui-tcl-ease); }
 
 /* Group: one quiet line with the tool icons stacked, the cards below */
-.ui-tc-group { display: grid; }
-.ui-tc-group__head {
+.ui-tcl-group { display: grid; }
+.ui-tcl-group__head {
   all: unset;
   box-sizing: border-box;
   display: flex;
@@ -839,29 +839,29 @@ const css = /* css */ `
   min-height: 36px;
   padding: 4px 10px 4px 5px;
   border-radius: 10px;
-  color: var(--ui-tc-text);
+  color: var(--ui-tcl-text);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
 }
-.ui-tc-group__stack { display: flex; flex: none; }
-.ui-tc-group__stack .ui-tc__icon {
+.ui-tcl-group__stack { display: flex; flex: none; }
+.ui-tcl-group__stack .ui-tcl__icon {
   width: 24px;
   height: 24px;
   border-radius: 7px;
-  box-shadow: inset 0 0 0 1px var(--ui-tc-line), 0 0 0 2px var(--ui-tc-ring);
-  animation: ui-tc-pop 420ms var(--ui-tc-ease) both;
+  box-shadow: inset 0 0 0 1px var(--ui-tcl-line), 0 0 0 2px var(--ui-tcl-ring);
+  animation: ui-tcl-pop 420ms var(--ui-tcl-ease) both;
 }
-.ui-tc-group__stack .ui-tc__icon + .ui-tc__icon { margin-left: -5px; }
-.ui-tc-group__stack .ui-tc__icon > svg { width: 13px; height: 13px; }
-.ui-tc-group__title {
+.ui-tcl-group__stack .ui-tcl__icon + .ui-tcl__icon { margin-left: -5px; }
+.ui-tcl-group__stack .ui-tcl__icon > svg { width: 13px; height: 13px; }
+.ui-tcl-group__title {
   display: flex;
   align-items: baseline;
   gap: 5px;
   min-width: 0;
   white-space: nowrap;
-  animation: ui-tc-in 360ms var(--ui-tc-ease) both;
+  animation: ui-tcl-in 360ms var(--ui-tcl-ease) both;
 }
-.ui-tc-group__label {
+.ui-tcl-group__label {
   position: relative;
   min-width: 0;
   overflow: hidden;
@@ -869,75 +869,75 @@ const css = /* css */ `
   color: inherit;
   font-weight: 500;
 }
-.ui-tc-group__failed { flex: none; color: var(--ui-tc-red); }
-.ui-tc-group__time { flex: none; color: var(--ui-tc-muted); font-variant-numeric: tabular-nums; }
-.ui-tc-group__list { display: grid; gap: 8px; padding-top: 8px; }
+.ui-tcl-group__failed { flex: none; color: var(--ui-tcl-red); }
+.ui-tcl-group__time { flex: none; color: var(--ui-tcl-muted); font-variant-numeric: tabular-nums; }
+.ui-tcl-group__list { display: grid; gap: 8px; padding-top: 8px; }
 
 /* A soft light sweeping over "Using tools…" */
-.ui-tc__shine::after {
+.ui-tcl__shine::after {
   content: attr(data-text);
   content: attr(data-text) / "";
   position: absolute;
   inset: 0;
   white-space: nowrap;
   color: transparent;
-  background: linear-gradient(90deg, transparent 38%, var(--ui-tc-shine) 50%, transparent 62%) 100% 0 / 300% 100% no-repeat;
+  background: linear-gradient(90deg, transparent 38%, var(--ui-tcl-shine) 50%, transparent 62%) 100% 0 / 300% 100% no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
-  animation: ui-tc-sweep 1.8s linear infinite;
+  animation: ui-tcl-sweep 1.8s linear infinite;
   pointer-events: none;
 }
 
-@keyframes ui-tc-in {
+@keyframes ui-tcl-in {
   from { opacity: 0; transform: translateY(3px); filter: blur(2px); }
   to { opacity: 1; transform: none; filter: none; }
 }
-@keyframes ui-tc-pop {
+@keyframes ui-tcl-pop {
   from { opacity: 0; transform: scale(0.6); }
   to { opacity: 1; transform: none; }
 }
-@keyframes ui-tc-spin { to { transform: rotate(360deg); } }
-@keyframes ui-tc-draw { to { stroke-dashoffset: 0; } }
-@keyframes ui-tc-sweep {
+@keyframes ui-tcl-spin { to { transform: rotate(360deg); } }
+@keyframes ui-tcl-draw { to { stroke-dashoffset: 0; } }
+@keyframes ui-tcl-sweep {
   from { background-position: 100% 0; }
   to { background-position: 0% 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ui-tc *,
-  .ui-tc-group *,
-  .ui-tc *::after,
-  .ui-tc-group *::after {
+  .ui-tcl *,
+  .ui-tcl-group *,
+  .ui-tcl *::after,
+  .ui-tcl-group *::after {
     animation-duration: 1ms !important;
     animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 1ms !important;
   }
-  .ui-tc__shine::after { display: none; }
-  .ui-tc__ok path { stroke-dashoffset: 0; }
+  .ui-tcl__shine::after { display: none; }
+  .ui-tcl__ok path { stroke-dashoffset: 0; }
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-tc,
-:where(.dark, [data-theme="dark"]) .ui-tc-group {
-  --ui-tc-ink: #ededed;
-  --ui-tc-text: #a1a1a1;
-  --ui-tc-muted: #7c7c7c;
-  --ui-tc-bg: #161618;
-  --ui-tc-line: rgba(255, 255, 255, 0.1);
-  --ui-tc-hover: rgba(255, 255, 255, 0.035);
-  --ui-tc-tile: #1d1d20;
-  --ui-tc-code: #1d1d20;
-  --ui-tc-ring: #161618;
-  --ui-tc-red: #ff7b72;
-  --ui-tc-red-bg: rgba(255, 110, 100, 0.08);
-  --ui-tc-red-line: rgba(255, 110, 100, 0.2);
-  --ui-tc-key: #ededed;
-  --ui-tc-str: #5fd4b8;
-  --ui-tc-num: #f2a65a;
-  --ui-tc-lit: #b5a4ff;
-  --ui-tc-shine: rgba(255, 255, 255, 0.95);
-  --ui-tc-focus: rgba(77, 141, 255, 0.8);
+:where(.dark, [data-theme="dark"]) .ui-tcl,
+:where(.dark, [data-theme="dark"]) .ui-tcl-group {
+  --ui-tcl-ink: #ededed;
+  --ui-tcl-text: #a1a1a1;
+  --ui-tcl-muted: #7c7c7c;
+  --ui-tcl-bg: #161618;
+  --ui-tcl-line: rgba(255, 255, 255, 0.1);
+  --ui-tcl-hover: rgba(255, 255, 255, 0.035);
+  --ui-tcl-tile: #1d1d20;
+  --ui-tcl-code: #1d1d20;
+  --ui-tcl-ring: #161618;
+  --ui-tcl-red: #ff7b72;
+  --ui-tcl-red-bg: rgba(255, 110, 100, 0.08);
+  --ui-tcl-red-line: rgba(255, 110, 100, 0.2);
+  --ui-tcl-key: #ededed;
+  --ui-tcl-str: #5fd4b8;
+  --ui-tcl-num: #f2a65a;
+  --ui-tcl-lit: #b5a4ff;
+  --ui-tcl-shine: rgba(255, 255, 255, 0.95);
+  --ui-tcl-focus: rgba(77, 141, 255, 0.8);
 }
-:where(.dark, [data-theme="dark"]) .ui-tc { box-shadow: inset 0 0 0 1px var(--ui-tc-line); }
+:where(.dark, [data-theme="dark"]) .ui-tcl { box-shadow: inset 0 0 0 1px var(--ui-tcl-line); }
 `;

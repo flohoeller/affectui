@@ -41,7 +41,7 @@ const RESET = 600; // fade back
 type Phase = "typing" | "sent" | "team" | "reset";
 
 export function AgentTeam({ prompt = "Build a team to work my inbound pipeline", members, className, label }: AgentTeamProps) {
-  const id = "ui-at" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const id = "ui-atm" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const [typed, setTyped] = useState(0);
   const [phase, setPhase] = useState<Phase>("typing");
 
@@ -73,7 +73,7 @@ export function AgentTeam({ prompt = "Build a team to work my inbound pipeline",
 
   return (
     <div
-      className={["ui-at", className].filter(Boolean).join(" ")}
+      className={["ui-atm", className].filter(Boolean).join(" ")}
       data-phase={phase}
       role="img"
       aria-label={label ?? `A prompt – “${prompt}” – builds a team of three agents: ${members.map((m) => m.role).join(", ")}`}
@@ -83,31 +83,31 @@ export function AgentTeam({ prompt = "Build a team to work my inbound pipeline",
         {css}
       </style>
 
-      <svg className="ui-at-lines" viewBox="0 0 600 400" aria-hidden="true">
+      <svg className="ui-atm-lines" viewBox="0 0 600 400" aria-hidden="true">
         <defs>
           {lines.map((d, i) => (
             <mask key={i} id={`${id}-reveal-${i}`} maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="400">
-              <path className="ui-at-reveal" d={d} pathLength={1} />
+              <path className="ui-atm-reveal" d={d} pathLength={1} />
             </mask>
           ))}
         </defs>
         {lines.map((d, i) => (
-          <path key={i} className="ui-at-line" d={d} mask={`url(#${id}-reveal-${i})`} />
+          <path key={i} className="ui-atm-line" d={d} mask={`url(#${id}-reveal-${i})`} />
         ))}
       </svg>
 
       {/* Soft Pro-colored glow that blooms behind the prompt when it's sent */}
-      <div className="ui-at-halo" aria-hidden="true" />
+      <div className="ui-atm-halo" aria-hidden="true" />
 
       {/* Prompt */}
-      <div className="ui-at-prompt" aria-hidden="true">
-        <span className="ui-at-text">
-          <bdi className="ui-at-typed">
+      <div className="ui-atm-prompt" aria-hidden="true">
+        <span className="ui-atm-text">
+          <bdi className="ui-atm-typed">
             {prompt.slice(0, typed)}
-            <span className="ui-at-caret" />
+            <span className="ui-atm-caret" />
           </bdi>
         </span>
-        <span className="ui-at-send">
+        <span className="ui-atm-send">
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 18.5v-13M6.5 11 12 5.5l5.5 5.5" />
           </svg>
@@ -115,18 +115,18 @@ export function AgentTeam({ prompt = "Build a team to work my inbound pipeline",
       </div>
 
       {members.map((m, i) => (
-        <div key={i} className="ui-at-agent" style={{ left: `calc(${102 + i * 198} * var(--u))`, ["--i" as string]: i }} aria-hidden="true">
-          <div className="ui-at-node">
-            <span className="ui-at-face">
+        <div key={i} className="ui-atm-agent" style={{ left: `calc(${102 + i * 198} * var(--u))`, ["--i" as string]: i }} aria-hidden="true">
+          <div className="ui-atm-node">
+            <span className="ui-atm-face">
               <img src={m.avatar} alt="" draggable={false} />
             </span>
-            <span className="ui-at-dot" />
+            <span className="ui-atm-dot" />
           </div>
-          <div className="ui-at-role">
+          <div className="ui-atm-role">
             {m.tools && m.tools.length > 0 && (
-              <span className="ui-at-tools">
+              <span className="ui-atm-tools">
                 {m.tools.slice(0, 2).map((t) => (
-                  <span key={t} className="ui-at-tool">
+                  <span key={t} className="ui-atm-tool">
                     {logos[t]}
                   </span>
                 ))}
@@ -182,26 +182,26 @@ const logos: Record<AgentTool, ReactNode> = {
 /* ---------- Styles ---------- */
 
 const css = /* css */ `
-.ui-at {
+.ui-atm {
   /* 1 unit of the 600 × 400 layout grid */
   --u: calc(100cqw / 600);
-  --ui-at-surface: #ffffff;
-  --ui-at-ring: rgba(10, 10, 10, 0.06);
-  --ui-at-text: #171717;
-  --ui-at-accent: #2f6bff;
-  --ui-at-caret: #171717;
+  --ui-atm-surface: #ffffff;
+  --ui-atm-ring: rgba(10, 10, 10, 0.06);
+  --ui-atm-text: #171717;
+  --ui-atm-accent: #2f6bff;
+  --ui-atm-caret: #171717;
   /* Same pink → violet as the Get Pro button */
-  --ui-at-halo-from: rgba(221, 6, 116, 0.18);
-  --ui-at-halo-to: rgba(94, 62, 224, 0.18);
-  --ui-at-dash: #e4e7ec; /* same gray as the lines in Outreach Branches */
-  --ui-at-face: #eef0f4;
-  --ui-at-online: #34c46a;
-  --ui-at-dot-ring: #e2f6e9;
-  --ui-at-dot-edge: rgba(52, 196, 106, 0.1);
-  --ui-at-tool-ring: #e5e5e5;
-  --ui-at-shadow: 0 calc(10 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.07), 0 calc(2 * var(--u)) calc(5 * var(--u)) rgba(0, 0, 0, 0.05);
-  --ui-at-ease: cubic-bezier(0.7, 0, 0.25, 1);
-  --ui-at-pop: cubic-bezier(0.34, 1.4, 0.64, 1);
+  --ui-atm-halo-from: rgba(221, 6, 116, 0.18);
+  --ui-atm-halo-to: rgba(94, 62, 224, 0.18);
+  --ui-atm-dash: #e4e7ec; /* same gray as the lines in Outreach Branches */
+  --ui-atm-face: #eef0f4;
+  --ui-atm-online: #34c46a;
+  --ui-atm-dot-ring: #e2f6e9;
+  --ui-atm-dot-edge: rgba(52, 196, 106, 0.1);
+  --ui-atm-tool-ring: #e5e5e5;
+  --ui-atm-shadow: 0 calc(10 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.07), 0 calc(2 * var(--u)) calc(5 * var(--u)) rgba(0, 0, 0, 0.05);
+  --ui-atm-ease: cubic-bezier(0.7, 0, 0.25, 1);
+  --ui-atm-pop: cubic-bezier(0.34, 1.4, 0.64, 1);
   position: relative;
   width: 100%;
   aspect-ratio: 3 / 2;
@@ -210,32 +210,32 @@ const css = /* css */ `
   font-family: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-.ui-at *, .ui-at *::before, .ui-at *::after { box-sizing: border-box; }
+.ui-atm *, .ui-atm *::before, .ui-atm *::after { box-sizing: border-box; }
 
 /* ---------- Dashed lines, revealed top to bottom ---------- */
 
-.ui-at-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-.ui-at-line {
+.ui-atm-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ui-atm-line {
   fill: none;
-  stroke: var(--ui-at-dash);
+  stroke: var(--ui-atm-dash);
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-dasharray: 6 7.23;
 }
-.ui-at-reveal {
+.ui-atm-reveal {
   fill: none;
   stroke: #fff;
   stroke-width: 8;
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
-  transition: stroke-dashoffset 700ms var(--ui-at-ease);
+  transition: stroke-dashoffset 700ms var(--ui-atm-ease);
 }
-.ui-at:is([data-phase="sent"], [data-phase="team"]) .ui-at-reveal { stroke-dashoffset: 0; }
-.ui-at[data-phase="reset"] .ui-at-lines { opacity: 0; transition: opacity 500ms ease; }
+.ui-atm:is([data-phase="sent"], [data-phase="team"]) .ui-atm-reveal { stroke-dashoffset: 0; }
+.ui-atm[data-phase="reset"] .ui-atm-lines { opacity: 0; transition: opacity 500ms ease; }
 
 /* ---------- Prompt ---------- */
 
-.ui-at-halo {
+.ui-atm-halo {
   position: absolute;
   left: 50%;
   top: calc(52 * var(--u));
@@ -243,14 +243,14 @@ const css = /* css */ `
   height: calc(68 * var(--u));
   transform: translateX(-50%) scale(0.9);
   border-radius: 999px;
-  background: linear-gradient(90deg, var(--ui-at-halo-from), var(--ui-at-halo-to));
+  background: linear-gradient(90deg, var(--ui-atm-halo-from), var(--ui-atm-halo-to));
   filter: blur(calc(22 * var(--u)));
   opacity: 0;
-  transition: opacity 700ms ease, transform 900ms var(--ui-at-ease);
+  transition: opacity 700ms ease, transform 900ms var(--ui-atm-ease);
 }
-.ui-at:is([data-phase="sent"], [data-phase="team"]) .ui-at-halo { opacity: 1; transform: translateX(-50%) scale(1); }
+.ui-atm:is([data-phase="sent"], [data-phase="team"]) .ui-atm-halo { opacity: 1; transform: translateX(-50%) scale(1); }
 
-.ui-at-prompt {
+.ui-atm-prompt {
   position: absolute;
   left: 50%;
   top: calc(60 * var(--u));
@@ -262,10 +262,10 @@ const css = /* css */ `
   padding: 0 calc(8 * var(--u)) 0 calc(20 * var(--u));
   transform: translateX(-50%);
   border-radius: 999px;
-  background: var(--ui-at-surface);
-  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-at-ring), var(--ui-at-shadow);
+  background: var(--ui-atm-surface);
+  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-atm-ring), var(--ui-atm-shadow);
 }
-.ui-at-text {
+.ui-atm-text {
   flex: 1;
   min-width: 0;
   overflow: hidden;
@@ -276,30 +276,30 @@ const css = /* css */ `
   line-height: 1.3;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  color: var(--ui-at-text);
+  color: var(--ui-atm-text);
 }
-.ui-at-typed { direction: ltr; unicode-bidi: isolate; }
-.ui-at-caret {
+.ui-atm-typed { direction: ltr; unicode-bidi: isolate; }
+.ui-atm-caret {
   display: inline-block;
   width: calc(1.6 * var(--u));
   height: calc(17 * var(--u));
   margin-left: calc(2 * var(--u));
   vertical-align: calc(-3 * var(--u));
   border-radius: 1px;
-  background: var(--ui-at-caret);
-  animation: ui-at-blink 1s steps(1) infinite;
+  background: var(--ui-atm-caret);
+  animation: ui-atm-blink 1s steps(1) infinite;
 }
-.ui-at-send {
+.ui-atm-send {
   flex: none;
   display: grid;
   place-items: center;
   width: calc(36 * var(--u));
   height: calc(36 * var(--u));
   border-radius: 50%;
-  background: var(--ui-at-accent);
-  transition: transform 200ms var(--ui-at-pop), filter 200ms ease;
+  background: var(--ui-atm-accent);
+  transition: transform 200ms var(--ui-atm-pop), filter 200ms ease;
 }
-.ui-at-send svg {
+.ui-atm-send svg {
   width: calc(18 * var(--u));
   height: calc(18 * var(--u));
   fill: none;
@@ -308,12 +308,12 @@ const css = /* css */ `
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-.ui-at[data-phase="sent"] .ui-at-send { animation: ui-at-press 380ms var(--ui-at-ease); }
-.ui-at[data-phase="reset"] .ui-at-text { opacity: 0; transition: opacity 400ms ease; }
+.ui-atm[data-phase="sent"] .ui-atm-send { animation: ui-atm-press 380ms var(--ui-atm-ease); }
+.ui-atm[data-phase="reset"] .ui-atm-text { opacity: 0; transition: opacity 400ms ease; }
 
 /* ---------- Agents ---------- */
 
-.ui-at-agent {
+.ui-atm-agent {
   position: absolute;
   top: calc(196 * var(--u));
   display: flex;
@@ -322,119 +322,119 @@ const css = /* css */ `
   gap: calc(14 * var(--u));
   transform: translateX(-50%);
 }
-.ui-at-node,
-.ui-at-role {
+.ui-atm-node,
+.ui-atm-role {
   opacity: 0;
   transform: translateY(calc(10 * var(--u))) scale(0.92);
-  transition: opacity 360ms ease, transform 520ms var(--ui-at-pop);
+  transition: opacity 360ms ease, transform 520ms var(--ui-atm-pop);
 }
-.ui-at[data-phase="team"] .ui-at-node {
+.ui-atm[data-phase="team"] .ui-atm-node {
   opacity: 1;
   transform: none;
   transition-delay: calc(var(--i) * 160ms);
 }
-.ui-at[data-phase="team"] .ui-at-role {
+.ui-atm[data-phase="team"] .ui-atm-role {
   opacity: 1;
   transform: none;
   transition-delay: calc(var(--i) * 160ms + 120ms);
 }
-.ui-at[data-phase="reset"] .ui-at-node,
-.ui-at[data-phase="reset"] .ui-at-role { transform: none; transition: opacity 500ms ease; }
+.ui-atm[data-phase="reset"] .ui-atm-node,
+.ui-atm[data-phase="reset"] .ui-atm-role { transform: none; transition: opacity 500ms ease; }
 
-.ui-at-node {
+.ui-atm-node {
   position: relative;
   width: calc(84 * var(--u));
   height: calc(84 * var(--u));
   padding: calc(5 * var(--u));
   border-radius: 50%;
-  background: var(--ui-at-surface);
-  box-shadow: inset 0 0 0 calc(1 * var(--u)) var(--ui-at-ring), var(--ui-at-shadow);
+  background: var(--ui-atm-surface);
+  box-shadow: inset 0 0 0 calc(1 * var(--u)) var(--ui-atm-ring), var(--ui-atm-shadow);
 }
-.ui-at-face {
+.ui-atm-face {
   display: block;
   width: 100%;
   height: 100%;
   overflow: hidden;
   border-radius: 50%;
-  background: var(--ui-at-face);
+  background: var(--ui-atm-face);
 }
-.ui-at-face img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; }
-.ui-at-dot {
+.ui-atm-face img { display: block; width: 100%; height: 100%; object-fit: cover; user-select: none; }
+.ui-atm-dot {
   position: absolute;
   right: calc(1 * var(--u));
   bottom: calc(3 * var(--u));
   width: calc(24 * var(--u));
   height: calc(24 * var(--u));
-  border: calc(7 * var(--u)) solid var(--ui-at-dot-ring);
+  border: calc(7 * var(--u)) solid var(--ui-atm-dot-ring);
   border-radius: 50%;
-  background: var(--ui-at-online);
-  box-shadow: 0 0 0 calc(2 * var(--u)) var(--ui-at-dot-edge);
+  background: var(--ui-atm-online);
+  box-shadow: 0 0 0 calc(2 * var(--u)) var(--ui-atm-dot-edge);
   transform: scale(0);
-  transition: transform 420ms var(--ui-at-pop);
+  transition: transform 420ms var(--ui-atm-pop);
 }
-.ui-at[data-phase="team"] .ui-at-dot { transform: scale(1); transition-delay: calc(var(--i) * 160ms + 360ms); }
+.ui-atm[data-phase="team"] .ui-atm-dot { transform: scale(1); transition-delay: calc(var(--i) * 160ms + 360ms); }
 
 /* Role pill: overlapping tool circles first, then the role */
-.ui-at-role {
+.ui-atm-role {
   display: flex;
   align-items: center;
   gap: calc(10 * var(--u));
   height: calc(42 * var(--u));
   padding: 0 calc(15 * var(--u)) 0 calc(7 * var(--u));
   border-radius: 999px;
-  background: var(--ui-at-surface);
-  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-at-ring), var(--ui-at-shadow);
+  background: var(--ui-atm-surface);
+  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-atm-ring), var(--ui-atm-shadow);
   font-size: calc(12.5 * var(--u));
   font-weight: 500;
   letter-spacing: -0.01em;
   white-space: nowrap;
-  color: var(--ui-at-text);
+  color: var(--ui-atm-text);
 }
-.ui-at-role:not(:has(.ui-at-tools)) { padding-left: calc(15 * var(--u)); }
+.ui-atm-role:not(:has(.ui-atm-tools)) { padding-left: calc(15 * var(--u)); }
 /* A long role ends in … inside its pill – the pills never run into each other */
-.ui-at-role { max-width: calc(184 * var(--u)); }
-.ui-at-role > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-.ui-at-tools { display: flex; }
-.ui-at-tool {
+.ui-atm-role { max-width: calc(184 * var(--u)); }
+.ui-atm-role > span:last-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+.ui-atm-tools { display: flex; }
+.ui-atm-tool {
   display: grid;
   place-items: center;
   width: calc(26 * var(--u));
   height: calc(26 * var(--u));
   border-radius: 50%;
-  background: var(--ui-at-surface);
-  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-at-tool-ring), 0 calc(1.5 * var(--u)) calc(3 * var(--u)) rgba(0, 0, 0, 0.08);
+  background: var(--ui-atm-surface);
+  box-shadow: 0 0 0 calc(1 * var(--u)) var(--ui-atm-tool-ring), 0 calc(1.5 * var(--u)) calc(3 * var(--u)) rgba(0, 0, 0, 0.08);
 }
 /* The second circle sits slightly over the first */
-.ui-at-tool + .ui-at-tool { margin-left: calc(-8 * var(--u)); }
-.ui-at-tool svg { width: calc(14 * var(--u)); height: calc(14 * var(--u)); }
+.ui-atm-tool + .ui-atm-tool { margin-left: calc(-8 * var(--u)); }
+.ui-atm-tool svg { width: calc(14 * var(--u)); height: calc(14 * var(--u)); }
 
-@keyframes ui-at-blink { 50% { opacity: 0; } }
-@keyframes ui-at-press {
+@keyframes ui-atm-blink { 50% { opacity: 0; } }
+@keyframes ui-atm-press {
   0% { transform: scale(1); }
   40% { transform: scale(0.86); }
   100% { transform: scale(1); }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ui-at *, .ui-at *::before { transition: none !important; animation: none !important; }
+  .ui-atm *, .ui-atm *::before { transition: none !important; animation: none !important; }
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-at {
-  --ui-at-surface: #232326;
-  --ui-at-ring: rgba(255, 255, 255, 0.08);
-  --ui-at-text: #ededed;
-  --ui-at-accent: #2f6bff;
-  --ui-at-caret: #ededed;
-  --ui-at-halo-from: rgba(244, 114, 182, 0.16);
-  --ui-at-halo-to: rgba(167, 139, 250, 0.16);
-  --ui-at-dash: rgba(255, 255, 255, 0.14);
-  --ui-at-face: #2e2e33;
-  --ui-at-online: #3fd17a;
-  --ui-at-dot-ring: #24392c;
-  --ui-at-dot-edge: rgba(63, 209, 122, 0.12);
-  --ui-at-tool-ring: rgba(255, 255, 255, 0.12);
-  --ui-at-shadow: 0 calc(10 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.4), 0 calc(2 * var(--u)) calc(5 * var(--u)) rgba(0, 0, 0, 0.3);
+:where(.dark, [data-theme="dark"]) .ui-atm {
+  --ui-atm-surface: #232326;
+  --ui-atm-ring: rgba(255, 255, 255, 0.08);
+  --ui-atm-text: #ededed;
+  --ui-atm-accent: #2f6bff;
+  --ui-atm-caret: #ededed;
+  --ui-atm-halo-from: rgba(244, 114, 182, 0.16);
+  --ui-atm-halo-to: rgba(167, 139, 250, 0.16);
+  --ui-atm-dash: rgba(255, 255, 255, 0.14);
+  --ui-atm-face: #2e2e33;
+  --ui-atm-online: #3fd17a;
+  --ui-atm-dot-ring: #24392c;
+  --ui-atm-dot-edge: rgba(63, 209, 122, 0.12);
+  --ui-atm-tool-ring: rgba(255, 255, 255, 0.12);
+  --ui-atm-shadow: 0 calc(10 * var(--u)) calc(24 * var(--u)) rgba(0, 0, 0, 0.4), 0 calc(2 * var(--u)) calc(5 * var(--u)) rgba(0, 0, 0, 0.3);
 }
-:where(.dark, [data-theme="dark"]) .ui-at-tool { background: #f4f4f5; }
+:where(.dark, [data-theme="dark"]) .ui-atm-tool { background: #f4f4f5; }
 `;

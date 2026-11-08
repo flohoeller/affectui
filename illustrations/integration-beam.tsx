@@ -69,7 +69,7 @@ export function IntegrationBeam({
     left = DEFAULT_LEFT;
     right = DEFAULT_RIGHT;
   }
-  const uid = "ui-ib" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
+  const uid = "ui-ibm" + useId().replace(/[^a-zA-Z0-9_-]/g, "");
   const tools = [...left, ...right];
   const n = tools.length;
   const nLeft = left.length;
@@ -144,7 +144,7 @@ export function IntegrationBeam({
 
     const measure = () => {
       svg.setAttribute("viewBox", `0 0 ${root.clientWidth} ${root.clientHeight}`);
-      const stack = getComputedStyle(scene).getPropertyValue("--ui-ib-stack").trim() === "1";
+      const stack = getComputedStyle(scene).getPropertyValue("--ui-ibm-stack").trim() === "1";
       const els = [...toolRefs.current.slice(0, n), hub];
       if (els.some((el) => !el)) return;
       const pos = els.map((el) => centerOf(el!));
@@ -347,7 +347,7 @@ export function IntegrationBeam({
         toolRefs.current[i] = el;
       }}
       type="button"
-      className="ui-ib__tool"
+      className="ui-ibm__tool"
       aria-pressed={!off.has(i)}
       aria-label={`${t.name}, ${off.has(i) ? "paused" : "connected"}`}
       data-off={off.has(i) || undefined}
@@ -359,17 +359,17 @@ export function IntegrationBeam({
       onBlur={() => setFocus(null)}
     >
       <span
-        className="ui-ib__ring"
+        className="ui-ibm__ring"
         ref={(el) => {
           ringRefs.current[i] = el;
         }}
       />
-      <span className="ui-ib__logo" aria-hidden="true">
+      <span className="ui-ibm__logo" aria-hidden="true">
         {t.logo}
       </span>
-      <span className="ui-ib__tip" aria-hidden="true">
+      <span className="ui-ibm__tip" aria-hidden="true">
         {t.name}
-        {off.has(i) && <span className="ui-ib__tip-state"> · Paused</span>}
+        {off.has(i) && <span className="ui-ibm__tip-state"> · Paused</span>}
       </span>
     </button>
   );
@@ -377,7 +377,7 @@ export function IntegrationBeam({
   return (
     <div
       ref={rootRef}
-      className={["ui-ib", className].filter(Boolean).join(" ")}
+      className={["ui-ibm", className].filter(Boolean).join(" ")}
       role="group"
       aria-label={label ?? `${center.name} connected to ${tools.map((t) => t.name).join(", ")}`}
       data-focus={focus !== null || undefined}
@@ -387,7 +387,7 @@ export function IntegrationBeam({
         {css}
       </style>
 
-      <svg ref={svgRef} className="ui-ib__beams" aria-hidden="true">
+      <svg ref={svgRef} className="ui-ibm__beams" aria-hidden="true">
         <defs>
           {/* User-space region: a straight, flat beam has a zero-height box and would lose its glow otherwise */}
           <filter id={`${uid}-blur`} filterUnits="userSpaceOnUse" x="-100" y="-100" width="10000" height="10000">
@@ -402,16 +402,16 @@ export function IntegrationBeam({
                 gradRefs.current[i] = el;
               }}
             >
-              <stop offset="0" className="ui-ib__stop-tail" />
-              <stop offset="0.6" className="ui-ib__stop-mid" />
-              <stop offset="1" className="ui-ib__stop-head" />
+              <stop offset="0" className="ui-ibm__stop-tail" />
+              <stop offset="0.6" className="ui-ibm__stop-mid" />
+              <stop offset="1" className="ui-ibm__stop-head" />
             </linearGradient>
           ))}
         </defs>
         {tools.map((_, i) => (
           <path
             key={i}
-            className="ui-ib__line"
+            className="ui-ibm__line"
             data-off={off.has(i) || undefined}
             data-focus={focus === i || undefined}
             ref={(el) => {
@@ -422,40 +422,40 @@ export function IntegrationBeam({
         {tools.map((_, i) => (
           <g
             key={i}
-            className="ui-ib__pulse"
+            className="ui-ibm__pulse"
             data-focus={focus === i || undefined}
             ref={(el) => {
               pulseRefs.current[i] = el;
             }}
           >
-            <path className="ui-ib__glow" stroke={`url(#${uid}-g${i})`} filter={`url(#${uid}-blur)`} />
-            <path className="ui-ib__core" stroke={`url(#${uid}-g${i})`} />
+            <path className="ui-ibm__glow" stroke={`url(#${uid}-g${i})`} filter={`url(#${uid}-blur)`} />
+            <path className="ui-ibm__core" stroke={`url(#${uid}-g${i})`} />
           </g>
         ))}
       </svg>
 
-      <div ref={sceneRef} className="ui-ib__scene">
-        <div className="ui-ib__group ui-ib__group--in">{left.map((t, i) => tile(t, i))}</div>
+      <div ref={sceneRef} className="ui-ibm__scene">
+        <div className="ui-ibm__group ui-ibm__group--in">{left.map((t, i) => tile(t, i))}</div>
 
-        <div ref={centerRef} className="ui-ib__center" data-syncing={(syncing && connected > 0) || undefined}>
-          <span className="ui-ib__ring ui-ib__ring--center" ref={centerRingRef} />
-          <span className="ui-ib__mark" aria-hidden="true">
+        <div ref={centerRef} className="ui-ibm__center" data-syncing={(syncing && connected > 0) || undefined}>
+          <span className="ui-ibm__ring ui-ibm__ring--center" ref={centerRingRef} />
+          <span className="ui-ibm__mark" aria-hidden="true">
             {center.logo ?? <ProductMark />}
           </span>
-          <span ref={chipRef} className="ui-ib__chip">
-            <span ref={chipInnerRef} className="ui-ib__chip-inner">
-              <span className="ui-ib__dot" data-idle={connected === 0 || undefined} />
-              <span className="ui-ib__status" key={status}>
+          <span ref={chipRef} className="ui-ibm__chip">
+            <span ref={chipInnerRef} className="ui-ibm__chip-inner">
+              <span className="ui-ibm__dot" data-idle={connected === 0 || undefined} />
+              <span className="ui-ibm__status" key={status}>
                 {status}
               </span>
             </span>
           </span>
         </div>
 
-        <div className="ui-ib__group ui-ib__group--out">{right.map((t, i) => tile(t, nLeft + i))}</div>
+        <div className="ui-ibm__group ui-ibm__group--out">{right.map((t, i) => tile(t, nLeft + i))}</div>
       </div>
 
-      <span className="ui-ib__sr" aria-live="polite">
+      <span className="ui-ibm__sr" aria-live="polite">
         {announce}
       </span>
     </div>
@@ -562,43 +562,43 @@ const DEFAULT_RIGHT: BeamTool[] = [
 /* ---------- Styles ---------- */
 
 const css = /* css */ `
-.ui-ib {
-  --ui-ib-ink: #171717;
-  --ui-ib-text: #404040;
-  --ui-ib-muted: #8f8f8f;
-  --ui-ib-faint: #b5b5b5;
-  --ui-ib-line: #e2e2e2;
-  --ui-ib-line-hi: #a9c0ff;
-  --ui-ib-card: #ffffff;
-  --ui-ib-tray: #f0f0f0;
-  --ui-ib-accent: #2f6bff;
+.ui-ibm {
+  --ui-ibm-ink: #171717;
+  --ui-ibm-text: #404040;
+  --ui-ibm-muted: #8f8f8f;
+  --ui-ibm-faint: #b5b5b5;
+  --ui-ibm-line: #e2e2e2;
+  --ui-ibm-line-hi: #a9c0ff;
+  --ui-ibm-card: #ffffff;
+  --ui-ibm-tray: #f0f0f0;
+  --ui-ibm-accent: #2f6bff;
   /* Pulse: clear tail, accent body, a pale tip that reads as light */
-  --ui-ib-pulse: #2f6bff;
-  --ui-ib-tip-color: #b9cdff;
-  --ui-ib-ring: rgba(47, 107, 255, 0.2);
-  --ui-ib-glow: rgba(47, 107, 255, 0.26);
-  --ui-ib-hub: #171717;
-  --ui-ib-hub-mark: #ffffff;
-  --ui-ib-hub-edge: rgba(0, 0, 0, 0.9);
-  --ui-ib-tooltip: #171717;
-  --ui-ib-tooltip-text: #ffffff;
-  --ui-ib-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 18px -10px rgba(0, 0, 0, 0.18);
-  --ui-ib-focus: rgba(23, 23, 23, 0.22);
-  --ui-ib-ease: ${EASE};
+  --ui-ibm-pulse: #2f6bff;
+  --ui-ibm-tip-color: #b9cdff;
+  --ui-ibm-ring: rgba(47, 107, 255, 0.2);
+  --ui-ibm-glow: rgba(47, 107, 255, 0.26);
+  --ui-ibm-hub: #171717;
+  --ui-ibm-hub-mark: #ffffff;
+  --ui-ibm-hub-edge: rgba(0, 0, 0, 0.9);
+  --ui-ibm-tooltip: #171717;
+  --ui-ibm-tooltip-text: #ffffff;
+  --ui-ibm-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 18px -10px rgba(0, 0, 0, 0.18);
+  --ui-ibm-focus: rgba(23, 23, 23, 0.22);
+  --ui-ibm-ease: ${EASE};
   position: relative;
   width: 100%;
   container-type: inline-size;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   font-size: 13px;
-  color: var(--ui-ib-text);
+  color: var(--ui-ibm-text);
   -webkit-tap-highlight-color: transparent;
 }
-.ui-ib *, .ui-ib *::before, .ui-ib *::after { box-sizing: border-box; }
+.ui-ibm *, .ui-ibm *::before, .ui-ibm *::after { box-sizing: border-box; }
 
 /* ---------- Beams ---------- */
 
 /* Absolute, so it paints below the (positioned) tiles */
-.ui-ib__beams {
+.ui-ibm__beams {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -606,44 +606,44 @@ const css = /* css */ `
   overflow: visible;
   pointer-events: none;
 }
-.ui-ib__line {
+.ui-ibm__line {
   fill: none;
-  stroke: var(--ui-ib-line);
+  stroke: var(--ui-ibm-line);
   stroke-width: 1.5;
   stroke-linecap: round;
-  transition: stroke 300ms var(--ui-ib-ease), opacity 300ms var(--ui-ib-ease);
+  transition: stroke 300ms var(--ui-ibm-ease), opacity 300ms var(--ui-ibm-ease);
 }
-.ui-ib__line[data-off] { stroke: var(--ui-ib-faint); stroke-dasharray: 2 5; opacity: 0.75; }
-.ui-ib[data-focus] .ui-ib__line:not([data-focus]) { opacity: 0.35; }
-.ui-ib__line[data-focus]:not([data-off]) { stroke: var(--ui-ib-line-hi); }
+.ui-ibm__line[data-off] { stroke: var(--ui-ibm-faint); stroke-dasharray: 2 5; opacity: 0.75; }
+.ui-ibm[data-focus] .ui-ibm__line:not([data-focus]) { opacity: 0.35; }
+.ui-ibm__line[data-focus]:not([data-off]) { stroke: var(--ui-ibm-line-hi); }
 
-.ui-ib__pulse { opacity: 0; transition: opacity 240ms ease; }
-.ui-ib__pulse path { fill: none; stroke-linecap: round; transition: opacity 300ms var(--ui-ib-ease); }
-.ui-ib__core { stroke-width: 2; }
-.ui-ib__glow { stroke-width: 6; opacity: 0.45; }
-.ui-ib[data-focus] .ui-ib__pulse:not([data-focus]) path { opacity: 0.25; }
-.ui-ib__pulse[data-focus] .ui-ib__glow { opacity: 0.7; }
-.ui-ib__stop-tail { stop-color: var(--ui-ib-pulse); stop-opacity: 0; }
-.ui-ib__stop-mid { stop-color: var(--ui-ib-pulse); stop-opacity: 0.9; }
-.ui-ib__stop-head { stop-color: var(--ui-ib-tip-color); stop-opacity: 1; }
+.ui-ibm__pulse { opacity: 0; transition: opacity 240ms ease; }
+.ui-ibm__pulse path { fill: none; stroke-linecap: round; transition: opacity 300ms var(--ui-ibm-ease); }
+.ui-ibm__core { stroke-width: 2; }
+.ui-ibm__glow { stroke-width: 6; opacity: 0.45; }
+.ui-ibm[data-focus] .ui-ibm__pulse:not([data-focus]) path { opacity: 0.25; }
+.ui-ibm__pulse[data-focus] .ui-ibm__glow { opacity: 0.7; }
+.ui-ibm__stop-tail { stop-color: var(--ui-ibm-pulse); stop-opacity: 0; }
+.ui-ibm__stop-mid { stop-color: var(--ui-ibm-pulse); stop-opacity: 0.9; }
+.ui-ibm__stop-head { stop-color: var(--ui-ibm-tip-color); stop-opacity: 1; }
 
 /* ---------- Layout: side by side, stacked on narrow widths ---------- */
 
-.ui-ib__scene {
-  --ui-ib-stack: 0;
+.ui-ibm__scene {
+  --ui-ibm-stack: 0;
   display: grid;
   grid-template-columns: auto minmax(40px, 1fr) auto minmax(40px, 1fr) auto;
   grid-template-areas: "in . hub . out";
   align-items: center;
   padding: 6px 0;
 }
-.ui-ib__group { display: flex; flex-direction: column; gap: 26px; }
-.ui-ib__group--in { grid-area: in; }
-.ui-ib__group--out { grid-area: out; }
+.ui-ibm__group { display: flex; flex-direction: column; gap: 26px; }
+.ui-ibm__group--in { grid-area: in; }
+.ui-ibm__group--out { grid-area: out; }
 
 /* ---------- Tools ---------- */
 
-.ui-ib__tool {
+.ui-ibm__tool {
   position: relative;
   display: grid;
   place-items: center;
@@ -652,64 +652,64 @@ const css = /* css */ `
   padding: 0;
   border: 0;
   border-radius: 18px;
-  background: var(--ui-ib-card);
-  box-shadow: var(--ui-ib-shadow);
-  color: var(--ui-ib-ink);
+  background: var(--ui-ibm-card);
+  box-shadow: var(--ui-ibm-shadow);
+  color: var(--ui-ibm-ink);
   font: inherit;
   cursor: pointer;
-  transition: background-color 300ms var(--ui-ib-ease), box-shadow 300ms var(--ui-ib-ease);
+  transition: background-color 300ms var(--ui-ibm-ease), box-shadow 300ms var(--ui-ibm-ease);
 }
-.ui-ib__tool:focus-visible { outline: 2px solid var(--ui-ib-focus); outline-offset: 3px; }
-.ui-ib__logo {
+.ui-ibm__tool:focus-visible { outline: 2px solid var(--ui-ibm-focus); outline-offset: 3px; }
+.ui-ibm__logo {
   display: grid;
   width: 28px;
   height: 28px;
-  transition: transform 300ms var(--ui-ib-ease), filter 300ms var(--ui-ib-ease), opacity 300ms var(--ui-ib-ease);
+  transition: transform 300ms var(--ui-ibm-ease), filter 300ms var(--ui-ibm-ease), opacity 300ms var(--ui-ibm-ease);
 }
-.ui-ib__logo > svg { width: 100%; height: 100%; }
+.ui-ibm__logo > svg { width: 100%; height: 100%; }
 @media (hover: hover) {
-  .ui-ib__tool:hover .ui-ib__logo { transform: scale(1.08); }
+  .ui-ibm__tool:hover .ui-ibm__logo { transform: scale(1.08); }
 }
-.ui-ib__tool[data-off] { background: var(--ui-ib-tray); }
-.ui-ib__tool[data-off] .ui-ib__logo { filter: grayscale(1); opacity: 0.4; }
+.ui-ibm__tool[data-off] { background: var(--ui-ibm-tray); }
+.ui-ibm__tool[data-off] .ui-ibm__logo { filter: grayscale(1); opacity: 0.4; }
 
 /* Arrival glow – played with the Web Animations API */
-.ui-ib__ring {
+.ui-ibm__ring {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  box-shadow: 0 0 0 3px var(--ui-ib-ring), 0 0 22px 2px var(--ui-ib-glow);
+  box-shadow: 0 0 0 3px var(--ui-ibm-ring), 0 0 22px 2px var(--ui-ibm-glow);
   opacity: 0;
   pointer-events: none;
 }
 
 /* Tooltip: points toward the centre, so it never leaves the scene */
-.ui-ib__tip {
-  --ui-ib-tip-from: translate(-4px, -50%);
+.ui-ibm__tip {
+  --ui-ibm-tip-from: translate(-4px, -50%);
   position: absolute;
   z-index: 3;
   top: 50%;
   left: calc(100% + 10px);
   padding: 5px 9px;
   border-radius: 8px;
-  background: var(--ui-ib-tooltip);
-  color: var(--ui-ib-tooltip-text);
+  background: var(--ui-ibm-tooltip);
+  color: var(--ui-ibm-tooltip-text);
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
   white-space: nowrap;
   pointer-events: none;
   opacity: 0;
-  transform: var(--ui-ib-tip-from);
-  transition: opacity 180ms ease, transform 260ms var(--ui-ib-ease);
+  transform: var(--ui-ibm-tip-from);
+  transition: opacity 180ms ease, transform 260ms var(--ui-ibm-ease);
 }
-.ui-ib__group--out .ui-ib__tip { --ui-ib-tip-from: translate(4px, -50%); left: auto; right: calc(100% + 10px); }
-.ui-ib__tip-state { opacity: 0.6; font-weight: 400; }
-.ui-ib__tool[data-tip] .ui-ib__tip { opacity: 1; transform: translate(0, -50%); }
+.ui-ibm__group--out .ui-ibm__tip { --ui-ibm-tip-from: translate(4px, -50%); left: auto; right: calc(100% + 10px); }
+.ui-ibm__tip-state { opacity: 0.6; font-weight: 400; }
+.ui-ibm__tool[data-tip] .ui-ibm__tip { opacity: 1; transform: translate(0, -50%); }
 
 /* ---------- Centre ---------- */
 
-.ui-ib__center {
+.ui-ibm__center {
   grid-area: hub;
   position: relative;
   display: grid;
@@ -717,16 +717,16 @@ const css = /* css */ `
   width: 80px;
   height: 80px;
   border-radius: 24px;
-  background: var(--ui-ib-hub);
-  box-shadow: 0 0 0 1px var(--ui-ib-hub-edge), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 14px 28px -12px rgba(0, 0, 0, 0.38);
-  color: var(--ui-ib-hub-mark);
+  background: var(--ui-ibm-hub);
+  box-shadow: 0 0 0 1px var(--ui-ibm-hub-edge), inset 0 1px 0 rgba(255, 255, 255, 0.12), 0 14px 28px -12px rgba(0, 0, 0, 0.38);
+  color: var(--ui-ibm-hub-mark);
 }
-.ui-ib__mark { display: grid; width: 36px; height: 36px; fill: currentColor; }
-.ui-ib__mark > svg { width: 100%; height: 100%; }
-.ui-ib__ring--center { inset: -1px; }
+.ui-ibm__mark { display: grid; width: 36px; height: 36px; fill: currentColor; }
+.ui-ibm__mark > svg { width: 100%; height: 100%; }
+.ui-ibm__ring--center { inset: -1px; }
 
 /* Status chip under the hub – absolute, so the hub itself stays centred on the beams */
-.ui-ib__chip {
+.ui-ibm__chip {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
@@ -735,11 +735,11 @@ const css = /* css */ `
   height: 26px;
   overflow: hidden;
   border-radius: 999px;
-  background: var(--ui-ib-card);
+  background: var(--ui-ibm-card);
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.07), 0 1px 2px rgba(0, 0, 0, 0.04);
-  transition: width 320ms var(--ui-ib-ease);
+  transition: width 320ms var(--ui-ibm-ease);
 }
-.ui-ib__chip-inner {
+.ui-ibm__chip-inner {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -748,22 +748,22 @@ const css = /* css */ `
   padding: 0 11px 0 10px;
   font-size: 12px;
   font-weight: 500;
-  color: var(--ui-ib-text);
+  color: var(--ui-ibm-text);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
 }
-.ui-ib__status { display: inline-block; animation: ui-ib-in 320ms var(--ui-ib-ease) both; }
-.ui-ib__dot {
+.ui-ibm__status { display: inline-block; animation: ui-ibm-in 320ms var(--ui-ibm-ease) both; }
+.ui-ibm__dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--ui-ib-accent);
+  background: var(--ui-ibm-accent);
   transition: background-color 300ms ease;
 }
-.ui-ib__dot[data-idle] { background: var(--ui-ib-faint); }
-.ui-ib__center[data-syncing] .ui-ib__dot { animation: ui-ib-breathe 1.1s ease-in-out infinite; }
+.ui-ibm__dot[data-idle] { background: var(--ui-ibm-faint); }
+.ui-ibm__center[data-syncing] .ui-ibm__dot { animation: ui-ibm-breathe 1.1s ease-in-out infinite; }
 
-.ui-ib__sr {
+.ui-ibm__sr {
   position: absolute;
   width: 1px;
   height: 1px;
@@ -772,13 +772,13 @@ const css = /* css */ `
   white-space: nowrap;
 }
 
-@keyframes ui-ib-in { from { opacity: 0; transform: translateY(6px); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
-@keyframes ui-ib-breathe { 50% { box-shadow: 0 0 0 3px var(--ui-ib-ring); } }
+@keyframes ui-ibm-in { from { opacity: 0; transform: translateY(6px); filter: blur(2px); } to { opacity: 1; transform: none; filter: none; } }
+@keyframes ui-ibm-breathe { 50% { box-shadow: 0 0 0 3px var(--ui-ibm-ring); } }
 
 /* Narrow: senders above, receivers below, vertical beams */
 @container (max-width: 459px) {
-  .ui-ib__scene {
-    --ui-ib-stack: 1;
+  .ui-ibm__scene {
+    --ui-ibm-stack: 1;
     grid-template-columns: 1fr;
     grid-template-areas: "in" "hub" "out";
     justify-items: center;
@@ -786,55 +786,55 @@ const css = /* css */ `
     padding: 0 0 4px;
   }
   /* Many tools in a row: the tiles get smaller (down to 36px) instead of running past the edge */
-  .ui-ib__group { flex-direction: row; justify-content: center; width: 100%; gap: clamp(8px, 4cqw, 34px); }
-  .ui-ib__tool { flex: 0 1 56px; width: auto; min-width: 36px; height: auto; aspect-ratio: 1; border-radius: 17px; }
-  .ui-ib__center { width: 76px; height: 76px; border-radius: 23px; }
+  .ui-ibm__group { flex-direction: row; justify-content: center; width: 100%; gap: clamp(8px, 4cqw, 34px); }
+  .ui-ibm__tool { flex: 0 1 56px; width: auto; min-width: 36px; height: auto; aspect-ratio: 1; border-radius: 17px; }
+  .ui-ibm__center { width: 76px; height: 76px; border-radius: 23px; }
   /* Tooltips sit between the rows; the outer tools align theirs to their edge */
-  .ui-ib__tip,
-  .ui-ib__group--out .ui-ib__tip {
-    --ui-ib-tip-from: translate(-50%, -4px);
+  .ui-ibm__tip,
+  .ui-ibm__group--out .ui-ibm__tip {
+    --ui-ibm-tip-from: translate(-50%, -4px);
     top: calc(100% + 8px);
     right: auto;
     left: 50%;
   }
-  .ui-ib__group--out .ui-ib__tip { --ui-ib-tip-from: translate(-50%, 4px); top: auto; bottom: calc(100% + 8px); }
-  .ui-ib__tool[data-tip] .ui-ib__tip { transform: translate(-50%, 0); }
-  .ui-ib__tool:first-child .ui-ib__tip { left: 0; translate: 50% 0; }
-  .ui-ib__tool:last-child .ui-ib__tip { left: 100%; translate: -50% 0; }
+  .ui-ibm__group--out .ui-ibm__tip { --ui-ibm-tip-from: translate(-50%, 4px); top: auto; bottom: calc(100% + 8px); }
+  .ui-ibm__tool[data-tip] .ui-ibm__tip { transform: translate(-50%, 0); }
+  .ui-ibm__tool:first-child .ui-ibm__tip { left: 0; translate: 50% 0; }
+  .ui-ibm__tool:last-child .ui-ibm__tip { left: 100%; translate: -50% 0; }
 }
 
 /* Touch: the tiles are already 56px+; tooltips are shown after a tap instead of on hover */
 @media (hover: none) and (pointer: coarse) {
-  .ui-ib__tool { min-width: 44px; min-height: 44px; }
+  .ui-ibm__tool { min-width: 44px; min-height: 44px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .ui-ib__line, .ui-ib__tool, .ui-ib__logo, .ui-ib__tip, .ui-ib__chip, .ui-ib__dot { transition: none; }
-  .ui-ib__status, .ui-ib__center[data-syncing] .ui-ib__dot { animation: none; }
+  .ui-ibm__line, .ui-ibm__tool, .ui-ibm__logo, .ui-ibm__tip, .ui-ibm__chip, .ui-ibm__dot { transition: none; }
+  .ui-ibm__status, .ui-ibm__center[data-syncing] .ui-ibm__dot { animation: none; }
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
-:where(.dark, [data-theme="dark"]) .ui-ib {
-  --ui-ib-ink: #ededed;
-  --ui-ib-text: #c8c8cc;
-  --ui-ib-muted: #8b8b92;
-  --ui-ib-faint: #5c5c63;
-  --ui-ib-line: #2e2e33;
-  --ui-ib-line-hi: #4b5f9e;
-  --ui-ib-card: #19191b;
-  --ui-ib-tray: #111113;
-  --ui-ib-accent: #6d8bff;
-  --ui-ib-pulse: #6d8bff;
-  --ui-ib-tip-color: #ffffff;
-  --ui-ib-ring: rgba(109, 139, 255, 0.24);
-  --ui-ib-glow: rgba(109, 139, 255, 0.3);
-  --ui-ib-hub: #26262a;
-  --ui-ib-hub-mark: #ffffff;
-  --ui-ib-hub-edge: rgba(255, 255, 255, 0.12);
-  --ui-ib-tooltip: #ededed;
-  --ui-ib-tooltip-text: #111113;
-  --ui-ib-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 18px -10px rgba(0, 0, 0, 0.6);
-  --ui-ib-focus: rgba(255, 255, 255, 0.3);
+:where(.dark, [data-theme="dark"]) .ui-ibm {
+  --ui-ibm-ink: #ededed;
+  --ui-ibm-text: #c8c8cc;
+  --ui-ibm-muted: #8b8b92;
+  --ui-ibm-faint: #5c5c63;
+  --ui-ibm-line: #2e2e33;
+  --ui-ibm-line-hi: #4b5f9e;
+  --ui-ibm-card: #19191b;
+  --ui-ibm-tray: #111113;
+  --ui-ibm-accent: #6d8bff;
+  --ui-ibm-pulse: #6d8bff;
+  --ui-ibm-tip-color: #ffffff;
+  --ui-ibm-ring: rgba(109, 139, 255, 0.24);
+  --ui-ibm-glow: rgba(109, 139, 255, 0.3);
+  --ui-ibm-hub: #26262a;
+  --ui-ibm-hub-mark: #ffffff;
+  --ui-ibm-hub-edge: rgba(255, 255, 255, 0.12);
+  --ui-ibm-tooltip: #ededed;
+  --ui-ibm-tooltip-text: #111113;
+  --ui-ibm-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 18px -10px rgba(0, 0, 0, 0.6);
+  --ui-ibm-focus: rgba(255, 255, 255, 0.3);
 }
-:where(.dark, [data-theme="dark"]) .ui-ib__chip { box-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.3); }
+:where(.dark, [data-theme="dark"]) .ui-ibm__chip { box-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.3); }
 `;

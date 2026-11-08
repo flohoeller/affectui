@@ -51,7 +51,7 @@ const GLANCES = [
 const about = (x: number, y: number, t: string) => `translate(${x} ${y}) ${t} translate(${-x} ${-y})`;
 /** A gradient stop whose color comes from a CSS variable, so the palette can change */
 const Stop = ({ offset, color, opacity }: { offset: number; color: string; opacity?: number }) => (
-  <stop offset={offset} style={{ stopColor: `var(--ui-gc-${color})`, stopOpacity: opacity }} />
+  <stop offset={offset} style={{ stopColor: `var(--ui-glw-${color})`, stopOpacity: opacity }} />
 );
 
 export function GlowCloud({
@@ -202,7 +202,7 @@ export function GlowCloud({
         <clipPath id={id(`clip-${side}`)}>
           <rect {...pill} />
         </clipPath>
-        <rect {...pill} y={EYES.y + 2.5} className="ui-gc__eye-shade" fill="none" strokeWidth="5" filter={`url(#${id("edge")})`} clipPath={`url(#${id(`clip-${side}`)})`} />
+        <rect {...pill} y={EYES.y + 2.5} className="ui-glw__eye-shade" fill="none" strokeWidth="5" filter={`url(#${id("edge")})`} clipPath={`url(#${id(`clip-${side}`)})`} />
       </g>
     );
   };
@@ -210,7 +210,7 @@ export function GlowCloud({
   return (
     <div
       ref={root}
-      className={["ui-gc", className].filter(Boolean).join(" ")}
+      className={["ui-glw", className].filter(Boolean).join(" ")}
       data-bg={background || undefined}
       data-color={color}
       role="img"
@@ -261,13 +261,13 @@ export function GlowCloud({
           </linearGradient>
         </defs>
 
-        <ellipse ref={shadowRef} className="ui-gc__shadow" cx={CX} cy="210" rx="54" ry="7" filter={`url(#${id("shade")})`} />
+        <ellipse ref={shadowRef} className="ui-glw__shadow" cx={CX} cy="210" rx="54" ry="7" filter={`url(#${id("shade")})`} />
 
         <g ref={floatRef}>
           <g ref={turnRef}>
             {/* A soft halo around the cloud, and a fine edge right around it that keeps it crisp on white */}
-            <use href={`#${id("shape")}`} className="ui-gc__halo" filter={`url(#${id("halo")})`} />
-            <use href={`#${id("shape")}`} className="ui-gc__edge" filter={`url(#${id("edge")})`} />
+            <use href={`#${id("shape")}`} className="ui-glw__halo" filter={`url(#${id("halo")})`} />
+            <use href={`#${id("shape")}`} className="ui-glw__edge" filter={`url(#${id("edge")})`} />
             <g mask={`url(#${id("mask")})`}>
               <rect width="240" height="240" fill={`url(#${id("rim")})`} />
               {/* The colored body, a bit smaller and sitting slightly low: the white glow reaches further in at the top and stays subtle at the bottom */}
@@ -292,21 +292,21 @@ export function GlowCloud({
 
 const css = /* css */ `
 /* Palette as variables – blue, or red-orange via data-color="orange" */
-.ui-gc {
-  --ui-gc-sky-top: #2475ea;
-  --ui-gc-sky-bottom: #4ac8f5;
-  --ui-gc-sky-light: rgba(110, 225, 255, 0.55);
-  --ui-gc-white: #ffffff;
-  --ui-gc-rim: #f4fcff;
-  --ui-gc-body-1: #06a3ff;
-  --ui-gc-body-2: #18b2ff;
-  --ui-gc-body-3: #58cdff;
-  --ui-gc-eye: #cdeeff;
-  --ui-gc-eye-shade: rgba(30, 140, 230, 0.3);
-  --ui-gc-halo: rgba(30, 150, 255, 0.2);
-  --ui-gc-edge: rgba(20, 120, 240, 0.4);
-  --ui-gc-shadow: rgba(10, 90, 200, 0.55);
-  --ui-gc-ground: rgba(10, 80, 190, 0.4);
+.ui-glw {
+  --ui-glw-sky-top: #2475ea;
+  --ui-glw-sky-bottom: #4ac8f5;
+  --ui-glw-sky-light: rgba(110, 225, 255, 0.55);
+  --ui-glw-white: #ffffff;
+  --ui-glw-rim: #f4fcff;
+  --ui-glw-body-1: #06a3ff;
+  --ui-glw-body-2: #18b2ff;
+  --ui-glw-body-3: #58cdff;
+  --ui-glw-eye: #cdeeff;
+  --ui-glw-eye-shade: rgba(30, 140, 230, 0.3);
+  --ui-glw-halo: rgba(30, 150, 255, 0.2);
+  --ui-glw-edge: rgba(20, 120, 240, 0.4);
+  --ui-glw-shadow: rgba(10, 90, 200, 0.55);
+  --ui-glw-ground: rgba(10, 80, 190, 0.4);
   position: relative;
   display: grid;
   place-items: center;
@@ -317,52 +317,52 @@ const css = /* css */ `
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
-.ui-gc[data-color="orange"] {
-  --ui-gc-sky-top: #e94135;
-  --ui-gc-sky-bottom: #fa9842;
-  --ui-gc-sky-light: rgba(255, 205, 150, 0.5);
-  --ui-gc-rim: #fff9f5;
-  --ui-gc-body-1: #f45434;
-  --ui-gc-body-2: #fa7342;
-  --ui-gc-body-3: #ffb175;
-  --ui-gc-eye: #ffe8db;
-  --ui-gc-eye-shade: rgba(230, 90, 50, 0.3);
-  --ui-gc-halo: rgba(240, 100, 60, 0.2);
-  --ui-gc-edge: rgba(220, 80, 40, 0.4);
-  --ui-gc-shadow: rgba(170, 50, 20, 0.5);
-  --ui-gc-ground: rgba(150, 30, 10, 0.36);
+.ui-glw[data-color="orange"] {
+  --ui-glw-sky-top: #e94135;
+  --ui-glw-sky-bottom: #fa9842;
+  --ui-glw-sky-light: rgba(255, 205, 150, 0.5);
+  --ui-glw-rim: #fff9f5;
+  --ui-glw-body-1: #f45434;
+  --ui-glw-body-2: #fa7342;
+  --ui-glw-body-3: #ffb175;
+  --ui-glw-eye: #ffe8db;
+  --ui-glw-eye-shade: rgba(230, 90, 50, 0.3);
+  --ui-glw-halo: rgba(240, 100, 60, 0.2);
+  --ui-glw-edge: rgba(220, 80, 40, 0.4);
+  --ui-glw-shadow: rgba(170, 50, 20, 0.5);
+  --ui-glw-ground: rgba(150, 30, 10, 0.36);
 }
-.ui-gc svg { display: block; width: 100%; max-width: 320px; overflow: visible; }
-.ui-gc__halo { fill: var(--ui-gc-halo); }
-.ui-gc__edge { fill: var(--ui-gc-edge); }
-.ui-gc__shadow { fill: var(--ui-gc-shadow); }
-.ui-gc__eye-shade { stroke: var(--ui-gc-eye-shade); }
+.ui-glw svg { display: block; width: 100%; max-width: 320px; overflow: visible; }
+.ui-glw__halo { fill: var(--ui-glw-halo); }
+.ui-glw__edge { fill: var(--ui-glw-edge); }
+.ui-glw__shadow { fill: var(--ui-glw-shadow); }
+.ui-glw__eye-shade { stroke: var(--ui-glw-eye-shade); }
 
 /* The sky: darker at the top, lighter at the bottom, a brighter patch behind the cloud – fills the whole box */
-.ui-gc[data-bg] {
-  --ui-gc-halo: rgba(255, 255, 255, 0.55);
-  --ui-gc-edge: rgba(255, 255, 255, 0.3);
-  --ui-gc-shadow: var(--ui-gc-ground);
+.ui-glw[data-bg] {
+  --ui-glw-halo: rgba(255, 255, 255, 0.55);
+  --ui-glw-edge: rgba(255, 255, 255, 0.3);
+  --ui-glw-shadow: var(--ui-glw-ground);
   background:
-    radial-gradient(60% 55% at 62% 42%, var(--ui-gc-sky-light), transparent 70%),
-    linear-gradient(180deg, var(--ui-gc-sky-top), var(--ui-gc-sky-bottom));
+    radial-gradient(60% 55% at 62% 42%, var(--ui-glw-sky-light), transparent 70%),
+    linear-gradient(180deg, var(--ui-glw-sky-top), var(--ui-glw-sky-bottom));
 }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> – a deeper sky */
-:where(.dark, [data-theme="dark"]) .ui-gc {
-  --ui-gc-sky-top: #1659c8;
-  --ui-gc-sky-bottom: #2aa6e6;
-  --ui-gc-sky-light: rgba(90, 205, 255, 0.45);
-  --ui-gc-ground: rgba(5, 50, 140, 0.5);
+:where(.dark, [data-theme="dark"]) .ui-glw {
+  --ui-glw-sky-top: #1659c8;
+  --ui-glw-sky-bottom: #2aa6e6;
+  --ui-glw-sky-light: rgba(90, 205, 255, 0.45);
+  --ui-glw-ground: rgba(5, 50, 140, 0.5);
 }
-:where(.dark, [data-theme="dark"]) .ui-gc[data-color="orange"] {
-  --ui-gc-sky-top: #bf2722;
-  --ui-gc-sky-bottom: #ed701d;
-  --ui-gc-sky-light: rgba(255, 175, 120, 0.42);
-  --ui-gc-ground: rgba(110, 15, 5, 0.5);
+:where(.dark, [data-theme="dark"]) .ui-glw[data-color="orange"] {
+  --ui-glw-sky-top: #bf2722;
+  --ui-glw-sky-bottom: #ed701d;
+  --ui-glw-sky-light: rgba(255, 175, 120, 0.42);
+  --ui-glw-ground: rgba(110, 15, 5, 0.5);
 }
-:where(.dark, [data-theme="dark"]) .ui-gc:not([data-bg]) {
-  --ui-gc-halo: rgba(255, 255, 255, 0.35);
-  --ui-gc-edge: rgba(255, 255, 255, 0.25);
+:where(.dark, [data-theme="dark"]) .ui-glw:not([data-bg]) {
+  --ui-glw-halo: rgba(255, 255, 255, 0.35);
+  --ui-glw-edge: rgba(255, 255, 255, 0.25);
 }
 `;
