@@ -12,7 +12,7 @@
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
-  <img alt="42 free items" src="https://img.shields.io/badge/free%20items-42-2f6bff?style=flat-square">
+  <img alt="43 free items" src="https://img.shields.io/badge/free%20items-43-2f6bff?style=flat-square">
   <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
@@ -234,6 +234,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 | [Progress Tracker](https://www.affectui.com/components/progress-tracker) | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play | `npx shadcn@latest add https://www.affectui.com/r/progress-tracker-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/progress-tracker.json`</sub> |
 | [Reaction Bar](https://www.affectui.com/components/reaction-bar) | Like, comment, repost and share in one pill | `npx shadcn@latest add https://www.affectui.com/r/reaction-bar-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/reaction-bar.json`</sub> |
 | [Segmented Control](https://www.affectui.com/components/segmented-control) | Switch between two to six options | `npx shadcn@latest add https://www.affectui.com/r/segmented-control-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/segmented-control.json`</sub> |
+| [Select](https://www.affectui.com/components/select) | Pick one option in the Text Field's look | `npx shadcn@latest add https://www.affectui.com/r/select-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/select.json`</sub> |
 | [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation.json`</sub> |
 | [Text Area](https://www.affectui.com/components/text-area) | The multi-line twin of the Text Field | `npx shadcn@latest add https://www.affectui.com/r/text-area-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/text-area.json`</sub> |
 | [Text Field](https://www.affectui.com/components/text-field) | One input for every form | `npx shadcn@latest add https://www.affectui.com/r/text-field-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/text-field.json`</sub> |
