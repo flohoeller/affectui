@@ -169,15 +169,15 @@ const css = /* css */ `
 .ui-chk__desc { font-size: 12.5px; line-height: 17px; color: var(--ui-chk-subtle); overflow-wrap: anywhere; }
 .ui-chk__error { margin: 0 0 0 26px; font-size: 12px; line-height: 16px; color: var(--ui-chk-danger); overflow-wrap: anywhere; animation: ui-chk-message 260ms var(--ui-chk-ease); }
 
-/* Card: a bordered row, clickable as a whole – it lifts on hover; checked, it takes a faint gray fill (no dark edge) */
+/* Card: a bordered row, clickable as a whole – a soft shadow on hover; checked, it takes a faint gray fill (no dark edge) */
 .ui-chk[data-variant="card"] .ui-chk__row {
   padding: 12px 14px;
   border-radius: 12px;
   background: var(--ui-chk-surface);
   box-shadow: var(--ui-chk-card-shadow);
-  transition: box-shadow 200ms ease, background-color 200ms ease, transform 200ms var(--ui-chk-ease);
+  transition: box-shadow 200ms ease, background-color 200ms ease;
 }
-.ui-chk[data-variant="card"]:not([data-disabled]) .ui-chk__row:hover { box-shadow: var(--ui-chk-card-shadow-hover); transform: translateY(-1px); }
+.ui-chk[data-variant="card"]:not([data-disabled]) .ui-chk__row:hover { box-shadow: var(--ui-chk-card-shadow-hover); }
 .ui-chk[data-variant="card"] .ui-chk__row:has(.ui-chk__input:checked) { background: var(--ui-chk-card-wash); box-shadow: var(--ui-chk-card-shadow-on); }
 .ui-chk[data-variant="card"]:not([data-disabled]) .ui-chk__row:has(.ui-chk__input:checked):hover { box-shadow: var(--ui-chk-card-shadow-hover); }
 .ui-chk[data-variant="card"] .ui-chk__label { font-weight: 500; }
