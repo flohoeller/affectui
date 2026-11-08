@@ -200,7 +200,7 @@ const css = /* css */ `
   --ui-btn-shine-on-ink: rgba(255, 255, 255, 0.95);
   --ui-btn-danger: #ff0000;
   --ui-btn-danger-bg: #ffe6e9;
-  --ui-btn-focus: rgba(23, 23, 23, 0.22);
+  --ui-btn-focus: rgba(0, 96, 226, 0.7);
   --ui-btn-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-btn-load: 650ms;
 
@@ -468,6 +468,6 @@ const css = /* css */ `
   --ui-btn-shine: rgba(237, 237, 237, 0.95);
   --ui-btn-danger: #ff6b6b;
   --ui-btn-danger-bg: rgba(255, 64, 64, 0.16);
-  --ui-btn-focus: rgba(237, 237, 237, 0.3);
+  --ui-btn-focus: rgba(77, 141, 255, 0.8);
 }
 `;

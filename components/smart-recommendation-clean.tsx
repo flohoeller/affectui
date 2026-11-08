@@ -250,7 +250,7 @@ const css = /* css */ `
   --ui-src-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-src-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
   --ui-src-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-src-focus: rgba(0, 96, 226, 0.35);
+  --ui-src-focus: rgba(0, 96, 226, 0.7);
   --ui-src-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   container-type: inline-size;
@@ -271,7 +271,7 @@ const css = /* css */ `
 .ui-src *, .ui-src *::before, .ui-src *::after { box-sizing: border-box; }
 :where(.ui-src) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.ui-src) svg { display: block; flex: none; }
-.ui-src button:focus-visible { outline: 2px solid var(--ui-src-focus); outline-offset: 1px; }
+.ui-src button:focus-visible { outline: 2px solid var(--ui-src-focus); outline-offset: 2px; }
 
 /* The heading row folds the reason in and out */
 .ui-src__head {
@@ -534,7 +534,7 @@ const css = /* css */ `
   --ui-src-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-src-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-src-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 12px 28px -10px rgba(0, 0, 0, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-src-focus: rgba(77, 141, 255, 0.5);
+  --ui-src-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-src__menu { background: #232326; }
 `;

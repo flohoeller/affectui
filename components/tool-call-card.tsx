@@ -534,7 +534,7 @@ const css = /* css */ `
   --ui-tc-num: #b25b0c;
   --ui-tc-lit: #6e56cf;
   --ui-tc-shine: rgba(255, 255, 255, 0.82);
-  --ui-tc-focus: rgba(23, 23, 23, 0.22);
+  --ui-tc-focus: rgba(0, 96, 226, 0.7);
   --ui-tc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-tc-mono: ui-monospace, "SF Mono", Menlo, monospace;
   box-sizing: border-box;
@@ -937,7 +937,7 @@ const css = /* css */ `
   --ui-tc-num: #f2a65a;
   --ui-tc-lit: #b5a4ff;
   --ui-tc-shine: rgba(255, 255, 255, 0.95);
-  --ui-tc-focus: rgba(255, 255, 255, 0.3);
+  --ui-tc-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-tc { box-shadow: inset 0 0 0 1px var(--ui-tc-line); }
 `;

@@ -171,7 +171,7 @@ const css = /* css */ `
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-dic-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-dic-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-dic-focus: rgba(0, 96, 226, 0.35);
+  --ui-dic-focus: rgba(0, 96, 226, 0.7);
   --ui-dic-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   container-type: inline-size;
@@ -193,7 +193,7 @@ const css = /* css */ `
 .ui-dic *, .ui-dic *::before, .ui-dic *::after { box-sizing: border-box; }
 :where(.ui-dic) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.ui-dic) svg { display: block; flex: none; }
-.ui-dic button:focus-visible { outline: 2px solid var(--ui-dic-focus); outline-offset: 1px; }
+.ui-dic button:focus-visible { outline: 2px solid var(--ui-dic-focus); outline-offset: 2px; }
 
 .ui-dic__glyph { width: 16px; height: 16px; }
 .ui-dic__cut { stroke: var(--ui-dic-card); }
@@ -383,6 +383,6 @@ const css = /* css */ `
   --ui-dic-on-solid: #161618;
   --ui-dic-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-dic-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-dic-focus: rgba(77, 141, 255, 0.5);
+  --ui-dic-focus: rgba(77, 141, 255, 0.8);
 }
 `;

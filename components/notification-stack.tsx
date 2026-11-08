@@ -232,6 +232,7 @@ const css = /* css */ `
   --ui-ns-muted: #737373;
   --ui-ns-art: #e3e3e3;
   --ui-ns-accent: #2f6bff;
+  --ui-ns-focus: rgba(0, 96, 226, 0.7);
   --ui-ns-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   box-sizing: border-box;
@@ -377,7 +378,7 @@ const css = /* css */ `
 .ui-ns__btn:active { transform: scale(0.98); }
 .ui-ns__btn svg { flex: none; color: var(--ui-ns-muted); }
 .ui-ns button:focus-visible,
-.ui-ns a:focus-visible { outline: 2px solid var(--ui-ns-accent); outline-offset: 2px; }
+.ui-ns a:focus-visible { outline: 2px solid var(--ui-ns-focus); outline-offset: 2px; }
 
 @media (prefers-reduced-motion: reduce) {
   .ui-ns, .ui-ns__card, .ui-ns__card > * { transition: none; }
@@ -390,6 +391,7 @@ const css = /* css */ `
   --ui-ns-ink: #ededed;
   --ui-ns-muted: #8f8f8f;
   --ui-ns-art: rgba(255, 255, 255, 0.08);
+  --ui-ns-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-ns__card {
   box-shadow:

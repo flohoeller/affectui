@@ -484,7 +484,8 @@ const css = /* css */ `
   --ui-otpc-wash: rgba(0, 0, 0, 0.03);
   --ui-otpc-shine: rgba(255, 255, 255, 0.82);
   --ui-otpc-accent: rgba(0, 96, 226, 0.765);
-  --ui-otpc-focus: rgba(0, 96, 226, 0.35);
+  --ui-otpc-focus: rgba(0, 96, 226, 0.7);
+  --ui-otpc-halo: rgba(0, 96, 226, 0.35);
   --ui-otpc-danger: #e5484d;
   --ui-otpc-success: #1a9a52;
   --ui-otpc-danger-tint: rgba(229, 72, 77, 0.08);
@@ -555,7 +556,7 @@ const css = /* css */ `
   display: grid;
   place-items: center;
   border-radius: calc(var(--size) * 0.2);
-  box-shadow: 0 0 0 0.5px var(--ui-otpc-accent), 0 0 0 2px var(--ui-otpc-focus);
+  box-shadow: 0 0 0 0.5px var(--ui-otpc-accent), 0 0 0 2px var(--ui-otpc-halo);
   opacity: 0;
   pointer-events: none;
   transition: transform 260ms var(--ui-otpc-ease), width 260ms var(--ui-otpc-ease), opacity 180ms ease, box-shadow 220ms ease;
@@ -705,7 +706,7 @@ const css = /* css */ `
 }
 .ui-otpc__resend-btn:hover { background: var(--ui-otpc-wash); color: var(--ui-otpc-ink); }
 .ui-otpc__resend-btn:active { background: var(--ui-otpc-fill); }
-.ui-otpc__resend-btn:focus-visible { outline: 2px solid var(--ui-otpc-focus); outline-offset: 1px; }
+.ui-otpc__resend-btn:focus-visible { outline: 2px solid var(--ui-otpc-focus); outline-offset: 2px; }
 .ui-otpc__resend-btn:disabled { color: var(--ui-otpc-faint); background: none; cursor: default; }
 .ui-otpc__live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
@@ -746,7 +747,8 @@ const css = /* css */ `
   --ui-otpc-wash: rgba(255, 255, 255, 0.03);
   --ui-otpc-shine: rgba(255, 255, 255, 0.1);
   --ui-otpc-accent: #4d8dff;
-  --ui-otpc-focus: rgba(77, 141, 255, 0.5);
+  --ui-otpc-focus: rgba(77, 141, 255, 0.8);
+  --ui-otpc-halo: rgba(77, 141, 255, 0.5);
   --ui-otpc-danger: #ff6369;
   --ui-otpc-success: #3ec27a;
   --ui-otpc-danger-tint: rgba(255, 99, 105, 0.14);

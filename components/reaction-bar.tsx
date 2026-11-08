@@ -162,6 +162,7 @@ const css = /* css */ `
   --ui-rb-ink: #404040;
   --ui-rb-like: #ec4899;
   --ui-rb-comment: #2f6bff;
+  --ui-rb-focus: rgba(0, 96, 226, 0.7);
   --ui-rb-repost: #8b5cf6;
   --ui-rb-share: #171717;
   --ui-rb-ease: cubic-bezier(0.85, 0, 0.15, 1);
@@ -200,7 +201,7 @@ const css = /* css */ `
   -webkit-tap-highlight-color: transparent;
 }
 .ui-rb__btn:hover { background: #f5f5f5; }
-.ui-rb__btn:focus-visible { outline: 2px solid var(--ui-rb-comment); outline-offset: 2px; }
+.ui-rb__btn:focus-visible { outline: 2px solid var(--ui-rb-focus); outline-offset: 2px; }
 .ui-rb__btn[data-kind="like"] { --ui-rb-tone: var(--ui-rb-like); }
 .ui-rb__btn[data-kind="comment"] { --ui-rb-tone: var(--ui-rb-comment); }
 .ui-rb__btn[data-kind="repost"] { --ui-rb-tone: var(--ui-rb-repost); }
@@ -253,6 +254,7 @@ const css = /* css */ `
   --ui-rb-ink: #c4c4c4;
   --ui-rb-like: #f472b6;
   --ui-rb-comment: #6b95ff;
+  --ui-rb-focus: rgba(77, 141, 255, 0.8);
   --ui-rb-repost: #a78bfa;
   --ui-rb-share: #ededed;
   background: #232326;

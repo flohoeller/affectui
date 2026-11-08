@@ -341,7 +341,7 @@ const css = /* css */ `
   --ui-ctc-avatar-ring: rgba(0, 0, 0, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-ctc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-ctc-focus: rgba(0, 96, 226, 0.35);
+  --ui-ctc-focus: rgba(0, 96, 226, 0.7);
   --ui-ctc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   container-type: inline-size;
@@ -374,7 +374,7 @@ const css = /* css */ `
   -webkit-tap-highlight-color: transparent;
 }
 :where(.ui-ctc) svg { display: block; flex: none; }
-.ui-ctc button:focus-visible { outline: 2px solid var(--ui-ctc-focus); outline-offset: 1px; }
+.ui-ctc button:focus-visible { outline: 2px solid var(--ui-ctc-focus); outline-offset: 2px; }
 .ui-ctc__glyph { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round; }
 
 /* ---------- Header ---------- */
@@ -633,6 +633,6 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
   --ui-ctc-shine: #ffffff;
   --ui-ctc-avatar-ring: rgba(255, 255, 255, 0.1);
   --ui-ctc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-ctc-focus: rgba(77, 141, 255, 0.5);
+  --ui-ctc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

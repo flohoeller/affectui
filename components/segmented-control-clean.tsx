@@ -409,7 +409,7 @@ const css = /* css */ `
   --ui-segc-card-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-segc-accent: rgba(0, 96, 226, 0.765);
   --ui-segc-accent-soft: rgba(0, 96, 226, 0.08);
-  --ui-segc-focus: rgba(0, 96, 226, 0.35);
+  --ui-segc-focus: rgba(0, 96, 226, 0.7);
   --ui-segc-ease: cubic-bezier(0.25, 0.9, 0.3, 1);
   /* Size: md – 28px chips, 4px 10px */
   --ui-segc-h: 28px;
@@ -419,7 +419,7 @@ const css = /* css */ `
   --ui-segc-icon: 16px;
   --ui-segc-gap: 8px;
   --ui-segc-pad: 2px;
-  --ui-segc-ring: 3px;
+  --ui-segc-ring: 4px;
   box-sizing: border-box;
   display: inline-flex;
   max-width: 100%;
@@ -494,7 +494,7 @@ const css = /* css */ `
 .ui-segc[data-ready]:not([data-full]) .ui-segc__opt { transition: color 90ms ease, background-color 90ms ease, width 200ms var(--ui-segc-ease); }
 .ui-segc__opt[data-active] { color: var(--ui-segc-ink); }
 .ui-segc__opt:disabled { opacity: 0.4; cursor: not-allowed; }
-.ui-segc__opt:focus-visible { outline: 2px solid var(--ui-segc-focus); outline-offset: 1px; }
+.ui-segc__opt:focus-visible { outline: 2px solid var(--ui-segc-focus); outline-offset: -2px; }
 @media (hover: hover) {
   .ui-segc__opt:not([data-active]):not(:disabled):hover { background-color: var(--ui-segc-wash); }
 }
@@ -565,6 +565,7 @@ const css = /* css */ `
 .ui-segc[data-variant="buttons"][data-full] { width: calc(100% + var(--ui-segc-ring) * 2); }
 .ui-segc[data-variant="buttons"] .ui-segc__track { gap: var(--ui-segc-gap); }
 .ui-segc[data-variant="buttons"] .ui-segc__opt { box-shadow: inset 0 0 0 0.5px var(--ui-segc-line); }
+.ui-segc[data-variant="buttons"] .ui-segc__opt:focus-visible { outline-offset: 2px; }
 
 /* Tray: a compact light-gray track with a white raised pill */
 .ui-segc[data-variant="tray"] { background: var(--ui-segc-track); }
@@ -609,7 +610,7 @@ const css = /* css */ `
   --ui-segc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
   --ui-segc-accent: #4d8dff;
   --ui-segc-accent-soft: rgba(77, 141, 255, 0.14);
-  --ui-segc-focus: rgba(77, 141, 255, 0.45);
+  --ui-segc-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-segc__icon { color: rgba(255, 255, 255, 0.46); }
 :where(.dark, [data-theme="dark"]) .ui-segc__opt[data-active] .ui-segc__icon { color: var(--ui-segc-ink); }

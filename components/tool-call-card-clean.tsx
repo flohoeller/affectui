@@ -543,7 +543,7 @@ const css = /* css */ `
   --ui-tcc-shine: rgba(255, 255, 255, 0.82);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-tcc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tcc-focus: rgba(0, 96, 226, 0.35);
+  --ui-tcc-focus: rgba(0, 96, 226, 0.7);
   --ui-tcc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-tcc-mono: ui-monospace, "SF Mono", Menlo, monospace;
   box-sizing: border-box;
@@ -598,7 +598,7 @@ const css = /* css */ `
 .ui-tcc__more:focus-visible,
 .ui-tcc__retry:focus-visible {
   outline: 2px solid var(--ui-tcc-focus);
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 @media (hover: hover) {
   .ui-tcc__head:hover { background: var(--ui-tcc-wash-big); }
@@ -985,6 +985,6 @@ const css = /* css */ `
   --ui-tcc-lit: #a5a5ff;
   --ui-tcc-shine: #ffffff;
   --ui-tcc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tcc-focus: rgba(77, 141, 255, 0.5);
+  --ui-tcc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

@@ -127,6 +127,7 @@ const css = /* css */ `
   --ui-tp-ink: #171717;
   --ui-tp-muted: #737373;
   --ui-tp-ok: #2f6bff;
+  --ui-tp-focus: rgba(0, 96, 226, 0.7);
   /* Height of the tip list before it scrolls */
   --ui-tp-max-height: 420px;
   --ui-tp-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -144,7 +145,7 @@ const css = /* css */ `
 }
 .ui-tp *, .ui-tp *::before, .ui-tp *::after { box-sizing: border-box; }
 .ui-tp button { margin: 0; font: inherit; cursor: pointer; }
-.ui-tp button:focus-visible { outline: 2px solid var(--ui-tp-ok); outline-offset: 2px; }
+.ui-tp button:focus-visible { outline: 2px solid var(--ui-tp-focus); outline-offset: 2px; }
 
 .ui-tp__head {
   display: flex;
@@ -299,6 +300,7 @@ const css = /* css */ `
   --ui-tp-ink: #ededed;
   --ui-tp-muted: #8f8f8f;
   --ui-tp-ok: #6b95ff;
+  --ui-tp-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-tp__card {
   border-color: rgba(255, 255, 255, 0.08);

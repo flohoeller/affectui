@@ -160,6 +160,7 @@ const css = /* css */ `
   --ui-di-faint: #b5b5b5;
   --ui-di-alert: #e8590c;
   --ui-di-ok: #1f8a4c;
+  --ui-di-focus: rgba(0, 96, 226, 0.7);
   --ui-di-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   width: 100%;
@@ -175,7 +176,7 @@ const css = /* css */ `
 }
 .ui-di *, .ui-di *::before, .ui-di *::after { box-sizing: border-box; }
 .ui-di button { margin: 0; font: inherit; cursor: pointer; }
-.ui-di button:focus-visible { outline: 2px solid #2f6bff; outline-offset: 2px; }
+.ui-di button:focus-visible { outline: 2px solid var(--ui-di-focus); outline-offset: 2px; }
 
 .ui-di__head {
   display: flex;
@@ -325,6 +326,7 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-di {
+  --ui-di-focus: rgba(77, 141, 255, 0.8);
   --ui-di-tray: #161618;
   --ui-di-card: #232326;
   --ui-di-line: rgba(255, 255, 255, 0.08);

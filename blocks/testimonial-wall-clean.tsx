@@ -475,7 +475,7 @@ const css = /* css */ `
   --ui-twc-ring: rgba(0, 0, 0, 0.06);
   --ui-twc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-twc-lift: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 12px 24px -12px rgba(0, 0, 0, 0.12);
-  --ui-twc-focus: #0060e2;
+  --ui-twc-focus: rgba(0, 96, 226, 0.7);
   --ui-twc-gap: 16px;
   --ui-twc-fade: 120px;
   --ui-twc-dim: 0.6;
@@ -675,6 +675,6 @@ const css = /* css */ `
   --ui-twc-ring: rgba(255, 255, 255, 0.08);
   --ui-twc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-twc-lift: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 12px 24px -12px rgba(0, 0, 0, 0.6);
-  --ui-twc-focus: #5b9aff;
+  --ui-twc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

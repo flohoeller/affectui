@@ -299,7 +299,7 @@ const css = /* css */ `
   --ui-fm-check: #ffffff;
   --ui-fm-row-hover: #f7f7f7;
   --ui-fm-kbd: #ffffff;
-  --ui-fm-focus: #2f6bff;
+  --ui-fm-focus: rgba(0, 96, 226, 0.7);
   --ui-fm-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   --ui-fm-ease: cubic-bezier(0.22, 1, 0.36, 1);
   width: 100%;
@@ -517,7 +517,7 @@ const css = /* css */ `
   --ui-fm-check: #121213;
   --ui-fm-row-hover: rgba(255, 255, 255, 0.05);
   --ui-fm-kbd: #232326;
-  --ui-fm-focus: #6b95ff;
+  --ui-fm-focus: rgba(77, 141, 255, 0.8);
   --ui-fm-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 `;

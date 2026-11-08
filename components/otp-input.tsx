@@ -485,7 +485,7 @@ const css = /* css */ `
   --ui-otp-danger-halo: rgba(229, 72, 77, 0.12);
   --ui-otp-success: #2f9e5b;
   --ui-otp-accent: #2f6bff;
-  --ui-otp-focus: rgba(23, 23, 23, 0.22);
+  --ui-otp-focus: rgba(0, 96, 226, 0.7);
   --ui-otp-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   container-type: inline-size;
@@ -681,12 +681,13 @@ const css = /* css */ `
   background: none;
   font: inherit;
   font-weight: 500;
+  border-radius: 4px;
   color: var(--ui-otp-accent);
   cursor: pointer;
 }
 .ui-otp__resend-btn::before { content: ""; position: absolute; inset: -6px -8px; border-radius: 8px; }
 .ui-otp__resend-btn:hover { text-decoration: underline; text-underline-offset: 3px; }
-.ui-otp__resend-btn:focus-visible { outline: 2px solid var(--ui-otp-focus); outline-offset: 3px; border-radius: 4px; }
+.ui-otp__resend-btn:focus-visible { outline: 2px solid var(--ui-otp-focus); outline-offset: 2px; }
 .ui-otp__resend-btn:disabled { color: var(--ui-otp-muted); cursor: default; text-decoration: none; }
 .ui-otp__live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
@@ -731,6 +732,6 @@ const css = /* css */ `
   --ui-otp-danger-halo: rgba(255, 99, 105, 0.14);
   --ui-otp-success: #4cc38a;
   --ui-otp-accent: #6d8bff;
-  --ui-otp-focus: rgba(255, 255, 255, 0.3);
+  --ui-otp-focus: rgba(77, 141, 255, 0.8);
 }
 `;

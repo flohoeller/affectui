@@ -575,7 +575,7 @@ const css = /* css */ `
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-mac-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-mac-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-mac-focus: rgba(0, 96, 226, 0.35);
+  --ui-mac-focus: rgba(0, 96, 226, 0.7);
   --ui-mac-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   display: block;
@@ -592,7 +592,7 @@ const css = /* css */ `
 }
 .ui-mac *, .ui-mac *::before, .ui-mac *::after { box-sizing: border-box; }
 :where(.ui-mac) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.ui-mac button:focus-visible { outline: 2px solid var(--ui-mac-focus); outline-offset: 1px; }
+.ui-mac button:focus-visible { outline: 2px solid var(--ui-mac-focus); outline-offset: 2px; }
 /* Typing in a field: no ring – the caret shows where you are, the edge only firms up a little */
 .ui-mac .ui-mac__input:is(:focus, :focus-visible) { outline: none; box-shadow: var(--ui-mac-shadow), inset 0 0 0 0.5px var(--ui-mac-faint); }
 .ui-mac svg { display: block; flex: none; }
@@ -749,6 +749,6 @@ const css = /* css */ `
   --ui-mac-ok-bg: rgba(62, 194, 122, 0.14);
   --ui-mac-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-mac-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-mac-focus: rgba(77, 141, 255, 0.5);
+  --ui-mac-focus: rgba(77, 141, 255, 0.8);
 }
 `;

@@ -247,7 +247,7 @@ const css = /* css */ `
   --ui-pmc-hover: rgba(0, 0, 0, 0.06);
   --ui-pmc-track: rgba(0, 0, 0, 0.06);
   --ui-pmc-accent: rgba(0, 96, 226, 0.765);
-  --ui-pmc-focus: rgba(0, 96, 226, 0.35);
+  --ui-pmc-focus: rgba(0, 96, 226, 0.7);
   --ui-pmc-badge: #e11d48;
   --ui-pmc-badge-wash: rgba(225, 29, 72, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift, like a popover */
@@ -413,7 +413,7 @@ const css = /* css */ `
   transition: background-color 140ms ease;
 }
 .ui-pmc__next:hover { background: var(--ui-pmc-wash); }
-.ui-pmc__next:focus-visible { outline: 2px solid var(--ui-pmc-focus); outline-offset: 1px; }
+.ui-pmc__next:focus-visible { outline: 2px solid var(--ui-pmc-focus); outline-offset: 2px; }
 .ui-pmc__next-label {
   flex: 1;
   min-width: 0;
@@ -454,7 +454,7 @@ const css = /* css */ `
   --ui-pmc-hover: rgba(255, 255, 255, 0.08);
   --ui-pmc-track: rgba(255, 255, 255, 0.1);
   --ui-pmc-accent: #4d8dff;
-  --ui-pmc-focus: rgba(77, 141, 255, 0.45);
+  --ui-pmc-focus: rgba(77, 141, 255, 0.8);
   --ui-pmc-badge: #fb7185;
   --ui-pmc-badge-wash: rgba(225, 29, 72, 0.14);
   --ui-pmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);

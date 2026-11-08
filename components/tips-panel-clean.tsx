@@ -137,7 +137,7 @@ const css = /* css */ `
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-tpc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-tpc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-tpc-focus: rgba(0, 96, 226, 0.35);
+  --ui-tpc-focus: rgba(0, 96, 226, 0.7);
   /* Height of the tip list before it scrolls */
   --ui-tpc-max-height: 420px;
   --ui-tpc-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -160,7 +160,7 @@ const css = /* css */ `
 }
 .ui-tpc *, .ui-tpc *::before, .ui-tpc *::after { box-sizing: border-box; }
 :where(.ui-tpc) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
-.ui-tpc button:focus-visible { outline: 2px solid var(--ui-tpc-focus); outline-offset: 1px; }
+.ui-tpc button:focus-visible { outline: 2px solid var(--ui-tpc-focus); outline-offset: 2px; }
 :where(.ui-tpc) svg { display: block; flex: none; }
 
 /* ----- Head ----- */
@@ -341,7 +341,7 @@ const css = /* css */ `
   --ui-tpc-on-primary: #1c1c1e;
   --ui-tpc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tpc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tpc-focus: rgba(77, 141, 255, 0.5);
+  --ui-tpc-focus: rgba(77, 141, 255, 0.8);
   color-scheme: dark;
 }
 :where(.dark, [data-theme="dark"]) .ui-tpc__btn:not(.ui-tpc__btn--primary) { background: #232326; }

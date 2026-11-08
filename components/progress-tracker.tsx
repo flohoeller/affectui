@@ -159,6 +159,7 @@ const css = /* css */ `
   --ui-pg-ink: #171717;
   --ui-pg-muted: #a3a3a3;
   --ui-pg-ring: #8f8f8f;
+  --ui-pg-focus: rgba(0, 96, 226, 0.7);
   --ui-pg-track: #f0f0f0;
   --ui-pg-hover: #f7f7f7;
   --ui-pg-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -276,8 +277,8 @@ const css = /* css */ `
   background: var(--ui-pg-hover);
 }
 .ui-progress__step:focus-visible {
-  outline: 2px solid rgba(23, 23, 23, 0.22);
-  outline-offset: 0;
+  outline: 2px solid var(--ui-pg-focus);
+  outline-offset: -2px;
 }
 
 /* Checkbox: the ring fills and pops, then the tick draws itself */
@@ -404,6 +405,7 @@ const css = /* css */ `
   --ui-pg-ink: #ededed;
   --ui-pg-muted: #8f8f8f;
   --ui-pg-ring: #6b6b70;
+  --ui-pg-focus: rgba(77, 141, 255, 0.8);
   --ui-pg-track: rgba(255, 255, 255, 0.1);
   --ui-pg-hover: #2a2a2d;
   box-shadow:
@@ -415,5 +417,4 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-progress__shine {
   background-image: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
 }
-:where(.dark, [data-theme="dark"]) .ui-progress__step:focus-visible { outline-color: rgba(237, 237, 237, 0.3); }
 `;

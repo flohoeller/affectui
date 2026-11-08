@@ -435,7 +435,7 @@ const css = /* css */ `
   --ui-ed-btn-bottom: #201e25;
   --ui-ed-btn-ring: #0d0d0d;
   --ui-ed-btn-text: #ffffff;
-  --ui-ed-focus: #2f6bff;
+  --ui-ed-focus: rgba(0, 96, 226, 0.7);
   --ui-ed-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   --ui-ed-ease: cubic-bezier(0.22, 1, 0.36, 1);
   width: 100%;
@@ -797,7 +797,7 @@ const css = /* css */ `
   --ui-ed-btn-bottom: #e4e4e7;
   --ui-ed-btn-ring: rgba(0, 0, 0, 0.6);
   --ui-ed-btn-text: #121213;
-  --ui-ed-focus: #6b95ff;
+  --ui-ed-focus: rgba(77, 141, 255, 0.8);
   --ui-ed-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 `;

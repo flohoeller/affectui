@@ -426,7 +426,7 @@ const css = /* css */ `
   --ui-lm-ink: #171717;
   --ui-lm-label: #8f8f8f;
   --ui-lm-dim: 0.75;
-  --ui-lm-focus: #2f6bff;
+  --ui-lm-focus: rgba(0, 96, 226, 0.7);
   --ui-lm-ease: cubic-bezier(0.22, 1, 0.36, 1);
   container-type: inline-size;
   display: grid;
@@ -482,8 +482,8 @@ const css = /* css */ `
   -webkit-user-drag: none;
 }
 .ui-lm[data-labels="below"] .ui-lm__link { flex-direction: column; gap: 8px; }
-.ui-lm:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: -2px; border-radius: 8px; }
-.ui-lm__link:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: 4px; }
+.ui-lm:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: -2px; }
+.ui-lm__link:focus-visible { outline: 2px solid var(--ui-lm-focus); outline-offset: 2px; }
 
 /* Consistent optical height: every mark fills the same box, nudged by its own scale */
 .ui-lm__mark {
@@ -577,6 +577,6 @@ const css = /* css */ `
   --ui-lm-muted: #7a7a82;
   --ui-lm-ink: #ededed;
   --ui-lm-label: #8b8b92;
-  --ui-lm-focus: #6d8bff;
+  --ui-lm-focus: rgba(77, 141, 255, 0.8);
 }
 `;

@@ -167,7 +167,7 @@ const css = /* css */ `
   --ui-rbc-accent: rgba(0, 96, 226, 0.765);
   --ui-rbc-mine: rgba(0, 96, 226, 0.05);
   --ui-rbc-mine-line: rgba(0, 96, 226, 0.35);
-  --ui-rbc-focus: rgba(0, 96, 226, 0.35);
+  --ui-rbc-focus: rgba(0, 96, 226, 0.7);
   --ui-rbc-ease: cubic-bezier(0.85, 0, 0.15, 1);
   --ui-rbc-h: 28px;
   display: inline-flex;
@@ -200,7 +200,7 @@ const css = /* css */ `
   transition: background-color 90ms ease, box-shadow 160ms ease, color 160ms ease;
   -webkit-tap-highlight-color: transparent;
 }
-.ui-rbc__btn:focus-visible { outline: 2px solid var(--ui-rbc-focus); outline-offset: 1px; }
+.ui-rbc__btn:focus-visible { outline: 2px solid var(--ui-rbc-focus); outline-offset: 2px; }
 @media (hover: hover) {
   .ui-rbc__btn:hover { background-color: var(--ui-rbc-wash); color: var(--ui-rbc-ink); }
   .ui-rbc__btn:hover .ui-rbc__icon { color: var(--ui-rbc-ink); }
@@ -268,6 +268,6 @@ const css = /* css */ `
   --ui-rbc-accent: #4d8dff;
   --ui-rbc-mine: rgba(77, 141, 255, 0.14);
   --ui-rbc-mine-line: rgba(77, 141, 255, 0.4);
-  --ui-rbc-focus: rgba(77, 141, 255, 0.45);
+  --ui-rbc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

@@ -419,6 +419,7 @@ export function LogoMarquee({
 
 const css = /* css */ `
 .ui-lmc {
+  --ui-lmc-focus: rgba(0, 96, 226, 0.7);
   --ui-lmc-h: 24px;
   --ui-lmc-g: var(--ui-lmc-gap, 56px);
   --ui-lmc-row-gap: 24px;
@@ -491,8 +492,8 @@ const css = /* css */ `
   -webkit-user-drag: none;
 }
 .ui-lmc[data-labels="below"] .ui-lmc__link { flex-direction: column; gap: 8px; }
-.ui-lmc:focus-visible { outline: 2px solid var(--ui-lmc-accent); outline-offset: -2px; border-radius: 8px; }
-.ui-lmc__link:focus-visible { outline: 2px solid var(--ui-lmc-accent); outline-offset: 4px; }
+.ui-lmc:focus-visible { outline: 2px solid var(--ui-lmc-focus); outline-offset: -2px; }
+.ui-lmc__link:focus-visible { outline: 2px solid var(--ui-lmc-focus); outline-offset: 2px; }
 
 /* Consistent optical height: every mark fills the same box, nudged by its own scale */
 .ui-lmc__mark {
@@ -587,6 +588,7 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-lmc {
+  --ui-lmc-focus: rgba(77, 141, 255, 0.8);
   --ui-lmc-muted: rgba(255, 255, 255, 0.4);
   --ui-lmc-ink: rgba(255, 255, 255, 0.88);
   --ui-lmc-label: rgba(255, 255, 255, 0.45);

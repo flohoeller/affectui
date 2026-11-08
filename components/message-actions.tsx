@@ -560,7 +560,7 @@ const css = /* css */ `
   --ui-ma-ok-bg: rgba(34, 160, 90, 0.11);
   --ui-ma-tip-bg: #171717;
   --ui-ma-tip-text: #ffffff;
-  --ui-ma-focus: rgba(23, 23, 23, 0.22);
+  --ui-ma-focus: rgba(0, 96, 226, 0.7);
   --ui-ma-ease: cubic-bezier(0.32, 0.72, 0.24, 1);
   box-sizing: border-box;
   display: block;
@@ -726,6 +726,6 @@ const css = /* css */ `
   --ui-ma-ok-bg: rgba(110, 231, 168, 0.12);
   --ui-ma-tip-bg: #ededed;
   --ui-ma-tip-text: #171717;
-  --ui-ma-focus: rgba(255, 255, 255, 0.3);
+  --ui-ma-focus: rgba(77, 141, 255, 0.8);
 }
 `;

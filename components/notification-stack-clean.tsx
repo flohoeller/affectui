@@ -239,7 +239,7 @@ const css = /* css */ `
   --ui-nsc-art: rgba(0, 0, 0, 0.07);
   --ui-nsc-accent: rgba(0, 96, 226, 0.765);
   --ui-nsc-accent-bg: rgba(0, 96, 226, 0.05);
-  --ui-nsc-focus: rgba(0, 96, 226, 0.35);
+  --ui-nsc-focus: rgba(0, 96, 226, 0.7);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-nsc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-nsc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
@@ -262,7 +262,7 @@ const css = /* css */ `
 :where(.ui-nsc) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 :where(.ui-nsc) svg { flex: none; }
 .ui-nsc button:focus-visible,
-.ui-nsc a:focus-visible { outline: 2px solid var(--ui-nsc-focus); outline-offset: 1px; }
+.ui-nsc a:focus-visible { outline: 2px solid var(--ui-nsc-focus); outline-offset: 2px; }
 
 /* One white card per notice – the edge is a shadow, not a border */
 .ui-nsc__card {
@@ -420,7 +420,7 @@ const css = /* css */ `
   --ui-nsc-art: rgba(255, 255, 255, 0.07);
   --ui-nsc-accent: #4d8dff;
   --ui-nsc-accent-bg: rgba(77, 141, 255, 0.1);
-  --ui-nsc-focus: rgba(77, 141, 255, 0.5);
+  --ui-nsc-focus: rgba(77, 141, 255, 0.8);
   --ui-nsc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-nsc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }

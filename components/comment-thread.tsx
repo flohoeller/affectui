@@ -316,6 +316,7 @@ const css = /* css */ `
   --ui-ct-text: #404040;
   --ui-ct-muted: #8f8f8f;
   --ui-ct-accent: #2f6bff;
+  --ui-ct-focus: rgba(0, 96, 226, 0.7);
   --ui-ct-ok: #1f8a4c;
   --ui-ct-accent-text: #2f6bff;
   --ui-ct-border: #e5e5e5;
@@ -341,7 +342,7 @@ const css = /* css */ `
 }
 .ui-ct *, .ui-ct *::before, .ui-ct *::after { box-sizing: border-box; }
 .ui-ct button { margin: 0; font: inherit; color: inherit; cursor: pointer; }
-.ui-ct button:focus-visible { outline: 2px solid var(--ui-ct-accent); outline-offset: 2px; }
+.ui-ct button:focus-visible { outline: 2px solid var(--ui-ct-focus); outline-offset: 2px; }
 
 .ui-ct__head {
   display: flex;
@@ -557,6 +558,7 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
 .ui-ct [contenteditable]:focus-visible { outline: none; }
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ct {
+  --ui-ct-focus: rgba(77, 141, 255, 0.8);
   --ui-ct-tray: #161618;
   --ui-ct-card: #232326;
   --ui-ct-ink: #ededed;

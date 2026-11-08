@@ -442,7 +442,7 @@ const css = /* css */ `
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-edc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-edc-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-edc-focus: rgba(0, 96, 226, 0.35);
+  --ui-edc-focus: rgba(0, 96, 226, 0.7);
   --ui-edc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   box-sizing: border-box;
@@ -473,7 +473,7 @@ const css = /* css */ `
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
 }
-.ui-edc button:focus-visible, .ui-edc a:focus-visible { outline: 2px solid var(--ui-edc-focus); outline-offset: 1px; }
+.ui-edc button:focus-visible, .ui-edc a:focus-visible { outline: 2px solid var(--ui-edc-focus); outline-offset: 2px; }
 :where(.ui-edc) svg {
   display: block;
   width: 16px;
@@ -890,7 +890,7 @@ const css = /* css */ `
   --ui-edc-warn-bg: rgba(232, 162, 12, 0.14);
   --ui-edc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-edc-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-edc-focus: rgba(77, 141, 255, 0.5);
+  --ui-edc-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-edc__primary:hover:not(:disabled) { background: #ffffff; }
 `;

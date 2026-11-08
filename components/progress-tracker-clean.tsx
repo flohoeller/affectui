@@ -168,7 +168,7 @@ const css = /* css */ `
   --ui-pgc-accent: rgba(0, 96, 226, 0.765);
   --ui-pgc-on-accent: #ffffff;
   --ui-pgc-shine: rgba(255, 255, 255, 0.82);
-  --ui-pgc-focus: rgba(0, 96, 226, 0.35);
+  --ui-pgc-focus: rgba(0, 96, 226, 0.7);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-pgc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-pgc-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -301,7 +301,7 @@ const css = /* css */ `
 }
 .ui-progressc__step:focus-visible {
   outline: 2px solid var(--ui-pgc-focus);
-  outline-offset: 0;
+  outline-offset: -2px;
 }
 
 /* Checkbox: a hairline ring that fills blue and pops, then the tick draws itself */
@@ -450,7 +450,7 @@ const css = /* css */ `
   --ui-pgc-accent: #4d8dff;
   --ui-pgc-on-accent: #ffffff;
   --ui-pgc-shine: #ffffff;
-  --ui-pgc-focus: rgba(77, 141, 255, 0.5);
+  --ui-pgc-focus: rgba(77, 141, 255, 0.8);
   --ui-pgc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 `;

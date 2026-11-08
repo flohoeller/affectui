@@ -471,7 +471,7 @@ const css = /* css */ `
   --ui-tw-initials: #f0f0f1;
   --ui-tw-shadow: 0 0 0 1px var(--ui-tw-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   --ui-tw-lift: 0 0 0 1px var(--ui-tw-line), 0 2px 4px rgba(0, 0, 0, 0.03), 0 12px 28px -10px rgba(0, 0, 0, 0.14);
-  --ui-tw-focus: #2f6bff;
+  --ui-tw-focus: rgba(0, 96, 226, 0.7);
   --ui-tw-gap: 16px;
   --ui-tw-fade: 96px;
   --ui-tw-dim: 0.62;
@@ -658,7 +658,7 @@ const css = /* css */ `
   --ui-tw-initials: #232327;
   --ui-tw-shadow: 0 0 0 1px var(--ui-tw-line);
   --ui-tw-lift: 0 0 0 1px #34343a, 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-tw-focus: #6d8bff;
+  --ui-tw-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-tw__avatar { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06); }
 `;

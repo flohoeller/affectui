@@ -197,7 +197,7 @@ const css = /* css */ `
   --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.12);
   --ui-btnc-shine: rgba(255, 255, 255, 0.82);
   --ui-btnc-shine-on-solid: #ffffff;
-  --ui-btnc-focus: rgba(0, 96, 226, 0.35);
+  --ui-btnc-focus: rgba(0, 96, 226, 0.7);
   --ui-btnc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-btnc-load: 650ms;
 
@@ -332,7 +332,7 @@ const css = /* css */ `
 }
 .ui-buttonc:focus-visible {
   outline: 2px solid var(--ui-btnc-focus);
-  outline-offset: 1px;
+  outline-offset: 2px;
 }
 .ui-buttonc:disabled {
   opacity: 0.4;
@@ -473,6 +473,6 @@ const css = /* css */ `
   --ui-btnc-danger-bg: rgba(229, 72, 77, 0.14);
   --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.2);
   --ui-btnc-shine: #ffffff;
-  --ui-btnc-focus: rgba(77, 141, 255, 0.5);
+  --ui-btnc-focus: rgba(77, 141, 255, 0.8);
 }
 `;

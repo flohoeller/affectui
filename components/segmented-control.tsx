@@ -410,7 +410,7 @@ const css = /* css */ `
   --ui-seg-accent: #2f6bff;
   --ui-seg-accent-soft: rgba(47, 107, 255, 0.1);
   --ui-seg-pill-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
-  --ui-seg-focus: rgba(23, 23, 23, 0.22);
+  --ui-seg-focus: rgba(0, 96, 226, 0.7);
   --ui-seg-ease: cubic-bezier(0.22, 1, 0.36, 1);
   /* Size: md */
   --ui-seg-h: 30px;
@@ -493,7 +493,7 @@ const css = /* css */ `
 .ui-seg[data-ready]:not([data-full]) .ui-seg__opt { transition: color 200ms ease, width 320ms var(--ui-seg-ease); }
 .ui-seg__opt[data-active] { color: var(--ui-seg-ink); }
 .ui-seg__opt:disabled { opacity: 0.4; cursor: not-allowed; }
-.ui-seg__opt:focus-visible { outline: 2px solid var(--ui-seg-focus); outline-offset: 0; }
+.ui-seg__opt:focus-visible { outline: 2px solid var(--ui-seg-focus); outline-offset: -2px; }
 @media (hover: hover) {
   .ui-seg__opt:not([data-active]):not(:disabled):hover { color: var(--ui-seg-text); }
 }
@@ -593,6 +593,6 @@ const css = /* css */ `
   --ui-seg-accent: #6d8bff;
   --ui-seg-accent-soft: rgba(109, 139, 255, 0.14);
   --ui-seg-pill-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-seg-focus: rgba(255, 255, 255, 0.3);
+  --ui-seg-focus: rgba(77, 141, 255, 0.8);
 }
 `;
