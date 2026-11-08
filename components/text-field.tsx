@@ -312,7 +312,7 @@ const css = /* css */ `
   --ui-tf-danger-edge-focus: #e5484d;
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.04);
   --ui-tf-success: #2f9e5c;
-  --ui-tf-focus: rgba(23, 23, 23, 0.55);
+  --ui-tf-focus: rgba(0, 96, 226, 0.7);
   --ui-tf-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 36px;
@@ -370,8 +370,8 @@ const css = /* css */ `
 .ui-tf[data-disabled] { opacity: 0.55; }
 
 .ui-tf__input {
-  flex: 1 0 3.5em;
-  min-width: 3.5em;
+  flex: 1 0 6em;
+  min-width: 6em;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -401,7 +401,7 @@ const css = /* css */ `
   flex: 0 1 auto;
   align-items: center;
   min-width: 0;
-  max-width: 40%;
+  max-width: 70%;
   font-size: var(--fs);
   color: var(--ui-tf-muted);
   white-space: nowrap;
@@ -410,7 +410,7 @@ const css = /* css */ `
   text-overflow: ellipsis;
 }
 .ui-tf__affix[data-side="start"] { margin-inline-end: -6px; }
-.ui-tf__affix[data-side="end"] { max-width: 30%; margin-inline-start: -6px; }
+.ui-tf__affix[data-side="end"] { max-width: 40%; margin-inline-start: -6px; }
 /* A long prefix loses its start: "…/workspaces/" stays next to the value */
 .ui-tf__affix-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ui-tf__affix[data-side="start"]:dir(ltr) .ui-tf__affix-text { direction: rtl; text-align: left; }
@@ -445,7 +445,7 @@ const css = /* css */ `
   .ui-tf__action::before { content: ""; position: absolute; inset: -4px; }
 }
 .ui-tf__action:hover:not(:disabled) { background: var(--ui-tf-wash); color: var(--ui-tf-ink); }
-.ui-tf__action:focus-visible { outline: 2px solid var(--ui-tf-focus); outline-offset: -1px; }
+.ui-tf__action:focus-visible { outline: 2px solid var(--ui-tf-focus); outline-offset: -2px; }
 .ui-tf__action:disabled { opacity: 0.4; cursor: default; }
 .ui-tf__action[data-copied] { color: var(--ui-tf-success); }
 .ui-tf__action svg { display: block; }
@@ -513,6 +513,6 @@ const css = /* css */ `
   --ui-tf-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.06);
   --ui-tf-success: #4cc38a;
-  --ui-tf-focus: rgba(255, 255, 255, 0.55);
+  --ui-tf-focus: rgba(77, 141, 255, 0.8);
 }
 `;

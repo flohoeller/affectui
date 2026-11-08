@@ -373,8 +373,8 @@ const css = /* css */ `
 .ui-tfc[data-invalid] .ui-tfc__box { animation: ui-tfc-nudge 320ms var(--ui-tfc-ease); }
 
 .ui-tfc__input {
-  flex: 1 0 3.5em;
-  min-width: 3.5em;
+  flex: 1 0 6em;
+  min-width: 6em;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -404,7 +404,7 @@ const css = /* css */ `
   flex: 0 1 auto;
   align-items: center;
   min-width: 0;
-  max-width: 40%;
+  max-width: 70%;
   font-size: var(--fs);
   color: var(--ui-tfc-subtle);
   white-space: nowrap;
@@ -414,7 +414,7 @@ const css = /* css */ `
 }
 /* Text right against the value, as if it were part of it ("https://" + "acme") */
 .ui-tfc__affix[data-side="start"] { margin-inline-end: -6px; }
-.ui-tfc__affix[data-side="end"] { max-width: 30%; margin-inline-start: -6px; }
+.ui-tfc__affix[data-side="end"] { max-width: 40%; margin-inline-start: -6px; }
 /* A long prefix loses its start: "…/workspaces/" stays next to the value */
 .ui-tfc__affix-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .ui-tfc__affix[data-side="start"]:dir(ltr) .ui-tfc__affix-text { direction: rtl; text-align: left; }
@@ -450,7 +450,7 @@ const css = /* css */ `
   .ui-tfc__action::before { content: ""; position: absolute; inset: -4px; }
 }
 .ui-tfc__action:hover:not(:disabled) { background: var(--ui-tfc-wash); color: var(--ui-tfc-ink); }
-.ui-tfc__action:focus-visible { outline: 2px solid var(--ui-tfc-focus); outline-offset: -1px; }
+.ui-tfc__action:focus-visible { outline: 2px solid var(--ui-tfc-focus); outline-offset: -2px; }
 .ui-tfc__action:disabled { opacity: 0.4; cursor: default; }
 .ui-tfc__action[data-copied] { color: var(--ui-tfc-success); }
 .ui-tfc__action svg { display: block; }
