@@ -114,7 +114,7 @@ const css = /* css */ `
   --ui-chkc-fill: rgba(0, 0, 0, 0.88);
   --ui-chkc-on-fill: #ffffff;
   --ui-chkc-card-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 6px 16px -6px rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 4px 12px -6px rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-chkc-card-wash: rgba(0, 0, 0, 0.025);
   --ui-chkc-danger: #d93d42;
@@ -209,7 +209,7 @@ const css = /* css */ `
   --ui-chkc-fill: rgba(255, 255, 255, 0.9);
   --ui-chkc-on-fill: #161618;
   --ui-chkc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 6px 14px -6px rgba(0, 0, 0, 0.45);
   --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(255, 255, 255, 0.18), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-chkc-card-wash: rgba(255, 255, 255, 0.045);
   --ui-chkc-danger: #ff6369;
