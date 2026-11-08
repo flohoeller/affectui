@@ -370,8 +370,8 @@ const css = /* css */ `
 .ui-tf[data-disabled] { opacity: 0.55; }
 
 .ui-tf__input {
-  flex: 1 0 6em;
-  min-width: 6em;
+  flex: 1;
+  min-width: 0;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -385,6 +385,8 @@ const css = /* css */ `
   -webkit-appearance: none;
   appearance: none;
 }
+/* Next to a prefix or suffix the value keeps at least 6em – they shrink first */
+.ui-tf__box:has(> .ui-tf__affix) .ui-tf__input { flex: 1 0 6em; min-width: 6em; }
 .ui-tf__input::placeholder { color: var(--ui-tf-faint); opacity: 1; }
 .ui-tf__input:disabled { cursor: not-allowed; }
 .ui-tf__input[type="search"]::-webkit-search-cancel-button { display: none; }

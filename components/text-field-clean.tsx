@@ -373,8 +373,8 @@ const css = /* css */ `
 .ui-tfc[data-invalid] .ui-tfc__box { animation: ui-tfc-nudge 320ms var(--ui-tfc-ease); }
 
 .ui-tfc__input {
-  flex: 1 0 6em;
-  min-width: 6em;
+  flex: 1;
+  min-width: 0;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -388,6 +388,8 @@ const css = /* css */ `
   -webkit-appearance: none;
   appearance: none;
 }
+/* Next to a prefix or suffix the value keeps at least 6em – they shrink first */
+.ui-tfc__box:has(> .ui-tfc__affix) .ui-tfc__input { flex: 1 0 6em; min-width: 6em; }
 .ui-tfc__input::placeholder { color: var(--ui-tfc-faint); opacity: 1; }
 .ui-tfc__input:disabled { cursor: not-allowed; }
 .ui-tfc__input[type="search"]::-webkit-search-cancel-button { display: none; }
