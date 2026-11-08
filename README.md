@@ -12,7 +12,7 @@
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
-  <img alt="45 free items" src="https://img.shields.io/badge/free%20items-45-2f6bff?style=flat-square">
+  <img alt="46 free items" src="https://img.shields.io/badge/free%20items-46-2f6bff?style=flat-square">
   <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
@@ -238,6 +238,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 | [Select](https://www.affectui.com/components/select) | Pick one option in the Text Field's look | `npx shadcn@latest add https://www.affectui.com/r/select-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/select.json`</sub> |
 | [Smart Recommendation](https://www.affectui.com/components/smart-recommendation) | Suggestion card with a confidence signal, alternatives to switch to and accept with undo | `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/smart-recommendation.json`</sub> |
 | [Switch](https://www.affectui.com/components/switch) | On or off for things that apply right away | `npx shadcn@latest add https://www.affectui.com/r/switch-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/switch.json`</sub> |
+| [Tag Input](https://www.affectui.com/components/tag-input) | Several values in one field as chips | `npx shadcn@latest add https://www.affectui.com/r/tag-input-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/tag-input.json`</sub> |
 | [Text Area](https://www.affectui.com/components/text-area) | The multi-line twin of the Text Field | `npx shadcn@latest add https://www.affectui.com/r/text-area-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/text-area.json`</sub> |
 | [Text Field](https://www.affectui.com/components/text-field) | One input for every form | `npx shadcn@latest add https://www.affectui.com/r/text-field-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/text-field.json`</sub> |
 | [Thinking Loader](https://www.affectui.com/components/thinking-loader) | A small working pill for AI replies | `npx shadcn@latest add https://www.affectui.com/r/thinking-loader-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/thinking-loader.json`</sub> |
