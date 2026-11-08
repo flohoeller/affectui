@@ -48,6 +48,7 @@ export function TextField({
   copyable = false,
   counter = false,
   onClear,
+  onKeyDown,
   className,
   inputClassName,
   id,
@@ -79,8 +80,21 @@ export function TextField({
   useEffect(() => () => window.clearTimeout(copyTimer.current), []);
 
   const invalid = Boolean(error) || rest["aria-invalid"] === true || rest["aria-invalid"] === "true";
-  const message = error || hint;
+  // Only text or elements count – error={true} marks the field invalid without leaving an empty line
+  const message = shows(error) ? error : shows(hint) ? hint : null;
   const showCount = counter && typeof maxLength === "number";
+  // Without a label, the placeholder names the field for screen readers
+  const fallbackName =
+    label == null && !rest["aria-label"] && !rest["aria-labelledby"] && typeof rest.placeholder === "string" ? rest.placeholder : undefined;
+
+  // An uncontrolled field follows form.reset(), so the count and the × don't show the old text
+  useEffect(() => {
+    const form = input.current?.form;
+    if (!form || value !== undefined) return;
+    const onReset = () => window.setTimeout(() => setOwn(input.current?.value ?? ""));
+    form.addEventListener("reset", onReset);
+    return () => form.removeEventListener("reset", onReset);
+  }, [value]);
   const showClear = clearable && !disabled && !readOnly && text.length > 0;
   const scale = SIZES.includes(size) ? size : "md";
 
@@ -136,7 +150,12 @@ export function TextField({
           input.current?.focus();
         }}
       >
-        {prefix != null && <span className="ui-tf__affix" data-side="start">{prefix}</span>}
+        {prefix != null && (
+          <span className="ui-tf__affix" data-side="start">
+            {/* Long text is cut at its start – the part next to the value is the one that matters */}
+            {typeof prefix === "string" ? <span className="ui-tf__affix-text">{prefix}</span> : prefix}
+          </span>
+        )}
         <input
           {...rest}
           ref={(el) => {
@@ -152,9 +171,19 @@ export function TextField({
           disabled={disabled}
           readOnly={readOnly}
           maxLength={maxLength}
+          aria-label={rest["aria-label"] ?? fallbackName}
           aria-invalid={invalid || undefined}
           aria-describedby={[describedBy, message ? messageId : null, showCount ? counterId : null].filter(Boolean).join(" ") || undefined}
+          dir={rest.dir ?? "auto"}
           data-revealed={isPassword ? (revealed ? "true" : "false") : undefined}
+          onKeyDown={(e) => {
+            // Esc empties a clearable field, like a search field on macOS and iOS
+            if (e.key === "Escape" && showClear) {
+              e.preventDefault();
+              clear();
+            }
+            onKeyDown?.(e);
+          }}
           onChange={(e) => {
             if (value === undefined) setOwn(e.target.value);
             onChange?.(e);
@@ -162,7 +191,7 @@ export function TextField({
         />
         {suffix != null && <span className="ui-tf__affix" data-side="end">{suffix}</span>}
         {showClear && (
-          <button type="button" className="ui-tf__action" aria-label="Clear" onClick={clear}>
+          <button type="button" className="ui-tf__action" aria-label="Clear" tabIndex={-1} onClick={clear}>
             <ClearIcon />
           </button>
         )}
@@ -193,15 +222,25 @@ export function TextField({
             </span>
           </button>
         )}
+        {copyable && (
+          <span className="ui-tf__sr" role="status">
+            {copied ? "Copied" : ""}
+          </span>
+        )}
       </div>
       {(message || showCount) && (
         <div className="ui-tf__foot">
           {/* The error swaps in where the hint was, so the form below doesn't move */}
-          <p className="ui-tf__message" id={messageId} key={error ? "error" : "hint"} aria-live={error ? "polite" : undefined}>
+          <p className="ui-tf__message" id={messageId} key={shows(error) ? "error" : "hint"} dir="auto" aria-live={shows(error) ? "polite" : undefined}>
             {message}
           </p>
           {showCount && (
-            <span className="ui-tf__count" id={counterId} data-full={text.length >= maxLength || undefined}>
+            <span
+              className="ui-tf__count"
+              id={counterId}
+              data-full={text.length === maxLength || undefined}
+              data-over={text.length > maxLength || undefined}
+            >
               {text.length}/{maxLength}
             </span>
           )}
@@ -212,6 +251,8 @@ export function TextField({
 }
 
 const SIZES = ["sm", "md", "lg"];
+/** Text or an element – not true, false, null or an empty string */
+const shows = (v: ReactNode) => v != null && typeof v !== "boolean" && v !== "";
 
 /* Icons: Hugeicons Free (MIT), drawn at 16px */
 function ClearIcon() {
@@ -263,7 +304,7 @@ const css = /* css */ `
   --ui-tf-surface: #ffffff;
   --ui-tf-line: #e6e6e8;
   --ui-tf-edge: #d4d4d8;
-  --ui-tf-edge-focus: #a1a1aa;
+  --ui-tf-edge-focus: #8e8e95;
   --ui-tf-wash: #f4f4f5;
   --ui-tf-readonly: #fafafa;
   --ui-tf-danger: #dc3c42;
@@ -271,7 +312,7 @@ const css = /* css */ `
   --ui-tf-danger-edge-focus: #e5484d;
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.04);
   --ui-tf-success: #2f9e5c;
-  --ui-tf-focus: rgba(23, 23, 23, 0.22);
+  --ui-tf-focus: rgba(23, 23, 23, 0.55);
   --ui-tf-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 36px;
@@ -311,14 +352,15 @@ const css = /* css */ `
   box-sizing: border-box;
   height: var(--h);
   min-width: 0;
-  padding: 0 calc(var(--px) - 6px) 0 var(--px);
+  padding-block: 0;
+  padding-inline: var(--px) calc(var(--px) - 6px);
   border-radius: var(--radius);
   background: var(--ui-tf-surface);
   box-shadow: 0 0 0 1px var(--ui-tf-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   cursor: text;
   transition: box-shadow 160ms ease, background-color 160ms ease;
 }
-.ui-tf__box:not(:has(.ui-tf__action)) { padding-right: var(--px); }
+.ui-tf__box:not(:has(.ui-tf__action)) { padding-inline-end: var(--px); }
 .ui-tf__box:hover { box-shadow: 0 0 0 1px var(--ui-tf-edge), 0 1px 2px rgba(0, 0, 0, 0.04); }
 .ui-tf__box:focus-within { box-shadow: 0 0 0 1px var(--ui-tf-edge-focus), 0 1px 2px rgba(0, 0, 0, 0.04); }
 .ui-tf[data-invalid] .ui-tf__box { background: var(--ui-tf-danger-wash); box-shadow: 0 0 0 1px var(--ui-tf-danger-edge), 0 1px 2px rgba(0, 0, 0, 0.04); animation: ui-tf-nudge 320ms var(--ui-tf-ease); }
@@ -328,8 +370,8 @@ const css = /* css */ `
 .ui-tf[data-disabled] { opacity: 0.55; }
 
 .ui-tf__input {
-  flex: 1;
-  min-width: 0;
+  flex: 1 0 3.5em;
+  min-width: 3.5em;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -356,9 +398,10 @@ const css = /* css */ `
 /* Prefix and suffix: quiet text or an icon inside the box */
 .ui-tf__affix {
   display: inline-flex;
-  flex: none;
+  flex: 0 1 auto;
   align-items: center;
-  max-width: 50%;
+  min-width: 0;
+  max-width: 40%;
   font-size: var(--fs);
   color: var(--ui-tf-muted);
   white-space: nowrap;
@@ -366,9 +409,13 @@ const css = /* css */ `
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.ui-tf__affix[data-side="start"] { margin-right: -6px; }
-.ui-tf__affix[data-side="end"] { margin-left: -6px; }
-.ui-tf__affix:has(> svg) { margin: 0; color: var(--ui-tf-muted); }
+.ui-tf__affix[data-side="start"] { margin-inline-end: -6px; }
+.ui-tf__affix[data-side="end"] { max-width: 30%; margin-inline-start: -6px; }
+/* A long prefix loses its start: "…/workspaces/" stays next to the value */
+.ui-tf__affix-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-tf__affix[data-side="start"]:dir(ltr) .ui-tf__affix-text { direction: rtl; text-align: left; }
+.ui-tf__affix[data-side="start"]:dir(ltr) .ui-tf__affix-text::after { content: "\\200E"; }
+.ui-tf__affix[data-side]:has(> svg) { margin: 0; color: var(--ui-tf-muted); }
 .ui-tf__affix > svg { display: block; width: 16px; height: 16px; flex: none; }
 
 /* Clear, reveal and copy: small buttons at the end */
@@ -378,6 +425,7 @@ const css = /* css */ `
   flex: none;
   width: calc(var(--h) - 10px);
   height: calc(var(--h) - 10px);
+  position: relative;
   max-width: 28px;
   max-height: 28px;
   margin: 0;
@@ -391,6 +439,11 @@ const css = /* css */ `
   transition: background-color 140ms ease, color 140ms ease;
 }
 .ui-tf__action + .ui-tf__action { margin-left: -4px; }
+/* Touch screens: bigger buttons and a hit area that reaches past them */
+@media (pointer: coarse) {
+  .ui-tf__action { width: 32px; height: 32px; max-width: none; max-height: none; }
+  .ui-tf__action::before { content: ""; position: absolute; inset: -4px; }
+}
 .ui-tf__action:hover:not(:disabled) { background: var(--ui-tf-wash); color: var(--ui-tf-ink); }
 .ui-tf__action:focus-visible { outline: 2px solid var(--ui-tf-focus); outline-offset: -1px; }
 .ui-tf__action:disabled { opacity: 0.4; cursor: default; }
@@ -413,6 +466,8 @@ const css = /* css */ `
 }
 .ui-tf[data-invalid] .ui-tf__message { color: var(--ui-tf-danger); }
 .ui-tf__count { flex: none; margin-left: auto; font-size: 12px; line-height: 17px; font-variant-numeric: tabular-nums; color: var(--ui-tf-faint); transition: color 140ms ease; }
+.ui-tf__count[data-over] { color: var(--ui-tf-danger); }
+.ui-tf__sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .ui-tf__count[data-full] { color: var(--ui-tf-text); }
 
 @keyframes ui-tf-nudge {
@@ -450,7 +505,7 @@ const css = /* css */ `
   --ui-tf-surface: #19191b;
   --ui-tf-line: #2a2a2e;
   --ui-tf-edge: #3a3a40;
-  --ui-tf-edge-focus: #55555c;
+  --ui-tf-edge-focus: #6e6e76;
   --ui-tf-wash: #26262a;
   --ui-tf-readonly: #151517;
   --ui-tf-danger: #ff6369;
@@ -458,6 +513,6 @@ const css = /* css */ `
   --ui-tf-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.06);
   --ui-tf-success: #4cc38a;
-  --ui-tf-focus: rgba(255, 255, 255, 0.3);
+  --ui-tf-focus: rgba(255, 255, 255, 0.55);
 }
 `;

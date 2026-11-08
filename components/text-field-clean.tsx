@@ -48,6 +48,7 @@ export function TextField({
   copyable = false,
   counter = false,
   onClear,
+  onKeyDown,
   className,
   inputClassName,
   id,
@@ -79,8 +80,21 @@ export function TextField({
   useEffect(() => () => window.clearTimeout(copyTimer.current), []);
 
   const invalid = Boolean(error) || rest["aria-invalid"] === true || rest["aria-invalid"] === "true";
-  const message = error || hint;
+  // Only text or elements count – error={true} marks the field invalid without leaving an empty line
+  const message = shows(error) ? error : shows(hint) ? hint : null;
   const showCount = counter && typeof maxLength === "number";
+  // Without a label, the placeholder names the field for screen readers
+  const fallbackName =
+    label == null && !rest["aria-label"] && !rest["aria-labelledby"] && typeof rest.placeholder === "string" ? rest.placeholder : undefined;
+
+  // An uncontrolled field follows form.reset(), so the count and the × don't show the old text
+  useEffect(() => {
+    const form = input.current?.form;
+    if (!form || value !== undefined) return;
+    const onReset = () => window.setTimeout(() => setOwn(input.current?.value ?? ""));
+    form.addEventListener("reset", onReset);
+    return () => form.removeEventListener("reset", onReset);
+  }, [value]);
   const showClear = clearable && !disabled && !readOnly && text.length > 0;
   const scale = SIZES.includes(size) ? size : "md";
 
@@ -136,7 +150,12 @@ export function TextField({
           input.current?.focus();
         }}
       >
-        {prefix != null && <span className="ui-tfc__affix" data-side="start">{prefix}</span>}
+        {prefix != null && (
+          <span className="ui-tfc__affix" data-side="start">
+            {/* Long text is cut at its start – the part next to the value is the one that matters */}
+            {typeof prefix === "string" ? <span className="ui-tfc__affix-text">{prefix}</span> : prefix}
+          </span>
+        )}
         <input
           {...rest}
           ref={(el) => {
@@ -152,9 +171,19 @@ export function TextField({
           disabled={disabled}
           readOnly={readOnly}
           maxLength={maxLength}
+          aria-label={rest["aria-label"] ?? fallbackName}
           aria-invalid={invalid || undefined}
           aria-describedby={[describedBy, message ? messageId : null, showCount ? counterId : null].filter(Boolean).join(" ") || undefined}
+          dir={rest.dir ?? "auto"}
           data-revealed={isPassword ? (revealed ? "true" : "false") : undefined}
+          onKeyDown={(e) => {
+            // Esc empties a clearable field, like a search field on macOS and iOS
+            if (e.key === "Escape" && showClear) {
+              e.preventDefault();
+              clear();
+            }
+            onKeyDown?.(e);
+          }}
           onChange={(e) => {
             if (value === undefined) setOwn(e.target.value);
             onChange?.(e);
@@ -162,7 +191,7 @@ export function TextField({
         />
         {suffix != null && <span className="ui-tfc__affix" data-side="end">{suffix}</span>}
         {showClear && (
-          <button type="button" className="ui-tfc__action" aria-label="Clear" onClick={clear}>
+          <button type="button" className="ui-tfc__action" aria-label="Clear" tabIndex={-1} onClick={clear}>
             <ClearIcon />
           </button>
         )}
@@ -193,15 +222,25 @@ export function TextField({
             </span>
           </button>
         )}
+        {copyable && (
+          <span className="ui-tfc__sr" role="status">
+            {copied ? "Copied" : ""}
+          </span>
+        )}
       </div>
       {(message || showCount) && (
         <div className="ui-tfc__foot">
           {/* The error swaps in where the hint was, so the form below doesn't move */}
-          <p className="ui-tfc__message" id={messageId} key={error ? "error" : "hint"} aria-live={error ? "polite" : undefined}>
+          <p className="ui-tfc__message" id={messageId} key={shows(error) ? "error" : "hint"} dir="auto" aria-live={shows(error) ? "polite" : undefined}>
             {message}
           </p>
           {showCount && (
-            <span className="ui-tfc__count" id={counterId} data-full={text.length >= maxLength || undefined}>
+            <span
+              className="ui-tfc__count"
+              id={counterId}
+              data-full={text.length === maxLength || undefined}
+              data-over={text.length > maxLength || undefined}
+            >
               {text.length}/{maxLength}
             </span>
           )}
@@ -212,6 +251,8 @@ export function TextField({
 }
 
 const SIZES = ["sm", "md", "lg"];
+/** Text or an element – not true, false, null or an empty string */
+const shows = (v: ReactNode) => v != null && typeof v !== "boolean" && v !== "";
 
 /* Icons: Hugeicons Free (MIT), drawn at 16px */
 function ClearIcon() {
@@ -267,12 +308,12 @@ const css = /* css */ `
   --ui-tfc-readonly: rgba(0, 0, 0, 0.02);
   --ui-tfc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.22), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tfc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.45), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-tfc-danger: #d93d42;
   --ui-tfc-danger-edge: rgba(229, 72, 77, 0.55);
   --ui-tfc-danger-edge-focus: rgba(229, 72, 77, 0.8);
   --ui-tfc-success: #2f9e5c;
-  --ui-tfc-focus: rgba(0, 96, 226, 0.35);
+  --ui-tfc-focus: rgba(0, 96, 226, 0.7);
   --ui-tfc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 32px;
@@ -312,7 +353,8 @@ const css = /* css */ `
   box-sizing: border-box;
   height: var(--h);
   min-width: 0;
-  padding: 0 calc(var(--px) - 4px) 0 var(--px);
+  padding-block: 0;
+  padding-inline: var(--px) calc(var(--px) - 4px);
   border-radius: var(--radius);
   background: var(--ui-tfc-surface);
   box-shadow: var(--ui-tfc-shadow);
@@ -320,7 +362,7 @@ const css = /* css */ `
   transition: box-shadow 140ms ease, background-color 140ms ease;
 }
 /* Without a button at the end, both sides sit at the same distance */
-.ui-tfc__box:not(:has(.ui-tfc__action)) { padding-right: var(--px); }
+.ui-tfc__box:not(:has(.ui-tfc__action)) { padding-inline-end: var(--px); }
 .ui-tfc__box:hover { box-shadow: var(--ui-tfc-shadow-hover); }
 .ui-tfc__box:focus-within { box-shadow: var(--ui-tfc-shadow-focus); }
 .ui-tfc[data-invalid] .ui-tfc__box { box-shadow: 0 0 0 1px var(--ui-tfc-danger-edge), 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
@@ -331,8 +373,8 @@ const css = /* css */ `
 .ui-tfc[data-invalid] .ui-tfc__box { animation: ui-tfc-nudge 320ms var(--ui-tfc-ease); }
 
 .ui-tfc__input {
-  flex: 1;
-  min-width: 0;
+  flex: 1 0 3.5em;
+  min-width: 3.5em;
   height: 100%;
   margin: 0;
   padding: 0;
@@ -359,9 +401,10 @@ const css = /* css */ `
 /* Prefix and suffix: quiet text or an icon inside the box */
 .ui-tfc__affix {
   display: inline-flex;
-  flex: none;
+  flex: 0 1 auto;
   align-items: center;
-  max-width: 50%;
+  min-width: 0;
+  max-width: 40%;
   font-size: var(--fs);
   color: var(--ui-tfc-subtle);
   white-space: nowrap;
@@ -370,10 +413,14 @@ const css = /* css */ `
   text-overflow: ellipsis;
 }
 /* Text right against the value, as if it were part of it ("https://" + "acme") */
-.ui-tfc__affix[data-side="start"] { margin-right: -6px; }
-.ui-tfc__affix[data-side="end"] { margin-left: -6px; }
+.ui-tfc__affix[data-side="start"] { margin-inline-end: -6px; }
+.ui-tfc__affix[data-side="end"] { max-width: 30%; margin-inline-start: -6px; }
+/* A long prefix loses its start: "…/workspaces/" stays next to the value */
+.ui-tfc__affix-text { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ui-tfc__affix[data-side="start"]:dir(ltr) .ui-tfc__affix-text { direction: rtl; text-align: left; }
+.ui-tfc__affix[data-side="start"]:dir(ltr) .ui-tfc__affix-text::after { content: "\\200E"; }
 /* An icon keeps its distance */
-.ui-tfc__affix:has(> svg) { margin: 0; color: var(--ui-tfc-icon); }
+.ui-tfc__affix[data-side]:has(> svg) { margin: 0; color: var(--ui-tfc-icon); }
 .ui-tfc__affix > svg { display: block; width: 16px; height: 16px; flex: none; }
 
 /* Clear, reveal and copy: small ghost buttons at the end */
@@ -383,6 +430,7 @@ const css = /* css */ `
   flex: none;
   width: calc(var(--h) - 8px);
   height: calc(var(--h) - 8px);
+  position: relative;
   max-width: 26px;
   max-height: 26px;
   margin: 0;
@@ -396,6 +444,11 @@ const css = /* css */ `
   transition: background-color 140ms ease, color 140ms ease;
 }
 .ui-tfc__action + .ui-tfc__action { margin-left: -4px; }
+/* Touch screens: bigger buttons and a hit area that reaches past them */
+@media (pointer: coarse) {
+  .ui-tfc__action { width: 32px; height: 32px; max-width: none; max-height: none; }
+  .ui-tfc__action::before { content: ""; position: absolute; inset: -4px; }
+}
 .ui-tfc__action:hover:not(:disabled) { background: var(--ui-tfc-wash); color: var(--ui-tfc-ink); }
 .ui-tfc__action:focus-visible { outline: 2px solid var(--ui-tfc-focus); outline-offset: -1px; }
 .ui-tfc__action:disabled { opacity: 0.4; cursor: default; }
@@ -418,6 +471,8 @@ const css = /* css */ `
 }
 .ui-tfc[data-invalid] .ui-tfc__message { color: var(--ui-tfc-danger); }
 .ui-tfc__count { flex: none; margin-left: auto; font-size: 12px; line-height: 16px; font-variant-numeric: tabular-nums; color: var(--ui-tfc-faint); transition: color 140ms ease; }
+.ui-tfc__count[data-over] { color: var(--ui-tfc-danger); }
+.ui-tfc__sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 .ui-tfc__count[data-full] { color: var(--ui-tfc-muted); }
 
 @keyframes ui-tfc-nudge {
@@ -459,12 +514,12 @@ const css = /* css */ `
   --ui-tfc-readonly: rgba(255, 255, 255, 0.03);
   --ui-tfc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.26), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tfc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.42), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tfc-danger: #ff6369;
   --ui-tfc-danger-edge: rgba(255, 99, 105, 0.5);
   --ui-tfc-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-tfc-success: #4cc38a;
-  --ui-tfc-focus: rgba(77, 141, 255, 0.5);
+  --ui-tfc-focus: rgba(77, 141, 255, 0.8);
 }
 :where(.dark, [data-theme="dark"]) .ui-tfc[data-readonly] .ui-tfc__box,
 :where(.dark, [data-theme="dark"]) .ui-tfc[data-disabled] .ui-tfc__box { box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12); }
