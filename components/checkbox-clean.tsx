@@ -114,8 +114,9 @@ const css = /* css */ `
   --ui-chkc-fill: rgba(0, 0, 0, 0.88);
   --ui-chkc-on-fill: #ffffff;
   --ui-chkc-card-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-chkc-card-shadow-on: 0 0 0 1px rgba(0, 0, 0, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-chkc-card-wash: rgba(0, 0, 0, 0.02);
+  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 6px 16px -6px rgba(0, 0, 0, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-chkc-card-wash: rgba(0, 0, 0, 0.025);
   --ui-chkc-danger: #d93d42;
   --ui-chkc-focus: rgba(0, 96, 226, 0.7);
   --ui-chkc-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -168,16 +169,17 @@ const css = /* css */ `
 .ui-chkc__desc { font-size: 12px; line-height: 16px; color: var(--ui-chkc-subtle); overflow-wrap: anywhere; }
 .ui-chkc__error { margin: 0 0 0 26px; font-size: 12px; line-height: 16px; color: var(--ui-chkc-danger); overflow-wrap: anywhere; animation: ui-chkc-message 260ms var(--ui-chkc-ease); }
 
-/* Card: a bordered row, clickable as a whole; checked, its edge turns dark */
+/* Card: a bordered row, clickable as a whole – it lifts on hover; checked, it takes a faint gray fill (no dark edge) */
 .ui-chkc[data-variant="card"] .ui-chkc__row {
   padding: 10px 12px;
   border-radius: 8px;
   background: var(--ui-chkc-surface);
   box-shadow: var(--ui-chkc-card-shadow);
-  transition: box-shadow 160ms ease, background-color 160ms ease;
+  transition: box-shadow 200ms ease, background-color 200ms ease, transform 200ms var(--ui-chkc-ease);
 }
-.ui-chkc[data-variant="card"] .ui-chkc__row:hover { background: var(--ui-chkc-card-wash); }
-.ui-chkc[data-variant="card"] .ui-chkc__row:has(.ui-chkc__input:checked) { box-shadow: var(--ui-chkc-card-shadow-on); }
+.ui-chkc[data-variant="card"]:not([data-disabled]) .ui-chkc__row:hover { box-shadow: var(--ui-chkc-card-shadow-hover); transform: translateY(-1px); }
+.ui-chkc[data-variant="card"] .ui-chkc__row:has(.ui-chkc__input:checked) { background: var(--ui-chkc-card-wash); box-shadow: var(--ui-chkc-card-shadow-on); }
+.ui-chkc[data-variant="card"]:not([data-disabled]) .ui-chkc__row:has(.ui-chkc__input:checked):hover { box-shadow: var(--ui-chkc-card-shadow-hover); }
 .ui-chkc[data-variant="card"] .ui-chkc__label { font-weight: 500; }
 .ui-chkc[data-variant="card"] .ui-chkc__error { margin-left: 2px; }
 
@@ -207,8 +209,9 @@ const css = /* css */ `
   --ui-chkc-fill: rgba(255, 255, 255, 0.9);
   --ui-chkc-on-fill: #161618;
   --ui-chkc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-chkc-card-shadow-on: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-chkc-card-wash: rgba(255, 255, 255, 0.03);
+  --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+  --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(255, 255, 255, 0.18), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-chkc-card-wash: rgba(255, 255, 255, 0.045);
   --ui-chkc-danger: #ff6369;
   --ui-chkc-focus: rgba(77, 141, 255, 0.8);
 }

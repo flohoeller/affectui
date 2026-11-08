@@ -114,8 +114,9 @@ const css = /* css */ `
   --ui-chk-fill: #171717;
   --ui-chk-on-fill: #ffffff;
   --ui-chk-card-shadow: 0 0 0 1px #e6e6e8, 0 1px 2px rgba(0, 0, 0, 0.04);
-  --ui-chk-card-shadow-on: 0 0 0 1px #a1a1aa, 0 1px 2px rgba(0, 0, 0, 0.04);
-  --ui-chk-card-wash: #fafafa;
+  --ui-chk-card-shadow-hover: 0 0 0 1px #e6e6e8, 0 6px 16px -6px rgba(0, 0, 0, 0.14), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-chk-card-shadow-on: 0 0 0 1px #e6e6e8, 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-chk-card-wash: #f7f7f8;
   --ui-chk-danger: #dc3c42;
   --ui-chk-focus: rgba(0, 96, 226, 0.7);
   --ui-chk-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -168,16 +169,17 @@ const css = /* css */ `
 .ui-chk__desc { font-size: 12.5px; line-height: 17px; color: var(--ui-chk-subtle); overflow-wrap: anywhere; }
 .ui-chk__error { margin: 0 0 0 26px; font-size: 12px; line-height: 16px; color: var(--ui-chk-danger); overflow-wrap: anywhere; animation: ui-chk-message 260ms var(--ui-chk-ease); }
 
-/* Card: a bordered row, clickable as a whole; checked, its edge turns dark */
+/* Card: a bordered row, clickable as a whole – it lifts on hover; checked, it takes a faint gray fill (no dark edge) */
 .ui-chk[data-variant="card"] .ui-chk__row {
   padding: 12px 14px;
   border-radius: 12px;
   background: var(--ui-chk-surface);
   box-shadow: var(--ui-chk-card-shadow);
-  transition: box-shadow 160ms ease, background-color 160ms ease;
+  transition: box-shadow 200ms ease, background-color 200ms ease, transform 200ms var(--ui-chk-ease);
 }
-.ui-chk[data-variant="card"] .ui-chk__row:hover { background: var(--ui-chk-card-wash); }
-.ui-chk[data-variant="card"] .ui-chk__row:has(.ui-chk__input:checked) { box-shadow: var(--ui-chk-card-shadow-on); }
+.ui-chk[data-variant="card"]:not([data-disabled]) .ui-chk__row:hover { box-shadow: var(--ui-chk-card-shadow-hover); transform: translateY(-1px); }
+.ui-chk[data-variant="card"] .ui-chk__row:has(.ui-chk__input:checked) { background: var(--ui-chk-card-wash); box-shadow: var(--ui-chk-card-shadow-on); }
+.ui-chk[data-variant="card"]:not([data-disabled]) .ui-chk__row:has(.ui-chk__input:checked):hover { box-shadow: var(--ui-chk-card-shadow-hover); }
 .ui-chk[data-variant="card"] .ui-chk__label { font-weight: 500; }
 .ui-chk[data-variant="card"] .ui-chk__error { margin-left: 2px; }
 
@@ -207,8 +209,9 @@ const css = /* css */ `
   --ui-chk-fill: #ededed;
   --ui-chk-on-fill: #161618;
   --ui-chk-card-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.2);
-  --ui-chk-card-shadow-on: 0 0 0 1px #55555c, 0 1px 2px rgba(0, 0, 0, 0.2);
-  --ui-chk-card-wash: #1d1d20;
+  --ui-chk-card-shadow-hover: 0 0 0 1px #2a2a2e, 0 8px 20px -6px rgba(0, 0, 0, 0.6);
+  --ui-chk-card-shadow-on: 0 0 0 1px #2f2f34, 0 1px 2px rgba(0, 0, 0, 0.2);
+  --ui-chk-card-wash: #1f1f22;
   --ui-chk-danger: #ff6369;
   --ui-chk-focus: rgba(77, 141, 255, 0.8);
 }
