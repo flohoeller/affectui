@@ -261,22 +261,22 @@ function CollapseIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tac (see Theming in the docs) */
 .ui-tac {
-  --ui-tac-title: rgba(0, 0, 0, 0.88);
-  --ui-tac-ink: rgba(0, 0, 0, 0.88);
-  --ui-tac-muted: rgba(0, 0, 0, 0.61);
-  --ui-tac-subtle: rgba(0, 0, 0, 0.45);
-  --ui-tac-faint: rgba(0, 0, 0, 0.3);
-  --ui-tac-icon: rgba(0, 0, 0, 0.447);
-  --ui-tac-surface: #ffffff;
+  --ui-tac-title: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tac-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tac-muted: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-tac-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-tac-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.3));
+  --ui-tac-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-tac-surface: var(--aui-surface, #ffffff);
   --ui-tac-wash: rgba(0, 0, 0, 0.04);
   --ui-tac-readonly: rgba(0, 0, 0, 0.02);
-  --ui-tac-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tac-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tac-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.28), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tac-danger: #d93d42;
+  --ui-tac-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tac-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tac-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tac-danger: var(--aui-danger, #d93d42);
   --ui-tac-danger-edge: rgba(229, 72, 77, 0.55);
   --ui-tac-danger-edge-focus: rgba(229, 72, 77, 0.8);
-  --ui-tac-focus: rgba(0, 96, 226, 0.7);
+  --ui-tac-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tac-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --fs: 13px;
@@ -286,7 +286,7 @@ const css = /* css */ `
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-tac-ink);
@@ -306,7 +306,7 @@ const css = /* css */ `
   position: relative;
   display: flex;
   min-width: 0;
-  border-radius: 8px;
+  border-radius: var(--aui-radius, 8px);
   background: var(--ui-tac-surface);
   box-shadow: var(--ui-tac-shadow);
   cursor: text;
@@ -413,22 +413,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tac {
-  --ui-tac-title: rgba(255, 255, 255, 0.92);
-  --ui-tac-ink: rgba(255, 255, 255, 0.9);
-  --ui-tac-muted: rgba(255, 255, 255, 0.62);
-  --ui-tac-subtle: rgba(255, 255, 255, 0.46);
-  --ui-tac-faint: rgba(255, 255, 255, 0.3);
-  --ui-tac-icon: rgba(255, 255, 255, 0.5);
-  --ui-tac-surface: #1c1c1e;
+  --ui-tac-title: var(--aui-ink, rgba(255, 255, 255, 0.92));
+  --ui-tac-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tac-muted: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tac-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-tac-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-tac-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-tac-surface: var(--aui-surface, #1c1c1e);
   --ui-tac-wash: rgba(255, 255, 255, 0.07);
   --ui-tac-readonly: rgba(255, 255, 255, 0.03);
-  --ui-tac-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tac-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tac-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tac-danger: #ff6369;
+  --ui-tac-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tac-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tac-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tac-danger: var(--aui-danger, #ff6369);
   --ui-tac-danger-edge: rgba(255, 99, 105, 0.5);
   --ui-tac-danger-edge-focus: rgba(255, 99, 105, 0.75);
-  --ui-tac-focus: rgba(77, 141, 255, 0.8);
+  --ui-tac-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-tac[data-readonly] .ui-tac__box,
 :where(.dark, [data-theme="dark"]) .ui-tac[data-disabled] .ui-tac__box { box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12); }

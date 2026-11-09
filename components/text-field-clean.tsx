@@ -297,42 +297,42 @@ function CheckIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tfc (see Theming in the docs) */
 .ui-tfc {
-  --ui-tfc-title: rgba(0, 0, 0, 0.88);
-  --ui-tfc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tfc-muted: rgba(0, 0, 0, 0.61);
-  --ui-tfc-subtle: rgba(0, 0, 0, 0.45);
-  --ui-tfc-faint: rgba(0, 0, 0, 0.3);
-  --ui-tfc-icon: rgba(0, 0, 0, 0.447);
-  --ui-tfc-surface: #ffffff;
+  --ui-tfc-title: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tfc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tfc-muted: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-tfc-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-tfc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.3));
+  --ui-tfc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-tfc-surface: var(--aui-surface, #ffffff);
   --ui-tfc-wash: rgba(0, 0, 0, 0.04);
   --ui-tfc-readonly: rgba(0, 0, 0, 0.02);
-  --ui-tfc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.28), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tfc-danger: #d93d42;
+  --ui-tfc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tfc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tfc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tfc-danger: var(--aui-danger, #d93d42);
   --ui-tfc-danger-edge: rgba(229, 72, 77, 0.55);
   --ui-tfc-danger-edge-focus: rgba(229, 72, 77, 0.8);
-  --ui-tfc-success: #2f9e5c;
-  --ui-tfc-focus: rgba(0, 96, 226, 0.7);
+  --ui-tfc-success: var(--aui-success, #2f9e5c);
+  --ui-tfc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tfc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 32px;
   --px: 10px;
   --fs: 13px;
-  --radius: 7px;
+  --radius: var(--aui-radius, 7px);
 
   display: flex;
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-tfc-ink);
   -webkit-font-smoothing: antialiased;
 }
-.ui-tfc[data-size="sm"] { --h: 28px; --px: 8px; --fs: 13px; --radius: 6px; }
-.ui-tfc[data-size="lg"] { --h: 36px; --px: 12px; --fs: 14px; --radius: 8px; }
+.ui-tfc[data-size="sm"] { --h: 28px; --px: 8px; --fs: 13px; --radius: calc(var(--aui-radius, 7px) - 1px); }
+.ui-tfc[data-size="lg"] { --h: 36px; --px: 12px; --fs: 14px; --radius: calc(var(--aui-radius, 7px) + 1px); }
 /* Touch screens: a comfortable tap height, and 16px text so iOS doesn't zoom in on focus */
 @media (pointer: coarse) {
   .ui-tfc { --fs: 16px; }
@@ -505,23 +505,23 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tfc {
-  --ui-tfc-title: rgba(255, 255, 255, 0.92);
-  --ui-tfc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tfc-muted: rgba(255, 255, 255, 0.62);
-  --ui-tfc-subtle: rgba(255, 255, 255, 0.46);
-  --ui-tfc-faint: rgba(255, 255, 255, 0.3);
-  --ui-tfc-icon: rgba(255, 255, 255, 0.5);
-  --ui-tfc-surface: #1c1c1e;
+  --ui-tfc-title: var(--aui-ink, rgba(255, 255, 255, 0.92));
+  --ui-tfc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tfc-muted: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tfc-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-tfc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-tfc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-tfc-surface: var(--aui-surface, #1c1c1e);
   --ui-tfc-wash: rgba(255, 255, 255, 0.07);
   --ui-tfc-readonly: rgba(255, 255, 255, 0.03);
-  --ui-tfc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tfc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tfc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tfc-danger: #ff6369;
+  --ui-tfc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tfc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tfc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tfc-danger: var(--aui-danger, #ff6369);
   --ui-tfc-danger-edge: rgba(255, 99, 105, 0.5);
   --ui-tfc-danger-edge-focus: rgba(255, 99, 105, 0.75);
-  --ui-tfc-success: #4cc38a;
-  --ui-tfc-focus: rgba(77, 141, 255, 0.8);
+  --ui-tfc-success: var(--aui-success, #4cc38a);
+  --ui-tfc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-tfc[data-readonly] .ui-tfc__box,
 :where(.dark, [data-theme="dark"]) .ui-tfc[data-disabled] .ui-tfc__box { box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.12); }

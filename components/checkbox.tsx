@@ -106,26 +106,26 @@ export function Checkbox({
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-chk (see Theming in the docs) */
 .ui-chk {
-  --ui-chk-ink: #171717;
-  --ui-chk-subtle: #8f8f8f;
-  --ui-chk-surface: #ffffff;
-  --ui-chk-edge: #d4d4d8;
+  --ui-chk-ink: var(--aui-ink, #171717);
+  --ui-chk-subtle: var(--aui-muted, #8f8f8f);
+  --ui-chk-surface: var(--aui-surface, #ffffff);
+  --ui-chk-edge: var(--aui-border-strong, #d4d4d8);
   --ui-chk-edge-hover: #a1a1aa;
-  --ui-chk-fill: #171717;
-  --ui-chk-on-fill: #ffffff;
-  --ui-chk-card-shadow: 0 0 0 1px #e6e6e8, 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-chk-fill: var(--aui-primary, #171717);
+  --ui-chk-on-fill: var(--aui-on-primary, #ffffff);
+  --ui-chk-card-shadow: 0 0 0 1px var(--aui-border, #e6e6e8), 0 1px 2px rgba(0, 0, 0, 0.04);
   --ui-chk-card-shadow-hover: 0 0 0 1px #e6e6e8, 0 4px 12px -6px rgba(0, 0, 0, 0.09), 0 1px 2px rgba(0, 0, 0, 0.04);
   --ui-chk-card-shadow-on: 0 0 0 1px #e6e6e8, 0 1px 2px rgba(0, 0, 0, 0.04);
   --ui-chk-card-wash: #f7f7f8;
-  --ui-chk-danger: #dc3c42;
-  --ui-chk-focus: rgba(0, 96, 226, 0.7);
+  --ui-chk-danger: var(--aui-danger, #dc3c42);
+  --ui-chk-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-chk-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   display: flex;
   flex-direction: column;
   gap: 4px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 20px;
   color: var(--ui-chk-ink);
@@ -201,18 +201,18 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-chk {
-  --ui-chk-ink: #ededed;
-  --ui-chk-subtle: #8b8b92;
-  --ui-chk-surface: #19191b;
-  --ui-chk-edge: #3a3a40;
+  --ui-chk-ink: var(--aui-ink, #ededed);
+  --ui-chk-subtle: var(--aui-muted, #8b8b92);
+  --ui-chk-surface: var(--aui-surface, #19191b);
+  --ui-chk-edge: var(--aui-border-strong, #3a3a40);
   --ui-chk-edge-hover: #55555c;
-  --ui-chk-fill: #ededed;
-  --ui-chk-on-fill: #161618;
-  --ui-chk-card-shadow: 0 0 0 1px #2a2a2e, 0 1px 2px rgba(0, 0, 0, 0.2);
+  --ui-chk-fill: var(--aui-primary, #ededed);
+  --ui-chk-on-fill: var(--aui-on-primary, #161618);
+  --ui-chk-card-shadow: 0 0 0 1px var(--aui-border, #2a2a2e), 0 1px 2px rgba(0, 0, 0, 0.2);
   --ui-chk-card-shadow-hover: 0 0 0 1px #2a2a2e, 0 6px 14px -6px rgba(0, 0, 0, 0.45);
   --ui-chk-card-shadow-on: 0 0 0 1px #2f2f34, 0 1px 2px rgba(0, 0, 0, 0.2);
   --ui-chk-card-wash: #1f1f22;
-  --ui-chk-danger: #ff6369;
-  --ui-chk-focus: rgba(77, 141, 255, 0.8);
+  --ui-chk-danger: var(--aui-danger, #ff6369);
+  --ui-chk-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

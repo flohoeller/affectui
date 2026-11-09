@@ -261,24 +261,24 @@ function CollapseIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-ta (see Theming in the docs) */
 .ui-ta {
-  --ui-ta-title: #171717;
-  --ui-ta-ink: #171717;
-  --ui-ta-muted: #8f8f8f;
-  --ui-ta-subtle: #8f8f8f;
-  --ui-ta-faint: #b5b5b5;
-  --ui-ta-icon: #8f8f8f;
+  --ui-ta-title: var(--aui-ink, #171717);
+  --ui-ta-ink: var(--aui-ink, #171717);
+  --ui-ta-muted: var(--aui-muted, #8f8f8f);
+  --ui-ta-subtle: var(--aui-muted, #8f8f8f);
+  --ui-ta-faint: var(--aui-placeholder, #b5b5b5);
+  --ui-ta-icon: var(--aui-muted, #8f8f8f);
   --ui-ta-text: #404040;
-  --ui-ta-surface: #ffffff;
-  --ui-ta-line: #e6e6e8;
-  --ui-ta-edge: #d4d4d8;
-  --ui-ta-edge-focus: #b4b4bb;
+  --ui-ta-surface: var(--aui-surface, #ffffff);
+  --ui-ta-line: var(--aui-border, #e6e6e8);
+  --ui-ta-edge: var(--aui-border-strong, #d4d4d8);
+  --ui-ta-edge-focus: var(--aui-border-strong, #b4b4bb);
   --ui-ta-wash: #f4f4f5;
   --ui-ta-readonly: #fafafa;
-  --ui-ta-danger: #dc3c42;
+  --ui-ta-danger: var(--aui-danger, #dc3c42);
   --ui-ta-danger-edge: #f0a3a6;
   --ui-ta-danger-edge-focus: #e5484d;
   --ui-ta-danger-wash: rgba(229, 72, 77, 0.04);
-  --ui-ta-focus: rgba(0, 96, 226, 0.7);
+  --ui-ta-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-ta-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --fs: 13.5px;
@@ -288,7 +288,7 @@ const css = /* css */ `
   flex-direction: column;
   gap: 7px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 20px;
   color: var(--ui-ta-ink);
@@ -308,7 +308,7 @@ const css = /* css */ `
   position: relative;
   display: flex;
   min-width: 0;
-  border-radius: 10px;
+  border-radius: var(--aui-radius, 10px);
   background: var(--ui-ta-surface);
   box-shadow: 0 0 0 1px var(--ui-ta-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   cursor: text;
@@ -415,23 +415,23 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ta {
-  --ui-ta-title: #ededed;
-  --ui-ta-ink: #ededed;
+  --ui-ta-title: var(--aui-ink, #ededed);
+  --ui-ta-ink: var(--aui-ink, #ededed);
   --ui-ta-text: #c8c8cc;
-  --ui-ta-muted: #8b8b92;
-  --ui-ta-subtle: #8b8b92;
-  --ui-ta-faint: #5c5c63;
-  --ui-ta-icon: #8b8b92;
-  --ui-ta-surface: #19191b;
-  --ui-ta-line: #2a2a2e;
-  --ui-ta-edge: #3a3a40;
-  --ui-ta-edge-focus: #4e4e55;
+  --ui-ta-muted: var(--aui-muted, #8b8b92);
+  --ui-ta-subtle: var(--aui-muted, #8b8b92);
+  --ui-ta-faint: var(--aui-placeholder, #5c5c63);
+  --ui-ta-icon: var(--aui-muted, #8b8b92);
+  --ui-ta-surface: var(--aui-surface, #19191b);
+  --ui-ta-line: var(--aui-border, #2a2a2e);
+  --ui-ta-edge: var(--aui-border-strong, #3a3a40);
+  --ui-ta-edge-focus: var(--aui-border-strong, #4e4e55);
   --ui-ta-wash: #26262a;
   --ui-ta-readonly: #151517;
-  --ui-ta-danger: #ff6369;
+  --ui-ta-danger: var(--aui-danger, #ff6369);
   --ui-ta-danger-edge: rgba(255, 99, 105, 0.45);
   --ui-ta-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-ta-danger-wash: rgba(229, 72, 77, 0.06);
-  --ui-ta-focus: rgba(77, 141, 255, 0.8);
+  --ui-ta-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

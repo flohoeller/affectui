@@ -367,42 +367,42 @@ function CheckIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-sel (see Theming in the docs) */
 .ui-sel {
-  --ui-sel-title: #171717;
-  --ui-sel-ink: #171717;
-  --ui-sel-subtle: #8f8f8f;
-  --ui-sel-faint: #b5b5b5;
-  --ui-sel-icon: #8f8f8f;
-  --ui-sel-surface: #ffffff;
-  --ui-sel-menu: #ffffff;
-  --ui-sel-line: #e6e6e8;
-  --ui-sel-edge: #d4d4d8;
-  --ui-sel-edge-open: #b4b4bb;
+  --ui-sel-title: var(--aui-ink, #171717);
+  --ui-sel-ink: var(--aui-ink, #171717);
+  --ui-sel-subtle: var(--aui-muted, #8f8f8f);
+  --ui-sel-faint: var(--aui-placeholder, #b5b5b5);
+  --ui-sel-icon: var(--aui-muted, #8f8f8f);
+  --ui-sel-surface: var(--aui-surface, #ffffff);
+  --ui-sel-menu: var(--aui-surface, #ffffff);
+  --ui-sel-line: var(--aui-border, #e6e6e8);
+  --ui-sel-edge: var(--aui-border-strong, #d4d4d8);
+  --ui-sel-edge-open: var(--aui-border-strong, #b4b4bb);
   --ui-sel-glow: #f4f4f5;
   --ui-sel-readonly: #fafafa;
   --ui-sel-shadow-menu: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.18), 0 4px 12px -4px rgba(0, 0, 0, 0.06);
-  --ui-sel-danger: #dc3c42;
+  --ui-sel-danger: var(--aui-danger, #dc3c42);
   --ui-sel-danger-edge: #f0a3a6;
   --ui-sel-danger-wash: rgba(229, 72, 77, 0.04);
-  --ui-sel-focus: rgba(0, 96, 226, 0.7);
+  --ui-sel-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-sel-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 36px;
   --px: 12px;
   --fs: 13.5px;
-  --radius: 10px;
+  --radius: var(--aui-radius, 10px);
 
   display: flex;
   flex-direction: column;
   gap: 7px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 20px;
   color: var(--ui-sel-ink);
   -webkit-font-smoothing: antialiased;
 }
-.ui-sel[data-size="sm"] { --h: 32px; --px: 10px; --fs: 13px; --radius: 9px; }
-.ui-sel[data-size="lg"] { --h: 40px; --px: 14px; --fs: 14px; --radius: 12px; }
+.ui-sel[data-size="sm"] { --h: 32px; --px: 10px; --fs: 13px; --radius: calc(var(--aui-radius, 10px) - 1px); }
+.ui-sel[data-size="lg"] { --h: 40px; --px: 14px; --fs: 14px; --radius: calc(var(--aui-radius, 10px) + 2px); }
 /* Touch screens: a comfortable tap height and 16px text */
 @media (pointer: coarse) {
   .ui-sel { --fs: 16px; }
@@ -538,22 +538,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-sel {
-  --ui-sel-title: #ededed;
-  --ui-sel-ink: #ededed;
-  --ui-sel-subtle: #8b8b92;
-  --ui-sel-faint: #5c5c63;
-  --ui-sel-icon: #8b8b92;
-  --ui-sel-surface: #19191b;
-  --ui-sel-menu: #19191b;
-  --ui-sel-line: #2a2a2e;
-  --ui-sel-edge: #3a3a40;
-  --ui-sel-edge-open: #4e4e55;
+  --ui-sel-title: var(--aui-ink, #ededed);
+  --ui-sel-ink: var(--aui-ink, #ededed);
+  --ui-sel-subtle: var(--aui-muted, #8b8b92);
+  --ui-sel-faint: var(--aui-placeholder, #5c5c63);
+  --ui-sel-icon: var(--aui-muted, #8b8b92);
+  --ui-sel-surface: var(--aui-surface, #19191b);
+  --ui-sel-menu: var(--aui-surface, #19191b);
+  --ui-sel-line: var(--aui-border, #2a2a2e);
+  --ui-sel-edge: var(--aui-border-strong, #3a3a40);
+  --ui-sel-edge-open: var(--aui-border-strong, #4e4e55);
   --ui-sel-glow: #26262a;
   --ui-sel-readonly: #151517;
   --ui-sel-shadow-menu: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
-  --ui-sel-danger: #ff6369;
+  --ui-sel-danger: var(--aui-danger, #ff6369);
   --ui-sel-danger-edge: rgba(255, 99, 105, 0.45);
   --ui-sel-danger-wash: rgba(229, 72, 77, 0.06);
-  --ui-sel-focus: rgba(77, 141, 255, 0.8);
+  --ui-sel-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -305,23 +305,23 @@ export function TagInput({
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tagc (see Theming in the docs) */
 .ui-tagc {
-  --ui-tagc-title: rgba(0, 0, 0, 0.88);
-  --ui-tagc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tagc-muted: rgba(0, 0, 0, 0.61);
-  --ui-tagc-subtle: rgba(0, 0, 0, 0.45);
-  --ui-tagc-faint: rgba(0, 0, 0, 0.3);
-  --ui-tagc-surface: #ffffff;
+  --ui-tagc-title: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tagc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tagc-muted: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-tagc-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-tagc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.3));
+  --ui-tagc-surface: var(--aui-surface, #ffffff);
   --ui-tagc-chip: rgba(0, 0, 0, 0.045);
   --ui-tagc-chip-edge: rgba(0, 0, 0, 0.06);
   --ui-tagc-chip-armed: rgba(0, 0, 0, 0.1);
   --ui-tagc-avatar: rgba(0, 0, 0, 0.08);
   --ui-tagc-flash: rgba(0, 96, 226, 0.14);
-  --ui-tagc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tagc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tagc-shadow-focus: 0 0 0 1px rgba(0, 0, 0, 0.28), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tagc-danger: #d93d42;
+  --ui-tagc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tagc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tagc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-tagc-danger: var(--aui-danger, #d93d42);
   --ui-tagc-danger-edge: rgba(229, 72, 77, 0.55);
-  --ui-tagc-focus: rgba(0, 96, 226, 0.7);
+  --ui-tagc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tagc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --fs: 13px;
@@ -330,7 +330,7 @@ const css = /* css */ `
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-tagc-ink);
@@ -355,7 +355,7 @@ const css = /* css */ `
   min-width: 0;
   max-height: 156px;
   padding: 3px 4px;
-  border-radius: 7px;
+  border-radius: var(--aui-radius, 7px);
   background: var(--ui-tagc-surface);
   box-shadow: var(--ui-tagc-shadow);
   overflow-y: auto;
@@ -461,22 +461,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tagc {
-  --ui-tagc-title: rgba(255, 255, 255, 0.92);
-  --ui-tagc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tagc-muted: rgba(255, 255, 255, 0.62);
-  --ui-tagc-subtle: rgba(255, 255, 255, 0.46);
-  --ui-tagc-faint: rgba(255, 255, 255, 0.3);
-  --ui-tagc-surface: #1c1c1e;
+  --ui-tagc-title: var(--aui-ink, rgba(255, 255, 255, 0.92));
+  --ui-tagc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tagc-muted: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tagc-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-tagc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-tagc-surface: var(--aui-surface, #1c1c1e);
   --ui-tagc-chip: rgba(255, 255, 255, 0.07);
   --ui-tagc-chip-edge: rgba(255, 255, 255, 0.08);
   --ui-tagc-chip-armed: rgba(255, 255, 255, 0.14);
   --ui-tagc-avatar: rgba(255, 255, 255, 0.12);
   --ui-tagc-flash: rgba(77, 141, 255, 0.28);
-  --ui-tagc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tagc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tagc-shadow-focus: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tagc-danger: #ff6369;
+  --ui-tagc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tagc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tagc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tagc-danger: var(--aui-danger, #ff6369);
   --ui-tagc-danger-edge: rgba(255, 99, 105, 0.5);
-  --ui-tagc-focus: rgba(77, 141, 255, 0.8);
+  --ui-tagc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

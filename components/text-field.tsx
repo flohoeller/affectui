@@ -297,41 +297,41 @@ function CheckIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tf (see Theming in the docs) */
 .ui-tf {
-  --ui-tf-ink: #171717;
+  --ui-tf-ink: var(--aui-ink, #171717);
   --ui-tf-text: #404040;
-  --ui-tf-muted: #8f8f8f;
-  --ui-tf-faint: #b5b5b5;
-  --ui-tf-surface: #ffffff;
-  --ui-tf-line: #e6e6e8;
-  --ui-tf-edge: #d4d4d8;
-  --ui-tf-edge-focus: #b4b4bb;
+  --ui-tf-muted: var(--aui-muted, #8f8f8f);
+  --ui-tf-faint: var(--aui-placeholder, #b5b5b5);
+  --ui-tf-surface: var(--aui-surface, #ffffff);
+  --ui-tf-line: var(--aui-border, #e6e6e8);
+  --ui-tf-edge: var(--aui-border-strong, #d4d4d8);
+  --ui-tf-edge-focus: var(--aui-border-strong, #b4b4bb);
   --ui-tf-wash: #f4f4f5;
   --ui-tf-readonly: #fafafa;
-  --ui-tf-danger: #dc3c42;
+  --ui-tf-danger: var(--aui-danger, #dc3c42);
   --ui-tf-danger-edge: #f0a3a6;
   --ui-tf-danger-edge-focus: #e5484d;
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.04);
-  --ui-tf-success: #2f9e5c;
-  --ui-tf-focus: rgba(0, 96, 226, 0.7);
+  --ui-tf-success: var(--aui-success, #2f9e5c);
+  --ui-tf-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tf-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 36px;
   --px: 12px;
   --fs: 13.5px;
-  --radius: 10px;
+  --radius: var(--aui-radius, 10px);
 
   display: flex;
   flex-direction: column;
   gap: 7px;
   min-width: 0;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 20px;
   color: var(--ui-tf-ink);
   -webkit-font-smoothing: antialiased;
 }
-.ui-tf[data-size="sm"] { --h: 32px; --px: 10px; --fs: 13px; --radius: 9px; }
-.ui-tf[data-size="lg"] { --h: 40px; --px: 14px; --fs: 14px; --radius: 12px; }
+.ui-tf[data-size="sm"] { --h: 32px; --px: 10px; --fs: 13px; --radius: calc(var(--aui-radius, 10px) - 1px); }
+.ui-tf[data-size="lg"] { --h: 40px; --px: 14px; --fs: 14px; --radius: calc(var(--aui-radius, 10px) + 2px); }
 /* Touch screens: a comfortable tap height, and 16px text so iOS doesn't zoom in on focus */
 @media (pointer: coarse) {
   .ui-tf { --fs: 16px; }
@@ -500,21 +500,21 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tf {
-  --ui-tf-ink: #ededed;
+  --ui-tf-ink: var(--aui-ink, #ededed);
   --ui-tf-text: #c8c8cc;
-  --ui-tf-muted: #8b8b92;
-  --ui-tf-faint: #5c5c63;
-  --ui-tf-surface: #19191b;
-  --ui-tf-line: #2a2a2e;
-  --ui-tf-edge: #3a3a40;
-  --ui-tf-edge-focus: #4e4e55;
+  --ui-tf-muted: var(--aui-muted, #8b8b92);
+  --ui-tf-faint: var(--aui-placeholder, #5c5c63);
+  --ui-tf-surface: var(--aui-surface, #19191b);
+  --ui-tf-line: var(--aui-border, #2a2a2e);
+  --ui-tf-edge: var(--aui-border-strong, #3a3a40);
+  --ui-tf-edge-focus: var(--aui-border-strong, #4e4e55);
   --ui-tf-wash: #26262a;
   --ui-tf-readonly: #151517;
-  --ui-tf-danger: #ff6369;
+  --ui-tf-danger: var(--aui-danger, #ff6369);
   --ui-tf-danger-edge: rgba(255, 99, 105, 0.45);
   --ui-tf-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-tf-danger-wash: rgba(229, 72, 77, 0.06);
-  --ui-tf-success: #4cc38a;
-  --ui-tf-focus: rgba(77, 141, 255, 0.8);
+  --ui-tf-success: var(--aui-success, #4cc38a);
+  --ui-tf-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -71,15 +71,15 @@ export function Switch({ label, description, placement = "start", size = "md", c
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-swc (see Theming in the docs) */
 .ui-swc {
-  --ui-swc-ink: rgba(0, 0, 0, 0.88);
-  --ui-swc-subtle: rgba(0, 0, 0, 0.45);
+  --ui-swc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-swc-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
   --ui-swc-off: rgba(0, 0, 0, 0.12);
   --ui-swc-off-hover: rgba(0, 0, 0, 0.18);
-  --ui-swc-on: rgba(0, 0, 0, 0.88);
+  --ui-swc-on: var(--aui-primary, rgba(0, 0, 0, 0.88));
   --ui-swc-on-hover: rgba(0, 0, 0, 0.78);
   --ui-swc-thumb: #ffffff;
   --ui-swc-thumb-shadow: 0 1px 2px rgba(0, 0, 0, 0.18), 0 0 0 0.5px rgba(0, 0, 0, 0.04);
-  --ui-swc-focus: rgba(0, 96, 226, 0.7);
+  --ui-swc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-swc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* The track: --w × --h, the thumb --h minus 4px */
@@ -87,7 +87,7 @@ const css = /* css */ `
   --h: 20px;
 
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-swc-ink);
@@ -150,14 +150,14 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-swc {
-  --ui-swc-ink: rgba(255, 255, 255, 0.9);
-  --ui-swc-subtle: rgba(255, 255, 255, 0.46);
+  --ui-swc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-swc-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
   --ui-swc-off: rgba(255, 255, 255, 0.16);
   --ui-swc-off-hover: rgba(255, 255, 255, 0.22);
-  --ui-swc-on: rgba(255, 255, 255, 0.9);
+  --ui-swc-on: var(--aui-primary, rgba(255, 255, 255, 0.9));
   --ui-swc-on-hover: rgba(255, 255, 255, 0.8);
   --ui-swc-thumb: #ffffff;
-  --ui-swc-focus: rgba(77, 141, 255, 0.8);
+  --ui-swc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-swc__input:checked + .ui-swc__track .ui-swc__thumb { background: #161618; box-shadow: none; }
 `;

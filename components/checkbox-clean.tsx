@@ -106,26 +106,26 @@ export function Checkbox({
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-chkc (see Theming in the docs) */
 .ui-chkc {
-  --ui-chkc-ink: rgba(0, 0, 0, 0.88);
-  --ui-chkc-subtle: rgba(0, 0, 0, 0.45);
-  --ui-chkc-surface: #ffffff;
-  --ui-chkc-edge: rgba(0, 0, 0, 0.18);
+  --ui-chkc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-chkc-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-chkc-surface: var(--aui-surface, #ffffff);
+  --ui-chkc-edge: var(--aui-border-strong, rgba(0, 0, 0, 0.18));
   --ui-chkc-edge-hover: rgba(0, 0, 0, 0.32);
-  --ui-chkc-fill: rgba(0, 0, 0, 0.88);
-  --ui-chkc-on-fill: #ffffff;
-  --ui-chkc-card-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-chkc-fill: var(--aui-primary, rgba(0, 0, 0, 0.88));
+  --ui-chkc-on-fill: var(--aui-on-primary, #ffffff);
+  --ui-chkc-card-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 4px 12px -6px rgba(0, 0, 0, 0.09), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-chkc-card-wash: rgba(0, 0, 0, 0.025);
-  --ui-chkc-danger: #d93d42;
-  --ui-chkc-focus: rgba(0, 96, 226, 0.7);
+  --ui-chkc-danger: var(--aui-danger, #d93d42);
+  --ui-chkc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-chkc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   display: flex;
   flex-direction: column;
   gap: 4px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-chkc-ink);
@@ -201,18 +201,18 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-chkc {
-  --ui-chkc-ink: rgba(255, 255, 255, 0.9);
-  --ui-chkc-subtle: rgba(255, 255, 255, 0.46);
-  --ui-chkc-surface: #1c1c1e;
-  --ui-chkc-edge: rgba(255, 255, 255, 0.22);
+  --ui-chkc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-chkc-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-chkc-surface: var(--aui-surface, #1c1c1e);
+  --ui-chkc-edge: var(--aui-border-strong, rgba(255, 255, 255, 0.22));
   --ui-chkc-edge-hover: rgba(255, 255, 255, 0.36);
-  --ui-chkc-fill: rgba(255, 255, 255, 0.9);
-  --ui-chkc-on-fill: #161618;
-  --ui-chkc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-chkc-fill: var(--aui-primary, rgba(255, 255, 255, 0.9));
+  --ui-chkc-on-fill: var(--aui-on-primary, #161618);
+  --ui-chkc-card-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-chkc-card-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 6px 14px -6px rgba(0, 0, 0, 0.45);
   --ui-chkc-card-shadow-on: 0 0 0 0.5px rgba(255, 255, 255, 0.18), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-chkc-card-wash: rgba(255, 255, 255, 0.045);
-  --ui-chkc-danger: #ff6369;
-  --ui-chkc-focus: rgba(77, 141, 255, 0.8);
+  --ui-chkc-danger: var(--aui-danger, #ff6369);
+  --ui-chkc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

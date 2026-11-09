@@ -71,15 +71,15 @@ export function Switch({ label, description, placement = "start", size = "md", c
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-sw (see Theming in the docs) */
 .ui-sw {
-  --ui-sw-ink: #171717;
-  --ui-sw-subtle: #8f8f8f;
+  --ui-sw-ink: var(--aui-ink, #171717);
+  --ui-sw-subtle: var(--aui-muted, #8f8f8f);
   --ui-sw-off: #e2e2e2;
   --ui-sw-off-hover: #d4d4d8;
-  --ui-sw-on: #171717;
+  --ui-sw-on: var(--aui-primary, #171717);
   --ui-sw-on-hover: #2e2e2e;
   --ui-sw-thumb: #ffffff;
   --ui-sw-thumb-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --ui-sw-focus: rgba(0, 96, 226, 0.7);
+  --ui-sw-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-sw-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   /* The track: --w × --h, the thumb --h minus 4px */
@@ -87,7 +87,7 @@ const css = /* css */ `
   --h: 20px;
 
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 20px;
   color: var(--ui-sw-ink);
@@ -150,14 +150,14 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-sw {
-  --ui-sw-ink: #ededed;
-  --ui-sw-subtle: #8b8b92;
+  --ui-sw-ink: var(--aui-ink, #ededed);
+  --ui-sw-subtle: var(--aui-muted, #8b8b92);
   --ui-sw-off: #3a3a3f;
   --ui-sw-off-hover: #46464c;
-  --ui-sw-on: #ededed;
+  --ui-sw-on: var(--aui-primary, #ededed);
   --ui-sw-on-hover: #d4d4d8;
   --ui-sw-thumb: #ffffff;
-  --ui-sw-focus: rgba(77, 141, 255, 0.8);
+  --ui-sw-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-sw__input:checked + .ui-sw__track .ui-sw__thumb { background: #161618; box-shadow: none; }
 `;

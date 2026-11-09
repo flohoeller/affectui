@@ -305,24 +305,24 @@ export function TagInput({
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tag (see Theming in the docs) */
 .ui-tag {
-  --ui-tag-title: #171717;
-  --ui-tag-ink: #171717;
-  --ui-tag-muted: #404040;
-  --ui-tag-subtle: #8f8f8f;
-  --ui-tag-faint: #b5b5b5;
-  --ui-tag-surface: #ffffff;
-  --ui-tag-line: #e6e6e8;
-  --ui-tag-edge: #d4d4d8;
-  --ui-tag-edge-focus: #b4b4bb;
+  --ui-tag-title: var(--aui-ink, #171717);
+  --ui-tag-ink: var(--aui-ink, #171717);
+  --ui-tag-muted: var(--aui-muted, #404040);
+  --ui-tag-subtle: var(--aui-muted, #8f8f8f);
+  --ui-tag-faint: var(--aui-placeholder, #b5b5b5);
+  --ui-tag-surface: var(--aui-surface, #ffffff);
+  --ui-tag-line: var(--aui-border, #e6e6e8);
+  --ui-tag-edge: var(--aui-border-strong, #d4d4d8);
+  --ui-tag-edge-focus: var(--aui-border-strong, #b4b4bb);
   --ui-tag-chip: #f4f4f5;
   --ui-tag-chip-edge: #e6e6e8;
   --ui-tag-chip-armed: #e4e4e7;
   --ui-tag-avatar: #e9e9ec;
   --ui-tag-flash: rgba(0, 96, 226, 0.14);
-  --ui-tag-danger: #dc3c42;
+  --ui-tag-danger: var(--aui-danger, #dc3c42);
   --ui-tag-danger-edge: #f0a3a6;
   --ui-tag-danger-wash: rgba(229, 72, 77, 0.04);
-  --ui-tag-focus: rgba(0, 96, 226, 0.7);
+  --ui-tag-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tag-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --fs: 13.5px;
@@ -331,7 +331,7 @@ const css = /* css */ `
   flex-direction: column;
   gap: 7px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-tag-ink);
@@ -356,7 +356,7 @@ const css = /* css */ `
   min-width: 0;
   max-height: 168px;
   padding: 5px 6px;
-  border-radius: 10px;
+  border-radius: var(--aui-radius, 10px);
   background: var(--ui-tag-surface);
   box-shadow: 0 0 0 1px var(--ui-tag-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   overflow-y: auto;
@@ -462,23 +462,23 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tag {
-  --ui-tag-title: #ededed;
-  --ui-tag-ink: #ededed;
-  --ui-tag-muted: #c8c8cc;
-  --ui-tag-subtle: #8b8b92;
-  --ui-tag-faint: #5c5c63;
-  --ui-tag-surface: #19191b;
-  --ui-tag-line: #2a2a2e;
-  --ui-tag-edge: #3a3a40;
-  --ui-tag-edge-focus: #4e4e55;
+  --ui-tag-title: var(--aui-ink, #ededed);
+  --ui-tag-ink: var(--aui-ink, #ededed);
+  --ui-tag-muted: var(--aui-muted, #c8c8cc);
+  --ui-tag-subtle: var(--aui-muted, #8b8b92);
+  --ui-tag-faint: var(--aui-placeholder, #5c5c63);
+  --ui-tag-surface: var(--aui-surface, #19191b);
+  --ui-tag-line: var(--aui-border, #2a2a2e);
+  --ui-tag-edge: var(--aui-border-strong, #3a3a40);
+  --ui-tag-edge-focus: var(--aui-border-strong, #4e4e55);
   --ui-tag-chip: #232326;
   --ui-tag-chip-edge: #2f2f34;
   --ui-tag-chip-armed: #303035;
   --ui-tag-avatar: #2c2c31;
   --ui-tag-flash: rgba(77, 141, 255, 0.28);
-  --ui-tag-danger: #ff6369;
+  --ui-tag-danger: var(--aui-danger, #ff6369);
   --ui-tag-danger-edge: rgba(255, 99, 105, 0.45);
   --ui-tag-danger-wash: rgba(229, 72, 77, 0.06);
-  --ui-tag-focus: rgba(77, 141, 255, 0.8);
+  --ui-tag-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -367,41 +367,41 @@ function CheckIcon() {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-selc (see Theming in the docs) */
 .ui-selc {
-  --ui-selc-title: rgba(0, 0, 0, 0.88);
-  --ui-selc-ink: rgba(0, 0, 0, 0.88);
-  --ui-selc-subtle: rgba(0, 0, 0, 0.45);
-  --ui-selc-faint: rgba(0, 0, 0, 0.3);
-  --ui-selc-icon: rgba(0, 0, 0, 0.447);
-  --ui-selc-surface: #ffffff;
-  --ui-selc-menu: #ffffff;
+  --ui-selc-title: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-selc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-selc-subtle: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-selc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.3));
+  --ui-selc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-selc-surface: var(--aui-surface, #ffffff);
+  --ui-selc-menu: var(--aui-surface, #ffffff);
   --ui-selc-glow: rgba(0, 0, 0, 0.045);
   --ui-selc-readonly: rgba(0, 0, 0, 0.02);
-  --ui-selc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-selc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.13), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-selc-shadow-open: 0 0 0 1px rgba(0, 0, 0, 0.28), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-selc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-selc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --ui-selc-shadow-open: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-selc-shadow-menu: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 8px 24px -6px rgba(0, 0, 0, 0.14), 0 2px 6px -2px rgba(0, 0, 0, 0.06);
-  --ui-selc-danger: #d93d42;
+  --ui-selc-danger: var(--aui-danger, #d93d42);
   --ui-selc-danger-edge: rgba(229, 72, 77, 0.55);
-  --ui-selc-focus: rgba(0, 96, 226, 0.7);
+  --ui-selc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-selc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
   --h: 32px;
   --px: 10px;
   --fs: 13px;
-  --radius: 7px;
+  --radius: var(--aui-radius, 7px);
 
   display: flex;
   flex-direction: column;
   gap: 6px;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-selc-ink);
   -webkit-font-smoothing: antialiased;
 }
-.ui-selc[data-size="sm"] { --h: 28px; --px: 8px; --radius: 6px; }
-.ui-selc[data-size="lg"] { --h: 36px; --px: 12px; --fs: 14px; --radius: 8px; }
+.ui-selc[data-size="sm"] { --h: 28px; --px: 8px; --radius: calc(var(--aui-radius, 7px) - 1px); }
+.ui-selc[data-size="lg"] { --h: 36px; --px: 12px; --fs: 14px; --radius: calc(var(--aui-radius, 7px) + 1px); }
 /* Touch screens: a comfortable tap height and 16px text */
 @media (pointer: coarse) {
   .ui-selc { --fs: 16px; }
@@ -537,21 +537,21 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-selc {
-  --ui-selc-title: rgba(255, 255, 255, 0.92);
-  --ui-selc-ink: rgba(255, 255, 255, 0.9);
-  --ui-selc-subtle: rgba(255, 255, 255, 0.46);
-  --ui-selc-faint: rgba(255, 255, 255, 0.3);
-  --ui-selc-icon: rgba(255, 255, 255, 0.5);
-  --ui-selc-surface: #1c1c1e;
-  --ui-selc-menu: #1f1f22;
+  --ui-selc-title: var(--aui-ink, rgba(255, 255, 255, 0.92));
+  --ui-selc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-selc-subtle: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-selc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-selc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-selc-surface: var(--aui-surface, #1c1c1e);
+  --ui-selc-menu: var(--aui-surface, #1f1f22);
   --ui-selc-glow: rgba(255, 255, 255, 0.07);
   --ui-selc-readonly: rgba(255, 255, 255, 0.03);
-  --ui-selc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-selc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-selc-shadow-open: 0 0 0 1px rgba(255, 255, 255, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-selc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-selc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-selc-shadow-open: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-selc-shadow-menu: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 32px -8px rgba(0, 0, 0, 0.6);
-  --ui-selc-danger: #ff6369;
+  --ui-selc-danger: var(--aui-danger, #ff6369);
   --ui-selc-danger-edge: rgba(255, 99, 105, 0.5);
-  --ui-selc-focus: rgba(77, 141, 255, 0.8);
+  --ui-selc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;
