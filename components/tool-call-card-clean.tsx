@@ -533,13 +533,13 @@ const css = /* css */ `
   /* The code panel: a 2% black frame, kept opaque so the fade of capped blocks can end on it */
   --ui-tclc-code: #fafafa;
   --ui-tclc-accent: rgba(0, 96, 226, 0.765);
-  --ui-tclc-red: #d93a2b;
-  --ui-tclc-red-bg: rgba(217, 58, 43, 0.04);
-  --ui-tclc-red-line: rgba(217, 58, 43, 0.14);
+  --ui-tclc-red: #f04438;
+  --ui-tclc-red-bg: rgba(240, 68, 56, 0.04);
+  --ui-tclc-red-line: rgba(240, 68, 56, 0.14);
   --ui-tclc-key: rgba(0, 0, 0, 0.88);
-  --ui-tclc-str: rgba(0, 123, 172, 0.9);
-  --ui-tclc-num: #b25b0c;
-  --ui-tclc-lit: #5b5bd6;
+  --ui-tclc-str: rgba(20, 179, 240, 0.9);
+  --ui-tclc-num: #b25e00;
+  --ui-tclc-lit: #a651f0;
   --ui-tclc-shine: rgba(255, 255, 255, 0.82);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-tclc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -975,14 +975,14 @@ const css = /* css */ `
   --ui-tclc-wash: rgba(255, 255, 255, 0.04);
   --ui-tclc-wash-big: rgba(255, 255, 255, 0.025);
   --ui-tclc-code: #212123;
-  --ui-tclc-accent: #4d8dff;
-  --ui-tclc-red: #ff7b72;
-  --ui-tclc-red-bg: rgba(255, 110, 100, 0.07);
-  --ui-tclc-red-line: rgba(255, 110, 100, 0.18);
+  --ui-tclc-accent: #4fb0fe;
+  --ui-tclc-red: #ff8a7a;
+  --ui-tclc-red-bg: rgba(255, 107, 95, 0.07);
+  --ui-tclc-red-line: rgba(255, 107, 95, 0.18);
   --ui-tclc-key: rgba(255, 255, 255, 0.9);
-  --ui-tclc-str: #5fc8e8;
-  --ui-tclc-num: #f2a65a;
-  --ui-tclc-lit: #a5a5ff;
+  --ui-tclc-str: #5cc6ee;
+  --ui-tclc-num: #f2a15c;
+  --ui-tclc-lit: #cfaff5;
   --ui-tclc-shine: #ffffff;
   --ui-tclc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tclc-focus: rgba(77, 141, 255, 0.8);

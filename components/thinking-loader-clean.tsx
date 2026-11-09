@@ -381,7 +381,7 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-tlc {
   --ui-tlc-ink: rgba(255, 255, 255, 0.9);
   --ui-tlc-text: rgba(255, 255, 255, 0.62);
-  --ui-tlc-accent: #4d8dff;
+  --ui-tlc-accent: #4fb0fe;
   --ui-tlc-bg: #1c1c1e;
   --ui-tlc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
   --ui-tlc-shine: #ffffff;

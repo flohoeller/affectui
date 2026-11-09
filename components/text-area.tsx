@@ -274,10 +274,10 @@ const css = /* css */ `
   --ui-ta-edge-focus: var(--aui-border-strong, #b4b4bb);
   --ui-ta-wash: #f4f4f5;
   --ui-ta-readonly: #fafafa;
-  --ui-ta-danger: var(--aui-danger, #dc3c42);
-  --ui-ta-danger-edge: #f0a3a6;
-  --ui-ta-danger-edge-focus: #e5484d;
-  --ui-ta-danger-wash: rgba(229, 72, 77, 0.04);
+  --ui-ta-danger: var(--aui-danger, #c4320a);
+  --ui-ta-danger-edge: #ff8a7a;
+  --ui-ta-danger-edge-focus: #f04438;
+  --ui-ta-danger-wash: rgba(240, 68, 56, 0.04);
   --ui-ta-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-ta-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -428,10 +428,10 @@ const css = /* css */ `
   --ui-ta-edge-focus: var(--aui-border-strong, #4e4e55);
   --ui-ta-wash: #26262a;
   --ui-ta-readonly: #151517;
-  --ui-ta-danger: var(--aui-danger, #ff6369);
-  --ui-ta-danger-edge: rgba(255, 99, 105, 0.45);
+  --ui-ta-danger: var(--aui-danger, #ff8a7a);
+  --ui-ta-danger-edge: rgba(255, 107, 95, 0.45);
   --ui-ta-danger-edge-focus: rgba(255, 99, 105, 0.75);
-  --ui-ta-danger-wash: rgba(229, 72, 77, 0.06);
+  --ui-ta-danger-wash: rgba(255, 107, 95, 0.06);
   --ui-ta-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

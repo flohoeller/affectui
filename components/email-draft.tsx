@@ -427,10 +427,10 @@ const css = /* css */ `
   --ui-ed-chip: #f5f5f5;
   --ui-ed-chip-line: #ebebeb;
   --ui-ed-hover: #f5f5f5;
-  --ui-ed-warn: #c2570c;
+  --ui-ed-warn: #b25e00;
   --ui-ed-warn-bg: #fdeedd;
-  --ui-ed-ok: #2f7d32;
-  --ui-ed-ok-bg: #e8f5e6;
+  --ui-ed-ok: #1e8a4f;
+  --ui-ed-ok-bg: #e6f5ec;
   --ui-ed-btn-top: #323137;
   --ui-ed-btn-bottom: #201e25;
   --ui-ed-btn-ring: #0d0d0d;
@@ -789,10 +789,10 @@ const css = /* css */ `
   --ui-ed-chip: #2a2a2d;
   --ui-ed-chip-line: rgba(255, 255, 255, 0.08);
   --ui-ed-hover: rgba(255, 255, 255, 0.05);
-  --ui-ed-warn: #fb9a4b;
-  --ui-ed-warn-bg: rgba(251, 154, 75, 0.14);
-  --ui-ed-ok: #6fd27a;
-  --ui-ed-ok-bg: rgba(111, 210, 122, 0.14);
+  --ui-ed-warn: #f2a15c;
+  --ui-ed-warn-bg: rgba(242, 161, 92, 0.14);
+  --ui-ed-ok: #7dcf9f;
+  --ui-ed-ok-bg: rgba(125, 207, 159, 0.14);
   --ui-ed-btn-top: #f4f4f5;
   --ui-ed-btn-bottom: #e4e4e7;
   --ui-ed-btn-ring: rgba(0, 0, 0, 0.6);

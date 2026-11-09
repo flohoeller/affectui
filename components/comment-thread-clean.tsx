@@ -336,7 +336,7 @@ const css = /* css */ `
   --ui-ctc-solid: rgba(0, 0, 0, 0.88);
   --ui-ctc-on-solid: #fcfcfc;
   --ui-ctc-accent: rgba(0, 96, 226, 0.765);
-  --ui-ctc-ok: #1a9a52;
+  --ui-ctc-ok: #1e8a4f;
   --ui-ctc-shine: rgba(255, 255, 255, 0.82);
   --ui-ctc-avatar-ring: rgba(0, 0, 0, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
@@ -628,8 +628,8 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
   --ui-ctc-wash: rgba(255, 255, 255, 0.04);
   --ui-ctc-solid: rgba(255, 255, 255, 0.92);
   --ui-ctc-on-solid: #161618;
-  --ui-ctc-accent: #4d8dff;
-  --ui-ctc-ok: #3ec27a;
+  --ui-ctc-accent: #4fb0fe;
+  --ui-ctc-ok: #5fc88a;
   --ui-ctc-shine: #ffffff;
   --ui-ctc-avatar-ring: rgba(255, 255, 255, 0.1);
   --ui-ctc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);

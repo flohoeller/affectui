@@ -380,8 +380,8 @@ const css = /* css */ `
   --ui-selc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-selc-shadow-open: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-selc-shadow-menu: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 8px 24px -6px rgba(0, 0, 0, 0.14), 0 2px 6px -2px rgba(0, 0, 0, 0.06);
-  --ui-selc-danger: var(--aui-danger, #d93d42);
-  --ui-selc-danger-edge: rgba(229, 72, 77, 0.55);
+  --ui-selc-danger: var(--aui-danger, #c4320a);
+  --ui-selc-danger-edge: rgba(240, 68, 56, 0.55);
   --ui-selc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-selc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -550,8 +550,8 @@ const css = /* css */ `
   --ui-selc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-selc-shadow-open: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-selc-shadow-menu: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 32px -8px rgba(0, 0, 0, 0.6);
-  --ui-selc-danger: var(--aui-danger, #ff6369);
-  --ui-selc-danger-edge: rgba(255, 99, 105, 0.5);
+  --ui-selc-danger: var(--aui-danger, #ff8a7a);
+  --ui-selc-danger-edge: rgba(255, 107, 95, 0.5);
   --ui-selc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

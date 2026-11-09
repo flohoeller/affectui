@@ -231,7 +231,7 @@ const css = /* css */ `
   --ui-ns-ink: #171717;
   --ui-ns-muted: #737373;
   --ui-ns-art: #e3e3e3;
-  --ui-ns-accent: #2f6bff;
+  --ui-ns-accent: #4fb0fe;
   --ui-ns-focus: rgba(0, 96, 226, 0.7);
   --ui-ns-ease: cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;

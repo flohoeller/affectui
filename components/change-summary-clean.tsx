@@ -111,10 +111,10 @@ const css = /* css */ `
   --ui-csc-icon: rgba(0, 0, 0, 0.447);
   --ui-csc-line: rgba(0, 0, 0, 0.06);
   --ui-csc-wash: rgba(0, 0, 0, 0.015);
-  --ui-csc-good: #1a9a52;
-  --ui-csc-good-fill: rgba(26, 154, 82, 0.08);
-  --ui-csc-bad: #e5484d;
-  --ui-csc-bad-fill: rgba(229, 72, 77, 0.08);
+  --ui-csc-good: #1e8a4f;
+  --ui-csc-good-fill: rgba(95, 200, 138, 0.08);
+  --ui-csc-bad: #f04438;
+  --ui-csc-bad-fill: rgba(240, 68, 56, 0.08);
   --ui-csc-neutral-fill: rgba(0, 0, 0, 0.04);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-csc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -238,10 +238,10 @@ const css = /* css */ `
   --ui-csc-icon: rgba(255, 255, 255, 0.5);
   --ui-csc-line: rgba(255, 255, 255, 0.08);
   --ui-csc-wash: rgba(255, 255, 255, 0.025);
-  --ui-csc-good: #3ec27a;
-  --ui-csc-good-fill: rgba(62, 194, 122, 0.14);
-  --ui-csc-bad: #f2777b;
-  --ui-csc-bad-fill: rgba(229, 72, 77, 0.14);
+  --ui-csc-good: #5fc88a;
+  --ui-csc-good-fill: rgba(125, 207, 159, 0.14);
+  --ui-csc-bad: #ff6b5f;
+  --ui-csc-bad-fill: rgba(255, 107, 95, 0.14);
   --ui-csc-neutral-fill: rgba(255, 255, 255, 0.08);
   --ui-csc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }

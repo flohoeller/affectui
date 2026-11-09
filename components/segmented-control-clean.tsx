@@ -608,7 +608,7 @@ const css = /* css */ `
   --ui-segc-track: rgba(255, 255, 255, 0.05);
   --ui-segc-card: #2c2c2f;
   --ui-segc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-segc-accent: #4d8dff;
+  --ui-segc-accent: #4fb0fe;
   --ui-segc-accent-soft: rgba(77, 141, 255, 0.14);
   --ui-segc-focus: rgba(77, 141, 255, 0.8);
 }

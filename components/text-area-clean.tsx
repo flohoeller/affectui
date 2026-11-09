@@ -273,8 +273,8 @@ const css = /* css */ `
   --ui-tac-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.08)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-tac-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-tac-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --ui-tac-danger: var(--aui-danger, #d93d42);
-  --ui-tac-danger-edge: rgba(229, 72, 77, 0.55);
+  --ui-tac-danger: var(--aui-danger, #c4320a);
+  --ui-tac-danger-edge: rgba(240, 68, 56, 0.55);
   --ui-tac-danger-edge-focus: rgba(229, 72, 77, 0.8);
   --ui-tac-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tac-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -425,8 +425,8 @@ const css = /* css */ `
   --ui-tac-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.14)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tac-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tac-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tac-danger: var(--aui-danger, #ff6369);
-  --ui-tac-danger-edge: rgba(255, 99, 105, 0.5);
+  --ui-tac-danger: var(--aui-danger, #ff8a7a);
+  --ui-tac-danger-edge: rgba(255, 107, 95, 0.5);
   --ui-tac-danger-edge-focus: rgba(255, 99, 105, 0.75);
   --ui-tac-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }

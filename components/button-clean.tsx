@@ -192,9 +192,9 @@ const css = /* css */ `
   --ui-btnc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.06)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-btnc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.1)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
   --ui-btnc-wash: rgba(0, 0, 0, 0.03);
-  --ui-btnc-danger: var(--aui-danger, #e5484d);
-  --ui-btnc-danger-bg: rgba(229, 72, 77, 0.08);
-  --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.12);
+  --ui-btnc-danger: var(--aui-danger, #c4320a);
+  --ui-btnc-danger-bg: rgba(240, 68, 56, 0.08);
+  --ui-btnc-danger-bg-hover: rgba(240, 68, 56, 0.12);
   --ui-btnc-shine: rgba(255, 255, 255, 0.82);
   --ui-btnc-shine-on-solid: #ffffff;
   --ui-btnc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
@@ -469,9 +469,9 @@ const css = /* css */ `
   --ui-btnc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-btnc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.16)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-btnc-wash: rgba(255, 255, 255, 0.06);
-  --ui-btnc-danger: var(--aui-danger, #ff6369);
-  --ui-btnc-danger-bg: rgba(229, 72, 77, 0.14);
-  --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.2);
+  --ui-btnc-danger: var(--aui-danger, #ff8a7a);
+  --ui-btnc-danger-bg: rgba(255, 107, 95, 0.14);
+  --ui-btnc-danger-bg-hover: rgba(255, 107, 95, 0.2);
   --ui-btnc-shine: #ffffff;
   --ui-btnc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }

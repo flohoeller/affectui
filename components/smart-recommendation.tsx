@@ -224,22 +224,22 @@ const css = /* css */ `
   --ui-sr-ink: #171717;
   --ui-sr-text: #404040;
   --ui-sr-muted: #8f8f8f;
-  --ui-sr-accent: #2f6bff;
-  --ui-sr-ok: #1f8a4c;
+  --ui-sr-accent: #4fb0fe;
+  --ui-sr-ok: #1e8a4f;
   --ui-sr-focus: rgba(0, 96, 226, 0.7);
-  --ui-sr-accent-text: #2f6bff;
+  --ui-sr-accent-text: #4fb0fe;
   --ui-sr-border: #e5e5e5;
   --ui-sr-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
   --ui-sr-head-hover: #f8f8f8;
   --ui-sr-pill: #f4f0ff;
-  --ui-sr-pill-text: #7c4dff;
+  --ui-sr-pill-text: #a651f0;
   --ui-sr-bar: #d4d4d4;
   --ui-sr-btn: #fff;
   --ui-sr-btn-hover: #f7f7f7;
   --ui-sr-menu: #fff;
   --ui-sr-option-hover: #f5f5f5;
   --ui-sr-option-on: #f5f8ff;
-  --ui-sr-tag: #eef3ff;
+  --ui-sr-tag: #eef7ff;
   --ui-sr-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
   width: 100%;
@@ -344,7 +344,7 @@ const css = /* css */ `
 .ui-sr__bars span:nth-child(2), .ui-sr__mini span:nth-child(2) { height: 9px; }
 .ui-sr__bars span:nth-child(3), .ui-sr__mini span:nth-child(3) { height: 12px; }
 /* Scoped to the card, so other components with data-level on the page keep their colors */
-.ui-sr [data-level="1"] > span[data-on] { background: #f59e0b; }
+.ui-sr [data-level="1"] > span[data-on] { background: #e8b000; }
 .ui-sr [data-level="2"] > span[data-on] { background: var(--ui-sr-accent); }
 .ui-sr [data-level="3"] > span[data-on] { background: var(--ui-sr-ok); }
 .ui-sr__signal[data-level="0"] .ui-sr__bars span:first-child { background: #8f8f8f; }
@@ -450,21 +450,21 @@ const css = /* css */ `
   --ui-sr-ink: #ededed;
   --ui-sr-text: #c4c4c4;
   --ui-sr-muted: #8f8f8f;
-  --ui-sr-ok: #3dbb6f;
+  --ui-sr-ok: #3fb971;
   --ui-sr-focus: rgba(77, 141, 255, 0.8);
-  --ui-sr-accent-text: #6b95ff;
+  --ui-sr-accent-text: #4fb0fe;
   --ui-sr-border: rgba(255, 255, 255, 0.08);
   --ui-sr-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   --ui-sr-head-hover: rgba(255, 255, 255, 0.06);
-  --ui-sr-pill: rgba(139, 92, 246, 0.18);
-  --ui-sr-pill-text: #b49cff;
+  --ui-sr-pill: rgba(185, 138, 240, 0.18);
+  --ui-sr-pill-text: #b98af0;
   --ui-sr-bar: rgba(255, 255, 255, 0.14);
   --ui-sr-btn: #2a2a2d;
   --ui-sr-btn-hover: #313135;
   --ui-sr-menu: #2a2a2d;
   --ui-sr-option-hover: #313135;
-  --ui-sr-option-on: rgba(47, 107, 255, 0.16);
-  --ui-sr-tag: rgba(47, 107, 255, 0.16);
+  --ui-sr-option-on: rgba(79, 176, 254, 0.16);
+  --ui-sr-tag: rgba(79, 176, 254, 0.16);
 }
 :where(.dark, [data-theme="dark"]) .ui-sr__menu {
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 30px -8px rgba(0, 0, 0, 0.5);

@@ -162,9 +162,9 @@ const css = /* css */ `
   --ui-dic-faint: rgba(0, 0, 0, 0.27);
   --ui-dic-line: rgba(0, 0, 0, 0.06);
   --ui-dic-wash: rgba(0, 0, 0, 0.03);
-  --ui-dic-alert: #e8a20c;
-  --ui-dic-ok: #1a9a52;
-  --ui-dic-ok-bg: rgba(26, 154, 82, 0.08);
+  --ui-dic-alert: #e8b000;
+  --ui-dic-ok: #1e8a4f;
+  --ui-dic-ok-bg: rgba(95, 200, 138, 0.08);
   --ui-dic-solid: rgba(0, 0, 0, 0.88);
   --ui-dic-solid-hover: rgba(0, 0, 0, 0.8);
   --ui-dic-on-solid: #fcfcfc;
@@ -374,9 +374,9 @@ const css = /* css */ `
   --ui-dic-faint: rgba(255, 255, 255, 0.3);
   --ui-dic-line: rgba(255, 255, 255, 0.08);
   --ui-dic-wash: rgba(255, 255, 255, 0.04);
-  --ui-dic-alert: #f0b232;
-  --ui-dic-ok: #3ec27a;
-  --ui-dic-ok-bg: rgba(26, 154, 82, 0.14);
+  --ui-dic-alert: #e6c24d;
+  --ui-dic-ok: #5fc88a;
+  --ui-dic-ok-bg: rgba(125, 207, 159, 0.14);
   /* The primary inverts: a light chip with dark text */
   --ui-dic-solid: rgba(255, 255, 255, 0.9);
   --ui-dic-solid-hover: rgba(255, 255, 255, 0.82);

@@ -418,7 +418,7 @@ const css = /* css */ `
   --ui-nsc-wash: rgba(255, 255, 255, 0.04);
   --ui-nsc-fill: rgba(255, 255, 255, 0.08);
   --ui-nsc-art: rgba(255, 255, 255, 0.07);
-  --ui-nsc-accent: #4d8dff;
+  --ui-nsc-accent: #4fb0fe;
   --ui-nsc-accent-bg: rgba(77, 141, 255, 0.1);
   --ui-nsc-focus: rgba(77, 141, 255, 0.8);
   --ui-nsc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);

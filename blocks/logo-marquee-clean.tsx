@@ -428,7 +428,7 @@ const css = /* css */ `
   --ui-lmc-ink: rgba(0, 0, 0, 0.88);
   --ui-lmc-label: rgba(0, 0, 0, 0.45);
   --ui-lmc-dim: 0.6;
-  --ui-lmc-accent: #0060e2;
+  --ui-lmc-accent: #0070d6;
   --ui-lmc-tile: #fff;
   --ui-lmc-tile-ink: rgba(0, 0, 0, 0.61);
   --ui-lmc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -592,7 +592,7 @@ const css = /* css */ `
   --ui-lmc-muted: rgba(255, 255, 255, 0.4);
   --ui-lmc-ink: rgba(255, 255, 255, 0.88);
   --ui-lmc-label: rgba(255, 255, 255, 0.45);
-  --ui-lmc-accent: #5b9aff;
+  --ui-lmc-accent: #4fb0fe;
   --ui-lmc-tile: #1c1c1e;
   --ui-lmc-tile-ink: rgba(255, 255, 255, 0.61);
   --ui-lmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);

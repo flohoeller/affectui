@@ -486,10 +486,10 @@ const css = /* css */ `
   --ui-otpc-accent: rgba(0, 96, 226, 0.765);
   --ui-otpc-focus: rgba(0, 96, 226, 0.7);
   --ui-otpc-halo: rgba(0, 96, 226, 0.35);
-  --ui-otpc-danger: #e5484d;
-  --ui-otpc-success: #1a9a52;
-  --ui-otpc-danger-tint: rgba(229, 72, 77, 0.08);
-  --ui-otpc-success-tint: rgba(26, 154, 82, 0.08);
+  --ui-otpc-danger: #f04438;
+  --ui-otpc-success: #1e8a4f;
+  --ui-otpc-danger-tint: rgba(240, 68, 56, 0.08);
+  --ui-otpc-success-tint: rgba(95, 200, 138, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-otpc-lift: 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-otpc-shadow: 0 0 0 0.5px var(--ui-otpc-line), var(--ui-otpc-lift);
@@ -746,13 +746,13 @@ const css = /* css */ `
   --ui-otpc-fill: rgba(255, 255, 255, 0.08);
   --ui-otpc-wash: rgba(255, 255, 255, 0.03);
   --ui-otpc-shine: rgba(255, 255, 255, 0.1);
-  --ui-otpc-accent: #4d8dff;
+  --ui-otpc-accent: #4fb0fe;
   --ui-otpc-focus: rgba(77, 141, 255, 0.8);
   --ui-otpc-halo: rgba(77, 141, 255, 0.5);
-  --ui-otpc-danger: #ff6369;
-  --ui-otpc-success: #3ec27a;
-  --ui-otpc-danger-tint: rgba(255, 99, 105, 0.14);
-  --ui-otpc-success-tint: rgba(62, 194, 122, 0.14);
+  --ui-otpc-danger: #ff6b5f;
+  --ui-otpc-success: #5fc88a;
+  --ui-otpc-danger-tint: rgba(255, 107, 95, 0.14);
+  --ui-otpc-success-tint: rgba(125, 207, 159, 0.14);
   --ui-otpc-lift: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 `;

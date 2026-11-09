@@ -570,8 +570,8 @@ const css = /* css */ `
   --ui-mac-solid-hover: rgba(0, 0, 0, 0.8);
   --ui-mac-on-solid: #fcfcfc;
   --ui-mac-accent: rgba(0, 96, 226, 0.765);
-  --ui-mac-ok: #1a9a52;
-  --ui-mac-ok-bg: rgba(26, 154, 82, 0.08);
+  --ui-mac-ok: #1e8a4f;
+  --ui-mac-ok-bg: rgba(95, 200, 138, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-mac-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-mac-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -744,9 +744,9 @@ const css = /* css */ `
   --ui-mac-solid: rgba(255, 255, 255, 0.9);
   --ui-mac-solid-hover: rgba(255, 255, 255, 0.8);
   --ui-mac-on-solid: #1c1c1e;
-  --ui-mac-accent: #4d8dff;
-  --ui-mac-ok: #3ec27a;
-  --ui-mac-ok-bg: rgba(62, 194, 122, 0.14);
+  --ui-mac-accent: #4fb0fe;
+  --ui-mac-ok: #5fc88a;
+  --ui-mac-ok-bg: rgba(125, 207, 159, 0.14);
   --ui-mac-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-mac-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
   --ui-mac-focus: rgba(77, 141, 255, 0.8);

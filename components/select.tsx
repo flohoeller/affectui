@@ -380,9 +380,9 @@ const css = /* css */ `
   --ui-sel-glow: #f4f4f5;
   --ui-sel-readonly: #fafafa;
   --ui-sel-shadow-menu: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.18), 0 4px 12px -4px rgba(0, 0, 0, 0.06);
-  --ui-sel-danger: var(--aui-danger, #dc3c42);
-  --ui-sel-danger-edge: #f0a3a6;
-  --ui-sel-danger-wash: rgba(229, 72, 77, 0.04);
+  --ui-sel-danger: var(--aui-danger, #c4320a);
+  --ui-sel-danger-edge: #ff8a7a;
+  --ui-sel-danger-wash: rgba(240, 68, 56, 0.04);
   --ui-sel-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-sel-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -551,9 +551,9 @@ const css = /* css */ `
   --ui-sel-glow: #26262a;
   --ui-sel-readonly: #151517;
   --ui-sel-shadow-menu: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
-  --ui-sel-danger: var(--aui-danger, #ff6369);
-  --ui-sel-danger-edge: rgba(255, 99, 105, 0.45);
-  --ui-sel-danger-wash: rgba(229, 72, 77, 0.06);
+  --ui-sel-danger: var(--aui-danger, #ff8a7a);
+  --ui-sel-danger-edge: rgba(255, 107, 95, 0.45);
+  --ui-sel-danger-wash: rgba(255, 107, 95, 0.06);
   --ui-sel-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -265,7 +265,7 @@ const css = /* css */ `
   --ui-rbc-icon: rgba(255, 255, 255, 0.46);
   --ui-rbc-line: rgba(255, 255, 255, 0.08);
   --ui-rbc-wash: rgba(255, 255, 255, 0.04);
-  --ui-rbc-accent: #4d8dff;
+  --ui-rbc-accent: #4fb0fe;
   --ui-rbc-mine: rgba(77, 141, 255, 0.14);
   --ui-rbc-mine-line: rgba(77, 141, 255, 0.4);
   --ui-rbc-focus: rgba(77, 141, 255, 0.8);

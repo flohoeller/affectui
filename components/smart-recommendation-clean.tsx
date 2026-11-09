@@ -238,11 +238,11 @@ const css = /* css */ `
   --ui-src-accent-bg: rgba(0, 96, 226, 0.05);
   --ui-src-accent-line: rgba(0, 96, 226, 0.35);
   --ui-src-tag: rgba(0, 96, 226, 0.08);
-  --ui-src-alt: #5b5bd6;
-  --ui-src-alt-bg: rgba(91, 91, 214, 0.1);
-  --ui-src-ok: #1a9a52;
-  --ui-src-ok-bg: rgba(26, 154, 82, 0.08);
-  --ui-src-warn: #e8a20c;
+  --ui-src-alt: #a651f0;
+  --ui-src-alt-bg: rgba(166, 81, 240, 0.1);
+  --ui-src-ok: #1e8a4f;
+  --ui-src-ok-bg: rgba(95, 200, 138, 0.08);
+  --ui-src-warn: #e8b000;
   --ui-src-solid: rgba(0, 0, 0, 0.88);
   --ui-src-solid-hover: rgba(0, 0, 0, 0.8);
   --ui-src-on-solid: #fcfcfc;
@@ -518,15 +518,15 @@ const css = /* css */ `
   --ui-src-wash: rgba(255, 255, 255, 0.04);
   --ui-src-fill: rgba(255, 255, 255, 0.08);
   --ui-src-bar: rgba(255, 255, 255, 0.14);
-  --ui-src-accent: #4d8dff;
+  --ui-src-accent: #4fb0fe;
   --ui-src-accent-bg: rgba(77, 141, 255, 0.14);
   --ui-src-accent-line: rgba(77, 141, 255, 0.4);
   --ui-src-tag: rgba(77, 141, 255, 0.16);
-  --ui-src-alt: #9d9dff;
-  --ui-src-alt-bg: rgba(91, 91, 214, 0.22);
-  --ui-src-ok: #3ec27a;
-  --ui-src-ok-bg: rgba(26, 154, 82, 0.14);
-  --ui-src-warn: #f0b232;
+  --ui-src-alt: #b98af0;
+  --ui-src-alt-bg: rgba(185, 138, 240, 0.22);
+  --ui-src-ok: #5fc88a;
+  --ui-src-ok-bg: rgba(125, 207, 159, 0.14);
+  --ui-src-warn: #e6c24d;
   /* The primary inverts: a light chip with dark text */
   --ui-src-solid: rgba(255, 255, 255, 0.9);
   --ui-src-solid-hover: rgba(255, 255, 255, 0.82);

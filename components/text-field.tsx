@@ -307,11 +307,11 @@ const css = /* css */ `
   --ui-tf-edge-focus: var(--aui-border-strong, #b4b4bb);
   --ui-tf-wash: #f4f4f5;
   --ui-tf-readonly: #fafafa;
-  --ui-tf-danger: var(--aui-danger, #dc3c42);
-  --ui-tf-danger-edge: #f0a3a6;
-  --ui-tf-danger-edge-focus: #e5484d;
-  --ui-tf-danger-wash: rgba(229, 72, 77, 0.04);
-  --ui-tf-success: var(--aui-success, #2f9e5c);
+  --ui-tf-danger: var(--aui-danger, #c4320a);
+  --ui-tf-danger-edge: #ff8a7a;
+  --ui-tf-danger-edge-focus: #f04438;
+  --ui-tf-danger-wash: rgba(240, 68, 56, 0.04);
+  --ui-tf-success: var(--aui-success, #1e8a4f);
   --ui-tf-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tf-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -510,11 +510,11 @@ const css = /* css */ `
   --ui-tf-edge-focus: var(--aui-border-strong, #4e4e55);
   --ui-tf-wash: #26262a;
   --ui-tf-readonly: #151517;
-  --ui-tf-danger: var(--aui-danger, #ff6369);
-  --ui-tf-danger-edge: rgba(255, 99, 105, 0.45);
+  --ui-tf-danger: var(--aui-danger, #ff8a7a);
+  --ui-tf-danger-edge: rgba(255, 107, 95, 0.45);
   --ui-tf-danger-edge-focus: rgba(255, 99, 105, 0.75);
-  --ui-tf-danger-wash: rgba(229, 72, 77, 0.06);
-  --ui-tf-success: var(--aui-success, #4cc38a);
+  --ui-tf-danger-wash: rgba(255, 107, 95, 0.06);
+  --ui-tf-success: var(--aui-success, #7dcf9f);
   --ui-tf-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

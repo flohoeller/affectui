@@ -130,7 +130,7 @@ const css = /* css */ `
   --ui-tpc-line: rgba(0, 0, 0, 0.06);
   --ui-tpc-wash: rgba(0, 0, 0, 0.015);
   --ui-tpc-hover: rgba(0, 0, 0, 0.03);
-  --ui-tpc-ok: #1a9a52;
+  --ui-tpc-ok: #1e8a4f;
   --ui-tpc-primary: rgba(0, 0, 0, 0.88);
   --ui-tpc-primary-hover: rgba(0, 0, 0, 0.8);
   --ui-tpc-on-primary: #fcfcfc;
@@ -335,7 +335,7 @@ const css = /* css */ `
   --ui-tpc-line: rgba(255, 255, 255, 0.08);
   --ui-tpc-wash: rgba(255, 255, 255, 0.03);
   --ui-tpc-hover: rgba(255, 255, 255, 0.04);
-  --ui-tpc-ok: #5fd394;
+  --ui-tpc-ok: #5fc88a;
   --ui-tpc-primary: rgba(255, 255, 255, 0.9);
   --ui-tpc-primary-hover: rgba(255, 255, 255, 0.8);
   --ui-tpc-on-primary: #1c1c1e;

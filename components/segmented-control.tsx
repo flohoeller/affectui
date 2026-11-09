@@ -407,8 +407,8 @@ const css = /* css */ `
   --ui-seg-soft: #737373;
   --ui-seg-muted: #8f8f8f;
   --ui-seg-count: rgba(0, 0, 0, 0.06);
-  --ui-seg-accent: #2f6bff;
-  --ui-seg-accent-soft: rgba(47, 107, 255, 0.1);
+  --ui-seg-accent: #4fb0fe;
+  --ui-seg-accent-soft: rgba(1, 144, 254, 0.1);
   --ui-seg-pill-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
   --ui-seg-focus: rgba(0, 96, 226, 0.7);
   --ui-seg-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -590,8 +590,8 @@ const css = /* css */ `
   --ui-seg-soft: #8b8b92;
   --ui-seg-muted: #8b8b92;
   --ui-seg-count: rgba(255, 255, 255, 0.08);
-  --ui-seg-accent: #6d8bff;
-  --ui-seg-accent-soft: rgba(109, 139, 255, 0.14);
+  --ui-seg-accent: #4fb0fe;
+  --ui-seg-accent-soft: rgba(79, 176, 254, 0.14);
   --ui-seg-pill-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
   --ui-seg-focus: rgba(77, 141, 255, 0.8);
 }

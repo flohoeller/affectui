@@ -248,8 +248,8 @@ const css = /* css */ `
   --ui-pmc-track: rgba(0, 0, 0, 0.06);
   --ui-pmc-accent: rgba(0, 96, 226, 0.765);
   --ui-pmc-focus: rgba(0, 96, 226, 0.7);
-  --ui-pmc-badge: #e11d48;
-  --ui-pmc-badge-wash: rgba(225, 29, 72, 0.08);
+  --ui-pmc-badge: #e12a1d;
+  --ui-pmc-badge-wash: rgba(240, 68, 56, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift, like a popover */
   --ui-pmc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-pmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -453,10 +453,10 @@ const css = /* css */ `
   --ui-pmc-wash: rgba(255, 255, 255, 0.04);
   --ui-pmc-hover: rgba(255, 255, 255, 0.08);
   --ui-pmc-track: rgba(255, 255, 255, 0.1);
-  --ui-pmc-accent: #4d8dff;
+  --ui-pmc-accent: #4fb0fe;
   --ui-pmc-focus: rgba(77, 141, 255, 0.8);
-  --ui-pmc-badge: #fb7185;
-  --ui-pmc-badge-wash: rgba(225, 29, 72, 0.14);
+  --ui-pmc-badge: #ff8a7a;
+  --ui-pmc-badge-wash: rgba(255, 107, 95, 0.14);
   --ui-pmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 :where(.dark, [data-theme="dark"]) .ui-pmc__item:active { background: rgba(255, 255, 255, 0.1); }

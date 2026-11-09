@@ -595,7 +595,7 @@ const css = /* css */ `
   --ui-fmc-fill-strong: rgba(255, 255, 255, 0.13);
   --ui-fmc-wash: rgba(255, 255, 255, 0.04);
   --ui-fmc-box-ring: rgba(255, 255, 255, 0.28);
-  --ui-fmc-accent: #4d8dff;
+  --ui-fmc-accent: #4fb0fe;
   --ui-fmc-check: #ffffff;
   --ui-fmc-focus: rgba(77, 141, 255, 0.8);
   --ui-fmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);

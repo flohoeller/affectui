@@ -435,10 +435,10 @@ const css = /* css */ `
   --ui-edc-solid: rgba(0, 0, 0, 0.88);
   --ui-edc-on-solid: #fcfcfc;
   --ui-edc-accent: rgba(0, 96, 226, 0.765);
-  --ui-edc-ok: #1a9a52;
-  --ui-edc-ok-bg: rgba(26, 154, 82, 0.08);
-  --ui-edc-warn: #b47a06;
-  --ui-edc-warn-bg: rgba(232, 162, 12, 0.12);
+  --ui-edc-ok: #1e8a4f;
+  --ui-edc-ok-bg: rgba(95, 200, 138, 0.08);
+  --ui-edc-warn: #b48906;
+  --ui-edc-warn-bg: rgba(232, 176, 0, 0.12);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-edc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-edc-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -883,11 +883,11 @@ const css = /* css */ `
   --ui-edc-wash: rgba(255, 255, 255, 0.04);
   --ui-edc-solid: rgba(255, 255, 255, 0.92);
   --ui-edc-on-solid: #161618;
-  --ui-edc-accent: #4d8dff;
-  --ui-edc-ok: #3ec27a;
-  --ui-edc-ok-bg: rgba(62, 194, 122, 0.14);
-  --ui-edc-warn: #f0b43c;
-  --ui-edc-warn-bg: rgba(232, 162, 12, 0.14);
+  --ui-edc-accent: #4fb0fe;
+  --ui-edc-ok: #5fc88a;
+  --ui-edc-ok-bg: rgba(125, 207, 159, 0.14);
+  --ui-edc-warn: #e6c24d;
+  --ui-edc-warn-bg: rgba(230, 194, 77, 0.14);
   --ui-edc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-edc-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
   --ui-edc-focus: rgba(77, 141, 255, 0.8);

@@ -158,8 +158,8 @@ const css = /* css */ `
   --ui-di-text: #404040;
   --ui-di-muted: #8f8f8f;
   --ui-di-faint: #b5b5b5;
-  --ui-di-alert: #e8590c;
-  --ui-di-ok: #1f8a4c;
+  --ui-di-alert: #e6730e;
+  --ui-di-ok: #1e8a4f;
   --ui-di-focus: rgba(0, 96, 226, 0.7);
   --ui-di-ease: cubic-bezier(0.22, 1, 0.36, 1);
   box-sizing: border-box;
@@ -334,8 +334,8 @@ const css = /* css */ `
   --ui-di-text: #c4c4c4;
   --ui-di-muted: #8f8f8f;
   --ui-di-faint: #6b6b70;
-  --ui-di-alert: #fb8a3c;
-  --ui-di-ok: #3fbf74;
+  --ui-di-alert: #f28a2e;
+  --ui-di-ok: #41bd74;
 }
 :where(.dark, [data-theme="dark"]) .ui-di__card {
   border-color: rgba(255, 255, 255, 0.08);

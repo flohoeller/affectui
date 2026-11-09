@@ -447,7 +447,7 @@ const css = /* css */ `
   --ui-pgc-ring: rgba(255, 255, 255, 0.24);
   --ui-pgc-track: rgba(255, 255, 255, 0.08);
   --ui-pgc-hover: rgba(255, 255, 255, 0.04);
-  --ui-pgc-accent: #4d8dff;
+  --ui-pgc-accent: #4fb0fe;
   --ui-pgc-on-accent: #ffffff;
   --ui-pgc-shine: #ffffff;
   --ui-pgc-focus: rgba(77, 141, 255, 0.8);
