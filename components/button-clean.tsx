@@ -186,7 +186,7 @@ const css = /* css */ `
   --ui-btnc-muted: var(--aui-muted, rgba(0, 0, 0, 0.61));
   --ui-btnc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
   --ui-btnc-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
-  --ui-btnc-solid-hover: color-mix(in srgb, var(--ui-btnc-solid) 91%, transparent);
+  --ui-btnc-solid-hover: rgba(0, 0, 0, 0.8);
   --ui-btnc-on-solid: var(--aui-on-primary, #fcfcfc);
   --ui-btnc-surface: var(--aui-surface, #ffffff);
   --ui-btnc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.06)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
@@ -457,7 +457,7 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-buttonc {
   /* primary inverts: a light chip with dark text */
   --ui-btnc-solid: var(--aui-primary, rgba(255, 255, 255, 0.9));
-  --ui-btnc-solid-hover: color-mix(in srgb, var(--ui-btnc-solid) 91%, transparent);
+  --ui-btnc-solid-hover: rgba(255, 255, 255, 0.82);
   --ui-btnc-on-solid: var(--aui-on-primary, #161618);
   --ui-btnc-shine-on-solid: #ffffff;
 
@@ -474,5 +474,13 @@ const css = /* css */ `
   --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.2);
   --ui-btnc-shine: #ffffff;
   --ui-btnc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+}
+
+/* Hover of the primary button follows its fill – also a brand color from --aui-primary. Browsers without
+   color-mix() (Safari before 16.2) keep the fixed hover above */
+@supports (color: color-mix(in srgb, red 50%, transparent)) {
+  .ui-buttonc {
+    --ui-btnc-solid-hover: color-mix(in srgb, var(--ui-btnc-solid) 91%, transparent);
+  }
 }
 `;
