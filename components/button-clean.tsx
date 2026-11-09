@@ -181,23 +181,23 @@ function contentKey(node: ReactNode) {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-buttonc (see Theming in the docs) */
 .ui-buttonc {
-  --ui-btnc-title: #000;
-  --ui-btnc-ink: rgba(0, 0, 0, 0.88);
-  --ui-btnc-muted: rgba(0, 0, 0, 0.61);
-  --ui-btnc-icon: rgba(0, 0, 0, 0.447);
-  --ui-btnc-solid: rgba(0, 0, 0, 0.88);
-  --ui-btnc-solid-hover: rgba(0, 0, 0, 0.8);
-  --ui-btnc-on-solid: #fcfcfc;
-  --ui-btnc-surface: #ffffff;
-  --ui-btnc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-btnc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+  --ui-btnc-title: var(--aui-ink, #000);
+  --ui-btnc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-btnc-muted: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-btnc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-btnc-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
+  --ui-btnc-solid-hover: color-mix(in srgb, var(--ui-btnc-solid) 91%, transparent);
+  --ui-btnc-on-solid: var(--aui-on-primary, #fcfcfc);
+  --ui-btnc-surface: var(--aui-surface, #ffffff);
+  --ui-btnc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.06)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-btnc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.1)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
   --ui-btnc-wash: rgba(0, 0, 0, 0.03);
-  --ui-btnc-danger: #e5484d;
+  --ui-btnc-danger: var(--aui-danger, #e5484d);
   --ui-btnc-danger-bg: rgba(229, 72, 77, 0.08);
   --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.12);
   --ui-btnc-shine: rgba(255, 255, 255, 0.82);
   --ui-btnc-shine-on-solid: #ffffff;
-  --ui-btnc-focus: rgba(0, 96, 226, 0.7);
+  --ui-btnc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-btnc-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-btnc-load: 650ms;
 
@@ -207,7 +207,7 @@ const css = /* css */ `
   --fs: 13px;
   --lh: 20px;
   --icon: 16px;
-  --radius: 6px;
+  --radius: var(--aui-radius, 6px);
 
   position: relative;
   display: inline-flex;
@@ -220,7 +220,7 @@ const css = /* css */ `
   margin: 0;
   border: 0;
   border-radius: var(--radius);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--fs);
   font-weight: 500;
   line-height: var(--lh);
@@ -249,7 +249,7 @@ const css = /* css */ `
   --fs: 12px;
   --lh: 16px;
   --icon: 14px;
-  --radius: 6px;
+  --radius: var(--aui-radius, 6px);
 }
 .ui-buttonc[data-size="lg"] {
   --h: 32px;
@@ -257,7 +257,7 @@ const css = /* css */ `
   --gap: 6px;
   --fs: 13px;
   --icon: 16px;
-  --radius: 6px;
+  --radius: var(--aui-radius, 6px);
 }
 /* Touch screens: every size grows to a comfortable tap height – 32 · 34 · 36 – the look stays the same */
 @media (pointer: coarse) {
@@ -456,23 +456,23 @@ const css = /* css */ `
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-buttonc {
   /* primary inverts: a light chip with dark text */
-  --ui-btnc-solid: rgba(255, 255, 255, 0.9);
-  --ui-btnc-solid-hover: rgba(255, 255, 255, 0.82);
-  --ui-btnc-on-solid: #161618;
+  --ui-btnc-solid: var(--aui-primary, rgba(255, 255, 255, 0.9));
+  --ui-btnc-solid-hover: color-mix(in srgb, var(--ui-btnc-solid) 91%, transparent);
+  --ui-btnc-on-solid: var(--aui-on-primary, #161618);
   --ui-btnc-shine-on-solid: #ffffff;
 
-  --ui-btnc-title: rgba(255, 255, 255, 0.9);
-  --ui-btnc-ink: rgba(255, 255, 255, 0.9);
-  --ui-btnc-muted: rgba(255, 255, 255, 0.62);
-  --ui-btnc-icon: rgba(255, 255, 255, 0.5);
-  --ui-btnc-surface: #1c1c1e;
-  --ui-btnc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-btnc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-btnc-title: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-btnc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-btnc-muted: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-btnc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-btnc-surface: var(--aui-surface, #1c1c1e);
+  --ui-btnc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-btnc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.16)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-btnc-wash: rgba(255, 255, 255, 0.06);
-  --ui-btnc-danger: #ff6369;
+  --ui-btnc-danger: var(--aui-danger, #ff6369);
   --ui-btnc-danger-bg: rgba(229, 72, 77, 0.14);
   --ui-btnc-danger-bg-hover: rgba(229, 72, 77, 0.2);
   --ui-btnc-shine: #ffffff;
-  --ui-btnc-focus: rgba(77, 141, 255, 0.8);
+  --ui-btnc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

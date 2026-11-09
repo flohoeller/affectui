@@ -178,7 +178,7 @@ function contentKey(node: ReactNode) {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-button (see Theming in the docs) */
 .ui-button {
-  --ui-btn-ink: #171717;
+  --ui-btn-ink: var(--aui-ink, #171717);
   --ui-btn-on-ink: #fafafa;
   --ui-btn-dark-top: #323137;
   --ui-btn-dark-bottom: #201e25;
@@ -189,18 +189,18 @@ const css = /* css */ `
   --ui-btn-edge-bottom: #18171b;
   --ui-btn-ring: #0d0d0d;
   --ui-btn-dark-shadow: rgba(0, 0, 0, 0.1);
-  --ui-btn-surface: #ffffff;
+  --ui-btn-surface: var(--aui-surface, #ffffff);
   --ui-btn-surface-hover: #fafafa;
   --ui-btn-surface-shadow: rgba(0, 0, 0, 0.06);
-  --ui-btn-line: #e5e5e5;
-  --ui-btn-muted: #737373;
+  --ui-btn-line: var(--aui-border, #e5e5e5);
+  --ui-btn-muted: var(--aui-muted, #737373);
   --ui-btn-hover: #404040;
   --ui-btn-fill: #f0f0f0;
   --ui-btn-shine: rgba(255, 255, 255, 0.82);
   --ui-btn-shine-on-ink: rgba(255, 255, 255, 0.95);
-  --ui-btn-danger: #ff0000;
+  --ui-btn-danger: var(--aui-danger, #ff0000);
   --ui-btn-danger-bg: #ffe6e9;
-  --ui-btn-focus: rgba(0, 96, 226, 0.7);
+  --ui-btn-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-btn-ease: cubic-bezier(0.22, 1, 0.36, 1);
   --ui-btn-load: 650ms;
 
@@ -209,7 +209,7 @@ const css = /* css */ `
   --gap: 8px;
   --fs: 14px;
   --icon: 18px;
-  --radius: 12px;
+  --radius: var(--aui-radius, 12px);
 
   position: relative;
   display: inline-flex;
@@ -221,7 +221,7 @@ const css = /* css */ `
   margin: 0;
   border: 1px solid transparent;
   border-radius: var(--radius);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--fs);
   font-weight: 500;
   line-height: 1;
@@ -249,7 +249,7 @@ const css = /* css */ `
   --gap: 6px;
   --fs: 13px;
   --icon: 16px;
-  --radius: 10px;
+  --radius: calc(var(--aui-radius, 12px) - 2px);
 }
 .ui-button[data-size="lg"] {
   --h: 48px;
@@ -257,7 +257,7 @@ const css = /* css */ `
   --gap: 10px;
   --fs: 15px;
   --icon: 20px;
-  --radius: 14px;
+  --radius: calc(var(--aui-radius, 12px) + 2px);
 }
 .ui-button[data-icon-only] {
   width: var(--h);
@@ -457,17 +457,17 @@ const css = /* css */ `
   --ui-btn-dark-shadow: rgba(0, 0, 0, 0.4);
   --ui-btn-shine-on-ink: rgba(255, 255, 255, 0.9);
 
-  --ui-btn-ink: #ededed;
-  --ui-btn-surface: #232326;
+  --ui-btn-ink: var(--aui-ink, #ededed);
+  --ui-btn-surface: var(--aui-surface, #232326);
   --ui-btn-surface-hover: #2a2a2d;
   --ui-btn-surface-shadow: rgba(0, 0, 0, 0.4);
-  --ui-btn-line: rgba(255, 255, 255, 0.1);
-  --ui-btn-muted: #8f8f8f;
+  --ui-btn-line: var(--aui-border, rgba(255, 255, 255, 0.1));
+  --ui-btn-muted: var(--aui-muted, #8f8f8f);
   --ui-btn-hover: #ededed;
   --ui-btn-fill: rgba(255, 255, 255, 0.06);
   --ui-btn-shine: rgba(237, 237, 237, 0.95);
-  --ui-btn-danger: #ff6b6b;
+  --ui-btn-danger: var(--aui-danger, #ff6b6b);
   --ui-btn-danger-bg: rgba(255, 64, 64, 0.16);
-  --ui-btn-focus: rgba(77, 141, 255, 0.8);
+  --ui-btn-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;
