@@ -322,27 +322,27 @@ function useSmoothHeight(inner: RefObject<HTMLElement | null>) {
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-ctc */
 .ui-ctc {
-  --ui-ctc-card: #ffffff;
-  --ui-ctc-strong: #000000;
-  --ui-ctc-ink: rgba(0, 0, 0, 0.88);
-  --ui-ctc-text: rgba(0, 0, 0, 0.61);
-  --ui-ctc-muted: rgba(0, 0, 0, 0.45);
-  --ui-ctc-faint: rgba(0, 0, 0, 0.27);
-  --ui-ctc-icon: rgba(0, 0, 0, 0.447);
-  --ui-ctc-line: rgba(0, 0, 0, 0.06);
+  --ui-ctc-card: var(--aui-surface, #ffffff);
+  --ui-ctc-strong: var(--aui-ink, #000000);
+  --ui-ctc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-ctc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-ctc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-ctc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-ctc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-ctc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
   --ui-ctc-tree: rgba(0, 0, 0, 0.1);
   --ui-ctc-fill: rgba(0, 0, 0, 0.06);
-  --ui-ctc-wash: rgba(0, 0, 0, 0.03);
-  --ui-ctc-solid: rgba(0, 0, 0, 0.88);
-  --ui-ctc-on-solid: #fcfcfc;
+  --ui-ctc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-ctc-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
+  --ui-ctc-on-solid: var(--aui-on-primary, #fcfcfc);
   --ui-ctc-accent: rgba(0, 96, 226, 0.765);
-  --ui-ctc-ok: #1e8a4f;
+  --ui-ctc-ok: var(--aui-success, #1e8a4f);
   --ui-ctc-shine: rgba(255, 255, 255, 0.82);
   --ui-ctc-avatar-ring: rgba(0, 0, 0, 0.08);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-ctc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-ctc-focus: rgba(0, 96, 226, 0.7);
-  --ui-ctc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-ctc-shadow: var(--aui-shadow-card, 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.06)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-ctc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-ctc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   display: flex;
@@ -350,10 +350,10 @@ const css = /* css */ `
   width: 100%;
   max-width: 420px;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-ctc-card);
   box-shadow: var(--ui-ctc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -396,7 +396,7 @@ const css = /* css */ `
   flex: none;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   color: var(--ui-ctc-icon);
   transition: background-color 160ms ease, color 160ms ease;
 }
@@ -446,8 +446,8 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
   display: inline-block;
   margin-right: 1px;
   padding: 0 5px;
-  border-radius: 5px;
-  background: var(--ui-ctc-fill);
+  border-radius: var(--aui-radius-sm, 5px);
+  background: var(--aui-subtle, var(--ui-ctc-fill));
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
@@ -463,7 +463,7 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
   max-width: 100%;
   height: 28px;
   padding: 0 4px 0 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
@@ -574,7 +574,7 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
   flex: none;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   background: var(--ui-ctc-solid);
   color: var(--ui-ctc-on-solid);
   transition: background-color 180ms ease, color 180ms ease, transform 160ms var(--ui-ctc-ease);
@@ -615,24 +615,24 @@ img.ui-ctc__avatar { box-shadow: 0 0 0 0.5px var(--ui-ctc-avatar-ring); }
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ctc {
-  --ui-ctc-card: #1c1c1e;
-  --ui-ctc-strong: #ffffff;
-  --ui-ctc-ink: rgba(255, 255, 255, 0.9);
-  --ui-ctc-text: rgba(255, 255, 255, 0.62);
-  --ui-ctc-muted: rgba(255, 255, 255, 0.46);
-  --ui-ctc-faint: rgba(255, 255, 255, 0.3);
-  --ui-ctc-icon: rgba(255, 255, 255, 0.5);
-  --ui-ctc-line: rgba(255, 255, 255, 0.08);
+  --ui-ctc-card: var(--aui-surface, #1c1c1e);
+  --ui-ctc-strong: var(--aui-ink, #ffffff);
+  --ui-ctc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-ctc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-ctc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-ctc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-ctc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-ctc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-ctc-tree: rgba(255, 255, 255, 0.14);
   --ui-ctc-fill: rgba(255, 255, 255, 0.08);
-  --ui-ctc-wash: rgba(255, 255, 255, 0.04);
-  --ui-ctc-solid: rgba(255, 255, 255, 0.92);
-  --ui-ctc-on-solid: #161618;
-  --ui-ctc-accent: #4fb0fe;
-  --ui-ctc-ok: #5fc88a;
+  --ui-ctc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-ctc-solid: var(--aui-primary, rgba(255, 255, 255, 0.92));
+  --ui-ctc-on-solid: var(--aui-on-primary, #161618);
+  --ui-ctc-accent: var(--aui-blue, #4fb0fe);
+  --ui-ctc-ok: var(--aui-green, #5fc88a);
   --ui-ctc-shine: #ffffff;
   --ui-ctc-avatar-ring: rgba(255, 255, 255, 0.1);
-  --ui-ctc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-ctc-focus: rgba(77, 141, 255, 0.8);
+  --ui-ctc-shadow: var(--aui-shadow-card, 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
+  --ui-ctc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -233,18 +233,18 @@ const defaultItems: ProfileMenuItem[] = [
 
 const css = /* css */ `
 .ui-pm {
-  --ui-pm-card: #ffffff;
-  --ui-pm-line: #ececec;
-  --ui-pm-ink: #171717;
-  --ui-pm-text: #404040;
-  --ui-pm-muted: #8f8f8f;
-  --ui-pm-icon: #737373;
-  --ui-pm-hover: #f5f5f5;
+  --ui-pm-card: var(--aui-overlay, #ffffff);
+  --ui-pm-line: var(--aui-border, #ececec);
+  --ui-pm-ink: var(--aui-ink, #171717);
+  --ui-pm-text: var(--aui-ink, #404040);
+  --ui-pm-muted: var(--aui-muted, #8f8f8f);
+  --ui-pm-icon: var(--aui-muted, #737373);
+  --ui-pm-hover: var(--aui-subtle, #f5f5f5);
   --ui-pm-off: #f0f0f0;
-  --ui-pm-fill: #4fb0fe;
+  --ui-pm-fill: var(--aui-blue, #4fb0fe);
   --ui-pm-badge: #e12a1d;
   --ui-pm-badge-wash: #fff0f3;
-  --ui-pm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-pm-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   --ui-pm-tray: #f0f0f0;
   box-sizing: border-box;
   width: 100%;
@@ -253,8 +253,8 @@ const css = /* css */ `
   background: var(--ui-pm-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-pm-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -262,8 +262,8 @@ const css = /* css */ `
 .ui-pm__card {
   padding: 16px 8px 8px;
   background: var(--ui-pm-card);
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
+  border: 1px solid var(--aui-border, #e5e5e5);
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
@@ -317,7 +317,7 @@ const css = /* css */ `
   width: 100%;
   height: 36px;
   padding: 0 12px;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 5px);
 }
 .ui-pm__item {
   margin: 0;
@@ -416,7 +416,7 @@ const css = /* css */ `
   margin: 6px -8px 0;
   padding: 3px 8px;
   border: 0;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: transparent;
   font: inherit;
   text-align: left;
@@ -426,7 +426,7 @@ const css = /* css */ `
 }
 .ui-pm__next:hover,
 .ui-pm__next:focus-visible {
-  background: rgba(0, 0, 0, 0.04);
+  background: var(--aui-subtle, rgba(0, 0, 0, 0.04));
   outline: none;
 }
 .ui-pm__next-label {
@@ -454,25 +454,25 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-pm {
-  --ui-pm-card: #232326;
-  --ui-pm-line: rgba(255, 255, 255, 0.08);
-  --ui-pm-ink: #ededed;
-  --ui-pm-text: #c4c4c4;
-  --ui-pm-muted: #8f8f8f;
-  --ui-pm-icon: #8f8f8f;
-  --ui-pm-hover: #2a2a2d;
+  --ui-pm-card: var(--aui-overlay, #232326);
+  --ui-pm-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-pm-ink: var(--aui-ink, #ededed);
+  --ui-pm-text: var(--aui-ink, #c4c4c4);
+  --ui-pm-muted: var(--aui-muted, #8f8f8f);
+  --ui-pm-icon: var(--aui-muted, #8f8f8f);
+  --ui-pm-hover: var(--aui-subtle, #2a2a2d);
   --ui-pm-off: #161618;
-  --ui-pm-badge: #ff8a7a;
-  --ui-pm-badge-wash: rgba(255, 107, 95, 0.16);
+  --ui-pm-badge: var(--aui-danger, #ff8a7a);
+  --ui-pm-badge-wash: color-mix(in srgb, var(--aui-red, #ff6b5f) 16%, transparent);
   --ui-pm-tray: #161618;
 }
 :where(.dark, [data-theme="dark"]) .ui-pm__card {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--aui-border, rgba(255, 255, 255, 0.08));
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
-:where(.dark, [data-theme="dark"]) .ui-pm__avatar { color: #4fb0fe; }
+:where(.dark, [data-theme="dark"]) .ui-pm__avatar { color: var(--aui-info, #4fb0fe); }
 :where(.dark, [data-theme="dark"]) .ui-pm__item:active { background: #313135; }
 :where(.dark, [data-theme="dark"]) .ui-pm__track { background: rgba(255, 255, 255, 0.1); }
 :where(.dark, [data-theme="dark"]) .ui-pm__next:hover,
-:where(.dark, [data-theme="dark"]) .ui-pm__next:focus-visible { background: rgba(255, 255, 255, 0.06); }
+:where(.dark, [data-theme="dark"]) .ui-pm__next:focus-visible { background: var(--aui-subtle, rgba(255, 255, 255, 0.06)); }
 `;

@@ -463,23 +463,23 @@ export function TestimonialWall({
 
 const css = /* css */ `
 .ui-twc {
-  --ui-twc-card: #ffffff;
-  --ui-twc-title: #000000;
-  --ui-twc-text: rgba(0, 0, 0, 0.88);
-  --ui-twc-muted: rgba(0, 0, 0, 0.45);
-  --ui-twc-faint: rgba(0, 0, 0, 0.27);
+  --ui-twc-card: var(--aui-surface, #ffffff);
+  --ui-twc-title: var(--aui-ink, #000000);
+  --ui-twc-text: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-twc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-twc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
   --ui-twc-star: rgba(0, 0, 0, 0.36);
   --ui-twc-star-off: rgba(0, 0, 0, 0.08);
   --ui-twc-initials: #f5f5f5;
   --ui-twc-initials-ink: rgba(0, 0, 0, 0.45);
   --ui-twc-ring: rgba(0, 0, 0, 0.06);
-  --ui-twc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-twc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
   --ui-twc-lift: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 2px 4px 0 rgba(0, 0, 0, 0.04), 0 12px 24px -12px rgba(0, 0, 0, 0.12);
-  --ui-twc-focus: rgba(0, 96, 226, 0.7);
+  --ui-twc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-twc-gap: 16px;
   --ui-twc-fade: 120px;
   --ui-twc-dim: 0.6;
-  --ui-twc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-twc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   container-type: inline-size;
   display: grid;
   grid-template-columns: repeat(var(--ui-twc-cols, 3), minmax(0, 1fr));
@@ -496,7 +496,7 @@ const css = /* css */ `
   /* A long, eased fade – the cards dissolve into the white instead of hitting an edge */
   -webkit-mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.35) calc(var(--ui-twc-fade) * 0.4), #000 var(--ui-twc-fade), #000 calc(100% - var(--ui-twc-fade)), rgba(0, 0, 0, 0.35) calc(100% - var(--ui-twc-fade) * 0.4), transparent 100%);
   mask-image: linear-gradient(180deg, transparent 0, rgba(0, 0, 0, 0.35) calc(var(--ui-twc-fade) * 0.4), #000 var(--ui-twc-fade), #000 calc(100% - var(--ui-twc-fade)), rgba(0, 0, 0, 0.35) calc(100% - var(--ui-twc-fade) * 0.4), transparent 100%);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -536,7 +536,7 @@ const css = /* css */ `
   gap: 16px;
   margin: 0;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-lg, 10px) + 2px);
   background: var(--ui-twc-card);
   box-shadow: var(--ui-twc-shadow);
   color: var(--ui-twc-text);
@@ -663,18 +663,18 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-twc {
-  --ui-twc-card: #1c1c1e;
-  --ui-twc-title: #ffffff;
-  --ui-twc-text: rgba(255, 255, 255, 0.88);
-  --ui-twc-muted: rgba(255, 255, 255, 0.45);
-  --ui-twc-faint: rgba(255, 255, 255, 0.27);
+  --ui-twc-card: var(--aui-surface, #1c1c1e);
+  --ui-twc-title: var(--aui-ink, #ffffff);
+  --ui-twc-text: var(--aui-ink, rgba(255, 255, 255, 0.88));
+  --ui-twc-muted: var(--aui-muted, rgba(255, 255, 255, 0.45));
+  --ui-twc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.27));
   --ui-twc-star: rgba(255, 255, 255, 0.4);
   --ui-twc-star-off: rgba(255, 255, 255, 0.1);
   --ui-twc-initials: #2a2a2d;
   --ui-twc-initials-ink: rgba(255, 255, 255, 0.45);
   --ui-twc-ring: rgba(255, 255, 255, 0.08);
-  --ui-twc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-twc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
   --ui-twc-lift: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4), 0 12px 24px -12px rgba(0, 0, 0, 0.6);
-  --ui-twc-focus: rgba(77, 141, 255, 0.8);
+  --ui-twc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

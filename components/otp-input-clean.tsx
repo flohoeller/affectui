@@ -472,34 +472,34 @@ const css = /* css */ `
 .ui-otpc {
   --ui-otpc-box: 40px;
   --ui-otpc-gap: 8px;
-  --ui-otpc-card: #ffffff;
-  --ui-otpc-ink: rgba(0, 0, 0, 0.88);
+  --ui-otpc-card: var(--aui-surface, #ffffff);
+  --ui-otpc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
   --ui-otpc-strong: #000000;
-  --ui-otpc-text: rgba(0, 0, 0, 0.61);
-  --ui-otpc-muted: rgba(0, 0, 0, 0.45);
+  --ui-otpc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-otpc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
   --ui-otpc-faint: rgba(0, 0, 0, 0.27);
   --ui-otpc-icon: rgba(0, 0, 0, 0.447);
-  --ui-otpc-line: rgba(0, 0, 0, 0.06);
+  --ui-otpc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
   --ui-otpc-fill: rgba(0, 0, 0, 0.06);
-  --ui-otpc-wash: rgba(0, 0, 0, 0.03);
+  --ui-otpc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
   --ui-otpc-shine: rgba(255, 255, 255, 0.82);
   --ui-otpc-accent: rgba(0, 96, 226, 0.765);
-  --ui-otpc-focus: rgba(0, 96, 226, 0.7);
+  --ui-otpc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-otpc-halo: rgba(0, 96, 226, 0.35);
-  --ui-otpc-danger: #f04438;
-  --ui-otpc-success: #1e8a4f;
-  --ui-otpc-danger-tint: rgba(240, 68, 56, 0.08);
-  --ui-otpc-success-tint: rgba(95, 200, 138, 0.08);
+  --ui-otpc-danger: var(--aui-red, #f04438);
+  --ui-otpc-success: var(--aui-success, #1e8a4f);
+  --ui-otpc-danger-tint: color-mix(in srgb, var(--aui-red, #f04438) 8%, transparent);
+  --ui-otpc-success-tint: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-otpc-lift: 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-otpc-shadow: 0 0 0 0.5px var(--ui-otpc-line), var(--ui-otpc-lift);
-  --ui-otpc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-otpc-shadow: var(--aui-shadow-card, 0 0 0 0.5px var(--ui-otpc-line), var(--ui-otpc-lift));
+  --ui-otpc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   display: grid;
   justify-self: stretch; /* it sizes the boxes from its own width, so it must never shrink to fit them */
   width: 100%;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -696,7 +696,7 @@ const css = /* css */ `
 .ui-otpc__resend-btn {
   position: relative;
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   box-shadow: inset 0 0 0 0.5px var(--ui-otpc-line);
   font-size: 13px;
   line-height: 20px;
@@ -707,7 +707,7 @@ const css = /* css */ `
 .ui-otpc__resend-btn:hover { background: var(--ui-otpc-wash); color: var(--ui-otpc-ink); }
 .ui-otpc__resend-btn:active { background: var(--ui-otpc-fill); }
 .ui-otpc__resend-btn:focus-visible { outline: 2px solid var(--ui-otpc-focus); outline-offset: 2px; }
-.ui-otpc__resend-btn:disabled { color: var(--ui-otpc-faint); background: none; cursor: default; }
+.ui-otpc__resend-btn:disabled { color: var(--aui-placeholder, var(--ui-otpc-faint)); background: none; cursor: default; }
 .ui-otpc__live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
 @keyframes ui-otpc-pop { from { opacity: 0; transform: translateY(4px) scale(0.7); filter: blur(3px); } to { opacity: 1; transform: none; filter: none; } }
@@ -735,24 +735,24 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-otpc {
-  --ui-otpc-card: #1c1c1e;
-  --ui-otpc-ink: rgba(255, 255, 255, 0.9);
+  --ui-otpc-card: var(--aui-surface, #1c1c1e);
+  --ui-otpc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
   --ui-otpc-strong: #ffffff;
-  --ui-otpc-text: rgba(255, 255, 255, 0.62);
-  --ui-otpc-muted: rgba(255, 255, 255, 0.46);
+  --ui-otpc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-otpc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
   --ui-otpc-faint: rgba(255, 255, 255, 0.3);
   --ui-otpc-icon: rgba(255, 255, 255, 0.5);
-  --ui-otpc-line: rgba(255, 255, 255, 0.1);
+  --ui-otpc-line: var(--aui-border, rgba(255, 255, 255, 0.1));
   --ui-otpc-fill: rgba(255, 255, 255, 0.08);
-  --ui-otpc-wash: rgba(255, 255, 255, 0.03);
+  --ui-otpc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.03));
   --ui-otpc-shine: rgba(255, 255, 255, 0.1);
-  --ui-otpc-accent: #4fb0fe;
-  --ui-otpc-focus: rgba(77, 141, 255, 0.8);
+  --ui-otpc-accent: var(--aui-blue, #4fb0fe);
+  --ui-otpc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
   --ui-otpc-halo: rgba(77, 141, 255, 0.5);
-  --ui-otpc-danger: #ff6b5f;
-  --ui-otpc-success: #5fc88a;
-  --ui-otpc-danger-tint: rgba(255, 107, 95, 0.14);
-  --ui-otpc-success-tint: rgba(125, 207, 159, 0.14);
+  --ui-otpc-danger: var(--aui-red, #ff6b5f);
+  --ui-otpc-success: var(--aui-green, #5fc88a);
+  --ui-otpc-danger-tint: color-mix(in srgb, var(--aui-red, #ff6b5f) 14%, transparent);
+  --ui-otpc-success-tint: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
   --ui-otpc-lift: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 `;

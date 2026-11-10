@@ -382,7 +382,7 @@ const css = /* css */ `
   --ui-sel-shadow-menu: 0 0 0 1px rgba(0, 0, 0, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.18), 0 4px 12px -4px rgba(0, 0, 0, 0.06);
   --ui-sel-danger: var(--aui-danger, #c4320a);
   --ui-sel-danger-edge: #ff8a7a;
-  --ui-sel-danger-wash: rgba(240, 68, 56, 0.04);
+  --ui-sel-danger-wash: color-mix(in srgb, var(--aui-red, #f04438) 4%, transparent);
   --ui-sel-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-sel-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -552,8 +552,8 @@ const css = /* css */ `
   --ui-sel-readonly: #151517;
   --ui-sel-shadow-menu: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 18px 40px -12px rgba(0, 0, 0, 0.6);
   --ui-sel-danger: var(--aui-danger, #ff8a7a);
-  --ui-sel-danger-edge: rgba(255, 107, 95, 0.45);
-  --ui-sel-danger-wash: rgba(255, 107, 95, 0.06);
+  --ui-sel-danger-edge: color-mix(in srgb, var(--aui-red, #ff6b5f) 45%, transparent);
+  --ui-sel-danger-wash: color-mix(in srgb, var(--aui-red, #ff6b5f) 6%, transparent);
   --ui-sel-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

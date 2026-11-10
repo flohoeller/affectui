@@ -310,24 +310,24 @@ function useSmoothHeight(inner: RefObject<HTMLElement | null>) {
 
 const css = /* css */ `
 .ui-ct {
-  --ui-ct-tray: #f0f0f0;
-  --ui-ct-card: #ffffff;
-  --ui-ct-ink: #171717;
-  --ui-ct-text: #404040;
-  --ui-ct-muted: #8f8f8f;
-  --ui-ct-accent: #4fb0fe;
-  --ui-ct-focus: rgba(0, 96, 226, 0.7);
-  --ui-ct-ok: #1e8a4f;
-  --ui-ct-accent-text: #4fb0fe;
-  --ui-ct-border: #e5e5e5;
+  --ui-ct-tray: var(--aui-subtle, #f0f0f0);
+  --ui-ct-card: var(--aui-surface, #ffffff);
+  --ui-ct-ink: var(--aui-ink, #171717);
+  --ui-ct-text: var(--aui-ink, #404040);
+  --ui-ct-muted: var(--aui-muted, #8f8f8f);
+  --ui-ct-accent: var(--aui-blue, #4fb0fe);
+  --ui-ct-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-ct-ok: var(--aui-success, #1e8a4f);
+  --ui-ct-accent-text: var(--aui-blue, #4fb0fe);
+  --ui-ct-border: var(--aui-border, #e5e5e5);
   --ui-ct-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --ui-ct-hover: rgba(0, 0, 0, 0.05);
-  --ui-ct-row-hover: #f5f5f5;
+  --ui-ct-hover: var(--aui-subtle, rgba(0, 0, 0, 0.05));
+  --ui-ct-row-hover: var(--aui-subtle, #f5f5f5);
   --ui-ct-initials: #eef7ff;
   --ui-ct-dot: #d4d4d4;
-  --ui-ct-subtle: #a3a3a3;
+  --ui-ct-subtle: var(--aui-placeholder, #a3a3a3);
   --ui-ct-avatar-ring: rgba(0, 0, 0, 0.06);
-  --ui-ct-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-ct-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 420px;
@@ -335,8 +335,8 @@ const css = /* css */ `
   background: var(--ui-ct-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-ct-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -361,7 +361,7 @@ const css = /* css */ `
   height: 28px;
   padding: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: transparent;
   color: var(--ui-ct-muted) !important;
   transition: background-color 140ms ease, color 140ms ease;
@@ -371,7 +371,7 @@ const css = /* css */ `
 .ui-ct__card {
   background: var(--ui-ct-card);
   border: 1px solid var(--ui-ct-border);
-  border-radius: 16px;
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: var(--ui-ct-shadow);
 }
 .ui-ct__scroll {
@@ -418,7 +418,7 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
   height: 26px;
   padding: 0 6px 0 8px;
   border: 0;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: transparent;
   font-size: 14px !important;
   transition: background-color 140ms ease;
@@ -548,7 +548,7 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
 
 /* Height changes glide instead of jumping */
 .ui-ct__morph { overflow: hidden; }
-.ui-ct__morph[data-smooth] { transition: height 380ms cubic-bezier(0.22, 1, 0.36, 1); }
+.ui-ct__morph[data-smooth] { transition: height 380ms var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1)); }
 @media (prefers-reduced-motion: reduce) { .ui-ct__morph[data-smooth] { transition: none; } }
 
 
@@ -558,21 +558,21 @@ img.ui-ct__avatar { box-shadow: 0 0 0 1px var(--ui-ct-avatar-ring); }
 .ui-ct [contenteditable]:focus-visible { outline: none; }
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ct {
-  --ui-ct-focus: rgba(77, 141, 255, 0.8);
-  --ui-ct-tray: #161618;
-  --ui-ct-card: #232326;
-  --ui-ct-ink: #ededed;
-  --ui-ct-text: #c4c4c4;
-  --ui-ct-muted: #8f8f8f;
+  --ui-ct-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-ct-tray: var(--aui-subtle, #161618);
+  --ui-ct-card: var(--aui-surface, #232326);
+  --ui-ct-ink: var(--aui-ink, #ededed);
+  --ui-ct-text: var(--aui-ink, #c4c4c4);
+  --ui-ct-muted: var(--aui-muted, #8f8f8f);
   --ui-ct-ok: #1e8a4f;
-  --ui-ct-accent-text: #4fb0fe;
-  --ui-ct-border: rgba(255, 255, 255, 0.08);
+  --ui-ct-accent-text: var(--aui-info, #4fb0fe);
+  --ui-ct-border: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-ct-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-ct-hover: rgba(255, 255, 255, 0.06);
-  --ui-ct-row-hover: rgba(255, 255, 255, 0.06);
-  --ui-ct-initials: rgba(79, 176, 254, 0.16);
+  --ui-ct-hover: var(--aui-subtle, rgba(255, 255, 255, 0.06));
+  --ui-ct-row-hover: var(--aui-subtle, rgba(255, 255, 255, 0.06));
+  --ui-ct-initials: color-mix(in srgb, var(--aui-blue, #4fb0fe) 16%, transparent);
   --ui-ct-dot: rgba(255, 255, 255, 0.14);
-  --ui-ct-subtle: #6b6b70;
+  --ui-ct-subtle: var(--aui-placeholder, #6b6b70);
   --ui-ct-avatar-ring: rgba(255, 255, 255, 0.08);
 }
 :where(.dark, [data-theme="dark"]) .ui-ct__send {

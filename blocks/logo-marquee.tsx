@@ -424,16 +424,16 @@ const css = /* css */ `
   --ui-lm-fade: min(14%, 120px);
   --ui-lm-muted: #9a9a9a;
   --ui-lm-ink: #171717;
-  --ui-lm-label: #8f8f8f;
+  --ui-lm-label: var(--aui-muted, #8f8f8f);
   --ui-lm-dim: 0.75;
-  --ui-lm-focus: rgba(0, 96, 226, 0.7);
-  --ui-lm-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-lm-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-lm-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   container-type: inline-size;
   display: grid;
   gap: var(--ui-lm-row-gap);
   width: 100%;
   min-width: 0;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
 }
 /* Narrow containers (phones): smaller logos, tighter gaps */
@@ -576,7 +576,7 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-lm {
   --ui-lm-muted: #7a7a82;
   --ui-lm-ink: #ededed;
-  --ui-lm-label: #8b8b92;
-  --ui-lm-focus: rgba(77, 141, 255, 0.8);
+  --ui-lm-label: var(--aui-muted, #8b8b92);
+  --ui-lm-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

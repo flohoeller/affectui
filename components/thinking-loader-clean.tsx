@@ -203,13 +203,13 @@ export function ThinkingLoader({
 
 const css = /* css */ `
 .ui-tlc {
-  --ui-tlc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tlc-text: rgba(0, 0, 0, 0.61);
+  --ui-tlc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tlc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
   --ui-tlc-accent: rgba(0, 96, 226, 0.765);
-  --ui-tlc-bg: #ffffff;
-  --ui-tlc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tlc-bg: var(--aui-surface, #ffffff);
+  --ui-tlc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
   --ui-tlc-shine: rgba(255, 255, 255, 0.82);
-  --ui-tlc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tlc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   --ui-tlc-h: 32px;
   --ui-tlc-font: 13px;
   --ui-tlc-lh: 20px;
@@ -220,11 +220,11 @@ const css = /* css */ `
   box-sizing: border-box;
   height: var(--ui-tlc-h);
   padding: 0 10px 0 8px;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius, 7px) + 1px);
   background: var(--ui-tlc-bg);
   box-shadow: var(--ui-tlc-shadow);
   color: var(--ui-tlc-text);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--ui-tlc-font);
   font-weight: 500;
   line-height: var(--ui-tlc-lh);
@@ -240,7 +240,7 @@ const css = /* css */ `
   --ui-tlc-icon: 14px;
   gap: 5px;
   padding: 0 8px 0 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
 }
 .ui-tlc[data-variant="plain"] {
   height: auto;
@@ -379,11 +379,11 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tlc {
-  --ui-tlc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tlc-text: rgba(255, 255, 255, 0.62);
-  --ui-tlc-accent: #4fb0fe;
-  --ui-tlc-bg: #1c1c1e;
-  --ui-tlc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ui-tlc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tlc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tlc-accent: var(--aui-blue, #4fb0fe);
+  --ui-tlc-bg: var(--aui-surface, #1c1c1e);
+  --ui-tlc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4));
   --ui-tlc-shine: #ffffff;
 }
 `;

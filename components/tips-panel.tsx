@@ -121,16 +121,16 @@ const CheckIcon = () => (
 
 const css = /* css */ `
 .ui-tp {
-  --ui-tp-tray: #f0f0f0;
-  --ui-tp-card: #ffffff;
-  --ui-tp-line: #ececec;
-  --ui-tp-ink: #171717;
-  --ui-tp-muted: #737373;
-  --ui-tp-ok: #4fb0fe;
-  --ui-tp-focus: rgba(0, 96, 226, 0.7);
+  --ui-tp-tray: var(--aui-subtle, #f0f0f0);
+  --ui-tp-card: var(--aui-surface, #ffffff);
+  --ui-tp-line: var(--aui-border, #ececec);
+  --ui-tp-ink: var(--aui-ink, #171717);
+  --ui-tp-muted: var(--aui-muted, #737373);
+  --ui-tp-ok: var(--aui-blue, #4fb0fe);
+  --ui-tp-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   /* Height of the tip list before it scrolls */
   --ui-tp-max-height: 420px;
-  --ui-tp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tp-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 760px;
@@ -138,8 +138,8 @@ const css = /* css */ `
   background: var(--ui-tp-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-tp-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -176,8 +176,8 @@ const css = /* css */ `
   overflow-y: auto;
   scrollbar-width: thin;
   background: var(--ui-tp-card);
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
+  border: 1px solid var(--aui-border, #e5e5e5);
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 .ui-tp__grid {
@@ -197,11 +197,11 @@ const css = /* css */ `
   align-items: flex-start;
   padding: 16px 16px 14px;
   border: 1px solid var(--ui-tp-line);
-  border-radius: 14px;
+  border-radius: calc(var(--aui-radius-lg, 16px) - 2px);
   animation: ui-tp-in 480ms var(--ui-tp-ease) both;
   transition: background-color 260ms ease, border-color 260ms ease;
 }
-.ui-tp__tip[data-done] { background: #fafafa; }
+.ui-tp__tip[data-done] { background: var(--aui-subtle, #fafafa); }
 /* Tips are shrink-to-fit flex items – max-width keeps long words and URLs inside the tile */
 .ui-tp__tip-title {
   max-width: 100%;
@@ -229,9 +229,9 @@ const css = /* css */ `
   min-width: 20px;
   height: 20px;
   padding: 0 5px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 0 0 1px #e5e5e5, 0 1px 0 #e5e5e5;
+  border-radius: calc(var(--aui-radius-sm, 7px) - 1px);
+  background: var(--aui-surface, #fff);
+  box-shadow: 0 0 0 1px var(--aui-border, #e5e5e5), 0 1px 0 var(--aui-border, #e5e5e5);
   font-family: inherit;
   font-size: 11px;
   font-weight: 500;
@@ -246,9 +246,9 @@ const css = /* css */ `
   min-height: 30px;
   padding: 5px 12px;
   border: 0;
-  border-radius: 9px;
-  background: #fff;
-  box-shadow: 0 0 0 1px #e5e5e5, 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: calc(var(--aui-radius, 10px) - 1px);
+  background: var(--aui-surface, #fff);
+  box-shadow: 0 0 0 1px var(--aui-border, #e5e5e5), 0 1px 2px rgba(0, 0, 0, 0.04);
   font-size: 13px !important;
   font-weight: 500;
   line-height: 20px;
@@ -294,27 +294,27 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tp {
-  --ui-tp-tray: #161618;
-  --ui-tp-card: #232326;
-  --ui-tp-line: rgba(255, 255, 255, 0.08);
-  --ui-tp-ink: #ededed;
-  --ui-tp-muted: #8f8f8f;
-  --ui-tp-ok: #4fb0fe;
-  --ui-tp-focus: rgba(77, 141, 255, 0.8);
+  --ui-tp-tray: var(--aui-subtle, #161618);
+  --ui-tp-card: var(--aui-surface, #232326);
+  --ui-tp-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-tp-ink: var(--aui-ink, #ededed);
+  --ui-tp-muted: var(--aui-muted, #8f8f8f);
+  --ui-tp-ok: var(--aui-blue, #4fb0fe);
+  --ui-tp-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-tp__card {
-  border-color: rgba(255, 255, 255, 0.08);
+  border-color: var(--aui-border, rgba(255, 255, 255, 0.08));
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
   color-scheme: dark;
 }
-:where(.dark, [data-theme="dark"]) .ui-tp__tip[data-done] { background: #2a2a2d; }
+:where(.dark, [data-theme="dark"]) .ui-tp__tip[data-done] { background: var(--aui-subtle, #2a2a2d); }
 :where(.dark, [data-theme="dark"]) .ui-tp__kbd {
-  background: #2a2a2d;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 0 rgba(255, 255, 255, 0.1);
+  background: var(--aui-surface, #2a2a2d);
+  box-shadow: 0 0 0 1px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 0 var(--aui-border, rgba(255, 255, 255, 0.1));
 }
 :where(.dark, [data-theme="dark"]) .ui-tp__btn {
-  background: #2a2a2d;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+  background: var(--aui-surface, #2a2a2d);
+  box-shadow: 0 0 0 1px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 :where(.dark, [data-theme="dark"]) .ui-tp__btn:hover { background: #313135; }
 /* The dark primary button inverts, like on the site */

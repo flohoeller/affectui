@@ -100,13 +100,13 @@ const DashIcon = () => (
 
 const css = /* css */ `
 .ui-cs {
-  --ui-cs-tray: #f0f0f0;
-  --ui-cs-card: #ffffff;
-  --ui-cs-line: #f0f0f0;
-  --ui-cs-ink: #171717;
-  --ui-cs-muted: #737373;
-  --ui-cs-accent: #4fb0fe;
-  --ui-cs-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-cs-tray: var(--aui-subtle, #f0f0f0);
+  --ui-cs-card: var(--aui-surface, #ffffff);
+  --ui-cs-line: var(--aui-border, #f0f0f0);
+  --ui-cs-ink: var(--aui-ink, #171717);
+  --ui-cs-muted: var(--aui-muted, #737373);
+  --ui-cs-accent: var(--aui-blue, #4fb0fe);
+  --ui-cs-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 480px;
@@ -115,8 +115,8 @@ const css = /* css */ `
   background: var(--ui-cs-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-cs-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -150,8 +150,8 @@ const css = /* css */ `
   margin: 0;
   overflow: hidden;
   background: var(--ui-cs-card);
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
+  border: 1px solid var(--aui-border, #e5e5e5);
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 .ui-cs__row {
@@ -165,7 +165,7 @@ const css = /* css */ `
   transition: background-color 140ms ease;
 }
 .ui-cs__row + .ui-cs__row { border-top: 1px solid var(--ui-cs-line); }
-.ui-cs__row:hover { background: #fafafa; }
+.ui-cs__row:hover { background: var(--aui-subtle, #fafafa); }
 .ui-cs__label {
   overflow: hidden;
   font-size: 14px;
@@ -202,9 +202,9 @@ const css = /* css */ `
   height: 20px;
   border-radius: 6px;
 }
-.ui-cs__trend[data-tone="good"] { background: #eef9f3; color: #1e8a4f; }
-.ui-cs__trend[data-tone="bad"] { background: #fff0f0; color: #f04438; }
-.ui-cs__trend[data-tone="neutral"] { background: #f5f5f5; color: #8f8f8f; }
+.ui-cs__trend[data-tone="good"] { background: #eef9f3; color: var(--aui-success, #1e8a4f); }
+.ui-cs__trend[data-tone="bad"] { background: #fff0f0; color: var(--aui-red, #f04438); }
+.ui-cs__trend[data-tone="neutral"] { background: var(--aui-subtle, #f5f5f5); color: var(--aui-muted, #8f8f8f); }
 
 @keyframes ui-cs-in {
   from { opacity: 0; transform: translateY(4px); }
@@ -215,19 +215,19 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-cs {
-  --ui-cs-tray: #161618;
-  --ui-cs-card: #232326;
-  --ui-cs-line: rgba(255, 255, 255, 0.08);
-  --ui-cs-ink: #ededed;
-  --ui-cs-muted: #8f8f8f;
-  --ui-cs-accent: #4fb0fe;
+  --ui-cs-tray: var(--aui-subtle, #161618);
+  --ui-cs-card: var(--aui-surface, #232326);
+  --ui-cs-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-cs-ink: var(--aui-ink, #ededed);
+  --ui-cs-muted: var(--aui-muted, #8f8f8f);
+  --ui-cs-accent: var(--aui-blue, #4fb0fe);
 }
 :where(.dark, [data-theme="dark"]) .ui-cs__card {
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  border-color: var(--aui-border, rgba(255, 255, 255, 0.08));
+  box-shadow: var(--aui-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.4));
 }
-:where(.dark, [data-theme="dark"]) .ui-cs__row:hover { background: #2a2a2d; }
-:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="good"] { background: rgba(125, 207, 159, 0.18); color: #41bd74; }
-:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="bad"] { background: rgba(255, 107, 95, 0.16); color: #ff6b5f; }
-:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="neutral"] { background: #2a2a2d; color: #8f8f8f; }
+:where(.dark, [data-theme="dark"]) .ui-cs__row:hover { background: var(--aui-subtle, #2a2a2d); }
+:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="good"] { background: color-mix(in srgb, var(--aui-green, #7dcf9f) 18%, transparent); color: #41bd74; }
+:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="bad"] { background: color-mix(in srgb, var(--aui-red, #ff6b5f) 16%, transparent); color: var(--aui-red, #ff6b5f); }
+:where(.dark, [data-theme="dark"]) .ui-cs__trend[data-tone="neutral"] { background: var(--aui-subtle, #2a2a2d); color: var(--aui-muted, #8f8f8f); }
 `;

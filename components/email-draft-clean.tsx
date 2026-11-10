@@ -424,26 +424,26 @@ const css = /* css */ `
 .ui-edc {
   --ui-edc-card: #ffffff;
   --ui-edc-strong: #000000;
-  --ui-edc-ink: rgba(0, 0, 0, 0.88);
-  --ui-edc-text: rgba(0, 0, 0, 0.61);
-  --ui-edc-muted: rgba(0, 0, 0, 0.45);
-  --ui-edc-faint: rgba(0, 0, 0, 0.27);
-  --ui-edc-icon: rgba(0, 0, 0, 0.447);
-  --ui-edc-line: rgba(0, 0, 0, 0.06);
+  --ui-edc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-edc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-edc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-edc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-edc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-edc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
   --ui-edc-fill: rgba(0, 0, 0, 0.06);
-  --ui-edc-wash: rgba(0, 0, 0, 0.03);
-  --ui-edc-solid: rgba(0, 0, 0, 0.88);
-  --ui-edc-on-solid: #fcfcfc;
+  --ui-edc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-edc-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
+  --ui-edc-on-solid: var(--aui-on-primary, #fcfcfc);
   --ui-edc-accent: rgba(0, 96, 226, 0.765);
-  --ui-edc-ok: #1e8a4f;
-  --ui-edc-ok-bg: rgba(95, 200, 138, 0.08);
+  --ui-edc-ok: var(--aui-success, #1e8a4f);
+  --ui-edc-ok-bg: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
   --ui-edc-warn: #b48906;
-  --ui-edc-warn-bg: rgba(232, 176, 0, 0.12);
+  --ui-edc-warn-bg: color-mix(in srgb, var(--aui-amber, #e8b000) 12%, transparent);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-edc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-edc-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-edc-focus: rgba(0, 96, 226, 0.7);
-  --ui-edc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-edc-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-edc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-edc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   position: relative;
   box-sizing: border-box;
   container-type: inline-size;
@@ -451,10 +451,10 @@ const css = /* css */ `
   flex-direction: column;
   width: 100%;
   max-width: 480px;
-  border-radius: 10px;
-  background: var(--ui-edc-card);
-  box-shadow: var(--ui-edc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: var(--aui-radius-lg, 10px);
+  background: var(--aui-surface, var(--ui-edc-card));
+  box-shadow: var(--aui-shadow-card, var(--ui-edc-shadow));
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -497,7 +497,7 @@ const css = /* css */ `
   min-width: 0;
   overflow: hidden;
   padding: 2px 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-edc-warn-bg);
   font-size: 12px;
   font-weight: 500;
@@ -546,7 +546,7 @@ const css = /* css */ `
   min-width: 0;
   height: 28px;
   padding: 0 6px 0 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   box-shadow: inset 0 0 0 0.5px var(--ui-edc-line);
   font-size: 13px;
   font-weight: 500;
@@ -578,8 +578,8 @@ const css = /* css */ `
   margin: 0;
   padding: 4px;
   list-style: none;
-  border-radius: 10px;
-  background: var(--ui-edc-card);
+  border-radius: var(--aui-radius-lg, 10px);
+  background: var(--aui-overlay, var(--ui-edc-card));
   box-shadow: var(--ui-edc-shadow-pop);
   animation: ui-edc-menu 200ms var(--ui-edc-ease) both;
   transform-origin: top left;
@@ -590,7 +590,7 @@ const css = /* css */ `
   gap: 10px;
   width: 100%;
   padding: 6px 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   text-align: left;
   font-size: 13px;
   line-height: 20px;
@@ -633,7 +633,7 @@ const css = /* css */ `
   width: 24px;
   height: 24px;
   margin-left: -2px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   color: var(--ui-edc-icon);
   transition: background-color 160ms ease, color 160ms ease;
 }
@@ -646,7 +646,7 @@ const css = /* css */ `
   min-width: 0;
   height: 28px;
   padding: 0 8px 0 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   font-size: 13px;
   white-space: nowrap;
   color: var(--ui-edc-text);
@@ -661,7 +661,7 @@ const css = /* css */ `
 .ui-edc__text {
   margin: -4px -6px;
   padding: 4px 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   font-size: 13px;
   line-height: 20px;
   color: var(--ui-edc-ink);
@@ -688,7 +688,7 @@ const css = /* css */ `
   margin: -4px -6px;
   padding: 4px 6px;
   border: 0;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   background: var(--ui-edc-wash);
   box-shadow: inset 0 0 0 0.5px var(--ui-edc-line);
   outline: none;
@@ -715,7 +715,7 @@ const css = /* css */ `
   align-items: center;
   height: 28px;
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   box-shadow: inset 0 0 0 0.5px var(--ui-edc-line);
   font-size: 13px;
   font-weight: 500;
@@ -768,7 +768,7 @@ const css = /* css */ `
   flex: none;
   height: 28px;
   padding: 0 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   font-size: 13px;
   font-weight: 500;
   color: var(--ui-edc-ink);
@@ -792,7 +792,7 @@ const css = /* css */ `
 .ui-edc__badge {
   flex: none;
   padding: 2px 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   font-size: 12px;
   font-weight: 500;
   line-height: 16px;
@@ -809,7 +809,7 @@ const css = /* css */ `
   gap: 6px;
   height: 28px;
   padding: 0 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
@@ -873,24 +873,24 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-edc {
   --ui-edc-card: #1c1c1e;
   --ui-edc-strong: #ffffff;
-  --ui-edc-ink: rgba(255, 255, 255, 0.9);
-  --ui-edc-text: rgba(255, 255, 255, 0.62);
-  --ui-edc-muted: rgba(255, 255, 255, 0.46);
-  --ui-edc-faint: rgba(255, 255, 255, 0.3);
-  --ui-edc-icon: rgba(255, 255, 255, 0.5);
-  --ui-edc-line: rgba(255, 255, 255, 0.08);
+  --ui-edc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-edc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-edc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-edc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-edc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-edc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-edc-fill: rgba(255, 255, 255, 0.08);
-  --ui-edc-wash: rgba(255, 255, 255, 0.04);
-  --ui-edc-solid: rgba(255, 255, 255, 0.92);
-  --ui-edc-on-solid: #161618;
-  --ui-edc-accent: #4fb0fe;
-  --ui-edc-ok: #5fc88a;
-  --ui-edc-ok-bg: rgba(125, 207, 159, 0.14);
-  --ui-edc-warn: #e6c24d;
-  --ui-edc-warn-bg: rgba(230, 194, 77, 0.14);
+  --ui-edc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-edc-solid: var(--aui-primary, rgba(255, 255, 255, 0.92));
+  --ui-edc-on-solid: var(--aui-on-primary, #161618);
+  --ui-edc-accent: var(--aui-blue, #4fb0fe);
+  --ui-edc-ok: var(--aui-green, #5fc88a);
+  --ui-edc-ok-bg: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
+  --ui-edc-warn: var(--aui-amber, #e6c24d);
+  --ui-edc-warn-bg: color-mix(in srgb, var(--aui-amber, #e6c24d) 14%, transparent);
   --ui-edc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-edc-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-edc-focus: rgba(77, 141, 255, 0.8);
+  --ui-edc-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6));
+  --ui-edc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-edc__primary:hover:not(:disabled) { background: #ffffff; }
 `;

@@ -219,28 +219,28 @@ const Icon = ({ d, size = 16 }: { d: string; size?: number }) => (
 
 const css = /* css */ `
 .ui-sr {
-  --ui-sr-tray: #f0f0f0;
-  --ui-sr-card: #ffffff;
-  --ui-sr-ink: #171717;
-  --ui-sr-text: #404040;
-  --ui-sr-muted: #8f8f8f;
-  --ui-sr-accent: #4fb0fe;
-  --ui-sr-ok: #1e8a4f;
-  --ui-sr-focus: rgba(0, 96, 226, 0.7);
-  --ui-sr-accent-text: #4fb0fe;
-  --ui-sr-border: #e5e5e5;
+  --ui-sr-tray: var(--aui-subtle, #f0f0f0);
+  --ui-sr-card: var(--aui-surface, #ffffff);
+  --ui-sr-ink: var(--aui-ink, #171717);
+  --ui-sr-text: var(--aui-ink, #404040);
+  --ui-sr-muted: var(--aui-muted, #8f8f8f);
+  --ui-sr-accent: var(--aui-blue, #4fb0fe);
+  --ui-sr-ok: var(--aui-success, #1e8a4f);
+  --ui-sr-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-sr-accent-text: var(--aui-blue, #4fb0fe);
+  --ui-sr-border: var(--aui-border, #e5e5e5);
   --ui-sr-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
-  --ui-sr-head-hover: #f8f8f8;
+  --ui-sr-head-hover: var(--aui-subtle, #f8f8f8);
   --ui-sr-pill: #f4f0ff;
-  --ui-sr-pill-text: #a651f0;
+  --ui-sr-pill-text: var(--aui-purple, #a651f0);
   --ui-sr-bar: #d4d4d4;
-  --ui-sr-btn: #fff;
+  --ui-sr-btn: var(--aui-surface, #fff);
   --ui-sr-btn-hover: #f7f7f7;
-  --ui-sr-menu: #fff;
-  --ui-sr-option-hover: #f5f5f5;
+  --ui-sr-menu: var(--aui-overlay, #fff);
+  --ui-sr-option-hover: var(--aui-subtle, #f5f5f5);
   --ui-sr-option-on: #f5f8ff;
   --ui-sr-tag: #eef7ff;
-  --ui-sr-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-sr-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 440px;
@@ -249,8 +249,8 @@ const css = /* css */ `
   background: var(--ui-sr-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-sr-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -262,7 +262,7 @@ const css = /* css */ `
   padding: 6px 8px 8px;
   background: var(--ui-sr-card);
   border: 1px solid var(--ui-sr-border);
-  border-radius: 16px;
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: var(--ui-sr-shadow);
 }
 .ui-sr__head {
@@ -273,7 +273,7 @@ const css = /* css */ `
   height: 40px;
   padding: 0 10px;
   border: 0;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-lg, 16px) - 4px);
   background: transparent;
   text-align: left;
   transition: background-color 140ms ease;
@@ -344,7 +344,7 @@ const css = /* css */ `
 .ui-sr__bars span:nth-child(2), .ui-sr__mini span:nth-child(2) { height: 9px; }
 .ui-sr__bars span:nth-child(3), .ui-sr__mini span:nth-child(3) { height: 12px; }
 /* Scoped to the card, so other components with data-level on the page keep their colors */
-.ui-sr [data-level="1"] > span[data-on] { background: #e8b000; }
+.ui-sr [data-level="1"] > span[data-on] { background: var(--aui-amber, #e8b000); }
 .ui-sr [data-level="2"] > span[data-on] { background: var(--ui-sr-accent); }
 .ui-sr [data-level="3"] > span[data-on] { background: var(--ui-sr-ok); }
 .ui-sr__signal[data-level="0"] .ui-sr__bars span:first-child { background: #8f8f8f; }
@@ -356,7 +356,7 @@ const css = /* css */ `
   height: 32px;
   padding: 0 12px;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--aui-radius, 10px);
   background: var(--ui-sr-btn);
   box-shadow: 0 0 0 1px var(--ui-sr-border), 0 1px 2px rgba(0, 0, 0, 0.04);
   font-size: 13px !important;
@@ -403,9 +403,9 @@ const css = /* css */ `
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 4px;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-lg, 16px) - 4px);
   background: var(--ui-sr-menu);
-  box-shadow: 0 0 0 1px var(--ui-sr-border), 0 12px 30px -8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--aui-shadow-popover, 0 0 0 1px var(--ui-sr-border), 0 12px 30px -8px rgba(0, 0, 0, 0.2));
   animation: ui-sr-drop 180ms var(--ui-sr-ease);
 }
 .ui-sr__menu[data-flip] { right: auto; left: 0; }
@@ -423,7 +423,7 @@ const css = /* css */ `
   min-height: 34px;
   padding: 0 10px;
   border: 0;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: transparent;
   font-size: 13px !important;
   text-align: left;
@@ -445,29 +445,29 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-sr {
-  --ui-sr-tray: #161618;
-  --ui-sr-card: #232326;
-  --ui-sr-ink: #ededed;
-  --ui-sr-text: #c4c4c4;
-  --ui-sr-muted: #8f8f8f;
+  --ui-sr-tray: var(--aui-subtle, #161618);
+  --ui-sr-card: var(--aui-surface, #232326);
+  --ui-sr-ink: var(--aui-ink, #ededed);
+  --ui-sr-text: var(--aui-ink, #c4c4c4);
+  --ui-sr-muted: var(--aui-muted, #8f8f8f);
   --ui-sr-ok: #3fb971;
-  --ui-sr-focus: rgba(77, 141, 255, 0.8);
-  --ui-sr-accent-text: #4fb0fe;
-  --ui-sr-border: rgba(255, 255, 255, 0.08);
+  --ui-sr-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-sr-accent-text: var(--aui-info, #4fb0fe);
+  --ui-sr-border: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-sr-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-sr-head-hover: rgba(255, 255, 255, 0.06);
-  --ui-sr-pill: rgba(185, 138, 240, 0.18);
-  --ui-sr-pill-text: #b98af0;
+  --ui-sr-head-hover: var(--aui-subtle, rgba(255, 255, 255, 0.06));
+  --ui-sr-pill: color-mix(in srgb, var(--aui-purple, #b98af0) 18%, transparent);
+  --ui-sr-pill-text: var(--aui-purple, #b98af0);
   --ui-sr-bar: rgba(255, 255, 255, 0.14);
-  --ui-sr-btn: #2a2a2d;
+  --ui-sr-btn: var(--aui-surface, #2a2a2d);
   --ui-sr-btn-hover: #313135;
-  --ui-sr-menu: #2a2a2d;
-  --ui-sr-option-hover: #313135;
-  --ui-sr-option-on: rgba(79, 176, 254, 0.16);
-  --ui-sr-tag: rgba(79, 176, 254, 0.16);
+  --ui-sr-menu: var(--aui-overlay, #2a2a2d);
+  --ui-sr-option-hover: var(--aui-subtle, #313135);
+  --ui-sr-option-on: color-mix(in srgb, var(--aui-blue, #4fb0fe) 16%, transparent);
+  --ui-sr-tag: color-mix(in srgb, var(--aui-blue, #4fb0fe) 16%, transparent);
 }
 :where(.dark, [data-theme="dark"]) .ui-sr__menu {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 30px -8px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--aui-shadow-popover, 0 0 0 1px rgba(255, 255, 255, 0.1), 0 12px 30px -8px rgba(0, 0, 0, 0.5));
 }
 :where(.dark, [data-theme="dark"]) .ui-sr__btn--primary {
   background: linear-gradient(#f4f4f5, #e4e4e7);

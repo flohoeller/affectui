@@ -277,7 +277,7 @@ const css = /* css */ `
   --ui-ta-danger: var(--aui-danger, #c4320a);
   --ui-ta-danger-edge: #ff8a7a;
   --ui-ta-danger-edge-focus: #f04438;
-  --ui-ta-danger-wash: rgba(240, 68, 56, 0.04);
+  --ui-ta-danger-wash: color-mix(in srgb, var(--aui-red, #f04438) 4%, transparent);
   --ui-ta-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-ta-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -429,9 +429,9 @@ const css = /* css */ `
   --ui-ta-wash: #26262a;
   --ui-ta-readonly: #151517;
   --ui-ta-danger: var(--aui-danger, #ff8a7a);
-  --ui-ta-danger-edge: rgba(255, 107, 95, 0.45);
+  --ui-ta-danger-edge: color-mix(in srgb, var(--aui-red, #ff6b5f) 45%, transparent);
   --ui-ta-danger-edge-focus: rgba(255, 99, 105, 0.75);
-  --ui-ta-danger-wash: rgba(255, 107, 95, 0.06);
+  --ui-ta-danger-wash: color-mix(in srgb, var(--aui-red, #ff6b5f) 6%, transparent);
   --ui-ta-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

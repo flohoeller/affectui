@@ -203,14 +203,14 @@ export function ThinkingLoader({
 
 const css = /* css */ `
 .ui-tl {
-  --ui-tl-ink: #171717;
-  --ui-tl-text: #6b6b6b;
+  --ui-tl-ink: var(--aui-ink, #171717);
+  --ui-tl-text: var(--aui-muted, #6b6b6b);
   --ui-tl-ray: #171717;
-  --ui-tl-bg: #ffffff;
-  --ui-tl-line: #e7e7e7;
+  --ui-tl-bg: var(--aui-surface, #ffffff);
+  --ui-tl-line: var(--aui-border, #e7e7e7);
   --ui-tl-shine: rgba(255, 255, 255, 0.82);
   --ui-tl-done: #171717;
-  --ui-tl-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tl-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   --ui-tl-h: 34px;
   --ui-tl-font: 14px;
   --ui-tl-icon: 15px;
@@ -222,9 +222,9 @@ const css = /* css */ `
   padding: 0 15px 0 12px;
   border-radius: 999px;
   background: var(--ui-tl-bg);
-  box-shadow: inset 0 0 0 1px var(--ui-tl-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--aui-shadow-card, inset 0 0 0 1px var(--ui-tl-line), 0 1px 2px rgba(0, 0, 0, 0.04));
   color: var(--ui-tl-text);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--ui-tl-font);
   font-weight: 450;
   line-height: 1;
@@ -375,11 +375,11 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tl {
-  --ui-tl-ink: #ededed;
-  --ui-tl-text: #8f8f8f;
+  --ui-tl-ink: var(--aui-ink, #ededed);
+  --ui-tl-text: var(--aui-muted, #8f8f8f);
   --ui-tl-ray: #ededed;
-  --ui-tl-bg: #161618;
-  --ui-tl-line: rgba(255, 255, 255, 0.1);
+  --ui-tl-bg: var(--aui-surface, #161618);
+  --ui-tl-line: var(--aui-border, rgba(255, 255, 255, 0.1));
   --ui-tl-shine: rgba(255, 255, 255, 0.95);
   --ui-tl-done: #ededed;
 }

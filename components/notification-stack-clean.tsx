@@ -228,28 +228,28 @@ const ArrowIcon = () => (
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-nsc */
 .ui-nsc {
-  --ui-nsc-card: #ffffff;
-  --ui-nsc-strong: #000000;
-  --ui-nsc-ink: rgba(0, 0, 0, 0.88);
-  --ui-nsc-text: rgba(0, 0, 0, 0.61);
-  --ui-nsc-icon: rgba(0, 0, 0, 0.447);
-  --ui-nsc-line: rgba(0, 0, 0, 0.06);
-  --ui-nsc-wash: rgba(0, 0, 0, 0.03);
-  --ui-nsc-fill: rgba(0, 0, 0, 0.06);
+  --ui-nsc-card: var(--aui-surface, #ffffff);
+  --ui-nsc-strong: var(--aui-ink, #000000);
+  --ui-nsc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-nsc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-nsc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-nsc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-nsc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-nsc-fill: var(--aui-subtle, rgba(0, 0, 0, 0.06));
   --ui-nsc-art: rgba(0, 0, 0, 0.07);
   --ui-nsc-accent: rgba(0, 96, 226, 0.765);
   --ui-nsc-accent-bg: rgba(0, 96, 226, 0.05);
-  --ui-nsc-focus: rgba(0, 96, 226, 0.7);
+  --ui-nsc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-nsc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-nsc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-nsc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-nsc-shadow: 0 0 0 0.5px var(--aui-border, rgba(0, 0, 0, 0.06)), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-nsc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.1)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
+  --ui-nsc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   position: relative;
   box-sizing: border-box;
   container-type: inline-size;
   width: 100%;
   max-width: 380px;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -271,9 +271,9 @@ const css = /* css */ `
   left: 0;
   right: 0;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-nsc-card);
-  box-shadow: var(--ui-nsc-shadow);
+  box-shadow: var(--aui-shadow-card, var(--ui-nsc-shadow));
   transform-origin: 50% 100%;
   transition:
     transform 460ms var(--ui-nsc-ease),
@@ -320,7 +320,7 @@ const css = /* css */ `
 /* Tiny label: tinted fill, 10px uppercase */
 .ui-nsc__badge {
   padding: 2px 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-nsc-fill);
   font-size: 10px;
   font-weight: 500;
@@ -340,7 +340,7 @@ const css = /* css */ `
   place-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   transition: background-color 140ms ease, color 140ms ease;
 }
 :where(.ui-nsc) .ui-nsc__close { color: var(--ui-nsc-icon); }
@@ -376,7 +376,7 @@ const css = /* css */ `
   max-width: 100%;
   margin-top: 12px;
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   text-align: start;
   overflow-wrap: anywhere;
   font-size: 13px;
@@ -409,20 +409,20 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-nsc {
-  --ui-nsc-card: #1c1c1e;
-  --ui-nsc-strong: #ffffff;
-  --ui-nsc-ink: rgba(255, 255, 255, 0.9);
-  --ui-nsc-text: rgba(255, 255, 255, 0.62);
-  --ui-nsc-icon: rgba(255, 255, 255, 0.46);
-  --ui-nsc-line: rgba(255, 255, 255, 0.08);
-  --ui-nsc-wash: rgba(255, 255, 255, 0.04);
-  --ui-nsc-fill: rgba(255, 255, 255, 0.08);
+  --ui-nsc-card: var(--aui-surface, #1c1c1e);
+  --ui-nsc-strong: var(--aui-ink, #ffffff);
+  --ui-nsc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-nsc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-nsc-icon: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-nsc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-nsc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-nsc-fill: var(--aui-subtle, rgba(255, 255, 255, 0.08));
   --ui-nsc-art: rgba(255, 255, 255, 0.07);
-  --ui-nsc-accent: #4fb0fe;
+  --ui-nsc-accent: var(--aui-blue, #4fb0fe);
   --ui-nsc-accent-bg: rgba(77, 141, 255, 0.1);
-  --ui-nsc-focus: rgba(77, 141, 255, 0.8);
-  --ui-nsc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-nsc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-nsc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-nsc-shadow: 0 0 0 0.5px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-nsc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.16)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 :where(.dark, [data-theme="dark"]) .ui-nsc .ui-nsc__btn { background: rgba(255, 255, 255, 0.04); }
 `;

@@ -226,19 +226,19 @@ const ArrowIcon = () => (
 
 const css = /* css */ `
 .ui-ns {
-  --ui-ns-card: #ffffff;
-  --ui-ns-line: #e5e5e5;
-  --ui-ns-ink: #171717;
-  --ui-ns-muted: #737373;
+  --ui-ns-card: var(--aui-surface, #ffffff);
+  --ui-ns-line: var(--aui-border, #e5e5e5);
+  --ui-ns-ink: var(--aui-ink, #171717);
+  --ui-ns-muted: var(--aui-muted, #737373);
   --ui-ns-art: #e3e3e3;
-  --ui-ns-accent: #4fb0fe;
-  --ui-ns-focus: rgba(0, 96, 226, 0.7);
-  --ui-ns-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-ns-accent: var(--aui-blue, #4fb0fe);
+  --ui-ns-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-ns-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   position: relative;
   box-sizing: border-box;
   width: 100%;
   max-width: 380px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-ns-ink);
   -webkit-font-smoothing: antialiased;
   transition: height 460ms var(--ui-ns-ease);
@@ -253,7 +253,7 @@ const css = /* css */ `
   overflow: hidden;
   background: var(--ui-ns-card);
   border: 1px solid var(--ui-ns-line);
-  border-radius: 20px;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 4px);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.03),
     0 8px 24px rgba(0, 0, 0, 0.035);
@@ -310,7 +310,7 @@ const css = /* css */ `
   line-height: 18px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #525252;
+  color: var(--aui-muted, #525252);
   min-width: 0;
   overflow: hidden;
   white-space: nowrap;
@@ -325,13 +325,13 @@ const css = /* css */ `
   margin: -2px -6px 0 0;
   padding: 0;
   border: 0;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: transparent;
   color: var(--ui-ns-muted);
   cursor: pointer;
   transition: background-color 140ms ease, color 140ms ease;
 }
-.ui-ns__close:hover { background: rgba(0, 0, 0, 0.05); color: var(--ui-ns-ink); }
+.ui-ns__close:hover { background: var(--aui-subtle, rgba(0, 0, 0, 0.05)); color: var(--ui-ns-ink); }
 .ui-ns__title {
   margin: 0;
   font-size: 16px;
@@ -361,8 +361,8 @@ const css = /* css */ `
   margin-top: 16px;
   padding: 6px 12px;
   border: 0;
-  border-radius: 9px;
-  background: #fff;
+  border-radius: calc(var(--aui-radius, 10px) - 1px);
+  background: var(--aui-surface, #fff);
   box-shadow: 0 0 0 1px var(--ui-ns-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   font: inherit;
   font-size: 13px;
@@ -386,24 +386,24 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-ns {
-  --ui-ns-card: #232326;
-  --ui-ns-line: rgba(255, 255, 255, 0.1);
-  --ui-ns-ink: #ededed;
-  --ui-ns-muted: #8f8f8f;
+  --ui-ns-card: var(--aui-surface, #232326);
+  --ui-ns-line: var(--aui-border, rgba(255, 255, 255, 0.1));
+  --ui-ns-ink: var(--aui-ink, #ededed);
+  --ui-ns-muted: var(--aui-muted, #8f8f8f);
   --ui-ns-art: rgba(255, 255, 255, 0.08);
-  --ui-ns-focus: rgba(77, 141, 255, 0.8);
+  --ui-ns-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-ns__card {
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 8px 24px rgba(0, 0, 0, 0.35);
+    var(--aui-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35));
 }
 :where(.dark, [data-theme="dark"]) .ui-ns__dot { fill: rgba(255, 255, 255, 0.22); }
 :where(.dark, [data-theme="dark"]) .ui-ns__fill { fill: rgba(255, 255, 255, 0.04); }
-:where(.dark, [data-theme="dark"]) .ui-ns__badge { background: #2a2a2d; color: #c4c4c4; }
-:where(.dark, [data-theme="dark"]) .ui-ns__close:hover { background: rgba(255, 255, 255, 0.06); }
+:where(.dark, [data-theme="dark"]) .ui-ns__badge { background: #2a2a2d; color: var(--aui-muted, #c4c4c4); }
+:where(.dark, [data-theme="dark"]) .ui-ns__close:hover { background: var(--aui-subtle, rgba(255, 255, 255, 0.06)); }
 :where(.dark, [data-theme="dark"]) .ui-ns__btn {
-  background: #2a2a2d;
+  background: var(--aui-surface, #2a2a2d);
   box-shadow: 0 0 0 1px var(--ui-ns-line), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 :where(.dark, [data-theme="dark"]) .ui-ns__btn:hover { background: #313135; }

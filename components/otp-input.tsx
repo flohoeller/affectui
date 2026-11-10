@@ -469,30 +469,30 @@ const css = /* css */ `
 .ui-otp {
   --ui-otp-box: 48px;
   --ui-otp-gap: 8px;
-  --ui-otp-bg: #fafafa;
-  --ui-otp-card: #ffffff;
-  --ui-otp-line: #e4e4e7;
-  --ui-otp-line-strong: #cfcfd4;
-  --ui-otp-ink: #171717;
-  --ui-otp-text: #404040;
-  --ui-otp-muted: #8f8f8f;
+  --ui-otp-bg: var(--aui-subtle, #fafafa);
+  --ui-otp-card: var(--aui-surface, #ffffff);
+  --ui-otp-line: var(--aui-border, #e4e4e7);
+  --ui-otp-line-strong: var(--aui-border-strong, #cfcfd4);
+  --ui-otp-ink: var(--aui-ink, #171717);
+  --ui-otp-text: var(--aui-ink, #404040);
+  --ui-otp-muted: var(--aui-muted, #8f8f8f);
   --ui-otp-faint: #c4c4c8;
   --ui-otp-halo: rgba(23, 23, 23, 0.07);
   --ui-otp-wait: #f2f2f3;
   --ui-otp-shine: rgba(255, 255, 255, 0.95);
-  --ui-otp-danger: #f04438;
-  --ui-otp-danger-line: rgba(240, 68, 56, 0.6);
-  --ui-otp-danger-halo: rgba(240, 68, 56, 0.12);
-  --ui-otp-success: #1e8a4f;
-  --ui-otp-accent: #4fb0fe;
-  --ui-otp-focus: rgba(0, 96, 226, 0.7);
-  --ui-otp-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-otp-danger: var(--aui-red, #f04438);
+  --ui-otp-danger-line: color-mix(in srgb, var(--aui-red, #f04438) 60%, transparent);
+  --ui-otp-danger-halo: color-mix(in srgb, var(--aui-red, #f04438) 12%, transparent);
+  --ui-otp-success: var(--aui-success, #1e8a4f);
+  --ui-otp-accent: var(--aui-blue, #4fb0fe);
+  --ui-otp-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-otp-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   display: grid;
   justify-self: stretch; /* it sizes the boxes from its own width, so it must never shrink to fit them */
   width: 100%;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 1.45;
   color: var(--ui-otp-text);
@@ -716,22 +716,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-otp {
-  --ui-otp-bg: #1d1d20;
-  --ui-otp-card: #19191b;
-  --ui-otp-line: #2a2a2e;
-  --ui-otp-line-strong: #3a3a40;
-  --ui-otp-ink: #ededed;
-  --ui-otp-text: #c8c8cc;
-  --ui-otp-muted: #8b8b92;
+  --ui-otp-bg: var(--aui-subtle, #1d1d20);
+  --ui-otp-card: var(--aui-surface, #19191b);
+  --ui-otp-line: var(--aui-border, #2a2a2e);
+  --ui-otp-line-strong: var(--aui-border-strong, #3a3a40);
+  --ui-otp-ink: var(--aui-ink, #ededed);
+  --ui-otp-text: var(--aui-ink, #c8c8cc);
+  --ui-otp-muted: var(--aui-muted, #8b8b92);
   --ui-otp-faint: #4a4a50;
   --ui-otp-halo: rgba(255, 255, 255, 0.08);
   --ui-otp-wait: #1d1d20;
   --ui-otp-shine: rgba(255, 255, 255, 0.07);
-  --ui-otp-danger: #ff6b5f;
-  --ui-otp-danger-line: rgba(255, 107, 95, 0.55);
-  --ui-otp-danger-halo: rgba(255, 107, 95, 0.14);
-  --ui-otp-success: #5fc88a;
-  --ui-otp-accent: #4fb0fe;
-  --ui-otp-focus: rgba(77, 141, 255, 0.8);
+  --ui-otp-danger: var(--aui-red, #ff6b5f);
+  --ui-otp-danger-line: color-mix(in srgb, var(--aui-red, #ff6b5f) 55%, transparent);
+  --ui-otp-danger-halo: color-mix(in srgb, var(--aui-red, #ff6b5f) 14%, transparent);
+  --ui-otp-success: var(--aui-green, #5fc88a);
+  --ui-otp-accent: var(--aui-blue, #4fb0fe);
+  --ui-otp-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -517,30 +517,30 @@ async function copyText(text: string) {
 const css = /* css */ `
 .ui-tcl,
 .ui-tcl-group {
-  --ui-tcl-ink: #171717;
-  --ui-tcl-text: #6b6b6b;
-  --ui-tcl-muted: #8a8a8a;
-  --ui-tcl-bg: #ffffff;
-  --ui-tcl-line: #e7e7e7;
-  --ui-tcl-hover: #fafafa;
+  --ui-tcl-ink: var(--aui-ink, #171717);
+  --ui-tcl-text: var(--aui-muted, #6b6b6b);
+  --ui-tcl-muted: var(--aui-muted, #8a8a8a);
+  --ui-tcl-bg: var(--aui-surface, #ffffff);
+  --ui-tcl-line: var(--aui-border, #e7e7e7);
+  --ui-tcl-hover: var(--aui-subtle, #fafafa);
   --ui-tcl-tile: #f5f5f5;
   --ui-tcl-code: #fafafa;
   --ui-tcl-ring: #ffffff;
-  --ui-tcl-red: #c4320a;
-  --ui-tcl-red-bg: rgba(240, 68, 56, 0.06);
-  --ui-tcl-red-line: rgba(240, 68, 56, 0.16);
+  --ui-tcl-red: var(--aui-danger, #c4320a);
+  --ui-tcl-red-bg: color-mix(in srgb, var(--aui-red, #f04438) 6%, transparent);
+  --ui-tcl-red-line: color-mix(in srgb, var(--aui-red, #f04438) 16%, transparent);
   --ui-tcl-key: #171717;
   --ui-tcl-str: #0b8576;
-  --ui-tcl-num: #b25e00;
+  --ui-tcl-num: var(--aui-warning, #b25e00);
   --ui-tcl-lit: #8a35d6;
   --ui-tcl-shine: rgba(255, 255, 255, 0.82);
-  --ui-tcl-focus: rgba(0, 96, 226, 0.7);
-  --ui-tcl-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ui-tcl-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --ui-tcl-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-tcl-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  --ui-tcl-mono: var(--aui-font-mono, ui-monospace, "SF Mono", Menlo, monospace);
   box-sizing: border-box;
   min-width: 0;
   color: var(--ui-tcl-text);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13.5px;
   line-height: 1.4;
   letter-spacing: -0.006em;
@@ -551,9 +551,9 @@ const css = /* css */ `
 
 .ui-tcl {
   position: relative;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-lg, 16px) - 4px);
   background: var(--ui-tcl-bg);
-  box-shadow: inset 0 0 0 1px var(--ui-tcl-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  box-shadow: var(--aui-shadow-card, inset 0 0 0 1px var(--ui-tcl-line), 0 1px 2px rgba(0, 0, 0, 0.04));
 }
 .ui-tcl-sr {
   position: absolute;
@@ -574,11 +574,11 @@ const css = /* css */ `
   width: 100%;
   min-height: 44px;
   padding: 8px 10px 8px 9px;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-lg, 16px) - 4px);
   cursor: pointer;
   transition: background-color 160ms ease;
 }
-.ui-tcl[data-open] .ui-tcl__head { border-radius: 12px 12px 0 0; }
+.ui-tcl[data-open] .ui-tcl__head { border-radius: calc(var(--aui-radius-lg, 16px) - 4px) calc(var(--aui-radius-lg, 16px) - 4px) 0 0; }
 .ui-tcl__head:focus-visible,
 .ui-tcl-group__head:focus-visible,
 .ui-tcl__copy:focus-visible,
@@ -708,7 +708,7 @@ const css = /* css */ `
   place-items: center;
   width: 24px;
   height: 24px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 7px) - 1px);
   color: var(--ui-tcl-muted);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
@@ -735,7 +735,7 @@ const css = /* css */ `
   margin: 0;
   padding: 10px 12px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: var(--ui-tcl-code);
   box-shadow: inset 0 0 0 1px var(--ui-tcl-line);
   color: var(--ui-tcl-muted);
@@ -755,7 +755,7 @@ const css = /* css */ `
   right: 1px;
   bottom: 1px;
   height: 56px;
-  border-radius: 0 0 7px 7px;
+  border-radius: 0 0 var(--aui-radius-sm, 7px) var(--aui-radius-sm, 7px);
   background: linear-gradient(to bottom, transparent, var(--ui-tcl-code));
   opacity: 0;
   transition: opacity 240ms ease;
@@ -787,7 +787,7 @@ const css = /* css */ `
   align-items: flex-start;
   gap: 8px;
   padding: 9px 10px 9px 11px;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 1px);
   background: var(--ui-tcl-red-bg);
   box-shadow: inset 0 0 0 1px var(--ui-tcl-red-line);
 }
@@ -814,7 +814,7 @@ const css = /* css */ `
   height: 26px;
   margin: -3px 0;
   padding: 0 10px 0 8px;
-  border-radius: 7px;
+  border-radius: var(--aui-radius-sm, 7px);
   background: var(--ui-tcl-bg);
   box-shadow: inset 0 0 0 1px var(--ui-tcl-line), 0 1px 2px rgba(0, 0, 0, 0.04);
   color: var(--ui-tcl-ink);
@@ -838,7 +838,7 @@ const css = /* css */ `
   max-width: 100%;
   min-height: 36px;
   padding: 4px 10px 4px 5px;
-  border-radius: 10px;
+  border-radius: var(--aui-radius, 10px);
   color: var(--ui-tcl-text);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
@@ -920,24 +920,24 @@ const css = /* css */ `
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tcl,
 :where(.dark, [data-theme="dark"]) .ui-tcl-group {
-  --ui-tcl-ink: #ededed;
-  --ui-tcl-text: #a1a1a1;
-  --ui-tcl-muted: #7c7c7c;
-  --ui-tcl-bg: #161618;
-  --ui-tcl-line: rgba(255, 255, 255, 0.1);
-  --ui-tcl-hover: rgba(255, 255, 255, 0.035);
+  --ui-tcl-ink: var(--aui-ink, #ededed);
+  --ui-tcl-text: var(--aui-muted, #a1a1a1);
+  --ui-tcl-muted: var(--aui-muted, #7c7c7c);
+  --ui-tcl-bg: var(--aui-surface, #161618);
+  --ui-tcl-line: var(--aui-border, rgba(255, 255, 255, 0.1));
+  --ui-tcl-hover: var(--aui-subtle, rgba(255, 255, 255, 0.035));
   --ui-tcl-tile: #1d1d20;
   --ui-tcl-code: #1d1d20;
   --ui-tcl-ring: #161618;
-  --ui-tcl-red: #ff8a7a;
-  --ui-tcl-red-bg: rgba(255, 107, 95, 0.08);
-  --ui-tcl-red-line: rgba(255, 107, 95, 0.2);
+  --ui-tcl-red: var(--aui-danger, #ff8a7a);
+  --ui-tcl-red-bg: color-mix(in srgb, var(--aui-red, #ff6b5f) 8%, transparent);
+  --ui-tcl-red-line: color-mix(in srgb, var(--aui-red, #ff6b5f) 20%, transparent);
   --ui-tcl-key: #ededed;
-  --ui-tcl-str: #4fc3b4;
-  --ui-tcl-num: #f2a15c;
+  --ui-tcl-str: var(--aui-teal, #4fc3b4);
+  --ui-tcl-num: var(--aui-orange, #f2a15c);
   --ui-tcl-lit: #cfaef5;
   --ui-tcl-shine: rgba(255, 255, 255, 0.95);
-  --ui-tcl-focus: rgba(77, 141, 255, 0.8);
+  --ui-tcl-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
-:where(.dark, [data-theme="dark"]) .ui-tcl { box-shadow: inset 0 0 0 1px var(--ui-tcl-line); }
+:where(.dark, [data-theme="dark"]) .ui-tcl { box-shadow: var(--aui-shadow-card, inset 0 0 0 1px var(--ui-tcl-line)); }
 `;

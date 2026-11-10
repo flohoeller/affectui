@@ -467,7 +467,7 @@ const css = /* css */ `
   --ui-btn-fill: rgba(255, 255, 255, 0.06);
   --ui-btn-shine: rgba(237, 237, 237, 0.95);
   --ui-btn-danger: var(--aui-danger, #ff8a7a);
-  --ui-btn-danger-bg: rgba(255, 107, 95, 0.16);
+  --ui-btn-danger-bg: color-mix(in srgb, var(--aui-red, #ff6b5f) 16%, transparent);
   --ui-btn-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -151,17 +151,17 @@ const DoneIcon = () => (
 
 const css = /* css */ `
 .ui-di {
-  --ui-di-tray: #f0f0f0;
-  --ui-di-card: #ffffff;
-  --ui-di-line: #f0f0f0;
-  --ui-di-ink: #171717;
-  --ui-di-text: #404040;
-  --ui-di-muted: #8f8f8f;
-  --ui-di-faint: #b5b5b5;
+  --ui-di-tray: var(--aui-subtle, #f0f0f0);
+  --ui-di-card: var(--aui-surface, #ffffff);
+  --ui-di-line: var(--aui-border, #f0f0f0);
+  --ui-di-ink: var(--aui-ink, #171717);
+  --ui-di-text: var(--aui-ink, #404040);
+  --ui-di-muted: var(--aui-muted, #8f8f8f);
+  --ui-di-faint: var(--aui-placeholder, #b5b5b5);
   --ui-di-alert: #e6730e;
-  --ui-di-ok: #1e8a4f;
-  --ui-di-focus: rgba(0, 96, 226, 0.7);
-  --ui-di-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-di-ok: var(--aui-success, #1e8a4f);
+  --ui-di-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-di-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 440px;
@@ -169,8 +169,8 @@ const css = /* css */ `
   background: var(--ui-di-tray);
   /* The gray tray frames the white card on every side */
   padding: 6px;
-  border-radius: 22px;
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 6px);
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-di-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -194,8 +194,8 @@ const css = /* css */ `
 .ui-di__card {
   overflow: hidden;
   background: var(--ui-di-card);
-  border: 1px solid #e5e5e5;
-  border-radius: 16px;
+  border: 1px solid var(--aui-border, #e5e5e5);
+  border-radius: var(--aui-radius-lg, 16px);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.06);
 }
 
@@ -272,9 +272,9 @@ const css = /* css */ `
   min-height: 30px;
   padding: 5px 12px;
   border: 0;
-  border-radius: 9px;
-  background: #fff;
-  box-shadow: 0 0 0 1px #e5e5e5, 0 1px 2px rgba(0, 0, 0, 0.04);
+  border-radius: calc(var(--aui-radius, 10px) - 1px);
+  background: var(--aui-surface, #fff);
+  box-shadow: 0 0 0 1px var(--aui-border, #e5e5e5), 0 1px 2px rgba(0, 0, 0, 0.04);
   font-size: 13px !important;
   font-weight: 500;
   line-height: 20px;
@@ -326,24 +326,24 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-di {
-  --ui-di-focus: rgba(77, 141, 255, 0.8);
-  --ui-di-tray: #161618;
-  --ui-di-card: #232326;
-  --ui-di-line: rgba(255, 255, 255, 0.08);
-  --ui-di-ink: #ededed;
-  --ui-di-text: #c4c4c4;
-  --ui-di-muted: #8f8f8f;
-  --ui-di-faint: #6b6b70;
-  --ui-di-alert: #f28a2e;
+  --ui-di-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-di-tray: var(--aui-subtle, #161618);
+  --ui-di-card: var(--aui-surface, #232326);
+  --ui-di-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-di-ink: var(--aui-ink, #ededed);
+  --ui-di-text: var(--aui-ink, #c4c4c4);
+  --ui-di-muted: var(--aui-muted, #8f8f8f);
+  --ui-di-faint: var(--aui-placeholder, #6b6b70);
+  --ui-di-alert: var(--aui-orange, #f28a2e);
   --ui-di-ok: #41bd74;
 }
 :where(.dark, [data-theme="dark"]) .ui-di__card {
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+  border-color: var(--aui-border, rgba(255, 255, 255, 0.08));
+  box-shadow: var(--aui-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.4));
 }
 :where(.dark, [data-theme="dark"]) .ui-di__btn {
-  background: #2a2a2d;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+  background: var(--aui-surface, #2a2a2d);
+  box-shadow: 0 0 0 1px var(--aui-border, rgba(255, 255, 255, 0.1)), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 :where(.dark, [data-theme="dark"]) .ui-di__btn:hover { background: #313135; }
 /* The dark primary button inverts, like on the site */

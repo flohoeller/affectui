@@ -521,36 +521,36 @@ const css = /* css */ `
 .ui-tclc,
 .ui-tclc-group {
   --ui-tclc-card: #ffffff;
-  --ui-tclc-strong: #000000;
-  --ui-tclc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tclc-text: rgba(0, 0, 0, 0.61);
-  --ui-tclc-muted: rgba(0, 0, 0, 0.45);
-  --ui-tclc-faint: rgba(0, 0, 0, 0.27);
-  --ui-tclc-icon: rgba(0, 0, 0, 0.447);
-  --ui-tclc-line: rgba(0, 0, 0, 0.06);
-  --ui-tclc-wash: rgba(0, 0, 0, 0.03);
-  --ui-tclc-wash-big: rgba(0, 0, 0, 0.015);
+  --ui-tclc-strong: var(--aui-ink, #000000);
+  --ui-tclc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tclc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-tclc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-tclc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-tclc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-tclc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-tclc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-tclc-wash-big: var(--aui-subtle, rgba(0, 0, 0, 0.015));
   /* The code panel: a 2% black frame, kept opaque so the fade of capped blocks can end on it */
   --ui-tclc-code: #fafafa;
   --ui-tclc-accent: rgba(0, 96, 226, 0.765);
-  --ui-tclc-red: #f04438;
-  --ui-tclc-red-bg: rgba(240, 68, 56, 0.04);
-  --ui-tclc-red-line: rgba(240, 68, 56, 0.14);
+  --ui-tclc-red: var(--aui-red, #f04438);
+  --ui-tclc-red-bg: color-mix(in srgb, var(--aui-red, #f04438) 4%, transparent);
+  --ui-tclc-red-line: color-mix(in srgb, var(--aui-red, #f04438) 14%, transparent);
   --ui-tclc-key: rgba(0, 0, 0, 0.88);
-  --ui-tclc-str: rgba(20, 179, 240, 0.9);
-  --ui-tclc-num: #b25e00;
-  --ui-tclc-lit: #a651f0;
+  --ui-tclc-str: color-mix(in srgb, var(--aui-cyan, #14b3f0) 90%, transparent);
+  --ui-tclc-num: var(--aui-warning, #b25e00);
+  --ui-tclc-lit: var(--aui-purple, #a651f0);
   --ui-tclc-shine: rgba(255, 255, 255, 0.82);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-tclc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-tclc-focus: rgba(0, 96, 226, 0.7);
-  --ui-tclc-ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --ui-tclc-mono: ui-monospace, "SF Mono", Menlo, monospace;
+  --ui-tclc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-tclc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
+  --ui-tclc-mono: var(--aui-font-mono, ui-monospace, "SF Mono", Menlo, monospace);
   box-sizing: border-box;
   container-type: inline-size;
   min-width: 0;
   color: var(--ui-tclc-ink);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -561,9 +561,9 @@ const css = /* css */ `
 
 .ui-tclc {
   position: relative;
-  border-radius: 10px;
-  background: var(--ui-tclc-card);
-  box-shadow: var(--ui-tclc-shadow);
+  border-radius: var(--aui-radius-lg, 10px);
+  background: var(--aui-surface, var(--ui-tclc-card));
+  box-shadow: var(--aui-shadow-card, var(--ui-tclc-shadow));
 }
 .ui-tclc-sr {
   position: absolute;
@@ -584,12 +584,12 @@ const css = /* css */ `
   width: 100%;
   min-height: 44px;
   padding: 0 14px;
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   cursor: pointer;
   transition: background-color 160ms ease, border-radius 0ms linear 380ms;
 }
 .ui-tclc[data-open] .ui-tclc__head {
-  border-radius: 10px 10px 0 0;
+  border-radius: var(--aui-radius-lg, 10px) var(--aui-radius-lg, 10px) 0 0;
   transition: background-color 160ms ease;
 }
 .ui-tclc__head:focus-visible,
@@ -733,8 +733,8 @@ const css = /* css */ `
   place-items: center;
   width: 28px;
   height: 28px;
-  border-radius: 6px;
-  background: var(--ui-tclc-card);
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
+  background: var(--aui-surface, var(--ui-tclc-card));
   box-shadow: var(--ui-tclc-shadow);
   color: var(--ui-tclc-icon);
   cursor: pointer;
@@ -763,7 +763,7 @@ const css = /* css */ `
   margin: 0;
   padding: 10px 12px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 3px);
   background: var(--ui-tclc-code);
   box-shadow: inset 0 0 0 0.5px var(--ui-tclc-line);
   color: var(--ui-tclc-muted);
@@ -783,7 +783,7 @@ const css = /* css */ `
   right: 0.5px;
   bottom: 0.5px;
   height: 56px;
-  border-radius: 0 0 7.5px 7.5px;
+  border-radius: 0 0 calc(var(--aui-radius-sm, 5px) + 2.5px) calc(var(--aui-radius-sm, 5px) + 2.5px);
   background: linear-gradient(to bottom, transparent, var(--ui-tclc-code));
   opacity: 0;
   transition: opacity 240ms ease;
@@ -817,7 +817,7 @@ const css = /* css */ `
   gap: 8px;
   min-height: 44px;
   padding: 8px 8px 8px 12px;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 3px);
   background: var(--ui-tclc-red-bg);
   box-shadow: inset 0 0 0 0.5px var(--ui-tclc-red-line);
 }
@@ -845,8 +845,8 @@ const css = /* css */ `
   flex: none;
   height: 28px;
   padding: 0 10px 0 6px;
-  border-radius: 6px;
-  background: var(--ui-tclc-card);
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
+  background: var(--aui-surface, var(--ui-tclc-card));
   box-shadow: var(--ui-tclc-shadow);
   color: var(--ui-tclc-strong);
   font-size: 13px;
@@ -871,7 +871,7 @@ const css = /* css */ `
   min-height: 32px;
   margin-left: -6px;
   padding: 4px 10px 4px 6px;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius, 7px) + 1px);
   color: var(--ui-tclc-ink);
   cursor: pointer;
   transition: background-color 160ms ease, color 160ms ease;
@@ -965,26 +965,26 @@ const css = /* css */ `
 :where(.dark, [data-theme="dark"]) .ui-tclc,
 :where(.dark, [data-theme="dark"]) .ui-tclc-group {
   --ui-tclc-card: #1c1c1e;
-  --ui-tclc-strong: #ffffff;
-  --ui-tclc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tclc-text: rgba(255, 255, 255, 0.62);
-  --ui-tclc-muted: rgba(255, 255, 255, 0.46);
-  --ui-tclc-faint: rgba(255, 255, 255, 0.3);
-  --ui-tclc-icon: rgba(255, 255, 255, 0.5);
-  --ui-tclc-line: rgba(255, 255, 255, 0.08);
-  --ui-tclc-wash: rgba(255, 255, 255, 0.04);
-  --ui-tclc-wash-big: rgba(255, 255, 255, 0.025);
+  --ui-tclc-strong: var(--aui-ink, #ffffff);
+  --ui-tclc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tclc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tclc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-tclc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-tclc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-tclc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-tclc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-tclc-wash-big: var(--aui-subtle, rgba(255, 255, 255, 0.025));
   --ui-tclc-code: #212123;
-  --ui-tclc-accent: #4fb0fe;
-  --ui-tclc-red: #ff8a7a;
-  --ui-tclc-red-bg: rgba(255, 107, 95, 0.07);
-  --ui-tclc-red-line: rgba(255, 107, 95, 0.18);
+  --ui-tclc-accent: var(--aui-blue, #4fb0fe);
+  --ui-tclc-red: var(--aui-danger, #ff8a7a);
+  --ui-tclc-red-bg: color-mix(in srgb, var(--aui-red, #ff6b5f) 7%, transparent);
+  --ui-tclc-red-line: color-mix(in srgb, var(--aui-red, #ff6b5f) 18%, transparent);
   --ui-tclc-key: rgba(255, 255, 255, 0.9);
-  --ui-tclc-str: #5cc6ee;
-  --ui-tclc-num: #f2a15c;
+  --ui-tclc-str: var(--aui-cyan, #5cc6ee);
+  --ui-tclc-num: var(--aui-orange, #f2a15c);
   --ui-tclc-lit: #cfaff5;
   --ui-tclc-shine: #ffffff;
   --ui-tclc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tclc-focus: rgba(77, 141, 255, 0.8);
+  --ui-tclc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

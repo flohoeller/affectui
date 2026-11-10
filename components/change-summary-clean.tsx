@@ -103,31 +103,31 @@ const DashIcon = () => (
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-csc */
 .ui-csc {
-  --ui-csc-card: #ffffff;
-  --ui-csc-ink: rgba(0, 0, 0, 0.88);
-  --ui-csc-strong: #000000;
-  --ui-csc-text: rgba(0, 0, 0, 0.61);
-  --ui-csc-muted: rgba(0, 0, 0, 0.45);
-  --ui-csc-icon: rgba(0, 0, 0, 0.447);
-  --ui-csc-line: rgba(0, 0, 0, 0.06);
-  --ui-csc-wash: rgba(0, 0, 0, 0.015);
-  --ui-csc-good: #1e8a4f;
-  --ui-csc-good-fill: rgba(95, 200, 138, 0.08);
-  --ui-csc-bad: #f04438;
-  --ui-csc-bad-fill: rgba(240, 68, 56, 0.08);
-  --ui-csc-neutral-fill: rgba(0, 0, 0, 0.04);
+  --ui-csc-card: var(--aui-surface, #ffffff);
+  --ui-csc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-csc-strong: var(--aui-ink, #000000);
+  --ui-csc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-csc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-csc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-csc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-csc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.015));
+  --ui-csc-good: var(--aui-success, #1e8a4f);
+  --ui-csc-good-fill: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
+  --ui-csc-bad: var(--aui-red, #f04438);
+  --ui-csc-bad-fill: color-mix(in srgb, var(--aui-red, #f04438) 8%, transparent);
+  --ui-csc-neutral-fill: var(--aui-subtle, rgba(0, 0, 0, 0.04));
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-csc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-csc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-csc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-csc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   width: 100%;
   max-width: 480px;
   container-type: inline-size;
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-csc-card);
   box-shadow: var(--ui-csc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -230,19 +230,19 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-csc {
-  --ui-csc-card: #1c1c1e;
-  --ui-csc-ink: rgba(255, 255, 255, 0.9);
-  --ui-csc-strong: #ffffff;
-  --ui-csc-text: rgba(255, 255, 255, 0.62);
-  --ui-csc-muted: rgba(255, 255, 255, 0.46);
-  --ui-csc-icon: rgba(255, 255, 255, 0.5);
-  --ui-csc-line: rgba(255, 255, 255, 0.08);
-  --ui-csc-wash: rgba(255, 255, 255, 0.025);
-  --ui-csc-good: #5fc88a;
-  --ui-csc-good-fill: rgba(125, 207, 159, 0.14);
-  --ui-csc-bad: #ff6b5f;
-  --ui-csc-bad-fill: rgba(255, 107, 95, 0.14);
-  --ui-csc-neutral-fill: rgba(255, 255, 255, 0.08);
-  --ui-csc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-csc-card: var(--aui-surface, #1c1c1e);
+  --ui-csc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-csc-strong: var(--aui-ink, #ffffff);
+  --ui-csc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-csc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-csc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-csc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-csc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.025));
+  --ui-csc-good: var(--aui-green, #5fc88a);
+  --ui-csc-good-fill: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
+  --ui-csc-bad: var(--aui-red, #ff6b5f);
+  --ui-csc-bad-fill: color-mix(in srgb, var(--aui-red, #ff6b5f) 14%, transparent);
+  --ui-csc-neutral-fill: var(--aui-subtle, rgba(255, 255, 255, 0.08));
+  --ui-csc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
 }
 `;

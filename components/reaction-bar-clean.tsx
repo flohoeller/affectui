@@ -159,15 +159,15 @@ const icons: Record<ReactionKey, ReactNode> = {
 
 const css = /* css */ `
 .ui-rbc {
-  --ui-rbc-ink: rgba(0, 0, 0, 0.88);
-  --ui-rbc-text: rgba(0, 0, 0, 0.61);
-  --ui-rbc-icon: rgba(0, 0, 0, 0.447);
-  --ui-rbc-line: rgba(0, 0, 0, 0.06);
-  --ui-rbc-wash: rgba(0, 0, 0, 0.03);
+  --ui-rbc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-rbc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-rbc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-rbc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-rbc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
   --ui-rbc-accent: rgba(0, 96, 226, 0.765);
   --ui-rbc-mine: rgba(0, 96, 226, 0.05);
   --ui-rbc-mine-line: rgba(0, 96, 226, 0.35);
-  --ui-rbc-focus: rgba(0, 96, 226, 0.7);
+  --ui-rbc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-rbc-ease: cubic-bezier(0.85, 0, 0.15, 1);
   --ui-rbc-h: 28px;
   display: inline-flex;
@@ -175,7 +175,7 @@ const css = /* css */ `
   flex-wrap: wrap;
   gap: 4px;
   max-width: 100%;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
@@ -194,7 +194,7 @@ const css = /* css */ `
   align-items: center;
   height: var(--ui-rbc-h);
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   box-shadow: inset 0 0 0 0.5px var(--ui-rbc-line);
   color: var(--ui-rbc-text);
   transition: background-color 90ms ease, box-shadow 160ms ease, color 160ms ease;
@@ -260,14 +260,14 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-rbc {
-  --ui-rbc-ink: rgba(255, 255, 255, 0.9);
-  --ui-rbc-text: rgba(255, 255, 255, 0.62);
-  --ui-rbc-icon: rgba(255, 255, 255, 0.46);
-  --ui-rbc-line: rgba(255, 255, 255, 0.08);
-  --ui-rbc-wash: rgba(255, 255, 255, 0.04);
-  --ui-rbc-accent: #4fb0fe;
+  --ui-rbc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-rbc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-rbc-icon: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-rbc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-rbc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-rbc-accent: var(--aui-blue, #4fb0fe);
   --ui-rbc-mine: rgba(77, 141, 255, 0.14);
   --ui-rbc-mine-line: rgba(77, 141, 255, 0.4);
-  --ui-rbc-focus: rgba(77, 141, 255, 0.8);
+  --ui-rbc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

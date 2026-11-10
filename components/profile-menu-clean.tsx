@@ -235,29 +235,29 @@ const defaultItems: ProfileMenuItem[] = [
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-pmc */
 .ui-pmc {
-  --ui-pmc-card: #ffffff;
-  --ui-pmc-strong: #000000;
-  --ui-pmc-ink: rgba(0, 0, 0, 0.88);
-  --ui-pmc-text: rgba(0, 0, 0, 0.61);
-  --ui-pmc-muted: rgba(0, 0, 0, 0.45);
-  --ui-pmc-faint: rgba(0, 0, 0, 0.27);
-  --ui-pmc-icon: rgba(0, 0, 0, 0.447);
-  --ui-pmc-line: rgba(0, 0, 0, 0.06);
-  --ui-pmc-wash: rgba(0, 0, 0, 0.03);
-  --ui-pmc-hover: rgba(0, 0, 0, 0.06);
+  --ui-pmc-card: var(--aui-overlay, #ffffff);
+  --ui-pmc-strong: var(--aui-ink, #000000);
+  --ui-pmc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-pmc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-pmc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-pmc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-pmc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-pmc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-pmc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-pmc-hover: var(--aui-subtle, rgba(0, 0, 0, 0.06));
   --ui-pmc-track: rgba(0, 0, 0, 0.06);
   --ui-pmc-accent: rgba(0, 96, 226, 0.765);
-  --ui-pmc-focus: rgba(0, 96, 226, 0.7);
+  --ui-pmc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-pmc-badge: #e12a1d;
-  --ui-pmc-badge-wash: rgba(240, 68, 56, 0.08);
+  --ui-pmc-badge-wash: color-mix(in srgb, var(--aui-red, #f04438) 8%, transparent);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift, like a popover */
-  --ui-pmc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-pmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-pmc-shadow: var(--aui-shadow-popover, 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-pmc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   width: 100%;
   max-width: 260px;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -271,7 +271,7 @@ const css = /* css */ `
 /* One white menu card – the edge is a shadow, not a border */
 .ui-pmc__card {
   padding: 4px;
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-pmc-card);
   box-shadow: var(--ui-pmc-shadow);
 }
@@ -321,7 +321,7 @@ const css = /* css */ `
   width: 100%;
   height: 32px;
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   color: var(--ui-pmc-ink);
   transition: background-color 140ms ease;
 }
@@ -357,7 +357,7 @@ const css = /* css */ `
   white-space: nowrap;
   text-overflow: ellipsis;
   padding: 0 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-pmc-badge-wash);
   font-size: 11px;
   font-weight: 500;
@@ -408,7 +408,7 @@ const css = /* css */ `
   height: 28px;
   margin: 6px -8px 0;
   padding: 0 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   color: var(--ui-pmc-ink);
   transition: background-color 140ms ease;
 }
@@ -442,22 +442,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-pmc {
-  --ui-pmc-card: #1c1c1e;
-  --ui-pmc-strong: #ffffff;
-  --ui-pmc-ink: rgba(255, 255, 255, 0.9);
-  --ui-pmc-text: rgba(255, 255, 255, 0.62);
-  --ui-pmc-muted: rgba(255, 255, 255, 0.46);
-  --ui-pmc-faint: rgba(255, 255, 255, 0.3);
-  --ui-pmc-icon: rgba(255, 255, 255, 0.46);
-  --ui-pmc-line: rgba(255, 255, 255, 0.08);
-  --ui-pmc-wash: rgba(255, 255, 255, 0.04);
-  --ui-pmc-hover: rgba(255, 255, 255, 0.08);
+  --ui-pmc-card: var(--aui-overlay, #1c1c1e);
+  --ui-pmc-strong: var(--aui-ink, #ffffff);
+  --ui-pmc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-pmc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-pmc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-pmc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-pmc-icon: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-pmc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-pmc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-pmc-hover: var(--aui-subtle, rgba(255, 255, 255, 0.08));
   --ui-pmc-track: rgba(255, 255, 255, 0.1);
-  --ui-pmc-accent: #4fb0fe;
-  --ui-pmc-focus: rgba(77, 141, 255, 0.8);
-  --ui-pmc-badge: #ff8a7a;
-  --ui-pmc-badge-wash: rgba(255, 107, 95, 0.14);
-  --ui-pmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --ui-pmc-accent: var(--aui-blue, #4fb0fe);
+  --ui-pmc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-pmc-badge: var(--aui-danger, #ff8a7a);
+  --ui-pmc-badge-wash: color-mix(in srgb, var(--aui-red, #ff6b5f) 14%, transparent);
+  --ui-pmc-shadow: var(--aui-shadow-popover, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4));
 }
 :where(.dark, [data-theme="dark"]) .ui-pmc__item:active { background: rgba(255, 255, 255, 0.1); }
 `;

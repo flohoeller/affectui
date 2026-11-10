@@ -398,18 +398,18 @@ const css = /* css */ `
 @property --ui-segc-fade-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
 
 .ui-segc {
-  --ui-segc-ink: rgba(0, 0, 0, 0.88);
-  --ui-segc-text: rgba(0, 0, 0, 0.61);
+  --ui-segc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-segc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
   --ui-segc-hover-text: rgba(0, 0, 0, 0.75);
-  --ui-segc-line: rgba(0, 0, 0, 0.06);
-  --ui-segc-wash: rgba(0, 0, 0, 0.03);
+  --ui-segc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-segc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
   --ui-segc-fill: rgba(0, 0, 0, 0.06);
-  --ui-segc-track: rgba(0, 0, 0, 0.04);
-  --ui-segc-card: #ffffff;
+  --ui-segc-track: var(--aui-subtle, rgba(0, 0, 0, 0.04));
+  --ui-segc-card: var(--aui-surface, #ffffff);
   --ui-segc-card-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-segc-accent: rgba(0, 96, 226, 0.765);
   --ui-segc-accent-soft: rgba(0, 96, 226, 0.08);
-  --ui-segc-focus: rgba(0, 96, 226, 0.7);
+  --ui-segc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-segc-ease: cubic-bezier(0.25, 0.9, 0.3, 1);
   /* Size: md – 28px chips, 4px 10px */
   --ui-segc-h: 28px;
@@ -425,8 +425,8 @@ const css = /* css */ `
   max-width: 100%;
   min-width: 0;
   vertical-align: middle;
-  border-radius: 8px;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: calc(var(--aui-radius, 7px) + 1px);
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--ui-segc-fs);
   font-weight: 500;
   line-height: var(--ui-segc-lh);
@@ -486,7 +486,7 @@ const css = /* css */ `
   height: var(--ui-segc-h);
   padding: 0 var(--ui-segc-px);
   overflow: clip;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   white-space: nowrap;
   /* Hover washes are short and crisp, in and out */
   transition: color 90ms ease, background-color 90ms ease;
@@ -501,7 +501,7 @@ const css = /* css */ `
 
 .ui-segc__content { display: inline-flex; flex: none; align-items: center; gap: 6px; }
 .ui-segc[data-size="sm"] .ui-segc__content { gap: 5px; }
-.ui-segc__icon { display: grid; place-items: center; width: var(--ui-segc-icon); height: var(--ui-segc-icon); color: rgba(0, 0, 0, 0.447); transition: color 90ms ease; }
+.ui-segc__icon { display: grid; place-items: center; width: var(--ui-segc-icon); height: var(--ui-segc-icon); color: var(--aui-muted, rgba(0, 0, 0, 0.447)); transition: color 90ms ease; }
 .ui-segc__opt[data-active] .ui-segc__icon { color: var(--ui-segc-ink); }
 .ui-segc__icon svg, .ui-segc__icon img { width: 100%; height: 100%; }
 /* Images fill the tile without leaving it, whatever their shape */
@@ -515,7 +515,7 @@ const css = /* css */ `
   min-width: 16px;
   height: 16px;
   padding: 0 4px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-segc-fill);
   font-size: 11px;
   line-height: 16px;
@@ -525,13 +525,13 @@ const css = /* css */ `
   animation: ui-segc-in 200ms var(--ui-segc-ease) both;
 }
 .ui-segc__opt[data-active] .ui-segc__count { background: var(--ui-segc-card); box-shadow: 0 0 0 0.5px var(--ui-segc-line); color: var(--ui-segc-ink); }
-.ui-segc[data-size="sm"] .ui-segc__count { min-width: 14px; height: 14px; padding: 0 3px; border-radius: 4px; font-size: 10px; line-height: 14px; }
+.ui-segc[data-size="sm"] .ui-segc__count { min-width: 14px; height: 14px; padding: 0 3px; border-radius: calc(var(--aui-radius-sm, 5px) - 1px); font-size: 10px; line-height: 14px; }
 .ui-segc__badge {
   display: inline-flex;
   align-items: center;
   height: 18px;
   padding: 0 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-segc-accent-soft);
   font-size: 11px;
   line-height: 16px;
@@ -548,7 +548,7 @@ const css = /* css */ `
   left: 0;
   right: 100%;
   z-index: 0;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   background: var(--ui-segc-fill);
   opacity: 0;
   pointer-events: none;
@@ -599,19 +599,19 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-segc {
-  --ui-segc-ink: rgba(255, 255, 255, 0.9);
-  --ui-segc-text: rgba(255, 255, 255, 0.62);
+  --ui-segc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-segc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
   --ui-segc-hover-text: rgba(255, 255, 255, 0.78);
-  --ui-segc-line: rgba(255, 255, 255, 0.08);
-  --ui-segc-wash: rgba(255, 255, 255, 0.04);
+  --ui-segc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-segc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
   --ui-segc-fill: rgba(255, 255, 255, 0.08);
-  --ui-segc-track: rgba(255, 255, 255, 0.05);
-  --ui-segc-card: #2c2c2f;
+  --ui-segc-track: var(--aui-subtle, rgba(255, 255, 255, 0.05));
+  --ui-segc-card: var(--aui-surface, #2c2c2f);
   --ui-segc-card-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-segc-accent: #4fb0fe;
+  --ui-segc-accent: var(--aui-blue, #4fb0fe);
   --ui-segc-accent-soft: rgba(77, 141, 255, 0.14);
-  --ui-segc-focus: rgba(77, 141, 255, 0.8);
+  --ui-segc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
-:where(.dark, [data-theme="dark"]) .ui-segc__icon { color: rgba(255, 255, 255, 0.46); }
+:where(.dark, [data-theme="dark"]) .ui-segc__icon { color: var(--aui-muted, rgba(255, 255, 255, 0.46)); }
 :where(.dark, [data-theme="dark"]) .ui-segc__opt[data-active] .ui-segc__icon { color: var(--ui-segc-ink); }
 `;

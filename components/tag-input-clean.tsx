@@ -320,7 +320,7 @@ const css = /* css */ `
   --ui-tagc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(0, 0, 0, 0.13)), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-tagc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(0, 0, 0, 0.28)), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
   --ui-tagc-danger: var(--aui-danger, #c4320a);
-  --ui-tagc-danger-edge: rgba(240, 68, 56, 0.55);
+  --ui-tagc-danger-edge: color-mix(in srgb, var(--aui-red, #f04438) 55%, transparent);
   --ui-tagc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tagc-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -476,7 +476,7 @@ const css = /* css */ `
   --ui-tagc-shadow-hover: 0 0 0 0.5px var(--aui-border-strong, rgba(255, 255, 255, 0.2)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tagc-shadow-focus: 0 0 0 1px var(--aui-border-strong, rgba(255, 255, 255, 0.3)), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-tagc-danger: var(--aui-danger, #ff8a7a);
-  --ui-tagc-danger-edge: rgba(255, 107, 95, 0.5);
+  --ui-tagc-danger-edge: color-mix(in srgb, var(--aui-red, #ff6b5f) 50%, transparent);
   --ui-tagc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

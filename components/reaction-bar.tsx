@@ -159,14 +159,14 @@ const icons: Record<ReactionKey, ReactNode> = {
 
 const css = /* css */ `
 .ui-rb {
-  --ui-rb-ink: #404040;
-  --ui-rb-like: #ee3e9e;
-  --ui-rb-comment: #4fb0fe;
-  --ui-rb-focus: rgba(0, 96, 226, 0.7);
-  --ui-rb-repost: #a651f0;
-  --ui-rb-share: #171717;
+  --ui-rb-ink: var(--aui-ink, #404040);
+  --ui-rb-like: var(--aui-pink, #ee3e9e);
+  --ui-rb-comment: var(--aui-blue, #4fb0fe);
+  --ui-rb-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-rb-repost: var(--aui-purple, #a651f0);
+  --ui-rb-share: var(--aui-ink, #171717);
   --ui-rb-ease: cubic-bezier(0.85, 0, 0.15, 1);
-  --ui-rb-soft: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-rb-soft: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
@@ -176,9 +176,9 @@ const css = /* css */ `
   padding: 4px 10px;
   /* Half its one-row height – a pill; if huge counts wrap it to a second row it stays a rounded card */
   border-radius: 25px;
-  background: #fff;
-  box-shadow: 0 0 0 1px #ececec, 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--aui-surface, #fff);
+  box-shadow: var(--aui-shadow-card, 0 0 0 1px var(--aui-border, #ececec), 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03));
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
 }
 .ui-rb *, .ui-rb *::before, .ui-rb *::after { box-sizing: border-box; }
@@ -200,7 +200,7 @@ const css = /* css */ `
   transition: background-color 160ms ease;
   -webkit-tap-highlight-color: transparent;
 }
-.ui-rb__btn:hover { background: #f5f5f5; }
+.ui-rb__btn:hover { background: var(--aui-subtle, #f5f5f5); }
 .ui-rb__btn:focus-visible { outline: 2px solid var(--ui-rb-focus); outline-offset: 2px; }
 .ui-rb__btn[data-kind="like"] { --ui-rb-tone: var(--ui-rb-like); }
 .ui-rb__btn[data-kind="comment"] { --ui-rb-tone: var(--ui-rb-comment); }
@@ -251,14 +251,14 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-rb {
-  --ui-rb-ink: #c4c4c4;
-  --ui-rb-like: #f06db5;
-  --ui-rb-comment: #4fb0fe;
-  --ui-rb-focus: rgba(77, 141, 255, 0.8);
-  --ui-rb-repost: #b98af0;
-  --ui-rb-share: #ededed;
-  background: #232326;
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.35);
+  --ui-rb-ink: var(--aui-ink, #c4c4c4);
+  --ui-rb-like: var(--aui-pink, #f06db5);
+  --ui-rb-comment: var(--aui-blue, #4fb0fe);
+  --ui-rb-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-rb-repost: var(--aui-purple, #b98af0);
+  --ui-rb-share: var(--aui-ink, #ededed);
+  background: var(--aui-surface, #232326);
+  box-shadow: var(--aui-shadow-card, 0 0 0 1px var(--aui-border, rgba(255, 255, 255, 0.08)), 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.35));
 }
-:where(.dark, [data-theme="dark"]) .ui-rb__btn:hover { background: rgba(255, 255, 255, 0.06); }
+:where(.dark, [data-theme="dark"]) .ui-rb__btn:hover { background: var(--aui-subtle, rgba(255, 255, 255, 0.06)); }
 `;

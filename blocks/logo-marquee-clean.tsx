@@ -419,26 +419,26 @@ export function LogoMarquee({
 
 const css = /* css */ `
 .ui-lmc {
-  --ui-lmc-focus: rgba(0, 96, 226, 0.7);
+  --ui-lmc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-lmc-h: 24px;
   --ui-lmc-g: var(--ui-lmc-gap, 56px);
   --ui-lmc-row-gap: 24px;
   --ui-lmc-fade: min(20%, 168px);
   --ui-lmc-muted: rgba(0, 0, 0, 0.36);
   --ui-lmc-ink: rgba(0, 0, 0, 0.88);
-  --ui-lmc-label: rgba(0, 0, 0, 0.45);
+  --ui-lmc-label: var(--aui-muted, rgba(0, 0, 0, 0.45));
   --ui-lmc-dim: 0.6;
-  --ui-lmc-accent: #0070d6;
+  --ui-lmc-accent: var(--aui-info, #0070d6);
   --ui-lmc-tile: #fff;
   --ui-lmc-tile-ink: rgba(0, 0, 0, 0.61);
   --ui-lmc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-lmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-lmc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   container-type: inline-size;
   display: grid;
   gap: var(--ui-lmc-row-gap);
   width: 100%;
   min-width: 0;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   -webkit-font-smoothing: antialiased;
@@ -588,11 +588,11 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-lmc {
-  --ui-lmc-focus: rgba(77, 141, 255, 0.8);
+  --ui-lmc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
   --ui-lmc-muted: rgba(255, 255, 255, 0.4);
   --ui-lmc-ink: rgba(255, 255, 255, 0.88);
-  --ui-lmc-label: rgba(255, 255, 255, 0.45);
-  --ui-lmc-accent: #4fb0fe;
+  --ui-lmc-label: var(--aui-muted, rgba(255, 255, 255, 0.45));
+  --ui-lmc-accent: var(--aui-info, #4fb0fe);
   --ui-lmc-tile: #1c1c1e;
   --ui-lmc-tile-ink: rgba(255, 255, 255, 0.61);
   --ui-lmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.4);

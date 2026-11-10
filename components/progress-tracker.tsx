@@ -154,15 +154,15 @@ const num = new Intl.NumberFormat("en");
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-progress (see Theming in the docs) */
 .ui-progress {
-  --ui-pg-card: #ffffff;
-  --ui-pg-line: #e5e5e5;
-  --ui-pg-ink: #171717;
-  --ui-pg-muted: #a3a3a3;
-  --ui-pg-ring: #8f8f8f;
-  --ui-pg-focus: rgba(0, 96, 226, 0.7);
+  --ui-pg-card: var(--aui-surface, #ffffff);
+  --ui-pg-line: var(--aui-border, #e5e5e5);
+  --ui-pg-ink: var(--aui-ink, #171717);
+  --ui-pg-muted: var(--aui-muted, #a3a3a3);
+  --ui-pg-ring: var(--aui-border-strong, #8f8f8f);
+  --ui-pg-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-pg-track: #f0f0f0;
-  --ui-pg-hover: #f7f7f7;
-  --ui-pg-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-pg-hover: var(--aui-subtle, #f7f7f7);
+  --ui-pg-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   --ui-pg-pop: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   box-sizing: border-box;
@@ -171,11 +171,11 @@ const css = /* css */ `
   padding: 22px 16px 14px;
   background: var(--ui-pg-card);
   border: 1px solid var(--ui-pg-line);
-  border-radius: 20px;
+  border-radius: calc(var(--aui-radius-lg, 16px) + 4px);
   box-shadow:
     0 1px 2px rgba(0, 0, 0, 0.03),
     0 8px 24px rgba(0, 0, 0, 0.035);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   color: var(--ui-pg-ink);
   -webkit-font-smoothing: antialiased;
 }
@@ -263,7 +263,7 @@ const css = /* css */ `
   margin: 0;
   padding: 9px 6px;
   border: 0;
-  border-radius: 12px;
+  border-radius: calc(var(--aui-radius-sm, 7px) + 5px);
   background: transparent;
   font: inherit;
   font-size: 15px;
@@ -300,7 +300,7 @@ const css = /* css */ `
   width: 14px;
   height: 14px;
   fill: none;
-  stroke: #ffffff;
+  stroke: var(--aui-on-primary, #ffffff);
   stroke-width: 2.4;
   stroke-linecap: round;
   stroke-linejoin: round;
@@ -309,8 +309,8 @@ const css = /* css */ `
   transition: stroke-dashoffset 120ms ease-in;
 }
 .ui-progress__step[aria-checked="true"] .ui-progress__check {
-  background: var(--ui-pg-ink);
-  border-color: var(--ui-pg-ink);
+  background: var(--aui-primary, var(--ui-pg-ink));
+  border-color: var(--aui-primary, var(--ui-pg-ink));
   animation: ui-progress-pop 560ms var(--ui-pg-ease);
 }
 .ui-progress__step[aria-checked="true"] .ui-progress__check svg {
@@ -400,20 +400,20 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-progress {
-  --ui-pg-card: #232326;
-  --ui-pg-line: rgba(255, 255, 255, 0.08);
-  --ui-pg-ink: #ededed;
-  --ui-pg-muted: #8f8f8f;
-  --ui-pg-ring: #6b6b70;
-  --ui-pg-focus: rgba(77, 141, 255, 0.8);
+  --ui-pg-card: var(--aui-surface, #232326);
+  --ui-pg-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-pg-ink: var(--aui-ink, #ededed);
+  --ui-pg-muted: var(--aui-muted, #8f8f8f);
+  --ui-pg-ring: var(--aui-border-strong, #6b6b70);
+  --ui-pg-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
   --ui-pg-track: rgba(255, 255, 255, 0.1);
-  --ui-pg-hover: #2a2a2d;
+  --ui-pg-hover: var(--aui-subtle, #2a2a2d);
   box-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.4),
-    0 8px 24px rgba(0, 0, 0, 0.35);
+    var(--aui-shadow-card, 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.35));
 }
 /* The filled check is light in dark mode, so the tick turns dark */
-:where(.dark, [data-theme="dark"]) .ui-progress__check svg { stroke: #121213; }
+:where(.dark, [data-theme="dark"]) .ui-progress__check svg { stroke: var(--aui-on-primary, #121213); }
 :where(.dark, [data-theme="dark"]) .ui-progress__shine {
   background-image: linear-gradient(90deg, transparent 30%, rgba(255, 255, 255, 0.7) 50%, transparent 70%);
 }

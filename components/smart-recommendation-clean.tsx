@@ -223,44 +223,44 @@ const Icon = ({ d }: { d: string }) => (
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-src */
 .ui-src {
-  --ui-src-card: #ffffff;
-  --ui-src-strong: #000000;
-  --ui-src-ink: rgba(0, 0, 0, 0.88);
-  --ui-src-text: rgba(0, 0, 0, 0.61);
-  --ui-src-muted: rgba(0, 0, 0, 0.45);
+  --ui-src-card: var(--aui-surface, #ffffff);
+  --ui-src-strong: var(--aui-ink, #000000);
+  --ui-src-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-src-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-src-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
   --ui-src-faint: rgba(0, 0, 0, 0.27);
-  --ui-src-icon: rgba(0, 0, 0, 0.447);
-  --ui-src-line: rgba(0, 0, 0, 0.06);
-  --ui-src-wash: rgba(0, 0, 0, 0.03);
+  --ui-src-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-src-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-src-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
   --ui-src-fill: rgba(0, 0, 0, 0.06);
   --ui-src-bar: rgba(0, 0, 0, 0.1);
   --ui-src-accent: rgba(0, 96, 226, 0.765);
   --ui-src-accent-bg: rgba(0, 96, 226, 0.05);
   --ui-src-accent-line: rgba(0, 96, 226, 0.35);
   --ui-src-tag: rgba(0, 96, 226, 0.08);
-  --ui-src-alt: #a651f0;
-  --ui-src-alt-bg: rgba(166, 81, 240, 0.1);
-  --ui-src-ok: #1e8a4f;
-  --ui-src-ok-bg: rgba(95, 200, 138, 0.08);
-  --ui-src-warn: #e8b000;
-  --ui-src-solid: rgba(0, 0, 0, 0.88);
+  --ui-src-alt: var(--aui-purple, #a651f0);
+  --ui-src-alt-bg: color-mix(in srgb, var(--aui-purple, #a651f0) 10%, transparent);
+  --ui-src-ok: var(--aui-success, #1e8a4f);
+  --ui-src-ok-bg: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
+  --ui-src-warn: var(--aui-amber, #e8b000);
+  --ui-src-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
   --ui-src-solid-hover: rgba(0, 0, 0, 0.8);
-  --ui-src-on-solid: #fcfcfc;
+  --ui-src-on-solid: var(--aui-on-primary, #fcfcfc);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-src-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-src-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-src-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-src-focus: rgba(0, 96, 226, 0.7);
-  --ui-src-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-src-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-src-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-src-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   width: 100%;
   max-width: 440px;
   /* One white card – the edge is a shadow, not a border */
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-src-card);
-  box-shadow: var(--ui-src-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-shadow: var(--aui-shadow-card, var(--ui-src-shadow));
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -281,7 +281,7 @@ const css = /* css */ `
   width: 100%;
   height: 44px;
   padding: 0 12px 0 16px;
-  border-radius: 10px 10px 0 0;
+  border-radius: var(--aui-radius-lg, 10px) var(--aui-radius-lg, 10px) 0 0;
   text-align: left;
   transition: background-color 140ms ease;
 }
@@ -292,7 +292,7 @@ const css = /* css */ `
 .ui-src__pill {
   flex: none;
   padding: 0 6px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-src-alt-bg);
   font-size: 12px;
   font-weight: 500;
@@ -384,7 +384,7 @@ const css = /* css */ `
   gap: 6px;
   height: 28px;
   padding: 0 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   font-size: 13px;
   font-weight: 500;
   line-height: 20px;
@@ -412,7 +412,7 @@ const css = /* css */ `
   min-width: 0;
   height: 28px;
   padding: 0 10px 0 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   background: var(--ui-src-ok-bg);
   font-size: 13px;
   font-weight: 500;
@@ -438,8 +438,8 @@ const css = /* css */ `
   overflow-y: auto;
   overscroll-behavior: contain;
   padding: 4px;
-  border-radius: 10px;
-  background: var(--ui-src-card);
+  border-radius: var(--aui-radius-lg, 10px);
+  background: var(--aui-overlay, var(--ui-src-card));
   box-shadow: var(--ui-src-shadow-pop);
   animation: ui-src-drop 180ms var(--ui-src-ease);
 }
@@ -457,7 +457,7 @@ const css = /* css */ `
   gap: 10px;
   height: 32px;
   padding: 0 10px 0 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   font-size: 13px;
   line-height: 20px;
   text-align: left;
@@ -474,7 +474,7 @@ const css = /* css */ `
 .ui-src__tag {
   flex: none;
   padding: 0 5px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-src-tag);
   font-size: 11px;
   font-weight: 500;
@@ -507,34 +507,34 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-src {
-  --ui-src-card: #1c1c1e;
-  --ui-src-strong: #ffffff;
-  --ui-src-ink: rgba(255, 255, 255, 0.9);
-  --ui-src-text: rgba(255, 255, 255, 0.62);
-  --ui-src-muted: rgba(255, 255, 255, 0.46);
+  --ui-src-card: var(--aui-surface, #1c1c1e);
+  --ui-src-strong: var(--aui-ink, #ffffff);
+  --ui-src-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-src-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-src-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
   --ui-src-faint: rgba(255, 255, 255, 0.3);
-  --ui-src-icon: rgba(255, 255, 255, 0.46);
-  --ui-src-line: rgba(255, 255, 255, 0.08);
-  --ui-src-wash: rgba(255, 255, 255, 0.04);
+  --ui-src-icon: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-src-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-src-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
   --ui-src-fill: rgba(255, 255, 255, 0.08);
   --ui-src-bar: rgba(255, 255, 255, 0.14);
-  --ui-src-accent: #4fb0fe;
+  --ui-src-accent: var(--aui-blue, #4fb0fe);
   --ui-src-accent-bg: rgba(77, 141, 255, 0.14);
   --ui-src-accent-line: rgba(77, 141, 255, 0.4);
   --ui-src-tag: rgba(77, 141, 255, 0.16);
-  --ui-src-alt: #b98af0;
-  --ui-src-alt-bg: rgba(185, 138, 240, 0.22);
-  --ui-src-ok: #5fc88a;
-  --ui-src-ok-bg: rgba(125, 207, 159, 0.14);
-  --ui-src-warn: #e6c24d;
+  --ui-src-alt: var(--aui-purple, #b98af0);
+  --ui-src-alt-bg: color-mix(in srgb, var(--aui-purple, #b98af0) 22%, transparent);
+  --ui-src-ok: var(--aui-green, #5fc88a);
+  --ui-src-ok-bg: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
+  --ui-src-warn: var(--aui-amber, #e6c24d);
   /* The primary inverts: a light chip with dark text */
-  --ui-src-solid: rgba(255, 255, 255, 0.9);
+  --ui-src-solid: var(--aui-primary, rgba(255, 255, 255, 0.9));
   --ui-src-solid-hover: rgba(255, 255, 255, 0.82);
-  --ui-src-on-solid: #161618;
+  --ui-src-on-solid: var(--aui-on-primary, #161618);
   --ui-src-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-src-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-src-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 12px 28px -10px rgba(0, 0, 0, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-src-focus: rgba(77, 141, 255, 0.8);
+  --ui-src-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 12px 28px -10px rgba(0, 0, 0, 0.6), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
+  --ui-src-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
-:where(.dark, [data-theme="dark"]) .ui-src__menu { background: #232326; }
+:where(.dark, [data-theme="dark"]) .ui-src__menu { background: var(--aui-overlay, #232326); }
 `;

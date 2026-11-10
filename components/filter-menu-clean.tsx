@@ -338,33 +338,33 @@ const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-fmc */
 .ui-fmc {
   --ui-fmc-card: #ffffff;
-  --ui-fmc-ink: rgba(0, 0, 0, 0.88);
-  --ui-fmc-strong: #000000;
-  --ui-fmc-text: rgba(0, 0, 0, 0.61);
-  --ui-fmc-muted: rgba(0, 0, 0, 0.45);
-  --ui-fmc-faint: rgba(0, 0, 0, 0.27);
-  --ui-fmc-icon: rgba(0, 0, 0, 0.447);
-  --ui-fmc-line: rgba(0, 0, 0, 0.06);
+  --ui-fmc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-fmc-strong: var(--aui-ink, #000000);
+  --ui-fmc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-fmc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-fmc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-fmc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-fmc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
   --ui-fmc-fill: rgba(0, 0, 0, 0.06);
   --ui-fmc-fill-strong: rgba(0, 0, 0, 0.1);
-  --ui-fmc-wash: rgba(0, 0, 0, 0.03);
-  --ui-fmc-box-ring: rgba(0, 0, 0, 0.22);
+  --ui-fmc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-fmc-box-ring: var(--aui-border-strong, rgba(0, 0, 0, 0.22));
   --ui-fmc-accent: rgba(0, 96, 226, 0.765);
   --ui-fmc-check: #ffffff;
-  --ui-fmc-focus: rgba(0, 96, 226, 0.7);
+  --ui-fmc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-fmc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-fmc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-fmc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   --ui-fmc-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
   box-sizing: border-box;
   width: 100%;
   max-width: 400px;
   container-type: inline-size;
   overflow: hidden;
-  border-radius: 10px;
-  background: var(--ui-fmc-card);
-  box-shadow: var(--ui-fmc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  border-radius: var(--aui-radius-lg, 10px);
+  background: var(--aui-surface, var(--ui-fmc-card));
+  box-shadow: var(--aui-shadow-card, var(--ui-fmc-shadow));
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -385,7 +385,7 @@ const css = /* css */ `
   flex: none;
   height: 28px;
   padding: 0 8px !important;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   font-size: 13px;
   font-weight: 500;
   color: var(--ui-fmc-text);
@@ -408,8 +408,8 @@ const css = /* css */ `
   gap: 2px;
   height: 24px;
   padding: 0 3px 0 8px;
-  border-radius: 6px;
-  background: var(--ui-fmc-fill);
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
+  background: var(--aui-subtle, var(--ui-fmc-fill));
   font-size: 12px;
   line-height: 16px;
   font-weight: 500;
@@ -424,7 +424,7 @@ const css = /* css */ `
   flex: none;
   width: 18px;
   height: 18px;
-  border-radius: 4px;
+  border-radius: calc(var(--aui-radius-sm, 5px) - 1px);
   color: var(--ui-fmc-icon);
   transition: background-color 140ms ease, color 140ms ease;
 }
@@ -443,7 +443,7 @@ const css = /* css */ `
   width: 100%;
   height: 32px;
   padding: 0 8px !important;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   /* Hover comes in crisp and fades out when the pointer moves on */
   transition: background-color 140ms ease;
 }
@@ -492,7 +492,7 @@ const css = /* css */ `
   width: 100%;
   height: 32px;
   padding: 0 8px 0 32px !important;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   color: var(--ui-fmc-ink);
   transition: background-color 140ms ease;
 }
@@ -547,7 +547,7 @@ const css = /* css */ `
   min-width: 16px;
   height: 16px;
   padding: 0 4px;
-  border-radius: 4px;
+  border-radius: calc(var(--aui-radius-sm, 5px) - 1px);
   background: var(--ui-fmc-card);
   box-shadow: var(--ui-fmc-shadow);
   font-family: inherit;
@@ -584,20 +584,20 @@ const css = /* css */ `
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-fmc {
   --ui-fmc-card: #1c1c1e;
-  --ui-fmc-ink: rgba(255, 255, 255, 0.9);
-  --ui-fmc-strong: #ffffff;
-  --ui-fmc-text: rgba(255, 255, 255, 0.62);
-  --ui-fmc-muted: rgba(255, 255, 255, 0.46);
-  --ui-fmc-faint: rgba(255, 255, 255, 0.3);
-  --ui-fmc-icon: rgba(255, 255, 255, 0.5);
-  --ui-fmc-line: rgba(255, 255, 255, 0.08);
+  --ui-fmc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-fmc-strong: var(--aui-ink, #ffffff);
+  --ui-fmc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-fmc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-fmc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-fmc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-fmc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-fmc-fill: rgba(255, 255, 255, 0.08);
   --ui-fmc-fill-strong: rgba(255, 255, 255, 0.13);
-  --ui-fmc-wash: rgba(255, 255, 255, 0.04);
-  --ui-fmc-box-ring: rgba(255, 255, 255, 0.28);
-  --ui-fmc-accent: #4fb0fe;
+  --ui-fmc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-fmc-box-ring: var(--aui-border-strong, rgba(255, 255, 255, 0.28));
+  --ui-fmc-accent: var(--aui-blue, #4fb0fe);
   --ui-fmc-check: #ffffff;
-  --ui-fmc-focus: rgba(77, 141, 255, 0.8);
+  --ui-fmc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
   --ui-fmc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
 }
 `;

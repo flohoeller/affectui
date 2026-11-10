@@ -122,35 +122,35 @@ const CheckIcon = () => (
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-tpc */
 .ui-tpc {
-  --ui-tpc-card: #ffffff;
-  --ui-tpc-strong: #000000;
-  --ui-tpc-ink: rgba(0, 0, 0, 0.88);
-  --ui-tpc-text: rgba(0, 0, 0, 0.61);
-  --ui-tpc-muted: rgba(0, 0, 0, 0.45);
-  --ui-tpc-line: rgba(0, 0, 0, 0.06);
-  --ui-tpc-wash: rgba(0, 0, 0, 0.015);
+  --ui-tpc-card: var(--aui-surface, #ffffff);
+  --ui-tpc-strong: var(--aui-ink, #000000);
+  --ui-tpc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-tpc-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-tpc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-tpc-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-tpc-wash: var(--aui-subtle, rgba(0, 0, 0, 0.015));
   --ui-tpc-hover: rgba(0, 0, 0, 0.03);
-  --ui-tpc-ok: #1e8a4f;
-  --ui-tpc-primary: rgba(0, 0, 0, 0.88);
+  --ui-tpc-ok: var(--aui-success, #1e8a4f);
+  --ui-tpc-primary: var(--aui-primary, rgba(0, 0, 0, 0.88));
   --ui-tpc-primary-hover: rgba(0, 0, 0, 0.8);
-  --ui-tpc-on-primary: #fcfcfc;
+  --ui-tpc-on-primary: var(--aui-on-primary, #fcfcfc);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-tpc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --ui-tpc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
   --ui-tpc-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-tpc-focus: rgba(0, 96, 226, 0.7);
+  --ui-tpc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   /* Height of the tip list before it scrolls */
   --ui-tpc-max-height: 420px;
-  --ui-tpc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tpc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   width: 100%;
   max-width: 760px;
   /* One white card – the edge is a shadow, not a border */
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-tpc-card);
   box-shadow: var(--ui-tpc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   line-height: 20px;
   font-weight: 400;
@@ -214,7 +214,7 @@ const css = /* css */ `
   flex-direction: column;
   align-items: flex-start;
   padding: 12px;
-  border-radius: 8px;
+  border-radius: calc(var(--aui-radius-lg, 10px) - 2px);
   box-shadow: inset 0 0 0 0.5px var(--ui-tpc-line);
   animation: ui-tpc-in 480ms var(--ui-tpc-ease) both;
   transition: background-color 260ms ease;
@@ -248,7 +248,7 @@ const css = /* css */ `
   min-width: 20px;
   height: 18px;
   padding: 0 5px;
-  border-radius: 5px;
+  border-radius: var(--aui-radius-sm, 5px);
   background: var(--ui-tpc-card);
   box-shadow: var(--ui-tpc-shadow);
   font-family: inherit;
@@ -267,7 +267,7 @@ const css = /* css */ `
   max-width: 100%;
   min-height: 28px;
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   background: var(--ui-tpc-card);
   box-shadow: var(--ui-tpc-shadow);
   font-size: 13px !important;
@@ -327,22 +327,22 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tpc {
-  --ui-tpc-card: #1c1c1e;
-  --ui-tpc-strong: #ffffff;
-  --ui-tpc-ink: rgba(255, 255, 255, 0.9);
-  --ui-tpc-text: rgba(255, 255, 255, 0.62);
-  --ui-tpc-muted: rgba(255, 255, 255, 0.46);
-  --ui-tpc-line: rgba(255, 255, 255, 0.08);
-  --ui-tpc-wash: rgba(255, 255, 255, 0.03);
+  --ui-tpc-card: var(--aui-surface, #1c1c1e);
+  --ui-tpc-strong: var(--aui-ink, #ffffff);
+  --ui-tpc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-tpc-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-tpc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-tpc-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-tpc-wash: var(--aui-subtle, rgba(255, 255, 255, 0.03));
   --ui-tpc-hover: rgba(255, 255, 255, 0.04);
-  --ui-tpc-ok: #5fc88a;
-  --ui-tpc-primary: rgba(255, 255, 255, 0.9);
+  --ui-tpc-ok: var(--aui-green, #5fc88a);
+  --ui-tpc-primary: var(--aui-primary, rgba(255, 255, 255, 0.9));
   --ui-tpc-primary-hover: rgba(255, 255, 255, 0.8);
-  --ui-tpc-on-primary: #1c1c1e;
-  --ui-tpc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-tpc-on-primary: var(--aui-on-primary, #1c1c1e);
+  --ui-tpc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
   --ui-tpc-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-tpc-focus: rgba(77, 141, 255, 0.8);
+  --ui-tpc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
   color-scheme: dark;
 }
-:where(.dark, [data-theme="dark"]) .ui-tpc__btn:not(.ui-tpc__btn--primary) { background: #232326; }
+:where(.dark, [data-theme="dark"]) .ui-tpc__btn:not(.ui-tpc__btn--primary) { background: var(--aui-surface, #232326); }
 `;

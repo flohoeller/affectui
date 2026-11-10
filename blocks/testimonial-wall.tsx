@@ -460,22 +460,22 @@ export function TestimonialWall({
 
 const css = /* css */ `
 .ui-tw {
-  --ui-tw-card: #ffffff;
-  --ui-tw-line: #ececec;
-  --ui-tw-ink: #171717;
-  --ui-tw-text: #404040;
-  --ui-tw-muted: #8f8f8f;
-  --ui-tw-faint: #b5b5b5;
+  --ui-tw-card: var(--aui-surface, #ffffff);
+  --ui-tw-line: var(--aui-border, #ececec);
+  --ui-tw-ink: var(--aui-ink, #171717);
+  --ui-tw-text: var(--aui-ink, #404040);
+  --ui-tw-muted: var(--aui-muted, #8f8f8f);
+  --ui-tw-faint: var(--aui-placeholder, #b5b5b5);
   --ui-tw-star: #a3a3a8;
   --ui-tw-star-off: #e2e2e5;
   --ui-tw-initials: #f0f0f1;
-  --ui-tw-shadow: 0 0 0 1px var(--ui-tw-line), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --ui-tw-shadow: var(--aui-shadow-card, 0 0 0 1px var(--ui-tw-line), 0 1px 2px rgba(0, 0, 0, 0.04));
   --ui-tw-lift: 0 0 0 1px var(--ui-tw-line), 0 2px 4px rgba(0, 0, 0, 0.03), 0 12px 28px -10px rgba(0, 0, 0, 0.14);
-  --ui-tw-focus: rgba(0, 96, 226, 0.7);
+  --ui-tw-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tw-gap: 16px;
   --ui-tw-fade: 96px;
   --ui-tw-dim: 0.62;
-  --ui-tw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-tw-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   container-type: inline-size;
   display: grid;
   grid-template-columns: repeat(var(--ui-tw-cols, 3), minmax(0, 1fr));
@@ -491,7 +491,7 @@ const css = /* css */ `
   overflow: hidden;
   -webkit-mask-image: linear-gradient(180deg, transparent, #000 var(--ui-tw-fade), #000 calc(100% - var(--ui-tw-fade)), transparent);
   mask-image: linear-gradient(180deg, transparent, #000 var(--ui-tw-fade), #000 calc(100% - var(--ui-tw-fade)), transparent);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   -webkit-font-smoothing: antialiased;
 }
 
@@ -527,7 +527,7 @@ const css = /* css */ `
   gap: 14px;
   margin: 0;
   padding: 18px 20px 18px;
-  border-radius: 16px;
+  border-radius: var(--aui-radius-lg, 16px);
   background: var(--ui-tw-card);
   box-shadow: var(--ui-tw-shadow);
   color: var(--ui-tw-text);
@@ -647,18 +647,18 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-tw {
-  --ui-tw-card: #19191b;
-  --ui-tw-line: #2a2a2e;
-  --ui-tw-ink: #ededed;
-  --ui-tw-text: #c8c8cc;
-  --ui-tw-muted: #8b8b92;
-  --ui-tw-faint: #6b6b72;
+  --ui-tw-card: var(--aui-surface, #19191b);
+  --ui-tw-line: var(--aui-border, #2a2a2e);
+  --ui-tw-ink: var(--aui-ink, #ededed);
+  --ui-tw-text: var(--aui-ink, #c8c8cc);
+  --ui-tw-muted: var(--aui-muted, #8b8b92);
+  --ui-tw-faint: var(--aui-placeholder, #6b6b72);
   --ui-tw-star: #7a7a82;
   --ui-tw-star-off: #2f2f34;
   --ui-tw-initials: #232327;
-  --ui-tw-shadow: 0 0 0 1px var(--ui-tw-line);
+  --ui-tw-shadow: var(--aui-shadow-card, 0 0 0 1px var(--ui-tw-line));
   --ui-tw-lift: 0 0 0 1px #34343a, 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-tw-focus: rgba(77, 141, 255, 0.8);
+  --ui-tw-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 :where(.dark, [data-theme="dark"]) .ui-tw__avatar { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06); }
 `;

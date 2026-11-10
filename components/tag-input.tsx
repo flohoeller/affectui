@@ -321,7 +321,7 @@ const css = /* css */ `
   --ui-tag-flash: rgba(0, 96, 226, 0.14);
   --ui-tag-danger: var(--aui-danger, #c4320a);
   --ui-tag-danger-edge: #ff8a7a;
-  --ui-tag-danger-wash: rgba(240, 68, 56, 0.04);
+  --ui-tag-danger-wash: color-mix(in srgb, var(--aui-red, #f04438) 4%, transparent);
   --ui-tag-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   --ui-tag-ease: cubic-bezier(0.22, 1, 0.36, 1);
 
@@ -477,8 +477,8 @@ const css = /* css */ `
   --ui-tag-avatar: #2c2c31;
   --ui-tag-flash: rgba(77, 141, 255, 0.28);
   --ui-tag-danger: var(--aui-danger, #ff8a7a);
-  --ui-tag-danger-edge: rgba(255, 107, 95, 0.45);
-  --ui-tag-danger-wash: rgba(255, 107, 95, 0.06);
+  --ui-tag-danger-edge: color-mix(in srgb, var(--aui-red, #ff6b5f) 45%, transparent);
+  --ui-tag-danger-wash: color-mix(in srgb, var(--aui-red, #ff6b5f) 6%, transparent);
   --ui-tag-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

@@ -556,33 +556,33 @@ export function MessageActions({
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-mac */
 .ui-mac {
-  --ui-mac-card: #ffffff;
-  --ui-mac-strong: #000000;
-  --ui-mac-ink: rgba(0, 0, 0, 0.88);
-  --ui-mac-text: rgba(0, 0, 0, 0.61);
-  --ui-mac-muted: rgba(0, 0, 0, 0.45);
+  --ui-mac-card: var(--aui-surface, #ffffff);
+  --ui-mac-strong: var(--aui-ink, #000000);
+  --ui-mac-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-mac-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-mac-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
   --ui-mac-faint: rgba(0, 0, 0, 0.27);
-  --ui-mac-icon: rgba(0, 0, 0, 0.447);
-  --ui-mac-line: rgba(0, 0, 0, 0.06);
+  --ui-mac-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-mac-line: var(--aui-border, rgba(0, 0, 0, 0.06));
   --ui-mac-fill: rgba(0, 0, 0, 0.06);
-  --ui-mac-wash: rgba(0, 0, 0, 0.03);
-  --ui-mac-solid: rgba(0, 0, 0, 0.88);
+  --ui-mac-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-mac-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
   --ui-mac-solid-hover: rgba(0, 0, 0, 0.8);
-  --ui-mac-on-solid: #fcfcfc;
+  --ui-mac-on-solid: var(--aui-on-primary, #fcfcfc);
   --ui-mac-accent: rgba(0, 96, 226, 0.765);
-  --ui-mac-ok: #1e8a4f;
-  --ui-mac-ok-bg: rgba(95, 200, 138, 0.08);
+  --ui-mac-ok: var(--aui-success, #1e8a4f);
+  --ui-mac-ok-bg: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-mac-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-mac-shadow-pop: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-mac-focus: rgba(0, 96, 226, 0.7);
-  --ui-mac-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-mac-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-mac-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 12px 28px -10px rgba(0, 0, 0, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-mac-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-mac-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   display: block;
   width: 100%;
   min-width: 0;
   container-type: inline-size;
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -594,7 +594,7 @@ const css = /* css */ `
 :where(.ui-mac) button { margin: 0; padding: 0; border: 0; background: none; font: inherit; color: inherit; text-align: inherit; cursor: pointer; -webkit-tap-highlight-color: transparent; }
 .ui-mac button:focus-visible { outline: 2px solid var(--ui-mac-focus); outline-offset: 2px; }
 /* Typing in a field: no ring – the caret shows where you are, the edge only firms up a little */
-.ui-mac .ui-mac__input:is(:focus, :focus-visible) { outline: none; box-shadow: var(--ui-mac-shadow), inset 0 0 0 0.5px var(--ui-mac-faint); }
+.ui-mac .ui-mac__input:is(:focus, :focus-visible) { outline: none; box-shadow: var(--ui-mac-shadow), inset 0 0 0 0.5px var(--aui-border-strong, var(--ui-mac-faint)); }
 .ui-mac svg { display: block; flex: none; }
 .ui-mac__sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 
@@ -609,7 +609,7 @@ const css = /* css */ `
 
 /* Ghost icon buttons; pressed takes the selected-tab look */
 .ui-mac__item { position: relative; display: inline-flex; flex: none; }
-.ui-mac__btn { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 6px; color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; }
+.ui-mac__btn { display: grid; place-items: center; width: 28px; height: 28px; border-radius: calc(var(--aui-radius-sm, 5px) + 1px); color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease, box-shadow 160ms ease; }
 .ui-mac__btn:hover { background: var(--ui-mac-wash); color: var(--ui-mac-ink); }
 .ui-mac__btn:active .ui-mac__icon { transform: scale(0.9); }
 .ui-mac__btn[aria-pressed="true"],
@@ -645,7 +645,7 @@ const css = /* css */ `
 .ui-mac__eq[data-on] i:nth-child(4) { animation-delay: -140ms; animation-duration: 820ms; }
 
 /* ----- Tooltips: a small white popover above the button – on hover after a beat, on keyboard focus, and briefly after Copy ----- */
-.ui-mac__tip { position: absolute; bottom: calc(100% + 6px); left: 50%; z-index: 3; display: block; width: max-content; padding: 2px 8px; border-radius: 6px; background: var(--ui-mac-card); box-shadow: var(--ui-mac-shadow-pop); font-size: 12px; font-weight: 500; line-height: 20px; color: var(--ui-mac-ink); white-space: nowrap; pointer-events: none; opacity: 0; transform: translate(-50%, 3px); transition: opacity 140ms ease, transform 200ms var(--ui-mac-ease); }
+.ui-mac__tip { position: absolute; bottom: calc(100% + 6px); left: 50%; z-index: 3; display: block; width: max-content; padding: 2px 8px; border-radius: 6px; background: var(--aui-overlay, var(--ui-mac-card)); box-shadow: var(--ui-mac-shadow-pop); font-size: 12px; font-weight: 500; line-height: 20px; color: var(--ui-mac-ink); white-space: nowrap; pointer-events: none; opacity: 0; transform: translate(-50%, 3px); transition: opacity 140ms ease, transform 200ms var(--ui-mac-ease); }
 .ui-mac__btn:focus-visible + .ui-mac__tip,
 .ui-mac__item[data-flash] .ui-mac__tip { opacity: 1; transform: translate(-50%, 0); transition-delay: 0ms; }
 @media (hover: hover) {
@@ -657,11 +657,11 @@ const css = /* css */ `
 .ui-mac__versions { display: grid; grid-template-columns: 0fr; opacity: 0; transition: grid-template-columns 420ms var(--ui-mac-ease), opacity 220ms ease; }
 .ui-mac__versions[data-open] { grid-template-columns: 1fr; opacity: 1; transition: grid-template-columns 420ms var(--ui-mac-ease), opacity 320ms ease 100ms; }
 .ui-mac__versions-clip { display: flex; align-items: center; min-width: 0; overflow: hidden; padding-right: 2px; }
-.ui-mac__step { display: grid; flex: none; place-items: center; width: 20px; height: 28px; border-radius: 6px; color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease; }
+.ui-mac__step { display: grid; flex: none; place-items: center; width: 20px; height: 28px; border-radius: calc(var(--aui-radius-sm, 5px) + 1px); color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease; }
 .ui-mac__step[data-dir="prev"] .ui-mac__glyph { transform: scaleX(-1); }
 .ui-mac__step:hover:not(:disabled) { background: var(--ui-mac-wash); color: var(--ui-mac-ink); }
 .ui-mac__step:disabled { cursor: default; opacity: 0.45; }
-.ui-mac__count { display: inline-flex; align-items: center; gap: 2px; padding: 0 2px; font-size: 12px; line-height: 16px; color: var(--ui-mac-faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.ui-mac__count { display: inline-flex; align-items: center; gap: 2px; padding: 0 2px; font-size: 12px; line-height: 16px; color: var(--aui-placeholder, var(--ui-mac-faint)); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .ui-mac__count-now { color: var(--ui-mac-ink); font-weight: 500; }
 .ui-mac__count > .ui-mac__swap:last-child { color: var(--ui-mac-muted); }
 
@@ -677,26 +677,26 @@ const css = /* css */ `
 .ui-mac__panel { padding: 10px 8px 8px; }
 .ui-mac__panel-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 24px; }
 .ui-mac__ask { font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ui-mac-strong); }
-.ui-mac__close { display: grid; flex: none; place-items: center; width: 24px; height: 24px; margin-right: -4px; border-radius: 6px; color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease; }
+.ui-mac__close { display: grid; flex: none; place-items: center; width: 24px; height: 24px; margin-right: -4px; border-radius: calc(var(--aui-radius-sm, 5px) + 1px); color: var(--ui-mac-icon); transition: background-color 160ms ease, color 160ms ease; }
 .ui-mac__close:hover { background: var(--ui-mac-wash); color: var(--ui-mac-ink); }
 .ui-mac__chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
 /* Reasons: the tab-button look – a hairline, gray text; the picked one gets the gray fill */
-.ui-mac__chip { max-width: 100%; overflow: hidden; text-overflow: ellipsis; height: 28px; padding: 4px 10px; border-radius: 6px; box-shadow: inset 0 0 0 0.5px var(--ui-mac-line); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ui-mac-text); white-space: nowrap; transition: background-color 140ms ease, color 140ms ease, opacity 200ms ease; }
+.ui-mac__chip { max-width: 100%; overflow: hidden; text-overflow: ellipsis; height: 28px; padding: 4px 10px; border-radius: calc(var(--aui-radius-sm, 5px) + 1px); box-shadow: inset 0 0 0 0.5px var(--ui-mac-line); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ui-mac-text); white-space: nowrap; transition: background-color 140ms ease, color 140ms ease, opacity 200ms ease; }
 .ui-mac__chip:hover:not(:disabled) { background: var(--ui-mac-wash); color: var(--ui-mac-ink); }
 .ui-mac__chip[aria-pressed="true"], .ui-mac__chip[aria-pressed="true"]:hover:not(:disabled) { background: var(--ui-mac-fill); color: var(--ui-mac-ink); }
 .ui-mac__chip:disabled { cursor: default; }
 .ui-mac__chip:disabled:not([aria-pressed="true"]) { opacity: 0.45; }
 /* Send: the dark chip; once sent a soft green fill */
-.ui-mac__send { display: inline-flex; align-items: center; justify-content: center; min-width: 60px; height: 28px; margin-left: auto; padding: 0 10px; border-radius: 6px; background: var(--ui-mac-solid); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ui-mac-on-solid); white-space: nowrap; transition: background-color 220ms ease, color 220ms ease, opacity 200ms ease; }
+.ui-mac__send { display: inline-flex; align-items: center; justify-content: center; min-width: 60px; height: 28px; margin-left: auto; padding: 0 10px; border-radius: calc(var(--aui-radius-sm, 5px) + 1px); background: var(--ui-mac-solid); font-size: 13px; font-weight: 500; line-height: 20px; color: var(--ui-mac-on-solid); white-space: nowrap; transition: background-color 220ms ease, color 220ms ease, opacity 200ms ease; }
 .ui-mac__send:hover:not(:disabled):not([data-sent]) { background: var(--ui-mac-solid-hover); }
 .ui-mac__send:disabled { cursor: default; opacity: 0.3; }
 .ui-mac__send[data-sent] { cursor: default; background: var(--ui-mac-ok-bg); color: var(--ui-mac-ok); }
 .ui-mac__send .ui-mac__glyph { width: 14px; height: 14px; stroke-width: 1.5; }
-.ui-mac__input { display: block; width: 100%; height: 32px; margin-top: 8px; padding: 0 10px; border: 0; border-radius: 6px; background: var(--ui-mac-card); box-shadow: var(--ui-mac-shadow); font: inherit; font-size: 13px; line-height: 20px; color: var(--ui-mac-ink); outline: none; }
-.ui-mac__input::placeholder { color: var(--ui-mac-faint); }
+.ui-mac__input { display: block; width: 100%; height: 32px; margin-top: 8px; padding: 0 10px; border: 0; border-radius: calc(var(--aui-radius, 7px) - 1px); background: var(--ui-mac-card); box-shadow: var(--ui-mac-shadow); font: inherit; font-size: 13px; line-height: 20px; color: var(--ui-mac-ink); outline: none; }
+.ui-mac__input::placeholder { color: var(--aui-placeholder, var(--ui-mac-faint)); }
 
 /* ----- Message text that crossfades between versions (MessageText) ----- */
-.ui-mac-text { overflow: hidden; transition: height 360ms var(--ui-mac-ease, cubic-bezier(0.22, 1, 0.36, 1)); }
+.ui-mac-text { overflow: hidden; transition: height 360ms var(--ui-mac-ease, var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1))); }
 .ui-mac-text__swap { display: grid; }
 .ui-mac-text__inner { min-width: 0; overflow-wrap: anywhere; }
 .ui-mac-text__swap > .ui-mac__swap-item { display: block; animation: ui-mac-text-in 420ms ease both; }
@@ -731,24 +731,24 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-mac {
-  --ui-mac-card: #1c1c1e;
-  --ui-mac-strong: #ffffff;
-  --ui-mac-ink: rgba(255, 255, 255, 0.9);
-  --ui-mac-text: rgba(255, 255, 255, 0.62);
-  --ui-mac-muted: rgba(255, 255, 255, 0.46);
+  --ui-mac-card: var(--aui-surface, #1c1c1e);
+  --ui-mac-strong: var(--aui-ink, #ffffff);
+  --ui-mac-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-mac-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-mac-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
   --ui-mac-faint: rgba(255, 255, 255, 0.3);
-  --ui-mac-icon: rgba(255, 255, 255, 0.5);
-  --ui-mac-line: rgba(255, 255, 255, 0.08);
+  --ui-mac-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-mac-line: var(--aui-border, rgba(255, 255, 255, 0.08));
   --ui-mac-fill: rgba(255, 255, 255, 0.08);
-  --ui-mac-wash: rgba(255, 255, 255, 0.04);
-  --ui-mac-solid: rgba(255, 255, 255, 0.9);
+  --ui-mac-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-mac-solid: var(--aui-primary, rgba(255, 255, 255, 0.9));
   --ui-mac-solid-hover: rgba(255, 255, 255, 0.8);
-  --ui-mac-on-solid: #1c1c1e;
-  --ui-mac-accent: #4fb0fe;
-  --ui-mac-ok: #5fc88a;
-  --ui-mac-ok-bg: rgba(125, 207, 159, 0.14);
-  --ui-mac-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-mac-shadow-pop: 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6);
-  --ui-mac-focus: rgba(77, 141, 255, 0.8);
+  --ui-mac-on-solid: var(--aui-on-primary, #1c1c1e);
+  --ui-mac-accent: var(--aui-blue, #4fb0fe);
+  --ui-mac-ok: var(--aui-green, #5fc88a);
+  --ui-mac-ok-bg: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
+  --ui-mac-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
+  --ui-mac-shadow-pop: var(--aui-shadow-popover, 0 0 0 0.5px rgba(255, 255, 255, 0.12), 0 12px 28px -10px rgba(0, 0, 0, 0.6));
+  --ui-mac-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

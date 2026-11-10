@@ -156,22 +156,22 @@ const num = new Intl.NumberFormat("en");
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-progressc (see Theming in the docs) */
 .ui-progressc {
-  --ui-pgc-card: #ffffff;
-  --ui-pgc-strong: #000000;
-  --ui-pgc-ink: rgba(0, 0, 0, 0.88);
-  --ui-pgc-muted: rgba(0, 0, 0, 0.45);
-  --ui-pgc-faint: rgba(0, 0, 0, 0.27);
-  --ui-pgc-icon: rgba(0, 0, 0, 0.447);
-  --ui-pgc-ring: rgba(0, 0, 0, 0.2);
+  --ui-pgc-card: var(--aui-surface, #ffffff);
+  --ui-pgc-strong: var(--aui-ink, #000000);
+  --ui-pgc-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-pgc-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-pgc-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-pgc-icon: var(--aui-muted, rgba(0, 0, 0, 0.447));
+  --ui-pgc-ring: var(--aui-border-strong, rgba(0, 0, 0, 0.2));
   --ui-pgc-track: rgba(0, 0, 0, 0.06);
-  --ui-pgc-hover: rgba(0, 0, 0, 0.03);
+  --ui-pgc-hover: var(--aui-subtle, rgba(0, 0, 0, 0.03));
   --ui-pgc-accent: rgba(0, 96, 226, 0.765);
   --ui-pgc-on-accent: #ffffff;
   --ui-pgc-shine: rgba(255, 255, 255, 0.82);
-  --ui-pgc-focus: rgba(0, 96, 226, 0.7);
+  --ui-pgc-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
-  --ui-pgc-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --ui-pgc-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-pgc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+  --ui-pgc-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
 
   container-type: inline-size;
   box-sizing: border-box;
@@ -179,9 +179,9 @@ const css = /* css */ `
   max-width: 340px;
   padding: 14px 6px 6px;
   background: var(--ui-pgc-card);
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   box-shadow: var(--ui-pgc-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -289,7 +289,7 @@ const css = /* css */ `
   gap: 10px;
   width: 100%;
   padding: 6px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   background: transparent;
   font-size: 13px;
   line-height: 20px;
@@ -438,19 +438,19 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-progressc {
-  --ui-pgc-card: #1c1c1e;
-  --ui-pgc-strong: #ffffff;
-  --ui-pgc-ink: rgba(255, 255, 255, 0.9);
-  --ui-pgc-muted: rgba(255, 255, 255, 0.46);
-  --ui-pgc-faint: rgba(255, 255, 255, 0.3);
-  --ui-pgc-icon: rgba(255, 255, 255, 0.5);
-  --ui-pgc-ring: rgba(255, 255, 255, 0.24);
+  --ui-pgc-card: var(--aui-surface, #1c1c1e);
+  --ui-pgc-strong: var(--aui-ink, #ffffff);
+  --ui-pgc-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-pgc-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-pgc-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-pgc-icon: var(--aui-muted, rgba(255, 255, 255, 0.5));
+  --ui-pgc-ring: var(--aui-border-strong, rgba(255, 255, 255, 0.24));
   --ui-pgc-track: rgba(255, 255, 255, 0.08);
-  --ui-pgc-hover: rgba(255, 255, 255, 0.04);
-  --ui-pgc-accent: #4fb0fe;
+  --ui-pgc-hover: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-pgc-accent: var(--aui-blue, #4fb0fe);
   --ui-pgc-on-accent: #ffffff;
   --ui-pgc-shine: #ffffff;
-  --ui-pgc-focus: rgba(77, 141, 255, 0.8);
-  --ui-pgc-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --ui-pgc-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
+  --ui-pgc-shadow: var(--aui-shadow-card, 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4));
 }
 `;

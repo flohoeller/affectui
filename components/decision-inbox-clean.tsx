@@ -154,35 +154,35 @@ const DoneIcon = () => (
 const css = /* css */ `
 /* Colors and motion as variables – override them on .ui-dic */
 .ui-dic {
-  --ui-dic-card: #ffffff;
-  --ui-dic-strong: #000000;
-  --ui-dic-ink: rgba(0, 0, 0, 0.88);
-  --ui-dic-text: rgba(0, 0, 0, 0.61);
-  --ui-dic-muted: rgba(0, 0, 0, 0.45);
-  --ui-dic-faint: rgba(0, 0, 0, 0.27);
-  --ui-dic-line: rgba(0, 0, 0, 0.06);
-  --ui-dic-wash: rgba(0, 0, 0, 0.03);
-  --ui-dic-alert: #e8b000;
-  --ui-dic-ok: #1e8a4f;
-  --ui-dic-ok-bg: rgba(95, 200, 138, 0.08);
-  --ui-dic-solid: rgba(0, 0, 0, 0.88);
+  --ui-dic-card: var(--aui-surface, #ffffff);
+  --ui-dic-strong: var(--aui-ink, #000000);
+  --ui-dic-ink: var(--aui-ink, rgba(0, 0, 0, 0.88));
+  --ui-dic-text: var(--aui-muted, rgba(0, 0, 0, 0.61));
+  --ui-dic-muted: var(--aui-muted, rgba(0, 0, 0, 0.45));
+  --ui-dic-faint: var(--aui-placeholder, rgba(0, 0, 0, 0.27));
+  --ui-dic-line: var(--aui-border, rgba(0, 0, 0, 0.06));
+  --ui-dic-wash: var(--aui-subtle, rgba(0, 0, 0, 0.03));
+  --ui-dic-alert: var(--aui-amber, #e8b000);
+  --ui-dic-ok: var(--aui-success, #1e8a4f);
+  --ui-dic-ok-bg: color-mix(in srgb, var(--aui-green, #5fc88a) 8%, transparent);
+  --ui-dic-solid: var(--aui-primary, rgba(0, 0, 0, 0.88));
   --ui-dic-solid-hover: rgba(0, 0, 0, 0.8);
-  --ui-dic-on-solid: #fcfcfc;
+  --ui-dic-on-solid: var(--aui-on-primary, #fcfcfc);
   /* Strokes are shadows: a 0.5px hairline plus a soft lift */
   --ui-dic-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.06), 0 1px 1px -1px rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --ui-dic-shadow-hover: 0 0 0 0.5px rgba(0, 0, 0, 0.1), 0 1px 1px -1px rgba(0, 0, 0, 0.12), 0 1px 3px 0 rgba(0, 0, 0, 0.07);
-  --ui-dic-focus: rgba(0, 96, 226, 0.7);
-  --ui-dic-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-dic-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-dic-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   box-sizing: border-box;
   container-type: inline-size;
   width: 100%;
   max-width: 440px;
   overflow: hidden;
   /* One white card – the edge is a shadow, not a border */
-  border-radius: 10px;
+  border-radius: var(--aui-radius-lg, 10px);
   background: var(--ui-dic-card);
-  box-shadow: var(--ui-dic-shadow);
-  font-family: "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  box-shadow: var(--aui-shadow-card, var(--ui-dic-shadow));
+  font-family: var(--aui-font, "Inter", "InterVariable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: 13px;
   font-weight: 400;
   line-height: 20px;
@@ -293,7 +293,7 @@ const css = /* css */ `
   max-width: 100%;
   min-height: 28px;
   padding: 4px 10px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius, 7px) - 1px);
   text-align: center;
   overflow-wrap: anywhere;
   font-size: 13px;
@@ -316,7 +316,7 @@ const css = /* css */ `
   max-width: 100%;
   min-height: 28px;
   padding: 4px 10px 4px 8px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 5px) + 1px);
   background: var(--ui-dic-ok-bg);
   font-size: 13px;
   font-weight: 500;
@@ -366,23 +366,23 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-dic {
-  --ui-dic-card: #1c1c1e;
-  --ui-dic-strong: #ffffff;
-  --ui-dic-ink: rgba(255, 255, 255, 0.9);
-  --ui-dic-text: rgba(255, 255, 255, 0.62);
-  --ui-dic-muted: rgba(255, 255, 255, 0.46);
-  --ui-dic-faint: rgba(255, 255, 255, 0.3);
-  --ui-dic-line: rgba(255, 255, 255, 0.08);
-  --ui-dic-wash: rgba(255, 255, 255, 0.04);
-  --ui-dic-alert: #e6c24d;
-  --ui-dic-ok: #5fc88a;
-  --ui-dic-ok-bg: rgba(125, 207, 159, 0.14);
+  --ui-dic-card: var(--aui-surface, #1c1c1e);
+  --ui-dic-strong: var(--aui-ink, #ffffff);
+  --ui-dic-ink: var(--aui-ink, rgba(255, 255, 255, 0.9));
+  --ui-dic-text: var(--aui-muted, rgba(255, 255, 255, 0.62));
+  --ui-dic-muted: var(--aui-muted, rgba(255, 255, 255, 0.46));
+  --ui-dic-faint: var(--aui-placeholder, rgba(255, 255, 255, 0.3));
+  --ui-dic-line: var(--aui-border, rgba(255, 255, 255, 0.08));
+  --ui-dic-wash: var(--aui-subtle, rgba(255, 255, 255, 0.04));
+  --ui-dic-alert: var(--aui-amber, #e6c24d);
+  --ui-dic-ok: var(--aui-green, #5fc88a);
+  --ui-dic-ok-bg: color-mix(in srgb, var(--aui-green, #7dcf9f) 14%, transparent);
   /* The primary inverts: a light chip with dark text */
-  --ui-dic-solid: rgba(255, 255, 255, 0.9);
+  --ui-dic-solid: var(--aui-primary, rgba(255, 255, 255, 0.9));
   --ui-dic-solid-hover: rgba(255, 255, 255, 0.82);
-  --ui-dic-on-solid: #161618;
+  --ui-dic-on-solid: var(--aui-on-primary, #161618);
   --ui-dic-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --ui-dic-shadow-hover: 0 0 0 0.5px rgba(255, 255, 255, 0.16), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-  --ui-dic-focus: rgba(77, 141, 255, 0.8);
+  --ui-dic-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;

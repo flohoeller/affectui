@@ -399,24 +399,24 @@ const css = /* css */ `
 @property --ui-seg-fade-r { syntax: "<length>"; inherits: false; initial-value: 0px; }
 
 .ui-seg {
-  --ui-seg-tray: #f0f0f0;
-  --ui-seg-pill: #ffffff;
-  --ui-seg-line: #ececec;
-  --ui-seg-ink: #171717;
-  --ui-seg-text: #404040;
-  --ui-seg-soft: #737373;
-  --ui-seg-muted: #8f8f8f;
+  --ui-seg-tray: var(--aui-subtle, #f0f0f0);
+  --ui-seg-pill: var(--aui-surface, #ffffff);
+  --ui-seg-line: var(--aui-border, #ececec);
+  --ui-seg-ink: var(--aui-ink, #171717);
+  --ui-seg-text: var(--aui-ink, #404040);
+  --ui-seg-soft: var(--aui-muted, #737373);
+  --ui-seg-muted: var(--aui-muted, #8f8f8f);
   --ui-seg-count: rgba(0, 0, 0, 0.06);
-  --ui-seg-accent: #4fb0fe;
-  --ui-seg-accent-soft: rgba(1, 144, 254, 0.1);
+  --ui-seg-accent: var(--aui-blue, #4fb0fe);
+  --ui-seg-accent-soft: color-mix(in srgb, var(--aui-blue, #0190fe) 10%, transparent);
   --ui-seg-pill-shadow: 0 0 0 0.5px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.08), 0 2px 8px -2px rgba(0, 0, 0, 0.06);
-  --ui-seg-focus: rgba(0, 96, 226, 0.7);
-  --ui-seg-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ui-seg-focus: var(--aui-focus, rgba(0, 96, 226, 0.7));
+  --ui-seg-ease: var(--aui-ease, cubic-bezier(0.22, 1, 0.36, 1));
   /* Size: md */
   --ui-seg-h: 30px;
   --ui-seg-px: 12px;
   --ui-seg-fs: 13.5px;
-  --ui-seg-r: 11px;
+  --ui-seg-r: calc(var(--aui-radius, 10px) + 1px);
   --ui-seg-pad: 3px;
   --ui-seg-icon: 15px;
   --ui-seg-gap: 20px;
@@ -427,14 +427,14 @@ const css = /* css */ `
   vertical-align: middle;
   border-radius: var(--ui-seg-r);
   background: var(--ui-seg-tray);
-  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: var(--aui-font, "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif);
   font-size: var(--ui-seg-fs);
   line-height: 1;
   color: var(--ui-seg-soft);
   -webkit-font-smoothing: antialiased;
 }
-.ui-seg[data-size="sm"] { --ui-seg-h: 26px; --ui-seg-px: 10px; --ui-seg-fs: 12.5px; --ui-seg-r: 9px; --ui-seg-pad: 2px; --ui-seg-icon: 14px; --ui-seg-gap: 16px; }
-.ui-seg[data-size="lg"] { --ui-seg-h: 36px; --ui-seg-px: 16px; --ui-seg-fs: 14px; --ui-seg-r: 13px; --ui-seg-pad: 4px; --ui-seg-icon: 16px; --ui-seg-gap: 24px; }
+.ui-seg[data-size="sm"] { --ui-seg-h: 26px; --ui-seg-px: 10px; --ui-seg-fs: 12.5px; --ui-seg-r: calc(var(--aui-radius, 10px) - 1px); --ui-seg-pad: 2px; --ui-seg-icon: 14px; --ui-seg-gap: 16px; }
+.ui-seg[data-size="lg"] { --ui-seg-h: 36px; --ui-seg-px: 16px; --ui-seg-fs: 14px; --ui-seg-r: calc(var(--aui-radius, 10px) + 3px); --ui-seg-pad: 4px; --ui-seg-icon: 16px; --ui-seg-gap: 24px; }
 .ui-seg[data-full] { display: flex; width: 100%; }
 .ui-seg[data-disabled] { opacity: 0.5; pointer-events: none; }
 .ui-seg *, .ui-seg *::before, .ui-seg *::after { box-sizing: border-box; }
@@ -532,7 +532,7 @@ const css = /* css */ `
   align-items: center;
   height: 18px;
   padding: 0 6px;
-  border-radius: 6px;
+  border-radius: calc(var(--aui-radius-sm, 7px) - 1px);
   background: var(--ui-seg-accent-soft);
   font-size: 11px;
   font-weight: 500;
@@ -582,17 +582,17 @@ const css = /* css */ `
 
 /* Dark mode: follows a .dark class or data-theme="dark" on any ancestor, e.g. <html> */
 :where(.dark, [data-theme="dark"]) .ui-seg {
-  --ui-seg-tray: #111113;
-  --ui-seg-pill: #26262a;
-  --ui-seg-line: #2a2a2e;
-  --ui-seg-ink: #ededed;
-  --ui-seg-text: #c8c8cc;
-  --ui-seg-soft: #8b8b92;
-  --ui-seg-muted: #8b8b92;
+  --ui-seg-tray: var(--aui-subtle, #111113);
+  --ui-seg-pill: var(--aui-surface, #26262a);
+  --ui-seg-line: var(--aui-border, #2a2a2e);
+  --ui-seg-ink: var(--aui-ink, #ededed);
+  --ui-seg-text: var(--aui-ink, #c8c8cc);
+  --ui-seg-soft: var(--aui-muted, #8b8b92);
+  --ui-seg-muted: var(--aui-muted, #8b8b92);
   --ui-seg-count: rgba(255, 255, 255, 0.08);
-  --ui-seg-accent: #4fb0fe;
-  --ui-seg-accent-soft: rgba(79, 176, 254, 0.14);
+  --ui-seg-accent: var(--aui-blue, #4fb0fe);
+  --ui-seg-accent-soft: color-mix(in srgb, var(--aui-blue, #4fb0fe) 14%, transparent);
   --ui-seg-pill-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 1px 2px rgba(0, 0, 0, 0.4);
-  --ui-seg-focus: rgba(77, 141, 255, 0.8);
+  --ui-seg-focus: var(--aui-focus, rgba(77, 141, 255, 0.8));
 }
 `;
