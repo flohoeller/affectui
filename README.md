@@ -12,7 +12,7 @@
   <a href="./LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-111111?style=flat-square"></a>
   <a href="https://www.affectui.com/docs"><img alt="shadcn registry" src="https://img.shields.io/badge/shadcn-registry-111111?style=flat-square"></a>
   <img alt="React 19" src="https://img.shields.io/badge/React-19-111111?style=flat-square">
-  <img alt="52 free items" src="https://img.shields.io/badge/free%20items-52-2f6bff?style=flat-square">
+  <img alt="56 free items" src="https://img.shields.io/badge/free%20items-56-2f6bff?style=flat-square">
   <a href="https://github.com/flohoeller/affectui/stargazers"><img alt="GitHub stars" src="https://img.shields.io/github/stars/flohoeller/affectui?style=flat-square&color=111111"></a>
 </p>
 
@@ -221,11 +221,14 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 | Name | What it is | Install |
 | --- | --- | --- |
+| [Avatar](https://www.affectui.com/components/avatar) | A person's picture or initials on a soft color of their own | `npx shadcn@latest add https://www.affectui.com/r/avatar-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/avatar.json`</sub> |
+| [Badge](https://www.affectui.com/components/badge) | A small status label that carries the color | `npx shadcn@latest add https://www.affectui.com/r/badge-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/badge.json`</sub> |
 | [Button](https://www.affectui.com/components/button) | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state | `npx shadcn@latest add https://www.affectui.com/r/button-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/button.json`</sub> |
 | [Change Summary](https://www.affectui.com/components/change-summary) | What moved since last time | `npx shadcn@latest add https://www.affectui.com/r/change-summary-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/change-summary.json`</sub> |
 | [Checkbox](https://www.affectui.com/components/checkbox) | A real checkbox with a label and a second line, a some-of-them state for Select all, an error and a card row | `npx shadcn@latest add https://www.affectui.com/r/checkbox-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/checkbox.json`</sub> |
 | [Comment Thread](https://www.affectui.com/components/comment-thread) | One comment with replies | `npx shadcn@latest add https://www.affectui.com/r/comment-thread-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/comment-thread.json`</sub> |
 | [Decision Inbox](https://www.affectui.com/components/decision-inbox) | Open decisions with two quick answers each | `npx shadcn@latest add https://www.affectui.com/r/decision-inbox-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/decision-inbox.json`</sub> |
+| [Dialog](https://www.affectui.com/components/dialog) | A modal window on a dimmed backdrop | `npx shadcn@latest add https://www.affectui.com/r/dialog-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/dialog.json`</sub> |
 | [Dropdown Menu](https://www.affectui.com/components/dropdown-menu) | Actions and choices behind any trigger | `npx shadcn@latest add https://www.affectui.com/r/dropdown-menu-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/dropdown-menu.json`</sub> |
 | [Email Draft](https://www.affectui.com/components/email-draft) | Agent-written email for review | `npx shadcn@latest add https://www.affectui.com/r/email-draft-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/email-draft.json`</sub> |
 | [Empty State](https://www.affectui.com/components/empty-state) | What a list, table or panel shows while it has nothing yet | `npx shadcn@latest add https://www.affectui.com/r/empty-state-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/empty-state.json`</sub> |
@@ -250,6 +253,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 | [Thinking Loader](https://www.affectui.com/components/thinking-loader) | A small working pill for AI replies | `npx shadcn@latest add https://www.affectui.com/r/thinking-loader-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/thinking-loader.json`</sub> |
 | [Tips Panel](https://www.affectui.com/components/tips-panel) | Grid of short tips with one action each | `npx shadcn@latest add https://www.affectui.com/r/tips-panel-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/tips-panel.json`</sub> |
 | [Tool Call Card](https://www.affectui.com/components/tool-call-card) | An agent's tool call in one line | `npx shadcn@latest add https://www.affectui.com/r/tool-call-card-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/tool-call-card.json`</sub> |
+| [Tooltip](https://www.affectui.com/components/tooltip) | A small dark label for one control | `npx shadcn@latest add https://www.affectui.com/r/tooltip-clean.json`<br><sub>Classic style: `npx shadcn@latest add https://www.affectui.com/r/tooltip.json`</sub> |
 
 ## Blocks
 

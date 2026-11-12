@@ -70,6 +70,20 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Thinking State | `thinking-state` | Pro | AI working panel with a live timer, searched sources and thinking steps that appear one by one |
 | Writing Assistant | `writing-assistant` | Pro | AI chat card with a soft gradient glow, suggestions, streaming replies and live voice dictation |
 
+### Data display
+
+| Item | Slug | | What it is |
+| --- | --- | --- | --- |
+| Avatar | `avatar` | Free | A person's picture or initials on a soft color of their own – rounded squares for workspaces, an agent's pixel mark that twinkles while it works, a status dot and a group that overlaps and ends in +N |
+| Badge | `badge` | Free | A small status label that carries the color – six soft tones, a leading dot or icon, a live dot that pulses while something runs and a round count up to 99+ |
+| Breakdown Chart | `breakdown-chart` | Pro | Stacked bar chart with measure, slice and segment pickers, a hover breakdown and a linked table |
+| Change Summary | `change-summary` | Free | What moved since last time – one metric per row with a colored trend |
+| Compact Breakdown | `compact-breakdown` | Pro | A total split into its parts in one small card – numbers roll, the bar glides and the ranked rows trade places when the period changes |
+| Data Table | `data-table` | Pro | Spreadsheet-style table: select cells and ranges, edit in place, copy and paste, undo and sort |
+| Experiment Card | `experiment-card` | Pro | An A/B test in two lines that quietly unfolds on hover – variants linked to a tiny chart, a metric switch with rolling numbers, and a winner you pick with a click |
+| KPI Chart | `kpi-chart` | Pro | Metric card with a multi-line chart and a tooltip that follows the pointer |
+| Usage Meter | `usage-meter` | Pro | Plan usage and AI credits – a stacked credits meter by category, daily sparkline, limits and a button that speaks up near the limit |
+
 ### Inputs
 
 | Item | Slug | | What it is |
@@ -89,18 +103,6 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Tag Input | `tag-input` | Free | Several values in one field as chips – paste a whole list, a check per value, duplicates flash, Backspace and arrow keys to edit |
 | Text Area | `text-area` | Free | The multi-line twin of the Text Field – grows with the text, a character count, a button for more room and ⌘ Enter to send |
 | Text Field | `text-field` | Free | One input for every form – label, hint and error in place, prefix and suffix, clear, show-password and copy buttons, a character count |
-
-### Data display
-
-| Item | Slug | | What it is |
-| --- | --- | --- | --- |
-| Breakdown Chart | `breakdown-chart` | Pro | Stacked bar chart with measure, slice and segment pickers, a hover breakdown and a linked table |
-| Change Summary | `change-summary` | Free | What moved since last time – one metric per row with a colored trend |
-| Compact Breakdown | `compact-breakdown` | Pro | A total split into its parts in one small card – numbers roll, the bar glides and the ranked rows trade places when the period changes |
-| Data Table | `data-table` | Pro | Spreadsheet-style table: select cells and ranges, edit in place, copy and paste, undo and sort |
-| Experiment Card | `experiment-card` | Pro | An A/B test in two lines that quietly unfolds on hover – variants linked to a tiny chart, a metric switch with rolling numbers, and a winner you pick with a click |
-| KPI Chart | `kpi-chart` | Pro | Metric card with a multi-line chart and a tooltip that follows the pointer |
-| Usage Meter | `usage-meter` | Pro | Plan usage and AI credits – a stacked credits meter by category, daily sparkline, limits and a button that speaks up near the limit |
 
 ### Buttons
 
@@ -126,6 +128,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Decision Inbox | `decision-inbox` | Free | Open decisions with two quick answers each – answered ones confirm and fold away |
+| Dialog | `dialog` | Free | A modal window on a dimmed backdrop – title and quiet line, content that scrolls under a fixed header and footer, Escape and backdrop close, the focus kept inside and handed back, a sheet on phones, and an AlertDialog to confirm with a red button |
 | Empty State | `empty-state` | Free | What a list, table or panel shows while it has nothing yet – an icon on a soft tile, a title, one line and a button for the first step, framed or bare |
 | Notification Stack | `notification-stack` | Free | Notice cards stacked behind each other – dismiss the front one to reveal the next |
 | Progress Tracker | `progress-tracker` | Free | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play |
@@ -133,6 +136,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Skeleton | `skeleton` | Free | Gray shapes in the exact size of the content they stand in for – a soft sheen sweeping across all of them in step, a Loading wrapper that tells screen readers and fades in late, so fast loads never flash |
 | Spinner | `spinner` | Free | A small turning arc for work that runs right now – a faint ring in the text color, any size, inside a button or a status row, announced only when it has a label |
 | Toaster | `toaster` | Pro | Calm toasts from anywhere – a stack that fans out on hover, promise toasts that morph from spinner to check, swipe to dismiss |
+| Tooltip | `tooltip` | Free | A small dark label for one control – shows on hover after a short wait and at once under keyboard focus, neighbours follow instantly, an optional shortcut inside, flips to stay on screen |
 
 ### Cards
 
