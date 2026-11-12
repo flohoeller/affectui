@@ -77,6 +77,8 @@ export type DropdownMenuProps = {
   open?: boolean;
   defaultOpen?: boolean;
   onOpenChange?: (open: boolean) => void;
+  /** Classes on the menu panel itself (className goes on the wrapper around trigger and menu) */
+  menuClassName?: string;
   /** The menu's width – by default it fits its items (at least 168px) */
   width?: number | string;
   /** Shown when there are no items */
@@ -99,6 +101,7 @@ export function DropdownMenu({
   open: openProp,
   defaultOpen = false,
   onOpenChange,
+  menuClassName,
   width,
   empty = "Nothing here yet",
   className,
@@ -217,7 +220,7 @@ export function DropdownMenu({
       </style>
       {trigger({ open, toggle, triggerProps })}
       {open && (
-        <div ref={panel} className="ui-dmc__panel" popover="manual" data-side={side} data-align={align} style={width != null ? { width, maxWidth: "calc(100vw - 16px)" } : undefined}>
+        <div ref={panel} className={["ui-dmc__panel", menuClassName].filter(Boolean).join(" ")} popover="manual" data-side={side} data-align={align} style={width != null ? { width, maxWidth: "calc(100vw - 16px)" } : undefined}>
           {header}
           {title && (
             <span className="ui-dmc__title" id={titleId}>
@@ -591,6 +594,8 @@ function hideLayer(el: HTMLElement) {
  */
 function place(el: HTMLElement, r: DOMRect, side: "top" | "bottom" | "left" | "right", align: "start" | "end", gap: number) {
   const pad = 8;
+  // The trigger's width, for a menu that should be at least as wide: min-width: var(--ui-dmc-trigger-w)
+  el.style.setProperty("--ui-dmc-trigger-w", `${Math.round(r.width)}px`);
   const vw = document.documentElement.clientWidth || window.innerWidth;
   const vh = window.innerHeight;
   el.style.maxHeight = "";

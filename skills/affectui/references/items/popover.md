@@ -68,6 +68,7 @@ export function InviteButton({ onInvite }: { onInvite: (email: string) => void }
 | description | `ReactNode` |  | A quiet line under the title, read out with it |
 | width | `number \| string` |  | The card's width; by default it fits its content (never wider than the window) |
 | focusOnOpen | `boolean` | `true` | Moves the focus to the first control inside when it opens, or onto the card when there is none |
+| unstyled | `boolean` | `false` | Only the placing, flipping and closing – no card, padding or type of its own, so your className draws it (e.g. a menu or a card you already have) |
 | role | `string` | `"dialog"` | A non-modal dialog by default |
 | ...div props | `ComponentProps<"div">` |  | className, style, aria-label, id, ref … go to the card |
 

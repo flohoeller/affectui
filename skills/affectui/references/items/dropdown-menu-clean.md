@@ -74,6 +74,7 @@ export function RunActions({ run }: { run: { id: string; name: string } }) {
 | header | `ReactNode` |  | Anything above the items, e.g. the signed-in user |
 | open / defaultOpen / onOpenChange | `boolean / boolean / (open) => void` |  | Controlled or uncontrolled open state |
 | width | `number \| string` |  | The menu's width; by default it fits the items, at least 168px |
+| menuClassName | `string` |  | Classes on the menu panel itself – className goes on the wrapper around the trigger and the menu. The panel carries the trigger's width as a CSS variable, e.g. min-width: var(--ui-dmc-trigger-w) for a menu as wide as its field |
 | empty | `ReactNode` | `"Nothing here yet"` | Shown when items is empty |
 | className | `string` |  | On the inline wrapper around the trigger |
 | aria-label | `string` |  | Names the menu when there is no title (otherwise the trigger names it) |

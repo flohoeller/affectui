@@ -32,6 +32,8 @@ export type PopoverProps = Omit<ComponentPropsWithoutRef<"div">, "title" | "chil
   width?: number | string;
   /** Moves the focus to the first control inside when it opens (or onto the card when there is none) */
   focusOnOpen?: boolean;
+  /** Only the placing and the open/close: no card, padding or type of its own – your className draws it */
+  unstyled?: boolean;
   ref?: Ref<HTMLDivElement>;
 };
 
@@ -47,6 +49,7 @@ export function Popover({
   description,
   width,
   focusOnOpen = true,
+  unstyled,
   className,
   style,
   role = "dialog",
@@ -150,6 +153,7 @@ export function Popover({
         else if (ref) ref.current = el;
       }}
       className={["ui-popc", className].filter(Boolean).join(" ")}
+      data-unstyled={unstyled || undefined}
       role={role}
       aria-labelledby={shows(title) ? titleId : rest["aria-labelledby"]}
       aria-describedby={shows(description) ? descId : rest["aria-describedby"]}
@@ -277,12 +281,20 @@ const css = /* css */ `
   z-index: 1000;
   display: block;
   box-sizing: border-box;
-  /* Fits its content up to 360px – a long URL or name wraps instead of stretching it; the width prop lifts the cap */
-  max-width: min(360px, calc(100vw - 16px));
   max-height: calc(100vh - 16px);
   margin: 0;
-  padding: 14px;
   border: 0;
+  transform-origin: top left;
+  animation: ui-popc-in 220ms var(--ui-popc-ease) both;
+  max-width: calc(100vw - 16px);
+}
+/* Unstyled: the browser's popover look switched off at no weight, so any class of yours wins */
+:where(.ui-popc) { padding: 0; background: none; color: inherit; overflow: visible; }
+/* The card itself – left out with unstyled, so your own classes draw it */
+.ui-popc:not([data-unstyled]) {
+  /* Fits its content up to 360px – a long URL or name wraps instead of stretching it; the width prop lifts the cap */
+  max-width: min(360px, calc(100vw - 16px));
+  padding: 14px;
   border-radius: calc(var(--aui-radius-lg, 10px) + 2px);
   background: var(--ui-popc-surface);
   box-shadow: var(--ui-popc-shadow);
@@ -295,8 +307,6 @@ const css = /* css */ `
   overflow: auto;
   overscroll-behavior: contain;
   -webkit-font-smoothing: antialiased;
-  transform-origin: top left;
-  animation: ui-popc-in 220ms var(--ui-popc-ease) both;
 }
 .ui-popc::backdrop { display: none; }
 .ui-popc:focus { outline: none; }
