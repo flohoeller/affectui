@@ -82,7 +82,9 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Compact Breakdown | `compact-breakdown` | Pro | A total split into its parts in one small card – numbers roll, the bar glides and the ranked rows trade places when the period changes |
 | Data Table | `data-table` | Pro | Spreadsheet-style table: select cells and ranges, edit in place, copy and paste, undo and sort |
 | Experiment Card | `experiment-card` | Pro | An A/B test in two lines that quietly unfolds on hover – variants linked to a tiny chart, a metric switch with rolling numbers, and a winner you pick with a click |
+| Hover Card | `hover-card` | Free | A preview of what a link or name points to – opens after a short rest of the pointer or on keyboard focus, stays while the pointer moves into it, never on touch, flips to stay on screen |
 | KPI Chart | `kpi-chart` | Pro | Metric card with a multi-line chart and a tooltip that follows the pointer |
+| Separator | `separator` | Free | A thin line between groups – across or upright between tools, an optional word in its middle like "or" or "Earlier", decorative or a real separator for screen readers |
 | Usage Meter | `usage-meter` | Pro | Plan usage and AI credits – a stacked credits meter by category, daily sparkline, limits and a button that speaks up near the limit |
 
 ### Inputs
@@ -92,10 +94,13 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Billing Schedule | `billing-schedule` | Pro | Build a billing phase – start date, duration, products with repeats and timing, discount, minimum and live totals |
 | Checkbox | `checkbox` | Free | A real checkbox with a label and a second line, a some-of-them state for Select all, an error and a card row – the check draws itself |
 | Combobox | `combobox` | Pro | Pick one or many from a searchable, grouped list – chips with avatars, highlighted matches, create-on-the-fly and full keyboard support |
+| Date Picker | `date-picker` | Free | Pick one day in the Text Field's look – a month in a small card, today marked, days outside min and max or ruled out stay visible, full keyboard control and the locale's own week |
 | Date Range Picker | `date-range-picker` | Pro | Presets and two calendars with a hover preview, comparison with the previous period or year, full keyboard control |
 | Dropzone | `dropzone` | Pro | Drag files in and watch them upload – fanning documents, colored type badges, progress with time left, errors with retry |
 | Filter Menu | `filter-menu` | Free | Grouped filters with removable chips, collapsible checkbox groups, Clear all and full keyboard control |
+| Form Field | `form-field` | Free | The frame around any control – label with a required mark or Optional, a hint, an error in its place and a count, all wired up with ids and aria |
 | Integration Settings | `integration-settings` | Pro | Settings card for a connected service – on/off switch, API key, validated site address, time zone and a save bar |
+| Number Input | `number-input` | Free | A field for one number – − and + that repeat while held, arrow keys and Page Up / Down, min, max and step, a unit like tokens or %, formatted for the locale |
 | OTP Input | `otp-input` | Free | The verification code field done right – a gliding focus ring, paste and SMS autofill, a calm shake on errors and a morph into Verified |
 | Prompt Library | `prompt-library` | Pro | Saved prompt templates with variables – type straight into the sentence, watch the finished prompt assemble below, and use it once every variable is filled |
 | Select | `select` | Free | Pick one option in the Text Field's look – icons and a second line per option, a gliding highlight, type-ahead and a list that never gets cut off |
@@ -104,6 +109,21 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Tag Input | `tag-input` | Free | Several values in one field as chips – paste a whole list, a check per value, duplicates flash, Backspace and arrow keys to edit |
 | Text Area | `text-area` | Free | The multi-line twin of the Text Field – grows with the text, a character count, a button for more room and ⌘ Enter to send |
 | Text Field | `text-field` | Free | One input for every form – label, hint and error in place, prefix and suffix, clear, show-password and copy buttons, a character count |
+| Time Picker | `time-picker` | Free | A time of day you type or pick – a list every few minutes with a gliding highlight, 12 or 24 hours by locale, min and max, and typing that understands 930, 9:30 pm or 21.30 |
+
+### Navigation
+
+| Item | Slug | | What it is |
+| --- | --- | --- | --- |
+| Breadcrumb | `breadcrumb` | Free | Where a page sits and the way back up – links with quiet separators, the current page last, a long middle folded into a … menu, long names shortened with the full one on hover |
+| Command Menu | `command-menu` | Pro | Search and run anything from one field – tool actions with logos and ⌘1–⌘5, everyday commands with icons |
+| Context Menu | `context-menu` | Free | The menu a right-click opens, right at the pointer – a long press on touch, Shift F10 from the keyboard, items built for what was clicked, with icons, shortcuts, checks, red items and submenus |
+| Dropdown Menu | `dropdown-menu` | Free | Actions and choices behind any trigger – icons, shortcuts, checks, red items and submenus, a gliding highlight, type-ahead and the full menu keyboard |
+| Integration Picker | `integration-picker` | Pro | Integrations page of a command menu – search, a list of services and the picked one with its connection on two tiles |
+| Pagination | `pagination` | Free | Pages of a long list – the range you see, previous and next, page numbers with … between them and rows per page, tabular numbers that keep the row still from 1 page to 10,000 |
+| Popover | `popover` | Free | A small floating card attached to its trigger – a title and quiet line, any content, flips to stay on screen, closes on a press outside or Escape and hands the focus back |
+| Profile Menu | `profile-menu` | Free | Account card with the signed-in user, menu actions and profile setup progress |
+| Segmented Control | `segmented-control` | Free | Switch between two to six options – a raised pill or underline that glides, stretches a little and can be dragged across, with icons, counts and badges |
 
 ### Buttons
 
@@ -112,17 +132,24 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Button | `button` | Free | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state |
 | Icon Button | `icon-button` | Free | A square button that is only an icon – ghost, outlined or solid, two sizes, a pressed state for toggles and its label as the tooltip |
 | Reaction Bar | `reaction-bar` | Free | Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit |
+| Toggle Group | `toggle-group` | Free | A row of toggle buttons – several on at once or one that can be cleared, labels or icons, a tray or separate chips, one tab stop with arrow keys |
 
-### Navigation
+### Cards
 
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
-| Command Menu | `command-menu` | Pro | Search and run anything from one field – tool actions with logos and ⌘1–⌘5, everyday commands with icons |
-| Dropdown Menu | `dropdown-menu` | Free | Actions and choices behind any trigger – icons, shortcuts, checks, red items and submenus, a gliding highlight, type-ahead and the full menu keyboard |
-| Integration Picker | `integration-picker` | Pro | Integrations page of a command menu – search, a list of services and the picked one with its connection on two tiles |
-| Popover | `popover` | Free | A small floating card attached to its trigger – a title and quiet line, any content, flips to stay on screen, closes on a press outside or Escape and hands the focus back |
-| Profile Menu | `profile-menu` | Free | Account card with the signed-in user, menu actions and profile setup progress |
-| Segmented Control | `segmented-control` | Free | Switch between two to six options – a raised pill or underline that glides, stretches a little and can be dragged across, with icons, counts and badges |
+| Card | `card` | Free | The card every screen is built from – header with title, quiet line and an action, content and a footer, the whole card a click target and a gray fill when selected |
+| Email Draft | `email-draft` | Free | Agent-written email for review – switch recipient and tone, edit inline, remove the attachment, send or discard with undo |
+| Project Card | `project-card` | Pro | A two-line project summary that quietly unfolds on hover – a progress ring with one segment per subtask, a people filter and a status picker, all linked by hover |
+| Smart Recommendation | `smart-recommendation` | Free | Suggestion card with a confidence signal, alternatives to switch to and accept with undo |
+| Tips Panel | `tips-panel` | Free | Grid of short tips with one action each – taken tips turn into a done state |
+
+### Text
+
+| Item | Slug | | What it is |
+| --- | --- | --- | --- |
+| Code Block | `code-block` | Free | Code to read and copy – a header with the file name or language and a copy button, line numbers, highlighted lines, long lines that scroll inside and a small built-in colorizer |
+| Kbd | `kbd` | Free | A key chip for shortcuts – one key or a combo in one chip, ⌘ on a Mac and Ctrl elsewhere from a single mod key, spelled out for screen readers |
 
 ### Feedback
 
@@ -138,15 +165,6 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Spinner | `spinner` | Free | A small turning arc for work that runs right now – a faint ring in the text color, any size, inside a button or a status row, announced only when it has a label |
 | Toaster | `toaster` | Pro | Calm toasts from anywhere – a stack that fans out on hover, promise toasts that morph from spinner to check, swipe to dismiss |
 | Tooltip | `tooltip` | Free | A small dark label for one control – shows on hover after a short wait and at once under keyboard focus, neighbours follow instantly, an optional shortcut inside, flips to stay on screen |
-
-### Cards
-
-| Item | Slug | | What it is |
-| --- | --- | --- | --- |
-| Email Draft | `email-draft` | Free | Agent-written email for review – switch recipient and tone, edit inline, remove the attachment, send or discard with undo |
-| Project Card | `project-card` | Pro | A two-line project summary that quietly unfolds on hover – a progress ring with one segment per subtask, a people filter and a status picker, all linked by hover |
-| Smart Recommendation | `smart-recommendation` | Free | Suggestion card with a confidence signal, alternatives to switch to and accept with undo |
-| Tips Panel | `tips-panel` | Free | Grid of short tips with one action each – taken tips turn into a done state |
 
 ## Screens
 
