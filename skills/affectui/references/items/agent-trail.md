@@ -55,13 +55,18 @@ export function Progress() {
 | --- | --- | --- | --- |
 | steps | `TrailStep[]` |  | { id, title, state, duration?, status?, startedAt?, gate?, substeps? } – in the order the agent walks them |
 | title | `string` |  | The task, in a header over the trail with how many steps are done – "3/5". Leave it out for no header |
-| state | `"done" \| "running" \| "pending" \| "waiting" \| "failed"` |  | Per step – done shows a tinted check and its time, running a spinning ring with its status, waiting an amber Needs you, failed a red mark |
+| agent | `{ name: string; logo?: ReactNode }` |  | Who works on it – the agent or model's logo and name in the header, before the count |
+| state | `"done" \| "running" \| "pending" \| "waiting" \| "failed" \| "declined"` |  | Per step – done shows a tinted check and its time, running a spinning ring with its status, waiting an orange disc with a pause and Needs you, failed a red mark, declined (you said no at Needs you) a quiet gray dash with its title struck through |
 | duration | `number \| string` |  | How long a done step took – ms as a number (12s, 1m 4s, 1h 2m, 3d 4h), or your own text |
 | status / startedAt | `string / number` |  | What a running step does right now, shimmering – "Testing" – and when it started (Date.now()) for a live timer next to it |
-| gate | `boolean` |  | Needs approval before it runs – a dashed amber ring and "Approval" until it is reached, then "Needs you" while state is waiting |
+| gate | `boolean` |  | Needs approval before it runs – a dashed orange ring and "Approval" until it is reached, then "Needs you" while state is waiting |
+| tool | `{ logo: ReactNode; name: string }` |  | Per step – the tool or system it works in (GitHub, Linear, Notion …); its 14px logo sits before the title, faded while the step is still to come |
 | substeps | `{ id?, title, state?, detail? }[]` |  | What the agent does inside a step – state done (default), running or pending, and a short fact on the right (long ones keep their end: "src/…Wrapper.tsx:1284"). The light runs to the running one; more than six fold to five around it with "+N earlier" and "+N more" |
 | expanded / onExpandedChange | `string[] / (ids) => void` |  | Which steps show their sub-steps. By default the running one opens, the rest open with a click |
-| labels | `Partial<AgentTrailLabels>` |  | Every word: title (the list's name without a header), running, approval, waiting, failed, done, pending, empty (no steps – "No steps yet"), untitled (a step without a title), earlier / more / fewer (the rows that fold long sub-step lists) |
+| onApprove | `(step: TrailStep) => void` |  | A waiting step was approved – with this (or onDecline) "Needs you" becomes a button that opens Approve and Decline under the row |
+| onDecline | `(step: TrailStep) => void` |  | A waiting step was declined – update its state in your data to declined |
+| ask | `string` |  | Per step – what a waiting step asks you to approve, shown above Approve and Decline: "Open PR #482 against main – 3 files, 214 tests passing" |
+| labels | `Partial<AgentTrailLabels>` |  | Every word: title (the list's name without a header), running, approval, waiting, failed, declined, done, pending, empty (no steps – "No steps yet"), untitled (a step without a title), earlier / more / fewer (the rows that fold long sub-step lists), approve / decline (the two answers to Needs you) |
 | className | `string` |  | Extra class on the root – set the color variables on it |
 
 ### Keyboard
@@ -69,6 +74,8 @@ export function Progress() {
 - Tab: Moves to each step that has sub-steps
 - Enter / Space: Opens or closes its sub-steps
 - Tab / Enter: On "+N earlier" or "+N more": shows every sub-step; "Show fewer" folds them again – focus stays on the row
+- Enter: On "Needs you": opens Approve and Decline – focus lands on Approve
+- Esc: Closes the answer panel and returns to "Needs you"
 
 ### Accessibility
 
