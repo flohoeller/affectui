@@ -107,6 +107,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Button | `button` | Free | Primary, secondary, ghost and destructive buttons with icons, sizes and a shimmering loading state |
+| Icon Button | `icon-button` | Free | A square button that is only an icon – ghost, outlined or solid, two sizes, a pressed state for toggles and its label as the tooltip |
 | Reaction Bar | `reaction-bar` | Free | Like, comment, repost and share in one pill – icons pop and fill, counts roll in digit by digit |
 
 ### Navigation
@@ -114,7 +115,9 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Command Menu | `command-menu` | Pro | Search and run anything from one field – tool actions with logos and ⌘1–⌘5, everyday commands with icons |
+| Dropdown Menu | `dropdown-menu` | Free | Actions and choices behind any trigger – icons, shortcuts, checks, red items and submenus, a gliding highlight, type-ahead and the full menu keyboard |
 | Integration Picker | `integration-picker` | Pro | Integrations page of a command menu – search, a list of services and the picked one with its connection on two tiles |
+| Popover | `popover` | Free | A small floating card attached to its trigger – a title and quiet line, any content, flips to stay on screen, closes on a press outside or Escape and hands the focus back |
 | Profile Menu | `profile-menu` | Free | Account card with the signed-in user, menu actions and profile setup progress |
 | Segmented Control | `segmented-control` | Free | Switch between two to six options – a raised pill or underline that glides, stretches a little and can be dragged across, with icons, counts and badges |
 
@@ -123,9 +126,12 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Decision Inbox | `decision-inbox` | Free | Open decisions with two quick answers each – answered ones confirm and fold away |
+| Empty State | `empty-state` | Free | What a list, table or panel shows while it has nothing yet – an icon on a soft tile, a title, one line and a button for the first step, framed or bare |
 | Notification Stack | `notification-stack` | Free | Notice cards stacked behind each other – dismiss the front one to reveal the next |
 | Progress Tracker | `progress-tracker` | Free | Onboarding checklist with an animated progress bar, ticks that draw themselves and auto play |
 | Setup Guide | `setup-guide` | Pro | Onboarding panel with a progress bar and collapsible task groups that strike through when done |
+| Skeleton | `skeleton` | Free | Gray shapes in the exact size of the content they stand in for – a soft sheen sweeping across all of them in step, a Loading wrapper that tells screen readers and fades in late, so fast loads never flash |
+| Spinner | `spinner` | Free | A small turning arc for work that runs right now – a faint ring in the text color, any size, inside a button or a status row, announced only when it has a label |
 | Toaster | `toaster` | Pro | Calm toasts from anywhere – a stack that fans out on hover, promise toasts that morph from spinner to check, swipe to dismiss |
 
 ### Cards
