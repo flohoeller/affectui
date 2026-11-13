@@ -178,6 +178,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Agent / Activity | `agent-activity` | Pro | What your agent did – every step as a sentence with its app's logo, the task and who let it (on its own or you approved), grouped by day; Undo while it can be taken back draws a line through it, and each step says why it could and what Undo does |
+| Agent / Agents | `agents` | Pro | Your team of agents in one place – calm cards with each agent's pixel mark, role, status tag and the apps it may use, its model, runs and spend; an agent opens on the right with its runs, instructions, skills, apps and recent tasks, and New agent draws the mark as you type |
 | Agent / Inbox | `inbox` | Pro | What your orchestrator needs from you, one question at a time – pick an option, a variant or approve, send it in a keystroke and the next one glides in |
 | Agent / Inbox Board | `agent-inbox-board` | Pro | Every background task your agents work on, as a board – Needs you, Running, Done – with cards that open on the right to approve, retry or open, and glide to their new column when their state changes |
 | Agent / Memory | `agent-memory` | Pro | What your agent knows about you and your work – grouped by where it applies, each with where it came from and where it was used; a memory it recalls lights up while it works, and what it picks up on its own waits for your OK |
