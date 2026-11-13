@@ -10,6 +10,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | Agent Checkpoints | `agent-checkpoints` | Pro | An agent's run as a line of checkpoints, like git for agents – rewind to any of them and a new attempt branches out of it, while the one it left fades back but stays |
+| Agent Crew | `agent-crew` | Pro | A lead and its sub-agents as one live tree of cards – every agent stays on screen; each card says what the agent does right now, how full its context is, its tools and the last thing it was handed, and handoffs run as a light along Agent Tree's rounded connectors and light up the card they reach; a click on a card opens its task, model, usage and tools with actions to steer it, and a switcher swaps between projects |
 | Agent Cursors | `agent-cursors` | Pro | Agents working in a document like teammates in a multiplayer editor – live pointers with names, suggestions typed letter by letter, images they resize, code they fix and comments beside the page |
 | Agent Findings | `agent-findings` | Pro | A swarm of agents checking something – one calm row per agent with its progress, and their findings sliding into a short feed as they're found |
 | Agent Fleet | `agent-fleet` | Pro | Several agents side by side – each card sums up its sub-agents, and a click opens its tree to the right while the last one folds back into its card |
