@@ -84,7 +84,10 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Experiment Card | `experiment-card` | Pro | An A/B test in two lines that quietly unfolds on hover – variants linked to a tiny chart, a metric switch with rolling numbers, and a winner you pick with a click |
 | Hover Card | `hover-card` | Free | A preview of what a link or name points to – opens after a short rest of the pointer or on keyboard focus, stays while the pointer moves into it, never on touch, flips to stay on screen |
 | KPI Chart | `kpi-chart` | Pro | Metric card with a multi-line chart and a tooltip that follows the pointer |
+| Resizable | `resizable` | Free | Panes side by side or stacked with a line between them you can drag – sizes in percent, a smallest and largest size, panes that fold away, arrow keys, Home, End and Enter on the handle, a double-click to reset |
+| Scroll Area | `scroll-area` | Free | A box that scrolls the browser's own way with a slim scrollbar of its own – it shows on hover and while scrolling, a draggable thumb, up and down or sideways, soft fades where there is more |
 | Separator | `separator` | Free | A thin line between groups – across or upright between tools, an optional word in its middle like "or" or "Earlier", decorative or a real separator for screen readers |
+| Tree View | `tree-view` | Free | A nested list of folders and files or any hierarchy – branches that open with a chevron and grow in height, indent guides, one selected row, icons and quiet meta, arrow keys and type-ahead as in the WAI-ARIA tree |
 | Usage Meter | `usage-meter` | Pro | Plan usage and AI credits – a stacked credits meter by category, daily sparkline, limits and a button that speaks up near the limit |
 
 ### Inputs
@@ -93,6 +96,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | --- | --- | --- | --- |
 | Billing Schedule | `billing-schedule` | Pro | Build a billing phase – start date, duration, products with repeats and timing, discount, minimum and live totals |
 | Checkbox | `checkbox` | Free | A real checkbox with a label and a second line, a some-of-them state for Select all, an error and a card row – the check draws itself |
+| Color Picker | `color-picker` | Free | A swatch button that opens a color card – saturation and brightness, hue and optional opacity by drag or arrows, a hex field that also reads rgb(), named presets, a hex string as the value |
 | Combobox | `combobox` | Pro | Pick one or many from a searchable, grouped list – chips with avatars, highlighted matches, create-on-the-fly and full keyboard support |
 | Date Picker | `date-picker` | Free | Pick one day in the Text Field's look – a month in a small card, today marked, days outside min and max or ruled out stay visible, full keyboard control and the locale's own week |
 | Date Range Picker | `date-range-picker` | Pro | Presets and two calendars with a hover preview, comparison with the previous period or year, full keyboard control |
@@ -103,6 +107,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Number Input | `number-input` | Free | A field for one number – − and + that repeat while held, arrow keys and Page Up / Down, min, max and step, a unit like tokens or %, formatted for the locale |
 | OTP Input | `otp-input` | Free | The verification code field done right – a gliding focus ring, paste and SMS autofill, a calm shake on errors and a morph into Verified |
 | Prompt Library | `prompt-library` | Pro | Saved prompt templates with variables – type straight into the sentence, watch the finished prompt assemble below, and use it once every variable is filled |
+| Rating | `rating` | Free | Stars or thumbs up and down for an AI answer – hover previews, a press sets it and a second press clears it, arrows in one tab stop, read-only with halves ("4.5 out of 5") |
 | Select | `select` | Free | Pick one option in the Text Field's look – icons and a second line per option, a gliding highlight, type-ahead and a list that never gets cut off |
 | Stepper Form | `stepper-form` | Pro | A multi-step flow for onboarding and setup – steps that fill and check off, sliding steps, a card that morphs to each step, inline validation and a success state |
 | Switch | `switch` | Free | On or off for things that apply right away – label and second line, at the start or across a settings row, a thumb that stretches as you press it |
