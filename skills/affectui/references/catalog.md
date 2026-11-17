@@ -95,6 +95,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Scroll Area | `scroll-area` | Free | A box that scrolls the browser's own way with a slim scrollbar of its own – it shows on hover and while scrolling, a draggable thumb, up and down or sideways, soft fades where there is more |
 | Separator | `separator` | Free | A thin line between groups – across or upright between tools, an optional word in its middle like "or" or "Earlier", decorative or a real separator for screen readers |
 | Tree View | `tree-view` | Free | A nested list of folders and files or any hierarchy – branches that open with a chevron and grow in height, indent guides, one selected row, icons and quiet meta, arrow keys and type-ahead as in the WAI-ARIA tree |
+| Trend Chart | `trend-chart` | Pro | The chart on its own for any card or layout – line, area, bars or a sparkline from the same data, with a tooltip, this period against the last, and charts that follow the same day together |
 | Usage Meter | `usage-meter` | Pro | Plan usage and AI credits – a stacked credits meter by category, daily sparkline, limits and a button that speaks up near the limit |
 
 ### Inputs
