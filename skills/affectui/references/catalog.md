@@ -206,6 +206,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | AI Chat / Progress | `agent-chat-progress` | Pro | A plain chat with what the assistant is doing beside it, part of the page – its progress step by step, what it made, and the uploads, apps, web search and skills it used |
 | AI Chat / Revenue Analyst | `ai-chat-revenue` | Pro | A chat that answers with charts – ask about revenue and get KPI cards and a weekly line against last year, split it by region into stacked bars, or ask for a forecast with its likely range; charts draw themselves in as the answer arrives |
 | AI Chat / Run | `agent-run` | Pro | One autonomous agent run: the plan ticking through its steps, the tool calls, an approval it waits on and the draft it wrote |
+| AI Chat / Spend Planner | `ai-chat-spend` | Pro | A chat about what AI costs you – spend by provider and model, the weekly trend, and a plan to play with: move three levers and the savings and the six-month forecast follow; drag across a line or click a bar to ask about just that part |
 | AI Chat / Start | `assistant-home` | Pro | AI assistant start page: greeting, prompt box with tools, connected apps and suggestions |
 | Analytics | `analytics` | Pro | Revenue dashboard: key figures, revenue by channel, breakdown, top products and weekly trends |
 | App Shell Flat | `app-shell-flat` | Pro | The App Shell laid flat – gray sidebar, an edge-to-edge page and the work area beside it, split by single hairlines |
