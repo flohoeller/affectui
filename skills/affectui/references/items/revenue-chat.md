@@ -75,7 +75,7 @@ export default function Page() {
 
 ### Responsive
 
-- It fills the box you put it in – give that box a height; the conversation scrolls inside, the column stays at 760px in the middle, and cards and charts are as wide as the composer below
+- It fills the box you put it in – give that box a height – and has no background of its own, so it sits on your page; the conversation scrolls inside, the column stays at 760px in the middle, and cards and charts are as wide as the composer below
 - On phones the mark steps back, KPI cards sit two by two and the charts keep their height; sliding a finger sideways picks a stretch, up and down still scrolls, a tap picks a bar – the hint under the chart names the gesture of the device, and the field uses 16px text so iOS does not zoom in
 - Big numbers shorten – $1.24M, $2.28B – and a value too long for its card ends in … with the whole one on hover
 - Dark mode built in: switches when an ancestor (usually <html>) has the class dark or data-theme="dark"
