@@ -264,6 +264,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | --- | --- | --- | --- |
 | KPI Board | `kpi-board` | Pro | The top of a dashboard – three trend cards, an overview chart that compares this period with the last, and a focus card; hover shows any day's value and every number rolls when the range changes |
 | Metrics Dashboard | `metrics-dashboard` | Pro | Sales overview – KPI cards pick the metric, one Trend Chart switches between area and bars, with top products and channels – built from Stat Card and Trend Chart |
+| Revenue Chat | `revenue-chat` | Pro | A chat that answers with charts, on its own – KPI cards, a trend against last year, a split by region or a forecast under a few lines; drag across a line or click a bar to ask about just that part |
 
 ### Agents
 

@@ -55,7 +55,7 @@ export default function Page() {
 ### Keyboard
 
 - Tab: Into a chart – ← / → step through its points, Home / End jump
-- Enter / ← / → / Enter: On a line chart: start a pick at the highlighted point, stretch it with the arrows, Enter again to ask about it
+- Enter / ← / →: On a line chart: Enter starts a pick at the highlighted point, the arrows stretch it, Enter again opens the field to ask about it
 - Enter / Space: On a bar: pick it and ask about it
 - Enter: In the composer or the field over a pick: ask
 - Esc: Close the field over a pick – back to the chart it came from
