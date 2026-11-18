@@ -203,6 +203,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | AI Chat / Double Sidebar | `agent-chat-rail` | Pro | A plain assistant chat with web search in a double sidebar, like Codex and ChatGPT – a column of icons on the page, the chats in a light gray column inside the main area with a project switcher, and what it found in the work area on the right |
 | AI Chat / Overview | `assistant-overview` | Pro | The AI workspace start page with your numbers under the composer – activity day by day, recent chats, usage, the files it made and this month against the last |
 | AI Chat / Progress | `agent-chat-progress` | Pro | A plain chat with what the assistant is doing beside it, part of the page – its progress step by step, what it made, and the uploads, apps, web search and skills it used |
+| AI Chat / Revenue Analyst | `ai-chat-revenue` | Pro | A chat that answers with charts – ask about revenue and get KPI cards and a weekly line against last year, split it by region into stacked bars, or ask for a forecast with its likely range; charts draw themselves in as the answer arrives |
 | AI Chat / Run | `agent-run` | Pro | One autonomous agent run: the plan ticking through its steps, the tool calls, an approval it waits on and the draft it wrote |
 | AI Chat / Start | `assistant-home` | Pro | AI assistant start page: greeting, prompt box with tools, connected apps and suggestions |
 | Analytics | `analytics` | Pro | Revenue dashboard: key figures, revenue by channel, breakdown, top products and weekly trends |
