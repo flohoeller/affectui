@@ -1,6 +1,6 @@
 # Metrics Dashboard (Pro)
 
-Sales overview – KPI cards pick the metric, one chart switches between dotted line and bars, with top products and channels
+Sales overview – KPI cards pick the metric, one Trend Chart switches between area and bars, with top products and channels – built from Stat Card and Trend Chart
 
 - Page: https://www.affectui.com/blocks/metrics-dashboard
 - Section: Blocks · Analytics
@@ -48,7 +48,7 @@ export function Overview({ days, products, channels }) {
 | defaultRange | `"7d" \| "30d" \| "90d"` | `"30d"` | Period to start on – shown as Week, Month and Quarter |
 | defaultMetric | `"revenue" \| "orders" \| "aov" \| "refunds"` | `"revenue"` | Metric to start on |
 | onExport | `(range, metric) => void` |  | Called when Export is pressed; the button confirms locally either way |
-| data | `{ date: Date; revenue; orders; refunded }[]` | `sample data` | One entry per day, oldest first; 180 days give every range a previous period. Days missing a number count as 0; without a previous period the change chips stay empty |
+| data | `{ date: Date; revenue; orders; refunded }[]` | `sample data` | One entry per day, oldest first; 180 days give every range a previous period. Days missing a number count as 0; without a previous period the cards show no change |
 | products | `{ name: string; share: number }[]` | `sample products` | Rows of Top products with their share of revenue (0–1); bars are relative to the largest share. An empty list shows a short note |
 | channels | `{ name: string; share: number }[]` | `sample channels` | Rows of Channels, like products |
 | currency | `string` | `"USD"` | ISO currency code for revenue, average order and the axis |
@@ -59,23 +59,25 @@ export function Overview({ days, products, channels }) {
 - Tab: Moves through the period switch, Export, the KPI cards, the chart type, Compare and the chart
 - ← / →: With the chart focused, moves the inspected point
 - Home / End: Jumps to the first or last point
+- ← / → / ↑ / ↓: On the KPI cards, the period or the chart type, picks the previous or next one
+- Esc: Closes the chart's tooltip
 
 ### Accessibility
 
 - Period and chart-type buttons use aria-pressed; the KPI cards are tabs with aria-selected
-- The chart has a text label with the range and values; the inspected point is announced through a status tooltip
+- The chart is labelled with the metric and range; the inspected point is announced through a status tooltip
 - Deltas say up or down in text, not only with color – and a falling refund rate counts as good
 
 ### Motion
 
-- KPI values and list counts count to their new amounts with tabular numerals
-- The chosen KPI card turns fully opaque while the others dim; the line draws in with its dots popping on, bars grow up one after another
+- KPI values roll up from zero on first view and to their new amounts after that; list values count along – all with tabular numerals
+- The chosen KPI card turns fully opaque while the others dim; the line draws in and glides to the new values, bars grow out of the zero line
 - With prefers-reduced-motion values and views switch instantly
 
 ### Responsive
 
 - Follows the block's own width with container queries: below 640px the KPI cards form a 2 × 2 grid and the lists stack
-- Below 460px the period switch fills the width, figures shrink and the chart is 168px tall
+- Below 460px the period switch fills the width and the chart is 168px tall
 - Dark mode built in: switches when an ancestor (usually <html>) has the class dark or data-theme="dark"
 
 ### Requirements

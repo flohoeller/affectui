@@ -57,4 +57,4 @@ export default function Page() {
 - React 19
 - @hugeicons/react
 - @hugeicons/core-free-icons
-- App Shell, KPI Chart and Button (installed with it)
+- App Shell, Stat Card, Trend Chart and Button (installed with it)

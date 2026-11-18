@@ -61,25 +61,26 @@ export function Overview({ data }: { data: Record<string, KpiBoardData> }) {
 
 ### Keyboard
 
-- Tab: Through the pickers and the action
+- Tab: Through the pickers, the charts and the action
 - Enter / Space / ↓: On a picker: opens its menu
 - ↑ / ↓ / Home / End: In an open menu: moves through the choices
 - Enter: Picks the highlighted choice
 - Esc: Closes the menu without changing anything
+- ← / → / Home / End: On a chart: steps through the days and shows that day's value; Esc lets go
 
 ### Accessibility
 
-- Every card is a labelled region with its numbers as text; the charts themselves are decorative
+- Every card has its numbers as text; each chart is a focusable group whose value at the chosen day is announced (the focus card reads its day out through a status line)
 - The pickers are comboboxes with a listbox: the open state, the highlighted and the chosen option are announced
 - Changes carry an arrow or a sign next to the color, and the color follows whether the change is good news (lowerIsBetter)
 
 ### Motion
 
 - On first view the cards rise in one after another and every line draws itself in from the left
-- Switching the range rolls every number in one shared tween while every line is drawn in again from the left
+- Switching the range rolls every number while every line glides from the old data to the new
 - The filter inside the overview does the same for that card only – the other cards stay still
-- Hovering a small card marks the day under the pointer with a dot, its value in a tag and the date on the axis
-- Hovering the overview shows a dark tooltip that compares this period with the last at that day
+- Hovering a small card marks the day under the pointer with a dot and its value and date in a small tag
+- Hovering the overview shows a tooltip that compares this period with the last at that day
 - With prefers-reduced-motion everything switches without movement
 
 ### Responsive
@@ -90,9 +91,9 @@ export function Overview({ data }: { data: Record<string, KpiBoardData> }) {
 
 ### Notes for AI
 
-- Series may have different numbers of points per range (7 days, 30 days, 13 weeks) – each range is drawn in fresh
-- A stat's value is the sum of its series; `previous` is the total of the period before and drives the change on the right
-- Points that are not a number count as 0 and show as — on hover; a previous total of 0 leaves the change out instead of showing +0%
+- Series may have different numbers of points per range (7 days, 30 days, 13 weeks) – the lines glide between them
+- A stat's value is the sum of its series; `previous` is the total of the period before and drives the change in percent under the number
+- Points that are not a number count as 0 in the totals and leave a gap in the line; a previous total of 0 leaves the change out instead of showing +0%
 - focus.unitOne is the word after a count of exactly 1 – without it the unit loses its plural s ("1 license"), so only irregular words like person need it; long labels end in an ellipsis with the full text in a tooltip, numbers are never cut
 - The date range sits in the bar above the cards because it changes all of them; the picker inside the overview is the segment and only switches the overview's own lines (overview.segments)
 

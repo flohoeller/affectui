@@ -262,7 +262,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Item | Slug | | What it is |
 | --- | --- | --- | --- |
 | KPI Board | `kpi-board` | Pro | The top of a dashboard – three trend cards, an overview chart that compares this period with the last, and a focus card; hover shows any day's value and every number rolls when the range changes |
-| Metrics Dashboard | `metrics-dashboard` | Pro | Sales overview – KPI cards pick the metric, one chart switches between dotted line and bars, with top products and channels |
+| Metrics Dashboard | `metrics-dashboard` | Pro | Sales overview – KPI cards pick the metric, one Trend Chart switches between area and bars, with top products and channels – built from Stat Card and Trend Chart |
 
 ### Agents
 

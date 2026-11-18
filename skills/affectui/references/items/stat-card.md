@@ -63,7 +63,12 @@ export function Spend() {
 | loading | `boolean` | `false` | Placeholders instead of number, change and chart – the card keeps its size |
 | href | `string` |  | Makes the whole card a link |
 | onClick | `() => void` |  | Makes the whole card a button |
+| hitProps | `HTMLAttributes` |  | Extra attributes for the link or button – e.g. role="tab", aria-selected and tabIndex when the cards pick what a chart shows |
+| action | `ReactNode` |  | A small control in the top right corner – a menu or filter; stays clickable on a link card |
+| selected | `boolean` |  | One card of a set is picked: false fades the card's content |
 | className | `string` |  | Extra class on the card |
+| style | `CSSProperties` |  | Inline styles on the card, e.g. CSS variables |
+| --ui-stat-skel-h | `CSS variable` | `44px` | Height of the chart placeholder while loading – match it to a taller chart |
 
 ### Keyboard
 
