@@ -53,7 +53,7 @@ export function Spend() {
 | format | `(n: number) => string` | `compact, e.g. 1.2k` | Formats tooltip values – and the axis, unless axisFormat is set |
 | axisFormat | `(n: number) => string` |  | Shorter numbers for the axis, e.g. "$1.6T" while the tooltip shows the full amount |
 | height | `number` | `152 (sparkline 40)` | Height of the plot in px |
-| axis | `boolean` | `true (sparkline false)` | Value labels on the left and dates below |
+| axis | `boolean` | `true (sparkline false)` | Value labels on the left and dates below – without them a small tag replaces the tooltip |
 | index | `number \| null` |  | The highlighted point, controlled – share it between charts so they move together |
 | onIndexChange | `(index: number \| null) => void` |  | Called when the pointer or the keys move to another point, or leave |
 | defaultIndex | `number` |  | Point that stays highlighted while nobody hovers |
