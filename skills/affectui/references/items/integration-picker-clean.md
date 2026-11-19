@@ -47,6 +47,8 @@ export function Integrations() {
 | onExplore | `(id: string) => void` |  | Called by “Explore integration” |
 | onBack | `() => void` |  | Shows the back button and runs on ← in an empty search |
 | onClose | `() => void` |  | Runs on Esc in an empty search |
+| labels | `{ title?; search?; explore?; connect?; disconnect? }` |  | The words, for pickers that aren't about integrations – e.g. { title: "Tools", search: "Search tools" } to connect tools to an agent |
+| action | `"explore" \| "connect"` | `"explore"` | explore: a switch beside the title connects, the button opens onExplore. connect: no switch – the button connects the picked one (dark) or disconnects it |
 | className | `string` |  | Extra class on the root |
 
 ### Keyboard
