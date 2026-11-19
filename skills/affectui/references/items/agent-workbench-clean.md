@@ -25,19 +25,19 @@ One agent at work: the person who asked on the left with their message, the agen
 import { AgentWorkbench, type WorkbenchStep, type WorkbenchTool } from "@/components/ui/agent-workbench-clean";
 
 const tools: WorkbenchTool[] = [
-  { id: "gmail", name: "Gmail", logo: <GmailLogo />, scope: "Read & send · matt@lumen.co", last: "Sent the weekly digest", when: "2h ago" },
+  { id: "gmail", name: "Gmail", logo: <GmailLogo />, scope: "Read & send · ryan@lumen.co", last: "Sent the weekly digest", when: "2h ago" },
   { id: "calendar", name: "Google Calendar", logo: <CalendarLogo />, scope: "Read & book · Work" },
 ];
 
 const steps: WorkbenchStep[] = [
-  { id: "s1", text: "Reading Matt's request", at: "user" },
+  { id: "s1", text: "Reading Ryan's request", at: "user" },
   { id: "s2", text: "Checking Marc's calendar next week", at: "calendar", running: true },
 ];
 
 export function Workbench() {
   return (
     <AgentWorkbench
-      user={{ name: "Matt Carter", photo: "/matt.jpg", message: "Find 30 minutes with Marc next week." }}
+      user={{ name: "Ryan Brooks", photo: "/ryan.jpg", message: "Find 30 minutes with Marc next week." }}
       agent={{ id: "assistant", name: "Assistant", subtitle: "Works in your Google account" }}
       tools={tools}
       files={[{ id: "budget", name: "budget-q4.xlsx", logo: <ExcelLogo />, meta: "48 KB" }]}
@@ -54,7 +54,7 @@ export function Workbench() {
 | user | `{ name, message, photo?, avatar? }` |  | Who asked, on the left – their photo URL shown round beside the name (avatar takes your own node instead), and their message; without a photo, or if it doesn't load, the person's full mark |
 | agent | `{ id, name, subtitle? }` |  | The agent in the middle – its pixel mark from its id, twinkling while it works |
 | tools | `WorkbenchTool[]` |  | Its tools below as cards – logo, name, what each may do and where, and what it did last; up to four, with more the last spot sums up the rest ("+3 more tools") |
-| WorkbenchTool.scope / last / when | `string / string / string` |  | "Read & send · matt@lumen.co", its last action and when – while it's called, what it does now shows instead |
+| WorkbenchTool.scope / last / when | `string / string / string` |  | "Read & send · ryan@lumen.co", its last action and when – while it's called, what it does now shows instead |
 | files | `WorkbenchFile[]` |  | What it was given, on the right under a macOS folder – name, logo and a short meta like "48 KB"; up to four, then "+N more"; a file without a logo gets a plain page |
 | steps | `WorkbenchStep[]` |  | What it did and does, oldest first – the last three show in its work area, newest on top |
 | WorkbenchStep.at / running | `string / boolean` |  | Where it reaches – a tool id, "files" or "user" – and whether it still runs; the running step's line carries the light |
