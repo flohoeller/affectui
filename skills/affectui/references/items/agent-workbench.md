@@ -53,9 +53,10 @@ export function Workbench() {
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | user | `{ name, message, photo?, avatar? }` |  | Who asked, on the left – their photo URL shown round beside the name (avatar takes your own node instead), and their message; without a photo, or if it doesn't load, the person's full mark |
-| agent | `{ id, name, subtitle? }` |  | The agent in the middle – its pixel mark from its id, twinkling while it works |
+| agent | `{ id, name, subtitle?, details? }` |  | The agent in the middle – its pixel mark from its id, twinkling while it works; click it and its info card opens below with details, what it does now, its steps and the tools it used |
 | tools | `WorkbenchTool[]` |  | Its tools below as cards – logo, name, what each may do and where, and what it did last; up to four, with more the last spot sums up the rest ("+3 more tools") |
 | WorkbenchTool.scope / last / when | `string / string / string` |  | "Read & send · ryan@lumen.co", its last action and when – while it's called, what it does now shows instead |
+| WorkbenchTool.details / WorkbenchFile.details | `{ label, value }[]` |  | Lines in the info card that opens below a tool or a file when it's clicked – a tool's card also lists what it did for this request |
 | files | `WorkbenchFile[]` |  | What it was given, on the right under a macOS folder – name, logo and a short meta like "48 KB"; up to four, then "+N more"; a file without a logo gets a plain page |
 | steps | `WorkbenchStep[]` |  | What it did and does, oldest first – the last three show in its work area, newest on top |
 | WorkbenchStep.at / running | `string / boolean` |  | Where it reaches – a tool id, "files" or "user" – and whether it still runs; the running step's line carries the light |
@@ -69,14 +70,17 @@ export function Workbench() {
 - The work area is a list with a polite live region – each new step is read as it comes in
 - Every card is plain text and logos marked decorative; the connectors and their dots are hidden from screen readers
 - Status is said in words – Working, Done, Calling, Used, Ready – never by color alone
-- Nothing in it takes focus; put any controls around it
+- The agent, every tool and every file is a button with its name and "details" – Enter or Space opens its info card, aria-expanded says it's open
+- One info card at a time; clicking it again, clicking outside or Esc closes it, and Esc puts focus back on the button
+- A focus ring shows only for the keyboard
 
 ### Motion
 
 - A light runs along the line in use – in from the person who asked, out to the files or the tool – full at its front and fading to nothing behind
 - Each new step comes in from above at the top of the work area and shimmers while it runs; the agent's mark twinkles and Working turns
 - The tool it calls shows what it does now, shimmering; the file it reads lights up
-- Reduced motion turns it all off – steps simply appear
+- An info card fades and rises in from the card it opens from in 180ms, and drops out faster when it closes
+- Reduced motion turns it all off – steps and info cards simply appear
 
 ### Responsive
 
@@ -95,6 +99,7 @@ export function Workbench() {
 - Keep step texts short and in the present while they run – "Checking Marc's calendar" – one step at a time running
 - Update a tool's last and when once it's done its part
 - Pass the files the person attached; set reading while the agent reads one
+- Give the agent, tools and files a few details – short labels, short values – for their info cards
 
 ### Requirements
 
