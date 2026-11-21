@@ -12,6 +12,7 @@ Usage per day as soft gradient bars drifting from blue to lilac, with a live bar
 - Usage-based billing and metering – API calls, tokens, events, minutes per day
 - A usage card where today is still counting and should look alive
 - A calm daily bar chart that reads as a whole, with totals above it
+- Showing what a day was made of – calls per tool, tokens per model – in percent on hover
 
 ### When not to use
 
@@ -48,7 +49,7 @@ export function ApiCalls() {
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | title | `string` |  | Heading of the card |
-| data | `MeteringDay[]` |  | { label, value } per day, oldest first; a missing or broken value leaves an empty slot |
+| data | `MeteringDay[]` |  | { label, value, breakdown? } per day, oldest first; a missing or broken value leaves an empty slot. breakdown: { label, value, logo? }[] – shown with its logo in the tag as whole percentages that add up to 100, largest first |
 | totals | `MeteringTotal[]` |  | { label, value, format? } – figures under the title that roll to their new values |
 | period | `string` |  | The span on the right, e.g. "Sep 1 – Sep 21" |
 | live | `boolean` | `false` | The last bar is today and still counting: accent color, a running sheen, a turning spinner in the pink badge |
@@ -57,8 +58,10 @@ export function ApiCalls() {
 | axisFormat | `(n: number) => string` |  | Shorter numbers for the value axis, e.g. 4.5k |
 | colors | `string[]` | `light blue → lilac → mauve` | Colors the bars drift through from left to right |
 | accent | `string` | `"#5e5cff"` | Color of the live bar |
-| height | `number` | `120` | Height of the plot in px |
+| height | `number` | `168` | Height of the plot in px |
 | emptyText | `string` | `"No usage yet"` | Quiet text when there is nothing to draw |
+| breakdownLimit | `number` | `4` | How many parts the tag lists – the smaller ones fold into one row |
+| otherLabel | `string` | `"Other"` | Label of the folded row |
 | className | `string` |  | Extra class on the card |
 
 ### Keyboard
@@ -72,9 +75,11 @@ export function ApiCalls() {
 
 - The chart is one focusable stop, readable with the arrow keys; the tag is a polite live region
 - Totals are read out with their final value, never a number on its way
+- The breakdown is part of the tag's text, so it is read out with the day
 
 ### Motion
 
+- With a breakdown the tag opens beside the bar, centered on the chart's lines, and glides along as you move; the share bars ease to their new width
 - Bars rise from the left in a wave on first view; heights and the axis ease when values change
 - The live bar carries a slow sheen and the badge's spinner turns; reduced motion turns all of it off
 
