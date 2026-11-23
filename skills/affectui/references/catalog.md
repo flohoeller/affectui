@@ -220,6 +220,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | AI Chat / Run | `agent-run` | Pro | One autonomous agent run: the plan ticking through its steps, the tool calls, an approval it waits on and the draft it wrote |
 | AI Chat / Spend Planner | `ai-chat-spend` | Pro | A chat about what AI costs you – spend by provider and model, the weekly trend, and a plan to play with: move three levers and the savings and the six-month forecast follow; drag across a line or click a bar to ask about just that part |
 | AI Chat / Start | `assistant-home` | Pro | AI assistant start page: greeting, prompt box with tools, connected apps and suggestions |
+| AI Search / Prompt Explorer | `prompt-explorer` | Pro | What people ask AI assistants – type a prompt on a soft gradient hero and see related searches with their volume, analyse them, and browse popular and trending keywords |
 | Analytics | `analytics` | Pro | Revenue dashboard: key figures, revenue by channel, breakdown, top products and weekly trends |
 | App Shell Flat | `app-shell-flat` | Pro | The App Shell laid flat – gray sidebar, an edge-to-edge page and the work area beside it, split by single hairlines |
 | App Shell Inset | `app-shell` | Pro | Collapsible sidebar with workspace, menu, projects and account, and a resizable work area on the right – tools, browser and suggested sources – the frame every screen sits in |
