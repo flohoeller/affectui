@@ -70,6 +70,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Tool Access Map | `tool-access-map` | Pro | An agent in the middle with every tool it can reach around it – which ones it used, which failed and which it calls right now; open a tool for its calls and replay one on its own |
 | Tool Call Card | `tool-call-card` | Free | An agent's tool call in one line – live timer, status and summary, folds open to highlighted arguments and result with copy, retry on errors and a group that sums them up |
 | Trace Waterfall | `trace-waterfall` | Pro | Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with tokens and cost per step, the slowest call marked and branches that fold into their parent |
+| Voice Session | `voice-session` | Pro | A live voice call with an agent – both voices as audio waves with the pause between them measured, the words as they are spoken, voice-to-voice latency split up against a budget |
 
 ### Chat
 
