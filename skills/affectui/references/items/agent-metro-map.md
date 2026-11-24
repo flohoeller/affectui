@@ -50,7 +50,7 @@ export function Release() {
 | Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | stations | `MetroStation[]` |  | { id, label, col, row, labelSide?, status?, detail?, tools?, duration? } – col and row place it on the map's grid |
-| labelSide | `"below" \| "above" \| "left" \| "right"` |  | Where its name goes – below by default; put it on the side no line leaves from |
+| labelSide | `"below" \| "above" \| "left" \| "right"` |  | Where its name should go – below by default; if a line leaves on that side or another name sits there, it moves to the next free spot around the station |
 | status (station) | `"waiting" \| "failed"` |  | Waiting turns amber and can be approved in its card, failed turns red; done and current follow from where the trains are |
 | lines | `MetroLine[]` |  | { id, name, stations, at?, status?, color?, model?, logo? } – one per agent, its stations in order |
 | at | `string` |  | The station its train is at – the stretch behind is the full color, the stretch ahead see-through |
@@ -85,7 +85,7 @@ export function Release() {
 - Lines run straight and bend at 45°; at a station a line always runs through its middle
 - Lines between the same two stations run side by side, like on a real metro map; a line passing a station it doesn't stop at is drawn through it – lay stations so lines don't run over each other
 - Stations without a place on the grid, lines' stops that don't exist and repeated ids are left out; a train whose station doesn't exist starts at the first one
-- Station names sit on a patch of the card's color, so a line running past never cuts through them; long names end in …
+- Station names go where no line leaves the station and no other name sits – eight spots around it – on a patch of the card's color; long names end in …
 - Cards open below what you clicked, above it near the bottom of the screen
 - Dark mode built in: switches when an ancestor (usually <html>) has the class dark or data-theme="dark"
 
