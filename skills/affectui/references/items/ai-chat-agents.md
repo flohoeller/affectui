@@ -64,7 +64,7 @@ export default function Page() {
 ### Motion
 
 - Each sub-agent has its own color – its mark, its line and the light on it; a light keeps running to each one that works, full at the start and fading out on the way
-- A block drops in under its card – amber when it waits for you, red when it failed – and the line to it turns dashed; if the card is out of sight the canvas glides to it, and it glows once
+- A block drops in under its card – amber when it waits for you, red when it failed – and the line to it turns dashed; if the card is out of sight the canvas glides to it, and it glows once; while it waits a soft radial light keeps rising over the card's white from where its line comes in, and fades
 - Clicking a card lays its steps over the canvas on the right, like the App Shell's work area – the agents stay where they are
 - The assistant's words arrive a few at a time; with prefers-reduced-motion nothing runs or twinkles
 
