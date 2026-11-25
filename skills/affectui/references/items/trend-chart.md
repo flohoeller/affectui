@@ -61,6 +61,7 @@ export function Spend() {
 | defaultIndex | `number` |  | Point that stays highlighted while nobody hovers |
 | label | `string` | `"Chart"` | Name for screen readers |
 | emptyText | `string` | `"No data yet"` | Quiet text in the plot when there are no values, or only zeros |
+| fill | `{ opacity?; fade? }` |  | Area only: how strong the fill under each line starts (0–1, default 0.2) and how far down it has faded to nothing (0–1 of the area, default 1) – lower both when several areas overlap, e.g. { opacity: 0.12, fade: 0.55 } |
 | className | `string` |  | Extra class on the chart |
 
 ### Keyboard
