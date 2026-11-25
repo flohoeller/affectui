@@ -329,6 +329,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Layer Stack | `layer-stack` | Free | Isometric stack of five layers with a list beside it – the chosen entry lifts its layer out in color |
 | Lead Sourcing | `lead-sourcing` | Free | ChatGPT tile linked to Gmail and Grok, with a shine running along the connection |
 | Logo Cluster | `logo-cluster` | Free | Your mark on a white disc in the middle – company logos bounce out of it and settle around it |
+| Model Orbit | `model-orbit` | Free | AI model makers evenly around a slanted track – app tiles leaning back with it, blue beams arcing to a hub with the agent's pixel mark and sparks running along them; point at a logo for its name, drag to turn it |
 | Model Wheel | `model-wheel` | Free | AI model names on a turning drum – the rows bend away at the edges and each model lands on a soft gray fill |
 | Outreach Branches | `outreach-branches` | Pro | Lines branching out to Gmail, Slack and Notion with colored pulses flowing down |
 | Side Folder | `side-folder` | Free | Glassy blue folder on its side, documents sliding out to the right as the pocket swings open on hover |
