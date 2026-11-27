@@ -322,6 +322,22 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 
 ## Illustrations
 
+### Product scenes
+
+| Item | Slug | | What it is |
+| --- | --- | --- | --- |
+| Agent Mode | `agent-mode` | Pro | A close crop of a chat composer on a soft gradient, where a cursor comes over to switch on the Agent pill and the placeholder turns into a task |
+| Glow Keyboard | `glow-keyboard` | Pro | AI chat input that types itself over a glass keyboard – every key press sends a wave up the gradient floor |
+| Inspect Agent Card | `inspect-agent-card` | Pro | An agent card seen like a selection in a design tool – tilted back, with a blue frame, spacing numbers and a red guide walking through its rows |
+| Inspect Composer | `inspect-composer` | Pro | A chat composer seen like a selection in a design tool – tilted back, with a blue frame, spacing numbers and a red guide walking through its rows |
+| Integration Beam | `integration-beam` | Free | Your product between the tools it connects – light pulses flow along curved beams, hover to focus a tool, click to pause it |
+| Integration Flow | `integration-flow` | Pro | Integration pills rotating along a dashed arc, each beaming its data into a central analysis hub |
+| Model Menu | `model-menu` | Pro | A model picker – DeepSeek, GPT, Claude, Gemini and more with their marks, a pink band gliding to the picked one, its right edge and foot fading into the page |
+| Progress Pill | `progress-pill` | Pro | An agent building a report as a slim pill – its pixel mark, the title and how far it is, the step it's on as a subtitle, a thin bar with a shimmer, a soft color glow beneath |
+| Project Flow | `project-flow` | Pro | Animated scene of a client task branching into subtasks, notes and assigned roles |
+| Voice Capture | `voice-capture` | Pro | A dictation panel while someone speaks – the voice in a quiet well as thin bars rising and falling with the loudness, the time ticking, a soft color glow beneath it |
+| Voice Orb | `voice-orb` | Pro | The face of a voice assistant – a sphere of dots that breathes, catches sound, collapses into a spinning ring while thinking and ripples when it speaks |
+
 ### Card illustrations
 
 | Item | Slug | | What it is |
@@ -351,21 +367,6 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | --- | --- | --- | --- |
 | DACH Region | `region-dach` | Free | DACH map with fading neighbours and a pastel band along the border, switchable to the US, China, India, Brazil or Japan |
 | World Map Continental | `world-map` | Pro | World map with one highlighted continent and a pastel band along its coastline, switchable between all six |
-
-### Product scenes
-
-| Item | Slug | | What it is |
-| --- | --- | --- | --- |
-| Glow Keyboard | `glow-keyboard` | Pro | AI chat input that types itself over a glass keyboard – every key press sends a wave up the gradient floor |
-| Inspect Agent Card | `inspect-agent-card` | Pro | An agent card seen like a selection in a design tool – tilted back, with a blue frame, spacing numbers and a red guide walking through its rows |
-| Inspect Composer | `inspect-composer` | Pro | A chat composer seen like a selection in a design tool – tilted back, with a blue frame, spacing numbers and a red guide walking through its rows |
-| Integration Beam | `integration-beam` | Free | Your product between the tools it connects – light pulses flow along curved beams, hover to focus a tool, click to pause it |
-| Integration Flow | `integration-flow` | Pro | Integration pills rotating along a dashed arc, each beaming its data into a central analysis hub |
-| Model Menu | `model-menu` | Pro | A model picker – DeepSeek, GPT, Claude, Gemini and more with their marks, a pink band gliding to the picked one, its right edge and foot fading into the page |
-| Progress Pill | `progress-pill` | Pro | An agent building a report as a slim pill – its pixel mark, the title and how far it is, the step it's on as a subtitle, a thin bar with a shimmer, a soft color glow beneath |
-| Project Flow | `project-flow` | Pro | Animated scene of a client task branching into subtasks, notes and assigned roles |
-| Voice Capture | `voice-capture` | Pro | A dictation panel while someone speaks – the voice in a quiet well as thin bars rising and falling with the loudness, the time ticking, a soft color glow beneath it |
-| Voice Orb | `voice-orb` | Pro | The face of a voice assistant – a sphere of dots that breathes, catches sound, collapses into a spinning ring while thinking and ripples when it speaks |
 
 ## Motion
 
