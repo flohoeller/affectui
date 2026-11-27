@@ -1,6 +1,6 @@
 # AI Chat / Agent Run (Pro)
 
-A narrow chat beside the agents working on your prompt – watch each one's steps on a dot grid; when one gets stuck it says so in the chat and on its card, and you answer right there
+A narrow chat beside the agents working on your prompt – watch each one's steps on a dot grid; when one gets stuck it says so in the chat and you answer right there
 
 - Page: https://www.affectui.com/screens/ai-chat-agents
 - Section: Screens · App screens

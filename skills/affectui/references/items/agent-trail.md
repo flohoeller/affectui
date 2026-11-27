@@ -1,6 +1,6 @@
 # Agent Trail (Pro)
 
-The steps an agent works through, as one quiet trail – a header with the task and "3/5", done ones with a check and their time, the one it is on says what it is doing and branches into its sub-steps with a live timer, a step that needs approval waits with a dashed ring; a short fading light runs down the trail into the sub-step it is on
+The steps an agent works through, as one quiet trail – done steps with their time, the current one branching into live sub-steps, approvals waiting with a dashed ring
 
 - Page: https://www.affectui.com/components/agent-trail
 - Section: Components · Agents

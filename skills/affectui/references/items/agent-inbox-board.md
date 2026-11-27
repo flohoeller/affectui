@@ -1,6 +1,6 @@
 # Agent / Inbox Board (Pro)
 
-Every background task your agents work on, as a board – Needs you, Running, Done – with cards that open on the right to approve, retry or open, and glide to their new column when their state changes
+Every background task your agents work on, as a board – Needs you, Running, Done – with cards that open on the right to approve, retry or open
 
 - Page: https://www.affectui.com/screens/agent-inbox-board
 - Section: Screens · App screens

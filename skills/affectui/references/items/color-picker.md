@@ -1,6 +1,6 @@
 # Color Picker (Free)
 
-A swatch button that opens a color card – saturation and brightness, hue and optional opacity by drag or arrows, a hex field that also reads rgb(), named presets, a hex string as the value
+A swatch button that opens a color card – saturation, brightness, hue and optional opacity, a hex field that also reads rgb(), and named presets
 
 - Page: https://www.affectui.com/components/color-picker
 - Section: Components · Inputs

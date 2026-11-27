@@ -64,7 +64,7 @@ Agent components, recorded live from [affectui.com](https://www.affectui.com). I
 <td width="50%" valign="top">
 <a href="https://www.affectui.com/components/trace-waterfall"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/trace-waterfall-dark.webp">
-<img alt="Trace Waterfall: Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with tokens and cost per step, the slowest call marked and branches that fold into their parent" src="./.github/assets/showcase/trace-waterfall-light.webp" width="100%">
+<img alt="Trace Waterfall: Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with cost per step and the slowest call marked" src="./.github/assets/showcase/trace-waterfall-light.webp" width="100%">
 </picture></a>
 <br><a href="https://www.affectui.com/components/trace-waterfall"><b>Trace Waterfall</b></a> <sup><a href="https://www.affectui.com/pricing">Pro</a></sup><br>
 <sub>Where the time and money of an agent run go</sub>
@@ -82,7 +82,7 @@ Agent components, recorded live from [affectui.com](https://www.affectui.com). I
 <td width="50%" valign="top">
 <a href="https://www.affectui.com/components/agent-inbox"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/agent-inbox-dark.webp">
-<img alt="Agent Inbox: All your background agent tasks in one calm list – live clocks and status tags, filter tabs with rolling counts, rows that unfold to the last steps with Approve, Reject, Retry or Open, and glide to their new place" src="./.github/assets/showcase/agent-inbox-light.webp" width="100%">
+<img alt="Agent Inbox: All your background agent tasks in one calm list – live status tags, filter tabs, and rows that unfold to the last steps with Approve, Reject, Retry or Open" src="./.github/assets/showcase/agent-inbox-light.webp" width="100%">
 </picture></a>
 <br><a href="https://www.affectui.com/components/agent-inbox"><b>Agent Inbox</b></a> <sup><a href="https://www.affectui.com/pricing">Pro</a></sup><br>
 <sub>All your background agent tasks in one calm list</sub>
@@ -100,7 +100,7 @@ Agent components, recorded live from [affectui.com](https://www.affectui.com). I
 <td width="50%" valign="top">
 <a href="https://www.affectui.com/components/context-map"><picture>
 <source media="(prefers-color-scheme: dark)" srcset="./.github/assets/showcase/context-map-dark.webp">
-<img alt="Context Map: What fills an agent's context window, as a living treemap – system prompt, tools, memory, every file, the chat and tool results as tiles that glide as it grows, the free space dashed, and compaction squeezing old turns into a summary" src="./.github/assets/showcase/context-map-light.webp" width="100%">
+<img alt="Context Map: What fills an agent's context window, as a living treemap – system prompt, tools, memory, files and chat as tiles that glide as it grows, and compaction squeezing old turns" src="./.github/assets/showcase/context-map-light.webp" width="100%">
 </picture></a>
 <br><a href="https://www.affectui.com/components/context-map"><b>Context Map</b></a> <sup><a href="https://www.affectui.com/pricing">Pro</a></sup><br>
 <sub>What fills an agent's context window, as a living treemap</sub>
@@ -314,7 +314,7 @@ Other clients: add `{ "mcpServers": { "affectui": { "url": "https://www.affectui
 
 ## affectUI Pro
 
-183 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
+184 more components, screens, blocks and illustrations, including the agent components above (Agent Tree, Agent Inbox, Trace Waterfall, Context Map, Agent Handoff and more), full app screens and blocks, are part of [affectUI Pro](https://www.affectui.com/pricing): a one-time purchase with lifetime updates. Their source is not in this repository.
 
 ## Contributing
 

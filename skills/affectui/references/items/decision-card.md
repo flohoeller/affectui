@@ -1,6 +1,6 @@
 # Decision Card (Pro)
 
-An agent's question, asked the way Claude asks one – its own card just above the chat composer: numbered options with one Recommended, Approve / Decline for an approval, preview tiles for a pick, and a last row for your own words; a click or 1–5 answers, Later folds it to one line
+An agent's question, asked the way Claude asks one – its own card above the chat composer with numbered options, Approve / Decline, previews and a row for your own words
 
 - Page: https://www.affectui.com/components/decision-card
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Judge Bracket (Pro)
 
-How an LLM judge picks the best of several attempts, as a tournament – two answers at a time, the one it prefers moves on, the other fades back; the winner's way through the bracket lights up, and every match opens both answers side by side with the scores and why
+How an LLM judge picks the best of several attempts, as a tournament – two answers at a time, the preferred one moves on, and every match opens both side by side with why
 
 - Page: https://www.affectui.com/components/judge-bracket
 - Section: Components · Agents

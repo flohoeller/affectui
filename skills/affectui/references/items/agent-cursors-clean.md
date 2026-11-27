@@ -1,6 +1,6 @@
 # Agent Cursors, clean style (Pro)
 
-Agents working in a document like teammates in a multiplayer editor – live pointers with names, suggestions typed letter by letter, images they resize, code they fix and comments beside the page
+Agents working in a document like teammates in a multiplayer editor – live pointers with names, suggestions typed letter by letter and comments beside the page
 
 - Page: https://www.affectui.com/components/agent-cursors
 - Section: Components · Agents

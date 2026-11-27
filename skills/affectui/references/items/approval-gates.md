@@ -1,6 +1,6 @@
 # Approval Gates (Pro)
 
-The approval requests of an agent run as a stack of cards – the one to decide now on top with who asks, what exactly and why, the diff or arguments on it; approve, reject or change it first, and it drops into the decided list while the next rises – open ones hold the steps behind them
+The approval requests of an agent run as a stack of cards – the one to decide now on top with the diff or arguments, approve, reject or change it, then the next rises
 
 - Page: https://www.affectui.com/components/approval-gates
 - Section: Components · Agents

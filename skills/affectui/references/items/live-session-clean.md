@@ -1,6 +1,6 @@
 # Live Session, clean style (Pro)
 
-Work with a team of agents while they work – their conversation in the middle, the team's plan ticking off beside it, and the shared context under it; picking an agent points at its steps
+Work with a team of agents while they work – their conversation in the middle, the team's plan ticking off beside it and the shared context under it
 
 - Page: https://www.affectui.com/blocks/live-session
 - Section: Blocks · Agents

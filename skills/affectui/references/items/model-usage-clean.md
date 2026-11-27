@@ -1,6 +1,6 @@
 # Model Usage, clean style (Pro)
 
-How much each AI company's models were used – one stacked bar per company in its color with a segment per model, the most used darkest and the rest lighter shades; point at a bar for its models and their share. The period's total and change on top with tokens, cost and requests to switch between, and below what it all went into – search, analyze, code, test – across every model, or just the company you point at
+How much each AI company's models were used – one stacked bar per company with a segment per model, switch between tokens, cost and requests, and see what it all went into
 
 - Page: https://www.affectui.com/components/model-usage
 - Section: Components · Data display

@@ -1,6 +1,6 @@
 # Response Stream, clean style (Pro)
 
-One agent answer through every state it goes through – words streaming in, stopped and continued from the exact word, failed and retried from there, done – with steer and queued messages above it
+One agent answer through every state – words streaming in, stopped and continued from the exact word, failed and retried from there, done – with steer and queued messages
 
 - Page: https://www.affectui.com/components/response-stream
 - Section: Components · Agents

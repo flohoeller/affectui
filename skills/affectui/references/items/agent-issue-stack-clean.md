@@ -1,6 +1,6 @@
 # Agent Issue Stack, clean style (Pro)
 
-Issues your agents found or are working on, one at a time, going on by themselves. A card shows one piece of work – its kind icon on a tinted tile, the pull request, merge or branch it lives in and when it came in, the title, two lines of what's going on, and at the foot its priority as signal bars, how many users it touches or the size of the change, and the agent on it with its pixel mark, twinkling while it works. Two layouts: Stack – the cards behind peek out like toasts and the front card slides down and away; Cycle – the next issue waits above as a strip and opens into the card while the open one folds into the strip below. Hover pauses it; click, swipe or use the arrows to go yourself
+Issues your agents found or are working on, one card at a time – kind, pull request, priority, users touched and the agent on it, as a stack or a cycling strip
 
 - Page: https://www.affectui.com/components/agent-issue-stack
 - Section: Components · Agents

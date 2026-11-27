@@ -1,6 +1,6 @@
 # Conflict Radar, clean style (Pro)
 
-Agents working on their own branches at once, and where they get in each other's way – a row per file and a column per agent, a line between the agents that changed the same lines, each agent's way in one sentence to pick from, and Merge once all are settled
+Agents on their own branches at once, and where they collide – a row per file, a column per agent, each one's way in a sentence to pick from, and Merge once all are settled
 
 - Page: https://www.affectui.com/components/conflict-radar
 - Section: Components · Agents

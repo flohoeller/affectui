@@ -1,6 +1,6 @@
 # Model Router, clean style (Pro)
 
-How a gateway splits its traffic across AI models – requests run as streaks of light from the gateway into each model's line, the line as wide as its share. The blended cost per 1K tokens on top and how it compares to what's live; pick Cost, Balanced or Quality and the split changes, the lines widen and narrow and the numbers roll. Every route below with share, p95 latency and price, a fallback to retry on another model, and Deploy
+How a gateway splits its traffic across AI models – streaks of light into each model's line, as wide as its share; pick Cost, Balanced or Quality and the split and price change
 
 - Page: https://www.affectui.com/components/model-router
 - Section: Components · Agents

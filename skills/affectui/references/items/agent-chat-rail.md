@@ -1,6 +1,6 @@
 # AI Chat / Double Sidebar (Pro)
 
-A plain assistant chat with web search in a double sidebar, like Codex and ChatGPT – a column of icons on the page, the chats in a light gray column inside the main area with a project switcher, and what it found in the work area on the right
+A plain assistant chat with web search in a double sidebar, like Codex and ChatGPT – icons on the page, the chats with a project switcher, and what it found on the right
 
 - Page: https://www.affectui.com/screens/agent-chat-rail
 - Section: Screens · App screens

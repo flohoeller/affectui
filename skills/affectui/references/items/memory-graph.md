@@ -1,6 +1,6 @@
 # Memory Graph (Pro)
 
-An agent in the middle with what it remembers and the tools it can reach in a ring around it – every memory a card with the file, chat or email it came from and that app's logo, every tool with what it may do and where, joined by Agent Tree's rounded connectors; a light runs out to each tool it uses and in from a tool through the agent to what it learns, lighting the card up with a Gradient Floor; switch anything off, forget a memory, or click the agent to drop in a file or connect a tool
+An agent in the middle with what it remembers and the tools it can reach in a ring around it – every memory a card with its source, a light running to each tool it uses
 
 - Page: https://www.affectui.com/components/memory-graph
 - Section: Components · Agents

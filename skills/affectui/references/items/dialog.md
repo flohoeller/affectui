@@ -1,6 +1,6 @@
 # Dialog (Free)
 
-A modal window on a dimmed backdrop – title and quiet line, content that scrolls under a fixed header and footer, Escape and backdrop close, the focus kept inside and handed back, a sheet on phones, and an AlertDialog to confirm with a red button
+A modal window on a dimmed backdrop – content that scrolls under a fixed header and footer, focus kept inside, a sheet on phones, and an AlertDialog to confirm with a red button
 
 - Page: https://www.affectui.com/components/dialog
 - Section: Components · Feedback

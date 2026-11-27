@@ -1,6 +1,6 @@
 # Agent Metro Map, clean style (Pro)
 
-A multi-agent run drawn as a metro map – every agent a line in its own color, every step a station, and where agents hand work over their lines meet at an interchange. Lines run straight and bend at 45°; each agent rides its line as a small white train with its pixel mark, the stretch behind it solid, the stretch ahead faint – when it moves on, the train glides to the next station, the line fills in behind it and a light runs ahead. A station waiting for you turns amber and can be approved in its card. The lines are listed on top with their model's logo; point at a line or a station and it comes forward, click one and its card opens
+A multi-agent run drawn as a metro map – every agent a line, every step a station, lines meeting at an interchange where work is handed over, a train riding each one
 
 - Page: https://www.affectui.com/components/agent-metro-map
 - Section: Components · Agents

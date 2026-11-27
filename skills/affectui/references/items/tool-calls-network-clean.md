@@ -1,6 +1,6 @@
 # Tool Calls Network, clean style (Pro)
 
-Every LLM and tool call of an agent run as rows, like the Network tab of the browser's developer tools – status, name with the tool's logo, the agent that made it, size and time, and a small waterfall where each call is a bar on the run's timeline, split into queued, waiting for the first token, streaming and tool execution. New calls stream in at the bottom while running bars grow at the "now" edge; drag across the overview strip for a stretch of time, filter by LLM, tools, errors or retries, sort like DevTools, and open a call for its request and response as pretty JSON, its timing phase by phase and every retry
+Every LLM and tool call of an agent run as rows, like the Network tab of DevTools – a waterfall per call, filters, sorting, and each call's request, response and retries as JSON
 
 - Page: https://www.affectui.com/components/tool-calls-network
 - Section: Components · Agents

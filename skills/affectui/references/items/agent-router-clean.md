@@ -1,6 +1,6 @@
 # Agent Router, clean style (Pro)
 
-A router agent sorting incoming requests to the agents that handle them – the request coming in on top, the router under it and the agents side by side at the bottom, each with its task queue below, all as Agent Crew's cards on its soft blue connectors – people sit off to the right, a fading line with a Human tag. A light runs into the router, which reads the request and settles on an agent with a confidence; the light runs on, the agent's card lights up in its color and the request drops into its queue. Unsure, it hands the request to a person. A click opens why it went where it went, with every agent's score and a way to send it elsewhere
+A router agent sorting incoming requests to the agents that handle them – a light runs to the chosen agent with a confidence, and unsure requests go to a person
 
 - Page: https://www.affectui.com/components/agent-router
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Trend Chart, clean style (Pro)
 
-The chart on its own for any card or layout – line, area, bars or a sparkline from the same data, with a tooltip, this period against the last, and charts that follow the same day together
+The chart on its own for any card or layout – line, area, bars or a sparkline from the same data, with a tooltip and this period against the last
 
 - Page: https://www.affectui.com/components/trend-chart
 - Section: Components · Data display

@@ -1,6 +1,6 @@
 # Agent / Skills (Pro)
 
-What your agent knows how to do – your skills as calm cards with a switch, filtered by what they're for; skills to discover below whose Install fills a ring and lands among yours; and each skill with two weeks of runs, when it steps in, its steps and what it needs
+What your agent knows how to do – your skills as calm cards with a switch, skills to discover and install, and each skill with its recent runs, when it steps in and what it needs
 
 - Page: https://www.affectui.com/screens/agent-skills
 - Section: Screens · App screens

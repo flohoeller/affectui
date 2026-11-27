@@ -1,6 +1,6 @@
 # Decision Table (Pro)
 
-An agent deciding by a DMN decision table – the request on top with its values, the rules below with inputs and outputs on either side of a quiet divider and the hit policy in the corner. When a request comes in, the agent checks the rules row by row: every cell ticks or crosses, the value being checked lights up in the request, rules that fail fade back, and the rule that matches lights up with its outputs – what it decides and where the request goes next. Click a rule for every condition against the request
+An agent deciding by a DMN decision table – the request on top, rules below checked row by row until the matching rule lights up with its outputs
 
 - Page: https://www.affectui.com/components/decision-table
 - Section: Components · Agents

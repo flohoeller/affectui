@@ -1,6 +1,6 @@
 # Agent State Machine (Pro)
 
-One agent as a state diagram – every state it can be in is a card, every transition a line with a count of how often the run took it: forward to the right, back to an earlier state around underneath, a retry as a loop on top. The current state glows in the agent's blue with its pixel mark twinkling, a waiting state is amber, the final one carries a bullseye; when the agent moves on, a light runs along that transition and its count rolls up. Point at a state and its transitions come forward; click a state or a count and its card says how long the agent spent there and what made it leave
+One agent as a state diagram – every state a card, every transition a line with a count of how often the run took it, retries as loops and the current state glowing
 
 - Page: https://www.affectui.com/components/agent-state-machine
 - Section: Components · Agents

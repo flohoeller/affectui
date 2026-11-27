@@ -1,6 +1,6 @@
 # Away Summary, clean style (Pro)
 
-The “While you were away” card for a chat thread – right where you left off: how long you were gone, what needs you, what failed and what's done as a short list with one action per row; Got it folds it into a one-line divider
+The “While you were away” card for a chat thread – how long you were gone, what needs you, what failed and what's done, with one action per row
 
 - Page: https://www.affectui.com/components/away-summary
 - Section: Components · Agents

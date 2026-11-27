@@ -1,6 +1,6 @@
 # Collaboration Stream (Pro)
 
-What agents actually say to each other – a quiet chat where every message shows who it is from and who it is for, handoffs and questions for you tagged, files as chips that open a preview, a card with details under every message, and a composer to name agents with @ or answer a question
+What agents actually say to each other – a quiet chat showing who each message is from and for, handoffs and questions for you tagged, files as chips and a composer with @
 
 - Page: https://www.affectui.com/components/collaboration-stream
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Skeleton, clean style (Free)
 
-Gray shapes in the exact size of the content they stand in for – a soft sheen sweeping across all of them in step, a Loading wrapper that tells screen readers and fades in late, so fast loads never flash
+Gray shapes in the exact size of the content they stand in for – a soft sheen sweeping across all of them, and a Loading wrapper that fades in late so fast loads never flash
 
 - Page: https://www.affectui.com/components/skeleton
 - Section: Components · Feedback

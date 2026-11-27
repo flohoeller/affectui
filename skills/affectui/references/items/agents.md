@@ -1,6 +1,6 @@
 # Agent / Agents (Pro)
 
-Your team of agents in one place – calm cards with each agent's pixel mark, role, status tag and the apps it may use, its model, runs and spend; an agent opens on the right with its runs, instructions, skills, apps and recent tasks, and New agent draws the mark as you type
+Your team of agents in one place – calm cards with each agent's pixel mark, role and status; one opens on the right with its runs, and New agent draws the mark as you type
 
 - Page: https://www.affectui.com/screens/agents
 - Section: Screens · App screens

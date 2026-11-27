@@ -1,6 +1,6 @@
 # Deep Research Progress (Pro)
 
-An agent researching a question – its name, model, clock and Stop on top, the sources it finds on the left, each with its site's logo, the report taking shape section by section on the right. A line with rounded corners runs from the source it reads to the section it writes, a light running along it; when the source is read, its logo drops into the section's citations, and sources, citations and words count up in the footer. Point at a source for the passage it took and where it is cited; Dig deeper sends the agent back into a section
+An agent researching a question – the sources it finds on the left, the report taking shape section by section on the right, a line running from each source to the section it feeds
 
 - Page: https://www.affectui.com/components/deep-research-progress
 - Section: Components · Agents

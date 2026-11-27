@@ -1,6 +1,6 @@
 # Tooltip (Free)
 
-A small dark label for one control – shows on hover after a short wait and at once under keyboard focus, neighbours follow instantly, an optional shortcut inside, flips to stay on screen
+A small dark label for one control – shows on hover after a short wait and at once under keyboard focus, neighbours follow instantly, an optional shortcut inside, flips on screen
 
 - Page: https://www.affectui.com/components/tooltip
 - Section: Components · Feedback

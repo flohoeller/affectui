@@ -1,6 +1,6 @@
 # Agent / Activity (Pro)
 
-What your agent did – every step as a sentence with its app's logo, the task and who let it (on its own or you approved), grouped by day; Undo while it can be taken back draws a line through it, and each step says why it could and what Undo does
+What your agent did – every step as a sentence with its app's logo, who let it, grouped by day, and Undo while it can still be taken back
 
 - Page: https://www.affectui.com/screens/agent-activity
 - Section: Screens · App screens

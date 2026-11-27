@@ -1,6 +1,6 @@
 # Settings / Preferences (Pro)
 
-Personal preferences with a settings sidebar: default models with Auto and the Model Wheel, language and appearance, chat tools as tiles, custom instructions the model reads with every message and the memories it kept
+Personal preferences with a settings sidebar: default models with Auto, language and appearance, chat tools as tiles, custom instructions and the memories it kept
 
 - Page: https://www.affectui.com/screens/settings-preferences
 - Section: Screens · App screens

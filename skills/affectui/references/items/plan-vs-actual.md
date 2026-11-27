@@ -1,6 +1,6 @@
 # Plan vs Actual (Pro)
 
-An agent's plan against what really happens – every step's bar grows over its dashed planned ghost, overruns turn amber, the steps after it slide right, and the expected finish moves away from the planned one
+An agent's plan against what really happens – every step's bar grows over its dashed planned ghost, overruns turn amber, and the expected finish moves away from the planned one
 
 - Page: https://www.affectui.com/components/plan-vs-actual
 - Section: Components · Agents

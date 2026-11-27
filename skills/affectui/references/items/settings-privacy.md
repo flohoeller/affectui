@@ -1,6 +1,6 @@
 # Settings / Privacy (Pro)
 
-Privacy settings with a settings sidebar: switches for ad measurement, analytics and training on chats, this browser's cookies, product emails, active sessions to sign out, chats shared by link and a danger zone to export or delete every chat
+Privacy settings with a settings sidebar: switches for analytics and training on chats, active sessions to sign out, shared chats and a danger zone to export or delete every chat
 
 - Page: https://www.affectui.com/screens/settings-privacy
 - Section: Screens · App screens

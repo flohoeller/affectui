@@ -1,6 +1,6 @@
 # Agent Workbench, clean style (Pro)
 
-One agent at work: the person who asked on the left with their message, the agent in the middle with a work area showing what it does right now, the files it was given on the right under a macOS folder, and its tools below as cards with what each may do and what it did last – joined by soft rounded connectors, with a light running along the one in use
+One agent at work: the person who asked, the agent with a work area, the files it was given and its tools as cards, joined by soft connectors with a light on the one in use
 
 - Page: https://www.affectui.com/components/agent-workbench
 - Section: Components · Agents

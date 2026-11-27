@@ -1,6 +1,6 @@
 # Decision Tree, clean style (Pro)
 
-An agent stuck on a decision lays out its options as a tree – the consequences of each branch, the risky ones marked, its own pick highlighted – and you choose a path or write your own
+An agent stuck on a decision lays out its options as a tree – consequences of each branch, risky ones marked, its pick highlighted – and you choose a path or write your own
 
 - Page: https://www.affectui.com/components/decision-tree
 - Section: Components · Agents

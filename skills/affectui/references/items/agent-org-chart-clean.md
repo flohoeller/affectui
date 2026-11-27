@@ -1,6 +1,6 @@
 # Agent Org Chart, clean style (Pro)
 
-An org chart of people and AI agents. People are cards with a photo, a name, a role and the agents they own; agents a card with their twinkling pixel mark, the model with its maker's logo and the logos of the tools they use. Reporting lines run from a hollow dot to an arrowhead, measured from the layout. Status stays quiet – Working shimmers, waiting is amber. An escalation travels up the lines as a light to the person who owns the agent, where it waits with Reply and Approve. Point at a card and its chain up to the top comes forward; click it for the details
+An org chart of people and AI agents – people own agents, reporting lines run between them, and an escalation travels up to the person who owns the agent
 
 - Page: https://www.affectui.com/components/agent-org-chart
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Agent Inbox (Pro)
 
-All your background agent tasks in one calm list – live clocks and status tags, filter tabs with rolling counts, rows that unfold to the last steps with Approve, Reject, Retry or Open, and glide to their new place
+All your background agent tasks in one calm list – live status tags, filter tabs, and rows that unfold to the last steps with Approve, Reject, Retry or Open
 
 - Page: https://www.affectui.com/components/agent-inbox
 - Section: Components · Agents

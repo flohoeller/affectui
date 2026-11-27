@@ -1,6 +1,6 @@
 # Tree View (Free)
 
-A nested list of folders and files or any hierarchy – branches that open with a chevron and grow in height, indent guides, one selected row, icons and quiet meta, arrow keys and type-ahead as in the WAI-ARIA tree
+A nested list of folders and files or any hierarchy – branches that open with a chevron, indent guides, one selected row, and arrow keys and type-ahead as in a WAI-ARIA tree
 
 - Page: https://www.affectui.com/components/tree-view
 - Section: Components · Data display

@@ -1,6 +1,6 @@
 # Agent / Schedules (Pro)
 
-What your agent does again and again – the hours around now on one line, each run a mark that fills while it runs; every schedule with its rhythm in words, its next run, how the last ended, what a run costs and a switch to pause it
+What your agent does again and again – the hours around now on one line, each run a mark that fills while it runs, and every schedule with its rhythm, next run and a pause switch
 
 - Page: https://www.affectui.com/screens/agent-schedules
 - Section: Screens · App screens

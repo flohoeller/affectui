@@ -1,6 +1,6 @@
 # Agent / Tasks (Pro)
 
-Your work as tasks, not agents – a calm list grouped by project, each row a ring, where it is in words and a small Needs you, and a click opens what happened so far and what it made
+Your work as tasks, not agents – a calm list grouped by project, each row a ring and where it is in words, and a click opens what happened so far and what it made
 
 - Page: https://www.affectui.com/screens/agent-tasks
 - Section: Screens · App screens

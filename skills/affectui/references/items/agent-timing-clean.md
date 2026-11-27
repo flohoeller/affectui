@@ -1,6 +1,6 @@
 # Agent Timing, clean style (Pro)
 
-An agent run as a timing diagram – time runs left to right, you and every agent a row with its own signal line. Idle it rests on the baseline, thinking it steps up a little, calling a tool all the way up with the tool's name under the line, waiting on you a dashed amber step – one line per row, rounded where it steps and gliding to each new level, a soft fill under it fading down, so steps that touch flow into each other. The step still running ends in a softly pulsing dot on the now line, and beside every name stands what it does right now. Hand-offs are dashed lines straight to the other row, drawn in as they happen, with a small white dot where they land. Point at a step or a hand-off for what it was, when and how long
+An agent run as a timing diagram – a signal line per agent that steps up when it thinks or calls a tool, with hand-offs drawn straight between rows
 
 - Page: https://www.affectui.com/components/agent-timing
 - Section: Components · Agents

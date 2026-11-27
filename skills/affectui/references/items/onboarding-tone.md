@@ -1,6 +1,6 @@
 # Onboarding / Tone (Pro)
 
-Third step of setting up an AI assistant: a short left-aligned form for its name, tone, reply length and who takes over when it isn't sure; the dashboard glides down to a test chat that answers under that name, in that tone and length
+Third step of setting up an AI assistant: a short form for its name, tone, reply length and who takes over when it isn't sure, with a test chat that answers in that tone
 
 - Page: https://www.affectui.com/screens/onboarding-tone
 - Section: Screens · App screens

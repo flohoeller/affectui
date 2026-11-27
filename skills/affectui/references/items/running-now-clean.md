@@ -1,6 +1,6 @@
 # Running Now, clean style (Pro)
 
-A live status of background agent tasks for a header or sidebar – one quiet pill, "3 running · 2 need you"; open it for the tasks with a filling ring, the step each is on and its steps, Pause and Resume, and Open on the ones that wait for you
+A live status of background agent tasks for a header or sidebar – one quiet pill that opens into the tasks with their steps, Pause and Resume, and Open on the ones waiting for you
 
 - Page: https://www.affectui.com/components/running-now
 - Section: Components · Agents

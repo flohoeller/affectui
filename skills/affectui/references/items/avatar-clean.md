@@ -1,6 +1,6 @@
 # Avatar, clean style (Free)
 
-A person's picture or initials on a soft color of their own – rounded squares for workspaces, an agent's pixel mark that twinkles while it works, a status dot and a group that overlaps and ends in +N
+A person's picture or initials on a soft color of their own – rounded squares for workspaces, an agent's pixel mark, a status dot and an overlapping group ending in +N
 
 - Page: https://www.affectui.com/components/avatar
 - Section: Components · Data display

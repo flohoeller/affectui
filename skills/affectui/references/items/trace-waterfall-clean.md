@@ -1,6 +1,6 @@
 # Trace Waterfall, clean style (Pro)
 
-Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with tokens and cost per step, the slowest call marked and branches that fold into their parent
+Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with cost per step and the slowest call marked
 
 - Page: https://www.affectui.com/components/trace-waterfall
 - Section: Components · Agents

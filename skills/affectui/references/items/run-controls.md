@@ -1,6 +1,6 @@
 # Run Controls (Pro)
 
-Every control a running agent needs, in one composer – stop it, resume from the word it stopped at, retry or dismiss, steer it mid-answer or queue what's next, with Chat or Act, permissions and how full the context is
+Every control a running agent needs, in one composer – stop it, resume from the word it stopped at, retry, steer it mid-answer or queue what's next, with Chat or Act
 
 - Page: https://www.affectui.com/components/run-controls
 - Section: Components · Agents

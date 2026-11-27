@@ -1,6 +1,6 @@
 # Settings / Security (Pro)
 
-Security settings with a settings sidebar: email domains to verify, sign-in rules with SSO and two-step verification, the identity provider details to copy, an IP allowlist and a danger zone that signs everyone out
+Security settings with a settings sidebar: email domains to verify, sign-in rules with SSO and two-step verification, an IP allowlist and a danger zone that signs everyone out
 
 - Page: https://www.affectui.com/screens/settings-security
 - Section: Screens · App screens

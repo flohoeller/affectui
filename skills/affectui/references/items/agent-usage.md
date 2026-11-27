@@ -1,6 +1,6 @@
 # Agent / Usage (Pro)
 
-What your agent costs – the month added up day by day against the budget, where it lands at this pace in one plain line, money ticking up as runs finish, where it went by project or model, and what's worth a look
+What your agent costs – the month added up day by day against the budget, where it lands at this pace in one plain line, and where it went by project or model
 
 - Page: https://www.affectui.com/screens/agent-usage
 - Section: Screens · App screens

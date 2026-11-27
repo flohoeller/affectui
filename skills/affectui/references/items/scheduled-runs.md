@@ -1,6 +1,6 @@
 # Scheduled Runs (Pro)
 
-Agent tasks sorted into a week of sessions – each session has a usage limit, small tasks fill the gaps, big ones are split across sessions, and the stack flies in one card at a time
+Agent tasks sorted into a week of sessions – each session has a usage limit, small tasks fill the gaps and big ones are split across sessions
 
 - Page: https://www.affectui.com/components/scheduled-runs
 - Section: Components · Agents

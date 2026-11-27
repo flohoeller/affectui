@@ -1,6 +1,6 @@
 # Agent Queue (Pro)
 
-The work waiting for your agents, and how fast it moves – jobs drop into a live queue, glide into free worker slots as growing bars and land in Done or Failed, while a depth chart shows the backlog build up when a rate limit pauses the workers and drain when they resume
+The work waiting for your agents, and how fast it moves – jobs glide into worker slots and land in Done or Failed, while a depth chart shows the backlog build up and drain
 
 - Page: https://www.affectui.com/components/agent-queue
 - Section: Components · Agents

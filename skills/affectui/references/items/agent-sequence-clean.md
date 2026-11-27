@@ -1,6 +1,6 @@
 # Agent Sequence, clean style (Pro)
 
-One agent run as a sequence diagram – a column for you, every agent and every tool, and each message an arrow from one lifeline to the next: calls solid, replies dashed, every label a tag in its line's color, a bar on the lifeline while a participant works, parallel and retried messages in labelled frames; new messages draw themselves across with a light at the tip, and a click on a participant or a message opens its card
+One agent run as a sequence diagram – a lifeline for you, every agent and every tool, with calls solid, replies dashed and parallel or retried messages in frames
 
 - Page: https://www.affectui.com/components/agent-sequence
 - Section: Components · Agents

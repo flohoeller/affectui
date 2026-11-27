@@ -1,6 +1,6 @@
 # Agent / Permissions (Pro)
 
-What your agent may do without asking – one choice on top (Careful, Balanced, Hands-off) said in plain words, the apps it works in, the red lines that always ask, and each app with its actions grouped Reads, Changes, Needs care
+What your agent may do without asking – one choice (Careful, Balanced, Hands-off) in plain words, the apps it works in, red lines that always ask, and each app's actions
 
 - Page: https://www.affectui.com/screens/agent-permissions
 - Section: Screens · App screens

@@ -1,6 +1,6 @@
 # Agent Ledger (Pro)
 
-Everything an agent changed in your systems, each change with an undo – before and after per row, and pointing at Undo shows what builds on it: what would be undone too, and what can't be taken back
+Everything an agent changed in your systems, each change with an undo – pointing at Undo shows what builds on it and what can't be taken back
 
 - Page: https://www.affectui.com/components/agent-ledger
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Token Flow, clean style (Pro)
 
-Where an agent's tokens and cost go, as a Sankey diagram of cards: the sources on the left – the system prompt, you with your photo, the agent's own turns, tool results with the logos of the apps behind them, files, memory – flow into the models in the middle, each with its logo, and on into what came of them: answer delivered, retried, cancelled. Every band is as wide as its tokens, or its cost with the switch on top – a soft gradient with a hairline edge – and a soft wave of fill sweeps across all the bands; while the run streams the bands grow and the numbers roll. The head shows the total, the cost and how it compares with the last run. Point at a card and its whole path comes forward; click a card for its details – a model's price per 1K and what each source and outcome took
+Where an agent's tokens and cost go, as a Sankey diagram of cards – system prompt, tool results and memory flow into the models and on into answered, retried or cancelled
 
 - Page: https://www.affectui.com/components/token-flow
 - Section: Components · Agents

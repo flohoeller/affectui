@@ -1,6 +1,6 @@
 # Reasoning Summary, clean style (Pro)
 
-How an agent spent its time on one answer, in one small card – the agent's pixel mark twinkling while it reasons and the time counting, a bar with a segment per step in its kind's color, the running one growing with a sheen, the time per kind with its icon, and the models that took part with how hard they thought – click one for its provider, tokens and cost. Point at a kind, model or segment and what belongs with it stays clear; the sources it searched and every step open below
+How an agent spent its time on one answer, in one small card – a bar with a segment per step, the time per kind, the models that took part and the sources it searched
 
 - Page: https://www.affectui.com/components/reasoning-summary
 - Section: Components · Agents

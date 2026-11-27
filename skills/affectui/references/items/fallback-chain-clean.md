@@ -1,6 +1,6 @@
 # Fallback Chain, clean style (Pro)
 
-One request finding a model that answers, as a small flow diagram – the request branches out to each model in its fallback order, a light runs to the one being tried, failed branches break red, and the one that answers runs on to the response
+One request finding a model that answers, as a flow diagram – it branches to each model in fallback order, failed branches break red, the one that answers runs on to the response
 
 - Page: https://www.affectui.com/components/fallback-chain
 - Section: Components · Agents

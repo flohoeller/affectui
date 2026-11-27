@@ -1,6 +1,6 @@
 # Agent Overlap Map (Pro)
 
-Where the work of people's AI agents collides – every agent a small chip with its own pixel mark and whose agent it is, every open conflict a colored badge in the middle with a curve running in from each agent it involves. Red needs a decision, amber is a heads-up, grey dashed is minor. Point at a conflict or an agent and what belongs to it stays while the rest fades back; click one and a card opens with who and what it's tangled up in; whoever collides with no one is listed as in sync
+Where the work of people's AI agents collides – every agent a chip, every open conflict a badge with a curve to each agent involved, ranked by how urgent it is
 
 - Page: https://www.affectui.com/components/agent-overlap-map
 - Section: Components · Agents

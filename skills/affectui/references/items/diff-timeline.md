@@ -1,6 +1,6 @@
 # Diff Timeline (Pro)
 
-What an agent changed in a pull request, edit by edit – lines added and removed as two lines laid over each other, each file with its own diff bar as the agent reaches it, and every edit's diff on hover
+What an agent changed in a pull request, edit by edit – lines added and removed as two lines laid over each other, a diff bar per file, and every edit's diff on hover
 
 - Page: https://www.affectui.com/components/diff-timeline
 - Section: Components · Agents

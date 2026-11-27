@@ -1,6 +1,6 @@
 # Context Map (Pro)
 
-What fills an agent's context window, as a living treemap – system prompt, tools, memory, every file, the chat and tool results as tiles that glide as it grows, the free space dashed, and compaction squeezing old turns into a summary
+What fills an agent's context window, as a living treemap – system prompt, tools, memory, files and chat as tiles that glide as it grows, and compaction squeezing old turns
 
 - Page: https://www.affectui.com/components/context-map
 - Section: Components · Agents

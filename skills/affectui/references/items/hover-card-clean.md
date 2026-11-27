@@ -1,6 +1,6 @@
 # Hover Card, clean style (Free)
 
-A preview of what a link or name points to – opens after a short rest of the pointer or on keyboard focus, stays while the pointer moves into it, never on touch, flips to stay on screen
+A preview of what a link or name points to – opens after a short rest of the pointer or on keyboard focus, stays while you move into it, never on touch, flips to stay on screen
 
 - Page: https://www.affectui.com/components/hover-card
 - Section: Components · Data display

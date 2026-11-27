@@ -1,6 +1,6 @@
 # Onboarding / Ready (Pro)
 
-Last step of setting up an AI assistant: a quiet summary of what it learned from, its name, voice and handover, each with Edit; the dashboard glides back to its top and comes alive – numbers land, Draft turns Live
+Last step of setting up an AI assistant: a quiet summary of what it learned from, its name, voice and handover, each with Edit, before the dashboard comes alive
 
 - Page: https://www.affectui.com/screens/onboarding-ready
 - Section: Screens · App screens

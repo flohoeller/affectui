@@ -1,6 +1,6 @@
 # KPI Board, clean style (Pro)
 
-The top of a dashboard – three trend cards, an overview chart that compares this period with the last, and a focus card; hover shows any day's value and every number rolls when the range changes
+The top of a dashboard – three trend cards, an overview chart that compares this period with the last, and a focus card; every number rolls when the range changes
 
 - Page: https://www.affectui.com/blocks/kpi-board
 - Section: Blocks · Analytics

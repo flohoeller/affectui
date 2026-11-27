@@ -1,6 +1,6 @@
 # Scroll Area, clean style (Free)
 
-A box that scrolls the browser's own way with a slim scrollbar of its own – it shows on hover and while scrolling, a draggable thumb, up and down or sideways, soft fades where there is more
+A box that scrolls the browser's own way with a slim scrollbar of its own – it shows on hover and while scrolling, with a draggable thumb, both directions and soft fades
 
 - Page: https://www.affectui.com/components/scroll-area
 - Section: Components · Data display

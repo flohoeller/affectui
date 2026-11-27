@@ -1,6 +1,6 @@
 # Parallel Attempts, clean style (Pro)
 
-An agent tries the same task several ways at once and the best one wins – every attempt races as a row with its model, approach and live bar, then gets a score; the best is marked and picked, and you can switch to another
+An agent tries the same task several ways at once and the best one wins – every attempt races as a row with its model and live bar, gets a score, and the best is picked
 
 - Page: https://www.affectui.com/components/parallel-attempts
 - Section: Components · Agents

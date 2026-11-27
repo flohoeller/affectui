@@ -1,6 +1,6 @@
 # Agent Flame Graph (Pro)
 
-A multi-agent run's call stack as a flame graph – the orchestrator on top, its subagents under it, then their LLM and tool calls, every block as wide as it took. Switch to Tokens or Cost and every block glides to its new width; click one and it slides out to the full width, with a breadcrumb back. Search lights up the matching blocks and says how much of the run they took; a failed call's card offers Retry. Agents carry their pixel mark, LLM and tool calls their maker's logo, and a live run keeps growing at its right edge
+A multi-agent run's call stack as a flame graph – the orchestrator on top, then subagents and their LLM and tool calls, every block as wide as it took
 
 - Page: https://www.affectui.com/components/agent-flame-graph
 - Section: Components · Agents

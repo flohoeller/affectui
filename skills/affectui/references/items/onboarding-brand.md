@@ -1,6 +1,6 @@
 # Onboarding / Brand (Pro)
 
-Second step of setting up an AI assistant: the company's name and the short forms customers use as chips, suggested from the website before; the dashboard glides up to the assistant's card, where its name, greeting and tags fill in as you type
+Second step of setting up an AI assistant: the company's name and the short forms customers use, suggested from the website, while the assistant's card fills in as you type
 
 - Page: https://www.affectui.com/screens/onboarding-brand
 - Section: Screens · App screens

@@ -1,6 +1,6 @@
 # AI Chat / Revenue Analyst (Pro)
 
-A chat that answers with charts – ask about revenue and get KPI cards and a weekly line against last year, split it by region into stacked bars, or ask for a forecast with its likely range; charts draw themselves in as the answer arrives
+A chat that answers with charts – ask about revenue and get KPI cards and a weekly line against last year, split by region or a forecast with its likely range
 
 - Page: https://www.affectui.com/screens/ai-chat-revenue
 - Section: Screens · App screens

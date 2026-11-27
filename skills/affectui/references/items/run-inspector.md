@@ -1,6 +1,6 @@
 # Run Inspector (Pro)
 
-One agent run on one screen – who started whom as a live tree, every agent's calls as small bars on its card, a click opens a call with its error right under its row, and the run's numbers sit on top
+One agent run on one screen – who started whom as a live tree, every agent's calls as small bars on its card, and a click opens a call with its error right under it
 
 - Page: https://www.affectui.com/blocks/run-inspector
 - Section: Blocks · Agents

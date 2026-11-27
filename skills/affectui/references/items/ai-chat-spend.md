@@ -1,6 +1,6 @@
 # AI Chat / Spend Planner (Pro)
 
-A chat about what AI costs you – spend by provider and model, the weekly trend, and a plan to play with: move three levers and the savings and the six-month forecast follow; drag across a line or click a bar to ask about just that part
+A chat about what AI costs you – spend by provider and model, the weekly trend and a plan to play with: move three levers and the savings and the forecast follow
 
 - Page: https://www.affectui.com/screens/ai-chat-spend
 - Section: Screens · App screens

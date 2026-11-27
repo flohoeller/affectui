@@ -1,6 +1,6 @@
 # Rate Limit Planner (Pro)
 
-Plan when your agents run so they stay under the API's rate limit – the day's load as a line chart, one row per agent run to drag; Spread out lowers the peak, the overflow is hatched in red
+Plan when your agents run so they stay under the API's rate limit – the day's load as a line chart, one row per run to drag; Spread out lowers the peak, overflow hatched red
 
 - Page: https://www.affectui.com/components/rate-limit-planner
 - Section: Components · Agents

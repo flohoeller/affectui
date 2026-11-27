@@ -1,6 +1,6 @@
 # Repo Map (Pro)
 
-A codebase as a treemap with coding agents working on it – every folder a group, every file a tile as large as its lines, in Context Map's tiles. Each agent is its pixel mark hopping from file to file; a file it edits fills with its color from the bottom up with a sheen running over it and keeps the color once it moves on, so the map fills as the work goes on. A file it only reads gets a dashed edge, two agents in one file blink orange. Point at a file for its path, lines and who changed what; click an agent to keep its files clear
+A codebase as a treemap with coding agents working on it – every file a tile as large as its lines, each agent hopping from file to file and coloring what it edits
 
 - Page: https://www.affectui.com/components/repo-map
 - Section: Components · Agents

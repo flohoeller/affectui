@@ -1,6 +1,6 @@
 # Permission Request, clean style (Pro)
 
-An agent asks for one specific right – who, why and exactly what will happen – and you allow it once, for an hour or always; then it folds into one line with the time left and Revoke
+An agent asks for one specific right – who, why and exactly what will happen – and you allow it once, for an hour or always; then it folds into one line with Revoke
 
 - Page: https://www.affectui.com/components/permission-request
 - Section: Components · Agents

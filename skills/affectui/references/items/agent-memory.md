@@ -1,6 +1,6 @@
 # Agent / Memory (Pro)
 
-What your agent knows about you and your work – grouped by where it applies, each with where it came from and where it was used; a memory it recalls lights up while it works, and what it picks up on its own waits for your OK
+What your agent knows about you and your work – grouped by where it applies, with where each came from and was used; what it picks up on its own waits for your OK
 
 - Page: https://www.affectui.com/screens/agent-memory
 - Section: Screens · App screens

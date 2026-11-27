@@ -1,6 +1,6 @@
 # Commit Trail, clean style (Pro)
 
-One line per commit with a tinted check on a blue trail, the message, a colored tag for the kind of change and how long ago; open a commit for who wrote it (agents with their pixel mark), the hash and what changed. A merge folds the commits it brought in, which bend off the trail as small dots. While an agent commits its marker turns and "Committing" shimmers, and when it lands the check draws itself
+One line per commit on a blue trail – message, a colored tag for the kind of change and how long ago, open for who wrote it, and merges that fold the commits they brought in
 
 - Page: https://www.affectui.com/components/commit-trail
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Agent / Run Detail (Pro)
 
-One agent run, step by step – thinking, tool calls with their app's logo, sub-agents and failures as tinted bars on one time axis that grow while it runs, live time, cost and tokens on top, and each step on the right with what went in and what came out
+One agent run, step by step – thinking, tool calls, sub-agents and failures as bars on one time axis, with time, cost and tokens on top and what went in and out of each step
 
 - Page: https://www.affectui.com/screens/agent-run-detail
 - Section: Screens · App screens

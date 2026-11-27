@@ -1,6 +1,6 @@
 # Fan-out Grid, clean style (Pro)
 
-One agent hands a big job to many workers – every task a cell on a live grid that fills in as they get through it, with retries, failures, cost and the time left, and the details of any task on hover
+One agent hands a big job to many workers – every task a cell on a live grid that fills in as they get through it, with retries, failures, cost and the time left
 
 - Page: https://www.affectui.com/components/fan-out-grid
 - Section: Components · Agents

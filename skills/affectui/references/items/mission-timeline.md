@@ -1,6 +1,6 @@
 # Mission Timeline (Pro)
 
-All agents at a glance on one clock – what happened since you looked on top, every agent on its own lane in the middle, what needs you on the side, and one filter for running, waiting and failed that applies to all three
+All agents at a glance on one clock – what happened since you looked, every agent on its own lane and what needs you on the side, with one filter for all three
 
 - Page: https://www.affectui.com/blocks/mission-timeline
 - Section: Blocks · Agents

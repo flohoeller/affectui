@@ -1,6 +1,6 @@
 # Agent Monitor (Pro)
 
-One agent at work, as a card – its current step with a clock and the bill so far, a time strip and the finished steps with the logo of each tool, a click on any of them for the details; the exact command when it needs your OK; folds into a small bar with the tools it has used
+One agent at work, as a card – its current step with a clock and the bill so far, the finished steps with each tool's logo, and the exact command when it needs your OK
 
 - Page: https://www.affectui.com/components/agent-monitor
 - Section: Components · Agents

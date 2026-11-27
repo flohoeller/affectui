@@ -1,6 +1,6 @@
 # Critical Path (Pro)
 
-An agent run's spans on a timeline, one lane per agent, with thin arrows from every span to the ones waiting for it. The chain that decides when the run ends is the critical path – its spans in full tint, its arrows solid, the rest fades back, and a quiet line says how much of the run it is. Drag the end of any span to try a what-if: everything that waits for it slides along, the end of the run moves, and the path hops to another chain when that one now ends last; a pill says how much earlier or later the run ends. Drag a span onto another lane to run it on that agent. Click a span for its card – the duration before and after, its slack, and what it waits for and unblocks; Reset brings the run back
+An agent run's spans on a timeline, one lane per agent – the critical path that decides when the run ends in full tint, and drag a span to see a what-if
 
 - Page: https://www.affectui.com/components/critical-path
 - Section: Components · Agents

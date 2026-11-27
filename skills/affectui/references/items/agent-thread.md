@@ -1,6 +1,6 @@
 # Agent / Thread (Pro)
 
-One conversation with your orchestrator – it answers in plain text with small task and decision cards, folds its parallel tools into one line, and keeps working through a dropped connection, a slow upload or a long time away
+One conversation with your orchestrator – plain text with small task and decision cards, parallel tools folded into one line, and it keeps working through a dropped connection
 
 - Page: https://www.affectui.com/screens/agent-thread
 - Section: Screens · App screens

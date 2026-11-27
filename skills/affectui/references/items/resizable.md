@@ -1,6 +1,6 @@
 # Resizable (Free)
 
-Panes side by side or stacked with a line between them you can drag – sizes in percent, a smallest and largest size, panes that fold away, arrow keys, Home, End and Enter on the handle, a double-click to reset
+Panes side by side or stacked with a line between them you can drag – sizes in percent, minimum and maximum sizes, panes that fold away, and full keyboard control on the handle
 
 - Page: https://www.affectui.com/components/resizable
 - Section: Components · Data display

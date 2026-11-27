@@ -1,6 +1,6 @@
 # Agent Crew, clean style (Pro)
 
-A lead and its sub-agents as one live tree of cards – every agent stays on screen; each card says what the agent does right now, how full its context is, its tools and the last thing it was handed, and handoffs run as a light along Agent Tree's rounded connectors and light up the card they reach; a click on a card opens its task, model, usage and tools with actions to steer it, and a switcher swaps between projects
+A lead and its sub-agents as one live tree of cards – each card shows what the agent does right now, its context and tools, with handoffs running along the connectors
 
 - Page: https://www.affectui.com/components/agent-crew
 - Section: Components · Agents

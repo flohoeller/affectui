@@ -1,6 +1,6 @@
 # Cost Waterfall, clean style (Pro)
 
-Where the money and tokens of an agent run go – every LLM call, tool call and sub-agent as a step in a waterfall, with model, tokens, cost and time, the most expensive step on top and a switch between cost and tokens
+Where the money and tokens of an agent run go – every LLM call, tool call and sub-agent as a waterfall step, the most expensive on top, with a switch between cost and tokens
 
 - Page: https://www.affectui.com/components/cost-waterfall
 - Section: Components · Agents

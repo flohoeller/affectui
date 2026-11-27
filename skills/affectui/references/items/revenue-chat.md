@@ -1,6 +1,6 @@
 # Revenue Chat (Pro)
 
-A chat that answers with charts, on its own – KPI cards, a trend against last year, a split by region or a forecast under a few lines; drag across a line or click a bar to ask about just that part
+A chat that answers with charts, on its own – KPI cards, a trend against last year, a split by region or a forecast; drag across a line or click a bar to ask about just that part
 
 - Page: https://www.affectui.com/blocks/revenue-chat
 - Section: Blocks · Analytics

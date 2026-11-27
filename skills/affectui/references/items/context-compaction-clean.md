@@ -1,6 +1,6 @@
 # Context Compaction, clean style (Pro)
 
-An agent's context window filling up and being compacted. A bar on top is the window – every entry a slice as wide as its tokens, in the color of its kind, with a dashed mark where it compacts on its own; under it the entries in order: system prompt, tools, what you wrote, what the agent said, tool results, files. While it compacts, the entries that go shimmer, then fold into one summary row – the rows slide up into it, their slices squeeze together and shrink to the summary's size, and the numbers drop with them. Point at a row or a slice and the other lights up; Compact now does it by hand
+An agent's context window filling up and being compacted – a bar of slices as wide as their tokens, folding into one summary row, or by hand with Compact now
 
 - Page: https://www.affectui.com/components/context-compaction
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Handoff Swimlanes (Pro)
 
-Who does what in an agent run, and where the work changes hands – a process diagram with a lane for you, every agent and every tool. Each task is a box in the lane of whoever does it, a handoff an arrow to the next one, an approval a diamond; done boxes are quiet, the running one shimmers in its agent's color, waiting is amber, failed is red, and a light runs along every handoff that's happening now. Click a box, a diamond or a lane and its card opens – an approval waiting for you can be approved right there
+Who does what in an agent run, and where work changes hands – a lane per person, agent and tool, handoffs as arrows, approvals as diamonds you can approve in place
 
 - Page: https://www.affectui.com/components/handoff-swimlanes
 - Section: Components · Agents

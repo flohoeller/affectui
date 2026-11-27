@@ -1,6 +1,6 @@
 # Model Orbit (Free)
 
-AI model makers evenly around a slanted track – app tiles leaning back with it, blue beams arcing to a hub with the agent's pixel mark and sparks running along them; point at a logo for its name, drag to turn it
+AI model makers evenly around a slanted track – app tiles leaning back with it and blue beams arcing to a hub with the agent's pixel mark; point at a logo for its name
 
 - Page: https://www.affectui.com/illustrations/model-orbit
 - Section: Illustrations · Card illustrations

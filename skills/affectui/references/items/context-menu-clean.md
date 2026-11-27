@@ -1,6 +1,6 @@
 # Context Menu, clean style (Free)
 
-The menu a right-click opens, right at the pointer – a long press on touch, Shift F10 from the keyboard, items built for what was clicked, with icons, shortcuts, checks, red items and submenus
+The menu a right-click opens, right at the pointer – a long press on touch, Shift F10 from the keyboard, with icons, shortcuts, checks, red items and submenus
 
 - Page: https://www.affectui.com/components/context-menu
 - Section: Components · Navigation

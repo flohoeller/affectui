@@ -1,6 +1,6 @@
 # Onboarding / Website (Pro)
 
-First step of setting up an AI assistant: the website, docs and help center it should learn from as chips on the left; on the right the assistant's dashboard as a large loading state, where each domain lands in its Knowledge table
+First step of setting up an AI assistant: the website, docs and help center it should learn from as chips, while the dashboard shows each domain landing in its Knowledge table
 
 - Page: https://www.affectui.com/screens/onboarding-website
 - Section: Screens · App screens

@@ -1,6 +1,6 @@
 # Model Picker (Pro)
 
-The model menu of an AI chat – point at a model and its speed, quality and cost bars fill, switch on extended thinking and its effort unfolds, while the tray rolls the first-token time and price
+The model menu of an AI chat – point at a model and its speed, quality and cost bars fill, switch on extended thinking and its effort unfolds, with first-token time and price
 
 - Page: https://www.affectui.com/components/model-picker
 - Section: Components · Chat

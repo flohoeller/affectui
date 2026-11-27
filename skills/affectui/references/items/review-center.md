@@ -1,6 +1,6 @@
 # Review Center (Pro)
 
-A focused workspace for what your agents want to do – the queue sorted by risk, one item at a time with the shaky spans marked, Approve, Edit, Reject and Skip on single keys, a stamp as each one leaves and the next one rising in
+A focused workspace for what your agents want to do – the queue sorted by risk, one item at a time with the shaky spans marked, and Approve, Edit, Reject and Skip on single keys
 
 - Page: https://www.affectui.com/components/review-center
 - Section: Components · Agents

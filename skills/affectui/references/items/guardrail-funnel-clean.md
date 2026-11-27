@@ -1,6 +1,6 @@
 # Guardrail Funnel, clean style (Pro)
 
-The deterministic guardrails an agent's traffic passes through, as a funnel: requests, input check, PII redaction, tool-call allowlist, output check, delivered. Every stage a fixed row with how many it stopped or changed, how many got through and the share still in; in the middle a soft band per stage as wide as what reached it – the stopped part at its ends in the stage's color, what it redacted as a band – with a slow sheen running down. Click or focus a stage and cards show what it caught: the masked snippet, the rule that fired, and Allow once or Override
+The guardrails an agent's traffic passes through, as a funnel – input check, PII redaction, tool allowlist, output check – with how many each stage stopped and what it caught
 
 - Page: https://www.affectui.com/components/guardrail-funnel
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Agent Finder (Pro)
 
-A multi-agent run as a macOS Finder window – every agent a blue Mac folder with its pixel mark stamped on the front, every tool call a Mac document with the tool's logo on it. Double-click a folder to see its subagents and documents; Space opens Quick Look with what the tool was sent and what came back. Icons or a list with disclosure triangles, Finder tags for the status, a thin iCloud-style progress bar under running agents, and a preview of the selection with model, tokens and cost. Icons drag anywhere and stay there; a right-click opens a menu to pause, restart, duplicate or retry
+A multi-agent run as a macOS Finder window – every agent a folder, every tool call a document, with Quick Look for what was sent and what came back
 
 - Page: https://www.affectui.com/components/agent-finder
 - Section: Components · Agents

@@ -1,6 +1,6 @@
 # Flow Builder, clean style (Pro)
 
-An automation drawn as a top-down flow you build in place – a + on every line adds a step, If / else forks into named paths, steps move and come back with Undo, and a test run sends a light down the line into the step that's working
+An automation drawn as a top-down flow you build in place – a + on every line adds a step, If / else forks into named paths, and a test run sends a light down the line
 
 - Page: https://www.affectui.com/components/flow-builder
 - Section: Components · Agents

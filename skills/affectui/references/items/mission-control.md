@@ -1,6 +1,6 @@
 # Mission Control (Pro)
 
-All agents at a glance – what happened since you looked on top, who runs under whom in the middle, what needs you on the side, and one filter for running, waiting and failed that applies to all three
+All agents at a glance – what happened since you looked on top, who runs under whom in the middle and what needs you on the side, with one filter for all three
 
 - Page: https://www.affectui.com/blocks/mission-control
 - Section: Blocks · Agents

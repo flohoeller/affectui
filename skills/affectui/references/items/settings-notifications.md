@@ -1,6 +1,6 @@
 # Settings / Notifications (Pro)
 
-Notification settings with a settings sidebar: a daily digest with its time, a table of notification types each sent by email, mobile, both or only to the inbox, and quiet hours at night
+Notification settings with a settings sidebar: a daily digest with its time, a table of notification types by email, mobile, both or inbox only, and quiet hours at night
 
 - Page: https://www.affectui.com/screens/settings-notifications
 - Section: Screens · App screens

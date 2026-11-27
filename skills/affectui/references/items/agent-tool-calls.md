@@ -1,6 +1,6 @@
 # Agent / Tool Calls (Pro)
 
-One agent and the tools it can call, as an org chart – see which one it calls right now, solve what failed, pause or connect tools, and every call below with what went in and came back
+One agent and the tools it can call, as an org chart – see which one it calls right now, solve what failed, pause or connect tools, and every call below with what went in and back
 
 - Page: https://www.affectui.com/screens/agent-tool-calls
 - Section: Screens · App screens

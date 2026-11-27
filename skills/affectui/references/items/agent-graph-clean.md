@@ -1,6 +1,6 @@
 # Agent Graph, clean style (Pro)
 
-Agents and the tools they call as a living network – a pulse along the link for every call and its answer, busy links growing thicker, agents that breathe while they work and turn amber when they need you
+Agents and the tools they call as a living network – a pulse along the link for every call and its answer, and agents that turn amber when they need you
 
 - Page: https://www.affectui.com/components/agent-graph
 - Section: Components · Agents
