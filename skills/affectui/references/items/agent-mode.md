@@ -67,8 +67,8 @@ export function Feature() {
 
 - The gradient is the Prompt Explorer hero's – the same layers, drifting, light and dark
 - The agent is drawn with affectUI's pixel mark, never a sparkles or bot glyph – pass another id for another pattern
-- Text, icons and cursor sit in the middle of the box; with much longer placeholders set --ui-agm-content (default 304px) to their width so it stays centered
-- Colors are variables on .ui-agm – --ui-agm-on and --ui-agm-on-bg for the active pill, --ui-agm-composer for the card
+- Text, icons and cursor sit in the middle of the box; with much longer placeholders set --ui-agmd-content (default 304px) to their width so it stays centered
+- Colors are variables on .ui-agmd – --ui-agmd-on and --ui-agmd-on-bg for the active pill, --ui-agmd-composer for the card
 
 ### Requirements
 
