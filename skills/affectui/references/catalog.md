@@ -34,6 +34,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Agent Sequence | `agent-sequence` | Pro | One agent run as a sequence diagram – a lifeline for you, every agent and every tool, with calls solid, replies dashed and parallel or retried messages in frames |
 | Agent State Machine | `agent-state-machine` | Pro | One agent as a state diagram – every state a card, every transition a line with a count of how often the run took it, retries as loops and the current state glowing |
 | Agent Steering | `agent-steering` | Pro | Steer an agent while it works – queue a note for the next step and watch it glide into the plan when the agent picks it up, or interrupt right away |
+| Agent Time Split | `agent-time-split` | Pro | Where an agent's time went – working, tool calls, waiting on you and idle – as a strip of thin ticks under the total, with every part's time and share below |
 | Agent Timing | `agent-timing` | Pro | An agent run as a timing diagram – a signal line per agent that steps up when it thinks or calls a tool, with hand-offs drawn straight between rows |
 | Agent Trail | `agent-trail` | Pro | The steps an agent works through, as one quiet trail – done steps with their time, the current one branching into live sub-steps, approvals waiting with a dashed ring |
 | Agent Tree | `agent-tree` | Pro | Who started whom – an orchestrator and its sub-agents as a live tree, with status, cost and time on every card, costs rolling up each branch, and branches that fold to one line |
@@ -64,6 +65,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Handoff Swimlanes | `handoff-swimlanes` | Pro | Who does what in an agent run, and where work changes hands – a lane per person, agent and tool, handoffs as arrows, approvals as diamonds you can approve in place |
 | Inline Diff | `inline-diff` | Pro | AI edits to prose shown inline – struck and added words you accept or reject one by one, with keys, a popover and undo |
 | Judge Bracket | `judge-bracket` | Pro | How an LLM judge picks the best of several attempts, as a tournament – two answers at a time, the preferred one moves on, and every match opens both side by side with why |
+| Latency Range | `latency-range` | Pro | How fast an agent answers, hour by hour, like a blood-pressure chart – every hour as a bar from p50 to p95, pink above the target, the latest large and in blue |
 | Memory Graph | `memory-graph` | Pro | An agent in the middle with what it remembers and the tools it can reach in a ring around it – every memory a card with its source, a light running to each tool it uses |
 | Memory Panel | `memory-panel` | Pro | What the assistant remembers about you, grouped and editable – a master switch, category filters, and on every memory edit in place, pause or forget with Undo on the tray |
 | Model Router | `model-router` | Pro | How a gateway splits its traffic across AI models – streaks of light into each model's line, as wide as its share; pick Cost, Balanced or Quality and the split and price change |
@@ -78,10 +80,14 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Review Center | `review-center` | Pro | A focused workspace for what your agents want to do – the queue sorted by risk, one item at a time with the shaky spans marked, and Approve, Edit, Reject and Skip on single keys |
 | Root Cause Tree | `root-cause-tree` | Pro | How an agent finds out why a run failed, as a fault tree – it checks one hypothesis after another, rules some out, confirms the cause, and the way up to the failure lights up |
 | Run Controls | `run-controls` | Pro | Every control a running agent needs, in one composer – stop it, resume from the word it stopped at, retry, steer it mid-answer or queue what's next, with Chat or Act |
+| Run Transit | `run-transit` | Pro | An agent carrying a job from one place to another like a flight on its way – where it comes from, where it goes, the time left and a bar its pixel mark rides on |
+| Run Window | `run-window` | Pro | When an agent may run, as a block on a time ruler with its pixel mark and a thin line for now – drag the window or its grips to move it |
 | Running Now | `running-now` | Pro | A live status of background agent tasks for a header or sidebar – one quiet pill that opens into the tasks with their steps, Pause and Resume, and Open on the ones waiting for you |
 | Scheduled Runs | `scheduled-runs` | Pro | Agent tasks sorted into a week of sessions – each session has a usage limit, small tasks fill the gaps and big ones are split across sessions |
+| Token Budget | `token-budget` | Pro | How many tokens an agent's runs take against a limit – the average per run large, every run as a bar in its model's color, the part above the limit in pink |
 | Token Flow | `token-flow` | Pro | Where an agent's tokens and cost go, as a Sankey diagram of cards – system prompt, tool results and memory flow into the models and on into answered, retried or cancelled |
 | Tool Access Map | `tool-access-map` | Pro | An agent in the middle with every tool it can reach around it – which ones it used, which failed and which it calls right now; open a tool for its calls and replay one on its own |
+| Tool Activity | `tool-activity` | Pro | Which tools an agent used, day by day, as a field of dots – each lights up in its tool's color, the stronger the busier, with today's calls and the total on top |
 | Tool Call Card | `tool-call-card` | Free | An agent's tool call in one line – live timer, status and summary, folds open to highlighted arguments and result with copy, retry on errors and a group that sums them up |
 | Tool Calls Network | `tool-calls-network` | Pro | Every LLM and tool call of an agent run as rows, like the Network tab of DevTools – a waterfall per call, filters, sorting, and each call's request, response and retries as JSON |
 | Trace Waterfall | `trace-waterfall` | Pro | Where the time and money of an agent run go – every LLM call, tool call and sub-agent as a bar on a live timeline, with cost per step and the slowest call marked |
@@ -271,6 +277,16 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | --- | --- | --- | --- |
 | Agent Gallery | `agent-gallery` | Pro | Slim gradient panels with one open product screen in the middle – pick a panel and it glides open |
 
+### Agents
+
+| Item | Slug | | What it is |
+| --- | --- | --- | --- |
+| Agent Overview | `agent-overview` | Pro | One agent's dashboard from the six agent chart cards – what it did, what it costs, how fast it is, what it's doing now and when it runs next |
+| Live Session | `live-session` | Pro | Work with a team of agents while they work – their conversation in the middle, the team's plan ticking off beside it and the shared context under it |
+| Mission Control | `mission-control` | Pro | All agents at a glance – what happened since you looked on top, who runs under whom in the middle and what needs you on the side, with one filter for all three |
+| Mission Timeline | `mission-timeline` | Pro | All agents at a glance on one clock – what happened since you looked, every agent on its own lane and what needs you on the side, with one filter for all three |
+| Run Inspector | `run-inspector` | Pro | One agent run on one screen – who started whom as a live tree, every agent's calls as small bars on its card, and a click opens a call with its error right under it |
+
 ### Integrations
 
 | Item | Slug | | What it is |
@@ -297,15 +313,6 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | KPI Board | `kpi-board` | Pro | The top of a dashboard – three trend cards, an overview chart that compares this period with the last, and a focus card; every number rolls when the range changes |
 | Metrics Dashboard | `metrics-dashboard` | Pro | Sales overview – KPI cards pick the metric, one Trend Chart switches between area and bars, with top products and channels – built from Stat Card and Trend Chart |
 | Revenue Chat | `revenue-chat` | Pro | A chat that answers with charts, on its own – KPI cards, a trend against last year, a split by region or a forecast; drag across a line or click a bar to ask about just that part |
-
-### Agents
-
-| Item | Slug | | What it is |
-| --- | --- | --- | --- |
-| Live Session | `live-session` | Pro | Work with a team of agents while they work – their conversation in the middle, the team's plan ticking off beside it and the shared context under it |
-| Mission Control | `mission-control` | Pro | All agents at a glance – what happened since you looked on top, who runs under whom in the middle and what needs you on the side, with one filter for all three |
-| Mission Timeline | `mission-timeline` | Pro | All agents at a glance on one clock – what happened since you looked, every agent on its own lane and what needs you on the side, with one filter for all three |
-| Run Inspector | `run-inspector` | Pro | One agent run on one screen – who started whom as a live tree, every agent's calls as small bars on its card, and a click opens a call with its error right under it |
 
 ### Social proof
 
