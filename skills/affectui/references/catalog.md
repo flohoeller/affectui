@@ -233,6 +233,7 @@ Components install as `<slug>` (classic style) or `<slug>-clean` (clean style) w
 | Agent / Thread | `agent-thread` | Pro | One conversation with your orchestrator – plain text with small task and decision cards, parallel tools folded into one line, and it keeps working through a dropped connection |
 | Agent / Tool Calls | `agent-tool-calls` | Pro | One agent and the tools it can call, as an org chart – see which one it calls right now, solve what failed, pause or connect tools, and every call below with what went in and back |
 | Agent / Usage | `agent-usage` | Pro | What your agent costs – the month added up day by day against the budget, where it lands at this pace in one plain line, and where it went by project or model |
+| Agent Run / Handoffs | `agent-handoffs` | Pro | One agent run as swimlanes – a lane per person, agent and tool, every handoff as an arrow and a row, approvals you decide right on the page |
 | AI Chat / Agent Run | `ai-chat-agents` | Pro | A narrow chat beside the agents working on your prompt – watch each one's steps on a dot grid; when one gets stuck it says so in the chat and you answer right there |
 | AI Chat / Agents | `agent-chat` | Pro | Chat with an orchestrating agent, the agents at work, and a brief to fill in beside it |
 | AI Chat / Double Sidebar | `agent-chat-rail` | Pro | A plain assistant chat with web search in a double sidebar, like Codex and ChatGPT – icons on the page, the chats with a project switcher, and what it found on the right |

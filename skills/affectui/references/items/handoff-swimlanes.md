@@ -53,12 +53,14 @@ export function Run() {
 | lanes | `SwimLane[]` |  | One row per participant, top to bottom – { id, name, kind?, role?, logo?, color?, description? } |
 | kind | `"person" \| "agent" \| "tool"` |  | A person gets the full pixel mark in ink, an agent its own pixel mark in its color, a tool its logo or a grey mark |
 | tasks | `SwimTask[]` |  | Everything that happens – { id, lane, title, status?, kind?, after?, duration?, detail? }, placed in the lane named by lane |
-| status | `"queued" \| "active" \| "waiting" \| "done" \| "failed" \| "skipped"` |  | Queued by default – running shimmers in its agent's color, waiting is amber, failed red |
+| status | `"queued" \| "active" \| "waiting" \| "done" \| "failed" \| "skipped"` |  | Queued by default – running shimmers in its agent's color, waiting is amber, failed red. A failed task whose work was handed on – a retry, a fix – stays red but no longer marks the run as failed |
 | kind (task) | `"task" \| "gate" \| "start" \| "end"` |  | A box, an approval diamond, or the run's start and end circles |
 | after | `string[]` |  | The tasks that hand over to this one – by default the one before it in the list; [] starts a new branch |
 | title | `string` |  | The heading – "Handoffs" by default – and the section's accessible name |
 | onSelect | `(task \| null) => void` |  | A box's card opened or closed |
 | onApprove / onReject | `(task) => void` |  | Show Approve and Reject in the card of a gate that's waiting |
+| laneHeight | `number` | `60` | Height of a lane in px, 48 at least – lower it when the diagram shares the page with a list or more |
+| fitHeight | `number` |  | Room in px the diagram may fill in height – when the width alone would scale it down, it grows back into this room (up to its own size) and scrolls sideways instead, the lane names staying put |
 | className | `string` |  | Extra class on the root – set the color variables on it |
 
 ### Accessibility
